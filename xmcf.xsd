@@ -1,8 +1,5 @@
 <?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
-elementFormDefault="qualified"
-vc:minVersion="1.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" vc:minVersion="1.1">
 	<xs:element name="xmcf">
 		<xs:complexType>
 			<xs:all>
@@ -14,6 +11,10 @@ vc:minVersion="1.1">
 				<xs:element ref="connection_group" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:all>
 		</xs:complexType>
+		<xs:unique name="iduq">
+			<xs:selector xpath="connection_group"/>
+			<xs:field xpath="@id"/>
+		</xs:unique>
 	</xs:element>
 	<xs:element name="units">
 		<xs:complexType>
@@ -127,7 +128,6 @@ vc:minVersion="1.1">
 					</xs:complexType>
 				</xs:element>
 			</xs:all>
-			<!-- TODO implement ref-erenced elements-->
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="femdata">
@@ -136,183 +136,134 @@ vc:minVersion="1.1">
 				<xs:element name="PAMCRASH" minOccurs="0" maxOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:any/>
+							<xs:element name="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="LSDYNA" minOccurs="0" maxOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:any/>
+							<xs:element name="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="PERMAS" minOccurs="0" maxOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:any/>
+							<xs:element name="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="ABAQUS" minOccurs="0" maxOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:any/>
+							<xs:element name="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="RADIOSS" minOccurs="0" maxOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:any/>
+							<xs:element name="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="OPTISTRUCT" minOccurs="0" maxOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:any/>
+							<xs:element name="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="NASTRAN" minOccurs="0" maxOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:any/>
+							<xs:element name="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="FEMFAT" minOccurs="0" maxOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:any/>
+							<xs:element name="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 			</xs:all>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="PAMCRASH">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="LSDYNA">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="PERMAS">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="ABAQUS">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="RADIOSS">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="OPTISTRUCT">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="NASTRAN">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="FEMFAT">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
 	<xs:element name="CAE_DATA">
 		<xs:complexType>
-			<xs:sequence>
+			<xs:all>
 				<xs:element name="REPRESENTATION" type="xs:string" minOccurs="0" maxOccurs="1"/>
 				<xs:element name="COMMENT" type="xs:string" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="CAE_PART_MEMBER" minOccurs="1" maxOccurs="unbounded"/>
-			</xs:sequence>
+			</xs:all>
 			<xs:attribute name="VERSION" type="xs:integer" use="required"/>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="CAE_PART_MEMBER" type="xs:string"/>
-	<!-- TODO: exei @ID kai <ENTITY>, pou einai oi leptomeries??? -->
+	<xs:element name="CAE_PART_MEMBER">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ENTITY" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:all>
+							<xs:element name="TYPE" type="xs:string" minOccurs="1" maxOccurs="1"/>
+							<xs:element name="ID" type="xs:string" minOccurs="1" maxOccurs="1"/>
+						</xs:all>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="ID" type="integerPositive"/>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="connection_group">
 		<xs:complexType>
 			<xs:all>
-				<xs:element ref="connected_to" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="connected_to" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="connection_list" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="contact_list" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
-			<xs:attribute name="id" type="xs:integer" use="required"/>
+			<xs:attribute name="id" use="required"/>
 		</xs:complexType>
-		<xs:unique name="iduq">
-			<!-- DONE: prepei na elegxw oti to id einai monadiko -->
-			<xs:selector xpath="connection_group"/>
-			<!-- unique within a xMCF file -->
-			<xs:field xpath="@id"/>
-		</xs:unique>
 	</xs:element>
 	<xs:element name="connected_to">
 		<xs:complexType>
 			<xs:choice minOccurs="1" maxOccurs="unbounded">
-				<!-- DONE: at least one of these elements is required -->
-				<xs:element ref="part" minOccurs="0" maxOccurs="unbounded"/>
-				<!-- TODO: check minOccurs value -->
-				<xs:element ref="assy" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="part">
+					<xs:complexType>
+						<xs:attribute name="pid" type="integerPositive"/>
+						<xs:attribute name="index" type="integerPositive" use="required"/>
+						<xs:attribute name="label" type="xs:string"/>
+						<!-- TODO: pid kai label pane paketo...  -->
+						<!-- DONE: check that at least one of label/pid is set -->
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="assy">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="part" minOccurs="2" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="pid" type="integerPositive"/>
+									<xs:attribute name="index" type="integerPositive"/>
+									<xs:attribute name="label" type="xs:string"/>
+									<!-- TODO: pid kai label pane paketo...  -->
+									<!-- DONE: check that at least one of label/pid is set -->
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="index" type="xs:integer" use="required"/>
+					</xs:complexType>
+				</xs:element>
 			</xs:choice>
 		</xs:complexType>
-	</xs:element>
-	<xs:element name="part">
-		<xs:complexType>
-			<xs:attribute name="pid" type="integerPositive"/>
-			<xs:attribute name="index" type="integerPositive" use="required"/>
-			<!--<xs:choice minOccurs="1" maxOccurs="unbounded">
-							<xs:attribute name="label" type="xs:string"/>						- TODO: label - alphanumeric -->
-			<!-- TODO: implement a choice-equivalent for attributes -->
-			<!-- </xs:choice>-->
-			<!-- DONE: check that at least one of label/pid is set -->
-		</xs:complexType>
-		<xs:unique name="piduq">
-			<!-- DONE: prepei na elegxw oti to id einai monadiko - apo pou bghke auto?! -->
-			<xs:selector xpath="connected_to/part"/>
-			<xs:field xpath="@pid"/>
+		<xs:unique name="partΙndexuq">
+			<xs:selector xpath="part"/>
+			<xs:field xpath="@index"/>
 		</xs:unique>
-		<!-- TODO: index - unique and required only within the parent element connected_to -->
-	</xs:element>
-	<xs:element name="assy">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="part" minOccurs="2" maxOccurs="unbounded"/>
-			</xs:sequence>
-			<xs:attribute name="index" type="xs:integer" use="required"/>
-		</xs:complexType>
-		<xs:unique name="indexuq">
-			<!-- DONE: unique within the parent element -->
-			<xs:selector xpath="connected_to/assy"/>
+		<xs:unique name="assyΙndexuq">
+			<!-- TODO: check for unique within the parent element and not in all the file -->
+			<xs:selector xpath="assy"/>
 			<xs:field xpath="@index"/>
 		</xs:unique>
 	</xs:element>
@@ -360,26 +311,25 @@ vc:minVersion="1.1">
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="connection_list">
-		<!-- DONE: <connection_list/> must not be empty -->
 		<xs:complexType>
 			<xs:choice minOccurs="1" maxOccurs="unbounded">
-				<xs:element ref="connection_0d" minOccurs="0" maxOccurs="unbounded"/>
-				<xs:element ref="connection_1d" minOccurs="0" maxOccurs="unbounded"/>
-				<xs:element ref="connection_2d" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="connection_0d"/>
+				<xs:element ref="connection_1d"/>
+				<xs:element ref="connection_2d"/>
 			</xs:choice>
 		</xs:complexType>
 	</xs:element>
-	<!-- ***************************************************************************************************************************************************************************** -->
-	<!-- Seite 49: 7 0D connections -->
+
+<!-- ***************************************************************************************************************************************************************** -->
+
 	<xs:element name="connection_0d">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="loc" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="appdata" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="custom_attributes_list" minOccurs="0" maxOccurs="1"/>
-				<xs:choice minOccurs="1" maxOccurs="1">
+				<xs:choice minOccurs="0" maxOccurs="1">
 					<xs:element ref="bolt"/>
-					<!-- DONE: exactly one of the type elements must exist in <connection_0d/> -->
 					<xs:element ref="gumdrop"/>
 					<xs:element ref="rivet"/>
 					<xs:element ref="robscan"/>
@@ -387,44 +337,34 @@ vc:minVersion="1.1">
 					<xs:element ref="spotweld"/>
 					<xs:element ref="contact_list"/>
 					<xs:element ref="threaded_connection"/>
-					<!-- den einai kanonika sto connection_0d!! ti fash???? -->
 					<xs:element ref="clinch"/>
-					<!-- den einai kanonika sto connection_0d!! ti fash???? -->
 					<xs:element ref="heat_stake"/>
-					<!-- den einai kanonika sto connection_0d!! ti fash???? -->
 					<xs:element ref="clip"/>
-					<!-- den einai kanonika sto connection_0d!! ti fash???? -->
 					<xs:element ref="nail"/>
-					<!-- den einai kanonika sto connection_0d!! ti fash???? -->
 				</xs:choice>
 			</xs:sequence>
-			<xs:attribute name="label" type="onlyDigitsString"/>
+			<xs:attribute name="label" type="xs:string"/>
 			<xs:attribute name="quality_control" type="xs:string"/>
-			<!-- DONE: seite 42: the label may be composed of digits only - AMBIGUITY-->
-			<!-- TODO: quality_control - alphanumeric -->
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="normal_direction">
 		<xs:complexType>
-			<xs:attribute name="X" type="xs:float" use="required"/>
-			<xs:attribute name="Y" type="xs:float" use="required"/>
-			<xs:attribute name="Z" type="xs:float" use="required"/>
-			<!-- DONE: restrict min & max value -->
+			<xs:attribute name="x" type="xs:float" use="required"/>
+			<xs:attribute name="y" type="xs:float" use="required"/>
+			<xs:attribute name="z" type="xs:float" use="required"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="tangential_direction">
 		<xs:complexType>
-			<xs:attribute name="X" type="xs:float" use="required"/>
-			<xs:attribute name="Y" type="xs:float" use="required"/>
-			<xs:attribute name="Z" type="xs:float" use="required"/>
-			<!-- DONE: restrict min & max value -->
+			<xs:attribute name="x" type="xs:float" use="required"/>
+			<xs:attribute name="y" type="xs:float" use="required"/>
+			<xs:attribute name="z" type="xs:float" use="required"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="spotweld">
 		<xs:complexType>
 			<xs:attribute name="diameter" type="floatPositive"/>
 			<xs:attribute name="technology">
-				<!-- DONE: check the value.. choice... -->
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="resistance"/>
@@ -450,7 +390,6 @@ vc:minVersion="1.1">
 			<xs:attribute name="pattern_length" type="floatPositive"/>
 			<xs:attribute name="mirrored" type="xs:boolean" default="false"/>
 			<xs:attribute name="orientation_angle">
-				<!-- DONE: must [-180, 180] -->
 				<xs:simpleType>
 					<xs:restriction base="xs:float">
 						<xs:minInclusive value="-180"/>
@@ -460,8 +399,6 @@ vc:minVersion="1.1">
 				</xs:simpleType>
 			</xs:attribute>
 			<xs:attribute name="filler_material" type="xs:string"/>
-			<!-- TODO: pattern - alphanumeric -->
-			<!-- TODO: filler_material - alphanumeric -->
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="rivet">
@@ -484,20 +421,15 @@ vc:minVersion="1.1">
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
 			<!-- TODO: if at least one of them is specified head_height+sink_size > 0 is required -->
-			<!-- TODO: head_type - alphanumeric -->
-			<!-- TODO: strength_property_class - alphanumeric -->
-			<!-- TODO: part_code - alphanumeric -->
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="blind">
 		<xs:complexType>
 			<xs:attribute name="min_grip" type="floatPositive"/>
 			<xs:attribute name="max_grip" type="floatPositive"/>
-			<xs:attribute name="clearence" type="floatPositive"/>
+			<xs:attribute name="clearance" type="floatPositive"/>
 			<xs:attribute name="material" type="xs:string"/>
-			<!-- DONE: >=min_grip -->
-			<!-- TODO: material - alphanumeric -->
-			<!--		<xs:assert test="@max_grip >= @min_grip"/> -->
+			<xs:assert test="@max_grip >= @min_grip"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="self_piercing">
@@ -508,9 +440,6 @@ vc:minVersion="1.1">
 			<xs:attribute name="die_label" type="xs:string"/>
 			<xs:attribute name="die_diameter" type="floatPositive"/>
 			<xs:attribute name="die_depth" type="floatPositive"/>
-			<!-- TODO: head_label - alphanumeric -->
-			<!-- TODO: shaft_label - alphanumeric -->
-			<!-- TODO: die_label - alphanumeric -->
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="solid">
@@ -533,7 +462,6 @@ vc:minVersion="1.1">
 			<xs:attribute name="insert_height" type="floatPositive"/>
 			<xs:attribute name="spotweld_diameter" type="floatPositive"/>
 			<xs:attribute name="spotweld_technology">
-				<!-- DONE: selection [resistance, laser, projection, friction] -->
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="resistance"/>
@@ -543,7 +471,6 @@ vc:minVersion="1.1">
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:attribute>
-			<!-- TODO: insert_shape - alphanumeric -->
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="threaded_connection">
@@ -555,9 +482,23 @@ vc:minVersion="1.1">
 					<xs:element ref="screw"/>
 				</xs:choice>
 				<xs:element ref="washer" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="contact_list" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="contact_list" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:all>
+							<!-- TODO: maxOccurs = maximum no. of items: cardinality of <connected_to>-1 -->
+							<xs:element name="contact" minOccurs="1" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="index" type="integerPositive"/>				<!-- TODO: check that is one of the indices defined in <connected_to> but not the last one -->
+									<xs:attribute name="thread" type="xs:boolean" default="false"/>
+									<xs:attribute name="static_friction" type="floatPositive"/>		<!-- TODO: check that at least one of static/kinetic is specified -->
+									<xs:attribute name="kinetic_friction" type="floatPositive"/>																											
+								</xs:complexType>
+							</xs:element>
+						</xs:all>
+					</xs:complexType>
+				</xs:element>
 			</xs:sequence>
-			<xs:attribute name="diameter" type="floatPositive"/>
+			<xs:attribute name="diameter" type="floatZeroPositive"/>
 			<xs:attribute name="length" type="floatPositive"/>
 			<xs:attribute name="thread_length" type="floatPositive"/>
 			<xs:attribute name="head_diameter" type="floatPositive"/>
@@ -573,14 +514,11 @@ vc:minVersion="1.1">
 			<xs:attribute name="kinetic_friction" type="floatPositive"/>
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
-			<!-- TODO: add an assert in order to check that length >= thread_length -->
+			<!--<xs:assert test=" if (@length>0 and @thread_length>0)             check ki auto to assert
+							  then @length >= @thread_length"/> -->
 			<!-- TODO: assert - if at least one of them is specified, head_heigth + sink_size > 0 -->
-			<!-- TODO: head_type - alphanumeric, Achtung! edw to string mporei na periexei kai kena... -->
-			<!-- TODO: strength_property_class - alphanumeric -->
-			<!-- TODO: part_code - alphanumeric -->
 		</xs:complexType>
 	</xs:element>
-	<!-- TODO: must implement a different <contact_list>, check Page 67 -->
 	<xs:element name="washer">
 		<xs:complexType>
 			<xs:attribute name="outer_diameter" type="floatPositive"/>
@@ -591,7 +529,6 @@ vc:minVersion="1.1">
 			<xs:attribute name="kinetic_friction" type="floatPositive"/>
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
-			<!--TODO: strength_property_class - alphanumeric -->
 			<!-- TODO: part_code - alphanumeric && NO part code, if attached -->
 		</xs:complexType>
 	</xs:element>
@@ -609,8 +546,6 @@ vc:minVersion="1.1">
 			<xs:attribute name="clipped_to" type="integerPositive"/>
 			<xs:attribute name="fixed_to" type="integerPositive"/>
 			<xs:attribute name="strength_property_class" type="xs:string"/>
-			<xs:attribute name="part_code" type="xs:string"/>
-			<!-- TODO: strength_property_class - alphanumeric -->
 			<!-- TODO: part_code - alphanumeric && NO part code, if attached -->
 		</xs:complexType>
 	</xs:element>
@@ -626,7 +561,7 @@ vc:minVersion="1.1">
 	<xs:element name="screw">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="flow_drilled" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element ref="flow_drilled" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>
 			<xs:attribute name="base" type="integerPositive"/>
 		</xs:complexType>
@@ -637,7 +572,6 @@ vc:minVersion="1.1">
 			<xs:attribute name="pre_machined_hole_index" type="integerPositive"/>
 			<xs:attribute name="pilot_hole_diameter" type="floatZeroPositive"/>
 			<!-- TODO: exist only if <connected_to> properly filled out with parts to be connected -->
-			<!-- TODO: its definition depends on the applied FDS type -->
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="gumdrop">
@@ -645,7 +579,6 @@ vc:minVersion="1.1">
 			<xs:attribute name="diameter" type="floatZeroPositive"/>
 			<xs:attribute name="mass" type="floatZeroPositive"/>
 			<xs:attribute name="material" type="xs:string"/>
-			<!-- TODO: material - alphanumeric -->
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="clinch">
@@ -659,8 +592,6 @@ vc:minVersion="1.1">
 			<xs:attribute name="peel_strength" type="floatPositive"/>
 			<xs:attribute name="button_diameter" type="floatPositive"/>
 			<xs:attribute name="die_type" type="xs:string"/>
-			<!-- TODO: clinch_type - alphanumeric -->
-			<!-- TODO: strength_class - alphanumeric -->
 			<!-- TODO: die_type - alphanumeric && must be [round, rectangular] kai button_diameter or punch_diameter-->
 		</xs:complexType>
 	</xs:element>
@@ -676,7 +607,6 @@ vc:minVersion="1.1">
 			<xs:attribute name="head_height" type="floatZeroPositive"/>
 			<xs:attribute name="void_diameter" type="floatZeroPositive"/>
 			<xs:attribute name="hole_diameter" type="floatPositive"/>
-			<!-- TODO: heat_stake_type - alphanumeric -->
 			<!-- TODO: diameter < hole_diameter-->
 			<!-- TODO: void_diameter < diameter -->
 			<!-- TODO: hole_diameter < head_diameter -->
@@ -699,12 +629,8 @@ vc:minVersion="1.1">
 			<xs:attribute name="clipped_to" type="integerPositive"/>
 			<xs:attribute name="material" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
-			<!-- TODO: clip_type - alphanumeric -->
-			<!-- TODO: attachment_type - alphanumeric -->
 			<!-- TODO: hole_length > 0 implies hole_diameter > 0 -->
 			<!-- TODO: pin_width > 0 implies pin_diameter > 0 -->
-			<!-- TODO: material - alphanumeric -->
-			<!-- TODO: part_code - alphanumeric -->
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="nail">
@@ -723,14 +649,11 @@ vc:minVersion="1.1">
 			<xs:attribute name="peel_strength" type="floatPositive"/>
 			<xs:attribute name="material" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
-			<!-- TODO: nail_type - alphanumeric -->
-			<!-- TODO: material - alphanumeric -->
-			<!-- TODO: part_code - alphanumeric -->
 		</xs:complexType>
 	</xs:element>
-	<!--
-***************************************************************************************************************************************************************************** -->
-	<!-- Seite 94: 8 1D connections -->
+	
+<!-- ************************************************************************************************************************************************************* -->
+
 	<!-- must add <loc_list/> and <loc/> -->
 	<xs:element name="connection_1d">
 		<xs:complexType>
