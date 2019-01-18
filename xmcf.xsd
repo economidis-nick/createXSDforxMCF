@@ -448,6 +448,8 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:attribute name="tennon_length" type="floatPositive"/>
 			<!-- TODO: hole_diameter is defined with hole_depth and vice versa-->
 			<!-- TODO: tennon_diameter exist only if shoulder_diameter is defined and vice versa -->
+			<xs:assert test="if( ( exists(@hole_diameter) and exists(@hole_depth) ) or ( not(exists(@hole_diameter)) and not(exists(@hole_depth)) ) ) then true() else false()"/>
+			<xs:assert test="if( ( exists(@tennon_diameter) and exists(@shoulder_diameter) ) or ( not(exists(@tennon_diameter)) and not(exists(@shoulder_diameter)) ) ) then true() else false()"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="swop">
@@ -480,7 +482,7 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 					<xs:complexType>
 						<xs:all>
 							<!-- TODO: maxOccurs = maximum no. of items: cardinality of <connected_to>-1 -->
-							<xs:element name="contact" minOccurs="1" maxOccurs="unbounded">
+							<xs:element name="contact" minOccurs="1" maxOccurs="unbounded">				<!-- sth selida 37 xamhla leei oti den epitrepei attributes auto to element -->
 								<xs:complexType>
 									<xs:attribute name="index" type="integerPositive"/>
 									<xs:attribute name="thread" type="xs:boolean" default="false"/>
@@ -512,7 +514,9 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:attribute name="part_code" type="xs:string"/>
 			<!--<xs:assert test=" if (@length>0 and @thread_length>0)             check ki auto to assert
 							  then @length >= @thread_length"/> -->
+			<xs:assert test="@length >= @thread_length"/>
 			<!-- TODO: assert - if at least one of them is specified, head_heigth + sink_size > 0 -->
+			<xs:assert test=" if( ( exists(@head_height) or exists(@sink_size) ) and @head_height + @sink_size > 0 ) then true() else false()"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="washer">
@@ -525,7 +529,8 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:attribute name="kinetic_friction" type="floatPositive"/>
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
-			<!-- TODO: part_code - alphanumeric && NO part code, if attached -->
+			<!-- TODO: NO part code, if attached -->
+			<xs:assert test="if( @attached=true and exists(@part_code) ) then false() else true()"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="nut">
@@ -542,7 +547,8 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:attribute name="clipped_to" type="integerPositive"/>
 			<xs:attribute name="fixed_to" type="integerPositive"/>
 			<xs:attribute name="strength_property_class" type="xs:string"/>
-			<!-- TODO: part_code - alphanumeric && NO part code, if attached -->
+			<!-- TODO: NO part code, if attached -->
+			<xs:assert test="if( @attached=true and exists(@part_code) ) then false() else true()"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="bolt">
@@ -587,8 +593,14 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:attribute name="shear_strength" type="floatPositive"/>
 			<xs:attribute name="peel_strength" type="floatPositive"/>
 			<xs:attribute name="button_diameter" type="floatPositive"/>
-			<xs:attribute name="die_type" type="xs:string"/>
-			<!-- TODO: die_type - alphanumeric && must be [round, rectangular] kai button_diameter or punch_diameter-->
+			<xs:attribute name="die_type">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="round"/>
+						<xs:enumeration value="rectangular"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="heat_stake">
@@ -627,6 +639,8 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:attribute name="part_code" type="xs:string"/>
 			<!-- TODO: hole_length > 0 implies hole_diameter > 0 -->
 			<!-- TODO: pin_width > 0 implies pin_diameter > 0 -->
+			<xs:assert test="if( @hole_length gt 0 and @hole_diameter = 0 ) then false() else true()"/> 
+			<xs:assert test="if( @pin_width gt 0 and @pin_diameter = 0 ) then false() else true()"/> 
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="nail">
@@ -742,6 +756,8 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 						<xs:attribute name="gap" type="floatPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
+						<xs:assert test="if( (exists(./units/@angle) and (./units/@angle='deg') and (@sheet_angle ge 0) and (@sheet_angle lt 360) ) or 
+						(exists(./units/@angle) and (./units/@angle='rad') and (@sheet_angle ge 0) and (@sheet_angle lt 6.2831853 ) ) ) then true() else false()"/>
 						<!-- TODO: add restriction with range [0, 360) -->
 					</xs:complexType>
 				</xs:element>
@@ -820,6 +836,8 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 						<xs:attribute name="gap" type="floatPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
+						<xs:assert test="if( (exists(./units/@angle) and (./units/@angle='deg') and (@sheet_angle ge 0) and (@sheet_angle lt 360) ) or 
+						(exists(./units/@angle) and (./units/@angle='rad') and (@sheet_angle ge 0) and (@sheet_angle lt 6.2831853 ) ) ) then true() else false()"/>
 						<!-- TODO: add restriction with range [0, 360) -->
 					</xs:complexType>
 				</xs:element>
@@ -880,6 +898,8 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 						<xs:attribute name="gap" type="floatPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
+						<xs:assert test="if( (exists(./units/@angle) and (./units/@angle='deg') and (@sheet_angle ge 0) and (@sheet_angle lt 360) ) or 
+						(exists(./units/@angle) and (./units/@angle='rad') and (@sheet_angle ge 0) and (@sheet_angle lt 6.2831853 ) ) ) then true() else false()"/>
 						<!-- TODO: add restriction with range [0, 360) -->
 					</xs:complexType>
 				</xs:element>
@@ -931,6 +951,8 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 						<xs:attribute name="gap" type="floatPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
+						<xs:assert test="if( (exists(./units/@angle) and (./units/@angle='deg') and (@sheet_angle ge 0) and (@sheet_angle lt 360) ) or 
+						(exists(./units/@angle) and (./units/@angle='rad') and (@sheet_angle ge 0) and (@sheet_angle lt 6.2831853 ) ) ) then true() else false()"/>
 						<!-- TODO: add restriction with range [0, 360) -->
 					</xs:complexType>
 				</xs:element>
@@ -1008,6 +1030,8 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 						<xs:attribute name="gap" type="floatPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
+						<xs:assert test="if( (exists(./units/@angle) and (./units/@angle='deg') and (@sheet_angle ge 0) and (@sheet_angle lt 360) ) or 
+						(exists(./units/@angle) and (./units/@angle='rad') and (@sheet_angle ge 0) and (@sheet_angle lt 6.2831853 ) ) ) then true() else false()"/>
 						<!-- TODO: add restriction with range [0, 360) -->
 					</xs:complexType>
 				</xs:element>
@@ -1087,6 +1111,8 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 						<xs:attribute name="gap" type="floatPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
+						<xs:assert test="if( (exists(./units/@angle) and (./units/@angle='deg') and (@sheet_angle ge 0) and (@sheet_angle lt 360) ) or 
+						(exists(./units/@angle) and (./units/@angle='rad') and (@sheet_angle ge 0) and (@sheet_angle lt 6.2831853 ) ) ) then true() else false()"/>
 						<!-- TODO: add restriction with range [0, 360) -->
 					</xs:complexType>
 				</xs:element>
@@ -1166,6 +1192,8 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 						<xs:attribute name="gap" type="floatPositive" use="required"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive" use="required"/>
 						<xs:attribute name="sheet_angle" type="xs:float" use="required"/>
+						<xs:assert test="if( (exists(./units/@angle) and (./units/@angle='deg') and (@sheet_angle ge 0) and (@sheet_angle lt 360) ) or 
+						(exists(./units/@angle) and (./units/@angle='rad') and (@sheet_angle ge 0) and (@sheet_angle lt 6.2831853 ) ) ) then true() else false()"/>
 						<!-- TODO: add restriction with range [0, 360) -->
 					</xs:complexType>
 				</xs:element>
@@ -1245,6 +1273,8 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 						<xs:attribute name="gap" type="floatPositive" use="required"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive" use="required"/>
 						<xs:attribute name="sheet_angle" type="xs:float" use="required"/>
+						<xs:assert test="if( (exists(./units/@angle) and (./units/@angle='deg') and (@sheet_angle ge 0) and (@sheet_angle lt 360) ) or 
+						(exists(./units/@angle) and (./units/@angle='rad') and (@sheet_angle ge 0) and (@sheet_angle lt 6.2831853 ) ) ) then true() else false()"/>
 						<!-- TODO: add restriction with range [0, 360) -->
 					</xs:complexType>
 				</xs:element>
