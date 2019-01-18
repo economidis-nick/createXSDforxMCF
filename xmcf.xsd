@@ -1,13 +1,14 @@
 <?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" vc:minVersion="1.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" 
+elementFormDefault="qualified" vc:minVersion="1.1">
 	<xs:element name="xmcf">
 		<xs:complexType>
 			<xs:all>
 				<xs:element name="date" type="xs:date" minOccurs="0" maxOccurs="1"/>
 				<xs:element name="version" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="units" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="appdata" minOccurs="0" maxOccurs="unbounded"/>
-				<xs:element ref="femdata" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="appdata" minOccurs="0"/>
+				<xs:element ref="femdata" minOccurs="0"/>
 				<xs:element ref="connection_group" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:all>
 		</xs:complexType>
@@ -235,8 +236,7 @@
 						<xs:attribute name="pid" type="integerPositive"/>
 						<xs:attribute name="index" type="integerPositive" use="required"/>
 						<xs:attribute name="label" type="xs:string"/>
-						<!-- TODO: pid kai label pane paketo...  -->
-						<!-- DONE: check that at least one of label/pid is set -->
+						<xs:assert test="  if(not( exists(@label) ) and not( exists(@pid) ) ) then false() else true()"/>		<!-- ara an den uparxei tipota apo ta 2 einai la8os  -->
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="assy">
@@ -247,8 +247,7 @@
 									<xs:attribute name="pid" type="integerPositive"/>
 									<xs:attribute name="index" type="integerPositive"/>
 									<xs:attribute name="label" type="xs:string"/>
-									<!-- TODO: pid kai label pane paketo...  -->
-									<!-- DONE: check that at least one of label/pid is set -->
+									<xs:assert test="  if(not( exists(@label) ) and not( exists(@pid) ) ) then false() else true()"/>		<!-- ara an den uparxei tipota apo ta 2 einai la8os  -->
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
@@ -282,7 +281,6 @@
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="contact">
-		<!-- DONE: does not allow any attributes -->
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="partner" minOccurs="2" maxOccurs="2"/>
@@ -291,19 +289,16 @@
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="partner">
-		<!-- DONE: restrict that pid > 0. -->
 		<xs:complexType>
 			<xs:attribute name="label" type="xs:string"/>
 			<xs:attribute name="pid" type="integerPositive"/>
 			<!-- TODO: restrict that label value is mentioned in <connected_to/> of the current <connection_group/> -->
-			<!-- TODO: label - alphanumeric -->
 			<!-- TODO: restrict that pid value is mentioned in <connected_to/> of the current <connection_group/> -->
 		</xs:complexType>
 		<!-- TODO: Restrict that at least one of laber or pid exists.-->
 	</xs:element>
 	<!-- TODO: implement the choice-equivalent for attributes && restrict that <partner/> does not allow nested elements -->
 	<xs:element name="coefficients">
-		<!-- DONE: restrict that <coefficients/> does not allow for any nested elements -->
 		<xs:complexType>
 			<xs:attribute name="static_friction" type="floatZeroPositive"/>
 			<xs:attribute name="kinetic_friction" type="floatZeroPositive"/>
@@ -319,9 +314,7 @@
 			</xs:choice>
 		</xs:complexType>
 	</xs:element>
-
-<!-- ***************************************************************************************************************************************************************** -->
-
+	<!-- ***************************************************************************************************************************************************************** -->
 	<xs:element name="connection_0d">
 		<xs:complexType>
 			<xs:sequence>
@@ -421,6 +414,7 @@
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
 			<!-- TODO: if at least one of them is specified head_height+sink_size > 0 is required -->
+			<xs:assert test=" if( ( exists(@head_height) or exists(@sink_size) ) and @head_height + @sink_size > 0 ) then true() else false()"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="blind">
@@ -488,10 +482,12 @@
 							<!-- TODO: maxOccurs = maximum no. of items: cardinality of <connected_to>-1 -->
 							<xs:element name="contact" minOccurs="1" maxOccurs="unbounded">
 								<xs:complexType>
-									<xs:attribute name="index" type="integerPositive"/>				<!-- TODO: check that is one of the indices defined in <connected_to> but not the last one -->
+									<xs:attribute name="index" type="integerPositive"/>
 									<xs:attribute name="thread" type="xs:boolean" default="false"/>
-									<xs:attribute name="static_friction" type="floatPositive"/>		<!-- TODO: check that at least one of static/kinetic is specified -->
-									<xs:attribute name="kinetic_friction" type="floatPositive"/>																											
+									<xs:attribute name="static_friction" type="floatPositive"/>
+									<xs:attribute name="kinetic_friction" type="floatPositive"/>
+									<!-- TODO: check that is one of the indices defined in <connected_to> but not the last one -->
+									<!-- TODO: check that at least one of static/kinetic is specified -->
 								</xs:complexType>
 							</xs:element>
 						</xs:all>
@@ -651,14 +647,27 @@
 			<xs:attribute name="part_code" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
-	
-<!-- ************************************************************************************************************************************************************* -->
-
-	<!-- must add <loc_list/> and <loc/> -->
+	<!-- ************************************************************************************************************************************************************* -->
 	<xs:element name="connection_1d">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="loc_list"/>
+				<xs:element name="loc_list">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="loc" minOccurs="1" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute name="v" type="xs:integer" use="required"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="index" type="integerPositive"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element ref="custom_attributes_list" minOccurs="0" maxOccurs="1"/>
 				<xs:choice minOccurs="0" maxOccurs="1">
 					<xs:element ref="seamweld"/>
 					<xs:element ref="adhesive_line"/>
@@ -667,167 +676,627 @@
 				</xs:choice>
 				<xs:element ref="contact_list" minOccurs="0" maxOccurs="1"/>
 			</xs:sequence>
-			<xs:attribute name="label" type="onlyDigitsString"/>
+			<xs:attribute name="label" type="xs:string"/>
 			<xs:attribute name="quality_control" type="xs:string"/>
-			<!-- DONE: seite 42: the label may be composed of digits only-->
-			<!-- TODO: quality_control - alphanumeric -->
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="loc_list">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="loc" minOccurs="1" maxOccurs="unbounded">
-					<xs:complexType>
-						<xs:attribute name="v" type="floatPositive" use="required"/>
-					</xs:complexType>
-				</xs:element>
-			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="seamweld">
 		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="butt_joint" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="corner_weld" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="edge_weld" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="i_weld" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="overlap_weld" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="y_joint" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="k_joint" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="cruciform_joint" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="flared_joint" minOccurs="0" maxOccurs="1"/>
-			</xs:sequence>
-			<!-- TODO: perhaps choice... -->
+			<xs:choice minOccurs="0" maxOccurs="1">
+				<xs:element ref="butt_joint"/>
+				<xs:element ref="corner_weld"/>
+				<xs:element ref="edge_weld"/>
+				<xs:element ref="i_weld"/>
+				<xs:element ref="overlap_weld"/>
+				<xs:element ref="y_joint"/>
+				<xs:element ref="k_joint"/>
+				<xs:element ref="cruciform_joint"/>
+				<xs:element ref="flared_joint"/>
+			</xs:choice>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="butt_joint">
 		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="weld_position" minOccurs="1" maxOccurs="unbounded"/>
-				<xs:element ref="sheet_parameter" minOccurs="1" maxOccurs="unbounded"/>
-			</xs:sequence>
+			<xs:all>
+				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="u" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:float">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="x" type="xs:float" use="required"/>
+						<xs:attribute name="y" type="xs:float" use="required"/>
+						<xs:attribute name="z" type="xs:float" use="required"/>
+						<xs:attribute name="reference" type="xs:boolean" default="false"/>
+						<xs:attribute name="section">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="I"/>
+									<xs:enumeration value="V"/>
+									<xs:enumeration value="U"/>
+									<xs:enumeration value="X"/>
+									<xs:enumeration value="Y"/>
+									<xs:enumeration value="Radius"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="width" type="floatPositive"/>
+						<xs:attribute name="filler">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="yes"/>
+									<xs:enumeration value="no"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="filler_material" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="index" type="xs:integer" use="required"/>
+						<xs:attribute name="gap" type="floatPositive"/>
+						<xs:attribute name="sheet_thickness" type="floatPositive"/>
+						<xs:attribute name="sheet_angle" type="xs:float"/>
+						<!-- TODO: add restriction with range [0, 360) -->
+					</xs:complexType>
+				</xs:element>
+			</xs:all>
 			<xs:attribute name="base" type="integerPositive"/>
-			<xs:attribute name="technology" type="xs:string"/>
-			<!-- TODO: must define the type of selection [resistance, arc, laser, friction, blazing] -->
+			<xs:attribute name="technology">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="resistance"/>
+						<xs:enumeration value="arc"/>
+						<xs:enumeration value="laser"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="corner_weld">
 		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="weld_position" minOccurs="1" maxOccurs="unbounded"/>
-				<xs:element ref="sheet_parameter" minOccurs="1" maxOccurs="unbounded"/>
-			</xs:sequence>
+			<xs:all>
+				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="u" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:float">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="x" type="xs:float" use="required"/>
+						<xs:attribute name="y" type="xs:float" use="required"/>
+						<xs:attribute name="z" type="xs:float" use="required"/>
+						<xs:attribute name="reference" type="xs:boolean" default="false"/>
+						<xs:attribute name="section">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="U"/>
+									<xs:enumeration value="HV"/>
+									<xs:enumeration value="Fillet"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="thickness" type="floatPositive"/>
+						<xs:attribute name="angle" type="xs:float"/>
+						<xs:attribute name="filler">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="yes"/>
+									<xs:enumeration value="no"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="filler_material" type="xs:string"/>
+						<xs:attribute name="shape">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="straight"/>
+									<xs:enumeration value="convex"/>
+									<xs:enumeration value="concave"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="penetration">
+							<xs:simpleType>
+								<xs:restriction base="xs:float">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="index" type="xs:integer" use="required"/>
+						<xs:attribute name="gap" type="floatPositive"/>
+						<xs:attribute name="sheet_thickness" type="floatPositive"/>
+						<xs:attribute name="sheet_angle" type="xs:float"/>
+						<!-- TODO: add restriction with range [0, 360) -->
+					</xs:complexType>
+				</xs:element>
+			</xs:all>
 			<xs:attribute name="base" type="integerPositive"/>
-			<xs:attribute name="technology" type="xs:string"/>
-			<!-- TODO: must define the type of selection [resistance, arc, laser, friction, blazing] -->
+			<xs:attribute name="technology">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="resistance"/>
+						<xs:enumeration value="arc"/>
+						<xs:enumeration value="laser"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="edge_weld">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="weld_position" minOccurs="1" maxOccurs="unbounded"/>
-				<xs:element ref="sheet_parameter" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="u" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:float">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="x" type="xs:float" use="required"/>
+						<xs:attribute name="y" type="xs:float" use="required"/>
+						<xs:attribute name="z" type="xs:float" use="required"/>
+						<xs:attribute name="reference" type="xs:boolean" default="false"/>
+						<xs:attribute name="section">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="I"/>
+									<xs:enumeration value="V"/>
+									<xs:enumeration value="U"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="width" type="floatPositive"/>
+						<xs:attribute name="filler">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="yes"/>
+									<xs:enumeration value="no"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="filler_material" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="index" type="xs:integer" use="required"/>
+						<xs:attribute name="gap" type="floatPositive"/>
+						<xs:attribute name="sheet_thickness" type="floatPositive"/>
+						<xs:attribute name="sheet_angle" type="xs:float"/>
+						<!-- TODO: add restriction with range [0, 360) -->
+					</xs:complexType>
+				</xs:element>
 			</xs:sequence>
 			<xs:attribute name="base" type="integerPositive"/>
-			<xs:attribute name="technology" type="xs:string"/>
-			<!-- TODO: must define the type of selection [resistance, arc, laser, friction, blazing] -->
+			<xs:attribute name="technology">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="resistance"/>
+						<xs:enumeration value="arc"/>
+						<xs:enumeration value="laser"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="i_weld">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="weld_position" minOccurs="1" maxOccurs="unbounded"/>
-				<xs:element ref="sheet_parameter" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="u" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:float">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="x" type="xs:float" use="required"/>
+						<xs:attribute name="y" type="xs:float" use="required"/>
+						<xs:attribute name="z" type="xs:float" use="required"/>
+						<xs:attribute name="reference" type="xs:boolean" default="false"/>
+						<xs:attribute name="width" type="floatPositive"/>
+						<xs:attribute name="filler">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="yes"/>
+									<xs:enumeration value="no"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="filler_material" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="index" type="xs:integer" use="required"/>
+						<xs:attribute name="gap" type="floatPositive"/>
+						<xs:attribute name="sheet_thickness" type="floatPositive"/>
+						<xs:attribute name="sheet_angle" type="xs:float"/>
+						<!-- TODO: add restriction with range [0, 360) -->
+					</xs:complexType>
+				</xs:element>
 			</xs:sequence>
 			<xs:attribute name="base" type="integerPositive"/>
-			<xs:attribute name="technology" type="xs:string"/>
-			<!-- TODO: must define the type of selection [resistance, arc, laser, friction, blazing] -->
+			<xs:attribute name="technology">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="resistance"/>
+						<xs:enumeration value="arc"/>
+						<xs:enumeration value="laser"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="overlap_weld">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="weld_position" minOccurs="1" maxOccurs="unbounded"/>
-				<xs:element ref="sheet_parameter" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="base" type="integerPositive"/>
+						<xs:attribute name="u" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:float">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="x" type="xs:float" use="required"/>
+						<xs:attribute name="y" type="xs:float" use="required"/>
+						<xs:attribute name="z" type="xs:float" use="required"/>
+						<xs:attribute name="reference" type="xs:boolean" default="false"/>
+						<xs:attribute name="section">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Fillet"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="thickness" type="floatPositive"/>
+						<xs:attribute name="angle" type="xs:float"/>
+						<xs:attribute name="filler">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="yes"/>
+									<xs:enumeration value="no"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="filler_material" type="xs:string"/>
+						<xs:attribute name="shape">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="straight"/>
+									<xs:enumeration value="convex"/>
+									<xs:enumeration value="concave"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="penetration">
+							<xs:simpleType>
+								<xs:restriction base="xs:float">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="index" type="xs:integer" use="required"/>
+						<xs:attribute name="gap" type="floatPositive"/>
+						<xs:attribute name="sheet_thickness" type="floatPositive"/>
+						<xs:attribute name="sheet_angle" type="xs:float"/>
+						<!-- TODO: add restriction with range [0, 360) -->
+					</xs:complexType>
+				</xs:element>
 			</xs:sequence>
 			<xs:attribute name="base" type="integerPositive"/>
-			<xs:attribute name="technology" type="xs:string"/>
-			<!-- TODO: must define the type of selection [resistance, arc, laser, friction, blazing] -->
+			<xs:attribute name="technology">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="resistance"/>
+						<xs:enumeration value="arc"/>
+						<xs:enumeration value="laser"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="y_joint">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="weld_position" minOccurs="1" maxOccurs="unbounded"/>
-				<xs:element ref="sheet_parameter" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="base" type="integerPositive"/>
+						<xs:attribute name="u" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:float">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="x" type="xs:float" use="required"/>
+						<xs:attribute name="y" type="xs:float" use="required"/>
+						<xs:attribute name="z" type="xs:float" use="required"/>
+						<xs:attribute name="reference" type="xs:boolean" default="false"/>
+						<xs:attribute name="section">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="HV"/>
+									<xs:enumeration value="HY"/>
+									<xs:enumeration value="Fillet"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="thickness" type="floatPositive"/>
+						<xs:attribute name="angle" type="xs:float"/>
+						<xs:attribute name="filler">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="yes"/>
+									<xs:enumeration value="no"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="filler_material" type="xs:string"/>
+						<xs:attribute name="shape">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="straight"/>
+									<xs:enumeration value="convex"/>
+									<xs:enumeration value="concave"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="penetration">
+							<xs:simpleType>
+								<xs:restriction base="xs:float">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="index" type="xs:integer" use="required"/>
+						<xs:attribute name="gap" type="floatPositive"/>
+						<xs:attribute name="sheet_thickness" type="floatPositive"/>
+						<xs:attribute name="sheet_angle" type="xs:float"/>
+						<!-- TODO: add restriction with range [0, 360) -->
+					</xs:complexType>
+				</xs:element>
 			</xs:sequence>
 			<xs:attribute name="base" type="integerPositive"/>
-			<xs:attribute name="technology" type="xs:string"/>
-			<!-- TODO: must define the type of selection [resistance, arc, laser, friction, blazing] -->
+			<xs:attribute name="technology">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="resistance"/>
+						<xs:enumeration value="arc"/>
+						<xs:enumeration value="laser"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="k_joint">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="weld_position" minOccurs="1" maxOccurs="unbounded"/>
-				<xs:element ref="sheet_parameter" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="base" type="integerPositive"/>
+						<xs:attribute name="u" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:float">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="x" type="xs:float" use="required"/>
+						<xs:attribute name="y" type="xs:float" use="required"/>
+						<xs:attribute name="z" type="xs:float" use="required"/>
+						<xs:attribute name="reference" type="xs:boolean" default="false"/>
+						<xs:attribute name="section">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="HV"/>
+									<xs:enumeration value="HY"/>
+									<xs:enumeration value="Fillet"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="thickness" type="floatPositive"/>
+						<xs:attribute name="angle" type="xs:float"/>
+						<xs:attribute name="filler">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="yes"/>
+									<xs:enumeration value="no"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="filler_material" type="xs:string"/>
+						<xs:attribute name="shape">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="straight"/>
+									<xs:enumeration value="convex"/>
+									<xs:enumeration value="concave"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="penetration">
+							<xs:simpleType>
+								<xs:restriction base="xs:float">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="index" type="xs:integer" use="required"/>
+						<xs:attribute name="gap" type="floatPositive" use="required"/>
+						<xs:attribute name="sheet_thickness" type="floatPositive" use="required"/>
+						<xs:attribute name="sheet_angle" type="xs:float" use="required"/>
+						<!-- TODO: add restriction with range [0, 360) -->
+					</xs:complexType>
+				</xs:element>
 			</xs:sequence>
 			<xs:attribute name="base" type="integerPositive"/>
-			<xs:attribute name="technology" type="xs:string"/>
-			<!-- TODO: must define the type of selection [resistance, arc, laser, friction, blazing] -->
+			<xs:attribute name="technology">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="resistance"/>
+						<xs:enumeration value="arc"/>
+						<xs:enumeration value="laser"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="cruciform_joint">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="weld_position" minOccurs="1" maxOccurs="unbounded"/>
-				<xs:element ref="sheet_parameter" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="base" type="integerPositive"/>
+						<xs:attribute name="u" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:float">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="x" type="xs:float" use="required"/>
+						<xs:attribute name="y" type="xs:float" use="required"/>
+						<xs:attribute name="z" type="xs:float" use="required"/>
+						<xs:attribute name="reference" type="xs:boolean" default="false"/>
+						<xs:attribute name="section">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="HV"/>
+									<xs:enumeration value="HY"/>
+									<xs:enumeration value="Fillet"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="thickness" type="floatPositive"/>
+						<xs:attribute name="angle" type="xs:float"/>
+						<xs:attribute name="filler">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="yes"/>
+									<xs:enumeration value="no"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="filler_material" type="xs:string"/>
+						<xs:attribute name="shape">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="straight"/>
+									<xs:enumeration value="convex"/>
+									<xs:enumeration value="concave"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="penetration">
+							<xs:simpleType>
+								<xs:restriction base="xs:float">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="index" type="xs:integer" use="required"/>
+						<xs:attribute name="gap" type="floatPositive" use="required"/>
+						<xs:attribute name="sheet_thickness" type="floatPositive" use="required"/>
+						<xs:attribute name="sheet_angle" type="xs:float" use="required"/>
+						<!-- TODO: add restriction with range [0, 360) -->
+					</xs:complexType>
+				</xs:element>
 			</xs:sequence>
 			<xs:attribute name="base" type="integerPositive"/>
-			<xs:attribute name="technology" type="xs:string"/>
-			<!-- TODO: must define the type of selection [resistance, arc, laser, friction, blazing] -->
+			<xs:attribute name="technology">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="resistance"/>
+						<xs:enumeration value="arc"/>
+						<xs:enumeration value="laser"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="flared_joint">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="weld_position" minOccurs="1" maxOccurs="unbounded"/>
-				<xs:element ref="sheet_parameter" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="u" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:float">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="x" type="xs:float" use="required"/>
+						<xs:attribute name="y" type="xs:float" use="required"/>
+						<xs:attribute name="z" type="xs:float" use="required"/>
+						<xs:attribute name="reference" type="xs:boolean" default="false"/>
+						<xs:attribute name="width" type="floatPositive"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="index" type="xs:integer" use="required"/>
+						<xs:attribute name="gap" type="floatPositive"/>
+						<xs:attribute name="sheet_thickness" type="floatPositive"/>
+					</xs:complexType>
+				</xs:element>
 			</xs:sequence>
 			<xs:attribute name="base" type="integerPositive"/>
-			<xs:attribute name="technology" type="xs:string"/>
-			<!-- TODO: must define the type of selection [resistance, arc, laser, friction, blazing] -->
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="sheet_parameter">
-		<xs:complexType>
-			<xs:attribute name="index" type="xs:integer" use="required"/>
-			<xs:attribute name="gap" type="floatPositive"/>
-			<xs:attribute name="sheet_thickness" type="floatPositive"/>
-			<xs:attribute name="sheet_angle" type="xs:float"/>
-			<!-- TODO: add restriction with range [0, 360) -->
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="weld_position">
-		<xs:complexType>
-			<xs:attribute name="u" type="xs:float" use="required"/>
-			<xs:attribute name="x" type="xs:float" use="required"/>
-			<xs:attribute name="y" type="xs:float" use="required"/>
-			<xs:attribute name="z" type="xs:float" use="required"/>
-			<xs:attribute name="reference" type="xs:boolean" default="false"/>
-			<xs:attribute name="section" type="xs:string"/>
-			<xs:attribute name="thickness" type="floatPositive"/>
-			<xs:attribute name="width" type="floatPositive"/>
-			<xs:attribute name="angle" type="xs:float"/>
-			<xs:attribute name="filler" type="xs:string"/>
-			<xs:attribute name="filler_material" type="xs:string"/>
-			<xs:attribute name="shape" type="xs:string"/>
-			<xs:attribute name="penetration" type="xs:float"/>
-			<!-- TODO: add restriction 0 <= u <= 1 -->
-			<!-- TODO: selection [I, V, U, X, Y, HV, HY, Fillet, Radius, Laser] -->
-			<!-- TODO: selection [yes, no] -->
-			<!-- TODO: selection [straight, convex, concave] -->
-			<!-- TODO: add restriction with range [0, 1] -->
+			<xs:attribute name="technology">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="arc"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="adhesive_line">
@@ -849,14 +1318,27 @@
 	</xs:element>
 	<xs:element name="region">
 		<xs:complexType>
-			<xs:all>
-				<xs:element ref="connection_1d" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="connection_2d" minOccurs="0" maxOccurs="1"/>
-			</xs:all>
-			<xs:attribute name="label" type="xs:string" use="required"/>
-			<xs:attribute name="fille_percentage" type="xs:float"/>
-			<!-- TODO: must check that value is A, B or C -->
-			<!-- TODO: add restriction with range [0.0, 100.0] -->
+			<xs:choice minOccurs="0" maxOccurs="1">
+				<xs:element ref="connection_1d"/>
+				<xs:element ref="connection_2d"/>
+			</xs:choice>
+			<xs:attribute name="label" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="A"/>
+						<xs:enumeration value="B"/>
+						<xs:enumeration value="C"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="fill_percentage">
+				<xs:simpleType>
+					<xs:restriction base="xs:float">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="sequence_connection_0d">
@@ -867,8 +1349,14 @@
 			</xs:all>
 			<xs:attribute name="spacing" type="floatZeroPositive" use="required"/>
 			<xs:attribute name="margin" type="floatZeroPositive" default="0.0"/>
-			<xs:attribute name="priority" type="xs:string"/>
-			<!-- TODO: selection in [spacing, margin] -->
+			<xs:attribute name="priority">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="spacing"/>
+						<xs:enumeration value="margin"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<!-- ***************************************************************************************************************************************************************************** -->
@@ -877,15 +1365,28 @@
 		<xs:complexType>
 			<xs:all>
 				<xs:element ref="adhesive_face" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="loc_list" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="loc_list" minOccurs="1" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="loc" minOccurs="3" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute name="v" type="xs:integer" use="required"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<!-- TODO: v: unique within the parent element -->
 				<xs:element ref="face_list" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="appdata" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="custom_attributes_list" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
-			<xs:attribute name="label" type="onlyDigitsString"/>
+			<xs:attribute name="label" type="xs:string"/>
 			<xs:attribute name="quality_control" type="xs:string"/>
-			<!-- DONE: seite 42: the label may be composed of digits only-->
-			<!-- TODO: quality_control - alphanumeric -->
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="adhesive_face">
@@ -893,20 +1394,6 @@
 			<xs:attribute name="base" type="integerPositive"/>
 			<xs:attribute name="thickness" type="floatZeroPositive"/>
 			<xs:attribute name="material" type="xs:string"/>
-		</xs:complexType>
-	</xs:element>
-	<!--
-<xs:element name="loc_list">
-	<xs:complexType>
-		<xs:sequence>
-			<xs:element ref="loc" minOccurs="3" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-</xs:element>
--->
-	<xs:element name="loc">
-		<xs:complexType>
-			<xs:attribute name="v" type="xs:integer" use="required"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="face_list">
@@ -992,8 +1479,13 @@
 		</xs:unique>
 	</xs:element>
 	<xs:element name="string">
+		<!-- TODO: checkare mhpws prpeei na mpei to xs:simpleContent & xs:extension na mpoun kai sta real/int etc. -->
 		<xs:complexType>
-			<xs:attribute name="key" type="nonEmptyString" use="required"/>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="key" type="nonEmptyString" use="required"/>
+				</xs:extension>
+			</xs:simpleContent>
 			<!-- TODO: key - alphanumeric -->
 		</xs:complexType>
 	</xs:element>
