@@ -1,16 +1,29 @@
 <?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" 
-elementFormDefault="qualified" vc:minVersion="1.1">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" vc:minVersion="1.1">
 	<xs:element name="xmcf">
 		<xs:complexType>
 			<xs:all>
+				<xs:element ref="units" minOccurs="0" maxOccurs="1"/>
 				<xs:element name="date" type="xs:date" minOccurs="0" maxOccurs="1"/>
 				<xs:element name="version" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element ref="units" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="appdata" minOccurs="0"/>
-				<xs:element ref="femdata" minOccurs="0"/>
+				<xs:element ref="appdata" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="femdata" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="connection_group" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:all>
+			<xs:assert test="if( ( not(exists(units)) and (exists(connection_group/connection_list/connection_0d/robscan[@orientation_angle lt -180.0]) or exists(connection_group/connection_list/connection_0d/robscan[@orientation_angle gt 180.0]) ) ) or 
+						( (units/@angle='deg') and (exists(connection_group/connection_list/connection_0d/robscan[@orientation_angle lt -180.0]) or exists(connection_group/connection_list/connection_0d/robscan[@orientation_angle gt 180.0])) ) or
+						( (units/@angle='rad') and (exists(connection_group/connection_list/connection_0d/robscan[@orientation_angle lt -3.14159265358979323846]) or exists(connection_group/connection_list/connection_0d/robscan[@orientation_angle gt 3.14159265358979323846])) ) ) then false() else true()"/>
+
+			<xs:assert test="if( ( not(exists(units)) and (exists(connection_group/connection_list/connection_1d/seamweld/*/sheet_parameter[@sheet_angle lt 0]) or 
+											exists(connection_group/connection_list/connection_1d/seamweld/*/sheet_parameter[@sheet_angle ge 360]) ) ) or 
+											
+						( (units/@angle='deg') and (exists(connection_group/connection_list/connection_1d/seamweld/*/sheet_parameter[@sheet_angle lt 0]) or 
+											exists(connection_group/connection_list/connection_1d/seamweld/*/sheet_parameter[@sheet_angle ge 360]) ) ) or 
+											
+						( (units/@angle='rad') and (exists(connection_group/connection_list/connection_1d/seamweld/*/sheet_parameter[@sheet_angle lt 0]) or 
+											exists(connection_group/connection_list/connection_1d/seamweld/*/sheet_parameter[@sheet_angle ge 2*3.14159265358979323846]) ) ) )
+						
+						then false() else true()"/>
 		</xs:complexType>
 		<xs:unique name="iduq">
 			<xs:selector xpath="connection_group"/>
@@ -75,118 +88,88 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 	</xs:element>
 	<xs:element name="appdata">
 		<xs:complexType>
-			<xs:all>
-				<!--<xs:element ref="_" minOccurs="0" maxOccurs="1"/>-         				- TODO check: <appdata/> must contain at least one nested element named after the application or user that is - maybe use choice -->
-				<xs:element name="ANSA" minOccurs="0" maxOccurs="1">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:any/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<!-- intented to interpret the data -->
-				<xs:element name="FEMFAT" minOccurs="0" maxOccurs="1">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:any/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<!-- TODO allow <appdata/> contain more than these applications -->
-				<xs:element name="HyperMesh" minOccurs="0" maxOccurs="1">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:any/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="LMSVirtualLab" minOccurs="0" maxOccurs="1">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:any/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="MEDINA" minOccurs="0" maxOccurs="1">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:any/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="NCODE" minOccurs="0" maxOccurs="1">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:any/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="SyncroFIT" minOccurs="0" maxOccurs="1">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:any/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-			</xs:all>
+			<!-- 
+				NOTE: According to document, the following are the acceptable contents of appdata.
+			          They are commented, in order to be most clear that more applications would be added.
+			-->
+			<!--<xs:choice minOccurs="1" maxOccurs="unbounded">
+				<xs:element name="ANSA"/>
+				<xs:element name="FEMFAT"/>
+				<xs:element name="HyperMesh"/>
+				<xs:element name="LMSVirtualLab"/>
+				<xs:element name="MEDINA"/>
+				<xs:element name="NCODE"/>
+				<xs:element name="SyncroFIT"/>
+				<xs:any/>
+			</xs:choice>-->
+			<xs:sequence>
+				<xs:any minOccurs="0" processContents="skip"/>
+			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="femdata">
 		<xs:complexType>
+			<!-- 
+				NOTE: According to document, the following are the acceptable contents of femdata.
+					  In case that more applications would be added, we should use commented code instead.
+			-->
+			<!--<xs:sequence>
+				<xs:any minOccurs="0" processContents="skip"/>
+			</xs:sequence>-->
 			<xs:all>
 				<xs:element name="PAMCRASH" minOccurs="0" maxOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
+							<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="LSDYNA" minOccurs="0" maxOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
+							<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="PERMAS" minOccurs="0" maxOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
+							<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="ABAQUS" minOccurs="0" maxOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
+							<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="RADIOSS" minOccurs="0" maxOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
+							<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="OPTISTRUCT" minOccurs="0" maxOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
+							<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="NASTRAN" minOccurs="0" maxOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
+							<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="FEMFAT" minOccurs="0" maxOccurs="1">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
+							<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
@@ -205,6 +188,10 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 	</xs:element>
 	<xs:element name="CAE_PART_MEMBER">
 		<xs:complexType>
+			<!-- NOTE: <any> is used in order to validate every schema. Alternatively, the following 
+					   schema should be used or replaced with FATXML specification.
+   			-->
+			<!-- 
 			<xs:sequence>
 				<xs:element name="ENTITY" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
@@ -214,6 +201,10 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 						</xs:all>
 					</xs:complexType>
 				</xs:element>
+			</xs:sequence>
+			-->
+			<xs:sequence>
+				<xs:any minOccurs="0" processContents="skip"/>
 			</xs:sequence>
 			<xs:attribute name="ID" type="integerPositive"/>
 		</xs:complexType>
@@ -225,18 +216,54 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 				<xs:element ref="connection_list" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="contact_list" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
-			<xs:attribute name="id" use="required"/>
+			<xs:attribute name="id" type="xs:int" use="required"/>
+			<xs:assert test="if( exists(contact_list/contact/partner/@label) and not(every $x in contact_list/contact/partner/@label satisfies 
+							( connected_to/part[@label=$x] or connected_to/assy/part[@label=$x] ) ) ) then false() else true()"/>
+			<xs:assert test="if( exists(contact_list/contact/partner/@pid)   and not(every $x in contact_list/contact/partner/@pid satisfies 
+							( connected_to/part[@pid=$x] or connected_to/assy/part[@pid=$x] ) ) ) then false() else true()"/>
+			<xs:assert test="if ( exists(connection_list/connection_0d/connection_0d_type/threaded_connection/contact_list/contact) and count(connection_list/connection_0d/threaded_connection/contact_list/contact) ge ( count(connected_to/part) + count(connected_to/assy) ) ) then false() else true()"/>
+			<xs:assert test="if ( exists(connection_list/connection_0d/connection_0d_type/threaded_connection/contact_list/contact) and connection_list/connection_0d/threaded_connection/contact_list/contact/@index eq max( connected_to/*/@index) ) then false() else true()"/>
+			<xs:assert test="every $x in connection_list/connection_1d/seamweld/*/sheet_parameter satisfies connected_to/part[@index=$x/@index]"/>
+		</xs:complexType>
+		<xs:unique name="uniqueContact">
+			<xs:selector xpath="contact_list"/>
+			<xs:field xpath="*/@label"/> 
+		</xs:unique>
+	</xs:element>
+	<xs:element name="contact_list">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="contact" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:all>
+							<xs:element ref="partner" minOccurs="2" maxOccurs="2"/>
+							<xs:element ref="coefficients" minOccurs="1" maxOccurs="1"/>	
+						</xs:all>
+					</xs:complexType>
+				</xs:element>
+			</xs:all>
+			<!-- 
+				NOTE: According to document, any set of physical contact partners must not appear more than once.
+					  The first <xs:assert>, ensures that every pair of partners is distinct when it appears with the same
+					  sequence. 
+			          The second and commented <xs:assert>, ensures that every partners'pair is distinct irrespective of the sequence of partners. 
+					  An extra check should be added for the case of the contact between one partner.
+			-->
+			<xs:assert test="count(contact) eq count( distinct-values( contact/concat(partner[1]/@label, partner[2]/@label) ) )"/>
+			<!--<xs:assert test="count( distinct-values( contact/concat(partner[1]/@label, partner[2]/@label) ) ) + 
+								count( distinct-values( contact/concat(partner[2]/@label, partner[1]/@label) ) ) eq 
+									count( distinct-values( (contact/concat(partner[1]/@label, partner[2]/@label), contact/concat(partner[2]/@label, partner[1]/@label)) ) )"/>-->
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="connected_to">
 		<xs:complexType>
-			<xs:choice minOccurs="1" maxOccurs="unbounded">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
 				<xs:element name="part">
 					<xs:complexType>
 						<xs:attribute name="pid" type="integerPositive"/>
 						<xs:attribute name="index" type="integerPositive" use="required"/>
 						<xs:attribute name="label" type="xs:string"/>
-						<xs:assert test="  if(not( exists(@label) ) and not( exists(@pid) ) ) then false() else true()"/>		<!-- ara an den uparxei tipota apo ta 2 einai la8os  -->
+						<xs:assert test="  if(not( exists(@label) ) and not( exists(@pid) ) ) then false() else true()"/>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="assy">
@@ -245,9 +272,8 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 							<xs:element name="part" minOccurs="2" maxOccurs="unbounded">
 								<xs:complexType>
 									<xs:attribute name="pid" type="integerPositive"/>
-									<xs:attribute name="index" type="integerPositive"/>
 									<xs:attribute name="label" type="xs:string"/>
-									<xs:assert test="  if(not( exists(@label) ) and not( exists(@pid) ) ) then false() else true()"/>		<!-- ara an den uparxei tipota apo ta 2 einai la8os  -->
+									<xs:assert test="  if(not( exists(@label) ) and not( exists(@pid) ) ) then false() else true()"/>
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
@@ -261,48 +287,21 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:field xpath="@index"/>
 		</xs:unique>
 		<xs:unique name="assyΙndexuq">
-			<!-- TODO: check for unique within the parent element and not in all the file -->
 			<xs:selector xpath="assy"/>
 			<xs:field xpath="@index"/>
 		</xs:unique>
-	</xs:element>
-	<xs:element name="contact_list">
-		<!-- TODO: any set of contact partners must not appear more than once...-->
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="contact" minOccurs="1" maxOccurs="unbounded"/>
-			</xs:sequence>
-			<xs:attribute name="index" type="integerPositive"/>
-			<xs:attribute name="thread" type="xs:boolean" default="false"/>
-			<xs:attribute name="static_friction" type="floatPositive"/>
-			<xs:attribute name="kinetic_friction" type="floatPositive"/>
-			<!-- TODO: Maximum no. of items: cardinality of <connected_to>-1, perhaps use of assert -->
-			<!-- Seite 37: the element <contact_list/> does not allow for any attributes-->
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="contact">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="partner" minOccurs="2" maxOccurs="2"/>
-				<xs:element ref="coefficients" minOccurs="1" maxOccurs="1"/>
-			</xs:sequence>
-		</xs:complexType>
 	</xs:element>
 	<xs:element name="partner">
 		<xs:complexType>
 			<xs:attribute name="label" type="xs:string"/>
 			<xs:attribute name="pid" type="integerPositive"/>
-			<!-- TODO: restrict that label value is mentioned in <connected_to/> of the current <connection_group/> -->
-			<!-- TODO: restrict that pid value is mentioned in <connected_to/> of the current <connection_group/> -->
+			<xs:assert test="if( not( exists(@label) ) and not( exists(@pid) ) ) then false() else true()"/>
 		</xs:complexType>
-		<!-- TODO: Restrict that at least one of laber or pid exists.-->
 	</xs:element>
-	<!-- TODO: implement the choice-equivalent for attributes && restrict that <partner/> does not allow nested elements -->
 	<xs:element name="coefficients">
 		<xs:complexType>
 			<xs:attribute name="static_friction" type="floatZeroPositive"/>
 			<xs:attribute name="kinetic_friction" type="floatZeroPositive"/>
-			<!-- TODO: implement the choice-equivalent for attributes -->
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="connection_list">
@@ -317,29 +316,18 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 	<!-- ***************************************************************************************************************************************************************** -->
 	<xs:element name="connection_0d">
 		<xs:complexType>
-			<xs:sequence>
+			<xs:all>
 				<xs:element name="loc" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="appdata" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="custom_attributes_list" minOccurs="0" maxOccurs="1"/>
-				<xs:choice minOccurs="0" maxOccurs="1">
-					<xs:element ref="bolt"/>
-					<xs:element ref="gumdrop"/>
-					<xs:element ref="rivet"/>
-					<xs:element ref="robscan"/>
-					<xs:element ref="screw"/>
-					<xs:element ref="spotweld"/>
-					<xs:element ref="contact_list"/>
-					<xs:element ref="threaded_connection"/>
-					<xs:element ref="clinch"/>
-					<xs:element ref="heat_stake"/>
-					<xs:element ref="clip"/>
-					<xs:element ref="nail"/>
-				</xs:choice>
-			</xs:sequence>
+				<xs:element ref="connection_0d_type" minOccurs="1" maxOccurs="1"/>
+			</xs:all>
 			<xs:attribute name="label" type="xs:string"/>
 			<xs:attribute name="quality_control" type="xs:string"/>
+			<xs:assert test="every $r in connection_0d/rivet satisfies ($r/@head_height + $r/@sink_size > 0)"/>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="connection_0d_type" abstract="true"/>
 	<xs:element name="normal_direction">
 		<xs:complexType>
 			<xs:attribute name="x" type="xs:float" use="required"/>
@@ -354,7 +342,7 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:attribute name="z" type="xs:float" use="required"/>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="spotweld">
+	<xs:element name="spotweld" substitutionGroup="connection_0d_type sequence_connection_0d_type">
 		<xs:complexType>
 			<xs:attribute name="diameter" type="floatPositive"/>
 			<xs:attribute name="technology">
@@ -369,7 +357,7 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="robscan">
+	<xs:element name="robscan" substitutionGroup="connection_0d_type">
 		<xs:complexType>
 			<xs:all>
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
@@ -382,29 +370,16 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:attribute name="pattern_width" type="floatPositive"/>
 			<xs:attribute name="pattern_length" type="floatPositive"/>
 			<xs:attribute name="mirrored" type="xs:boolean" default="false"/>
-			<xs:attribute name="orientation_angle">
-				<xs:simpleType>
-					<xs:restriction base="xs:float">
-						<xs:minInclusive value="-180"/>
-						<xs:maxInclusive value="180"/>
-					</xs:restriction>
-					<!-- TODO: an exoume moires.. an exoume aktinia?! -->
-				</xs:simpleType>
-			</xs:attribute>
+			<xs:attribute name="orientation_angle" type="xs:float"/>
 			<xs:attribute name="filler_material" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="rivet">
+	<xs:element name="rivet" substitutionGroup="connection_0d_type">
 		<xs:complexType>
-			<xs:sequence>
+			<xs:all>
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
-				<xs:choice minOccurs="0" maxOccurs="1">
-					<xs:element ref="blind"/>
-					<xs:element ref="self_piercing"/>
-					<xs:element ref="solid"/>
-					<xs:element ref="swop"/>
-				</xs:choice>
-			</xs:sequence>
+				<xs:element ref="rivet_type" minOccurs="0" maxOccurs="1"/>
+			</xs:all>
 			<xs:attribute name="shaft_diameter" type="floatPositive"/>
 			<xs:attribute name="length" type="floatPositive"/>
 			<xs:attribute name="head_diameter" type="floatPositive"/>
@@ -413,11 +388,11 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:attribute name="sink_size" type="floatZeroPositive"/>
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
-			<!-- TODO: if at least one of them is specified head_height+sink_size > 0 is required -->
-			<xs:assert test=" if( ( exists(@head_height) or exists(@sink_size) ) and @head_height + @sink_size > 0 ) then true() else false()"/>
+			<xs:assert test=" if ( (exists(@head_height) or exists(@sink_size) ) and (@head_height + @sink_size le 0)) then false() else true()"/>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="blind">
+	<xs:element name="rivet_type" abstract="true"/>
+	<xs:element name="blind" substitutionGroup="rivet_type">
 		<xs:complexType>
 			<xs:attribute name="min_grip" type="floatPositive"/>
 			<xs:attribute name="max_grip" type="floatPositive"/>
@@ -426,7 +401,7 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:assert test="@max_grip >= @min_grip"/>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="self_piercing">
+	<xs:element name="self_piercing" substitutionGroup="rivet_type">
 		<xs:complexType>
 			<xs:attribute name="hardness" type="floatPositive"/>
 			<xs:attribute name="head_label" type="xs:string"/>
@@ -436,7 +411,7 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:attribute name="die_depth" type="floatPositive"/>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="solid">
+	<xs:element name="solid" substitutionGroup="rivet_type">
 		<xs:complexType>
 			<xs:attribute name="min_grip" type="floatPositive"/>
 			<xs:attribute name="max_grip" type="floatPositive"/>
@@ -446,13 +421,11 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:attribute name="shoulder_length" type="floatPositive"/>
 			<xs:attribute name="tennon_diameter" type="floatPositive"/>
 			<xs:attribute name="tennon_length" type="floatPositive"/>
-			<!-- TODO: hole_diameter is defined with hole_depth and vice versa-->
-			<!-- TODO: tennon_diameter exist only if shoulder_diameter is defined and vice versa -->
 			<xs:assert test="if( ( exists(@hole_diameter) and exists(@hole_depth) ) or ( not(exists(@hole_diameter)) and not(exists(@hole_depth)) ) ) then true() else false()"/>
 			<xs:assert test="if( ( exists(@tennon_diameter) and exists(@shoulder_diameter) ) or ( not(exists(@tennon_diameter)) and not(exists(@shoulder_diameter)) ) ) then true() else false()"/>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="swop">
+	<xs:element name="swop" substitutionGroup="rivet_type">
 		<xs:complexType>
 			<xs:attribute name="insert_shape" type="xs:string"/>
 			<xs:attribute name="insert_height" type="floatPositive"/>
@@ -469,33 +442,32 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="threaded_connection">
+	<xs:element name="threaded_connection" substitutionGroup="connection_0d_type">
 		<xs:complexType>
-			<xs:sequence>
+			<xs:all>
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
-				<xs:choice minOccurs="1" maxOccurs="1">
-					<xs:element ref="bolt"/>
-					<xs:element ref="screw"/>
-				</xs:choice>
+				<xs:element ref="threaded_connection_type" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="washer" minOccurs="0" maxOccurs="1"/>
 				<xs:element name="contact_list" minOccurs="0" maxOccurs="1">
 					<xs:complexType>
 						<xs:all>
-							<!-- TODO: maxOccurs = maximum no. of items: cardinality of <connected_to>-1 -->
-							<xs:element name="contact" minOccurs="1" maxOccurs="unbounded">				<!-- sth selida 37 xamhla leei oti den epitrepei attributes auto to element -->
+							<xs:element name="contact" minOccurs="1" maxOccurs="unbounded">
 								<xs:complexType>
 									<xs:attribute name="index" type="integerPositive"/>
 									<xs:attribute name="thread" type="xs:boolean" default="false"/>
 									<xs:attribute name="static_friction" type="floatPositive"/>
 									<xs:attribute name="kinetic_friction" type="floatPositive"/>
-									<!-- TODO: check that is one of the indices defined in <connected_to> but not the last one -->
-									<!-- TODO: check that at least one of static/kinetic is specified -->
+									<xs:assert test="if( not( exists(@static_friction) ) and not( exists(@kinetic_friction) ) ) then false() else true()"/>
 								</xs:complexType>
 							</xs:element>
 						</xs:all>
 					</xs:complexType>
+					<xs:unique name="indexuq">
+						<xs:selector xpath="contact"/>
+						<xs:field xpath="@index"/>
+					</xs:unique>
 				</xs:element>
-			</xs:sequence>
+			</xs:all>
 			<xs:attribute name="diameter" type="floatZeroPositive"/>
 			<xs:attribute name="length" type="floatPositive"/>
 			<xs:attribute name="thread_length" type="floatPositive"/>
@@ -512,13 +484,11 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:attribute name="kinetic_friction" type="floatPositive"/>
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
-			<!--<xs:assert test=" if (@length>0 and @thread_length>0)             check ki auto to assert
-							  then @length >= @thread_length"/> -->
-			<xs:assert test="@length >= @thread_length"/>
-			<!-- TODO: assert - if at least one of them is specified, head_heigth + sink_size > 0 -->
-			<xs:assert test=" if( ( exists(@head_height) or exists(@sink_size) ) and @head_height + @sink_size > 0 ) then true() else false()"/>
+			<xs:assert test="if( @length lt @thread_length ) then false() else true()"/>
+			<xs:assert test=" if ( (exists(@head_height) or exists(@sink_size) ) and (@head_height + @sink_size le 0)) then false() else true()"/>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="threaded_connection_type" abstract="true"/>
 	<xs:element name="washer">
 		<xs:complexType>
 			<xs:attribute name="outer_diameter" type="floatPositive"/>
@@ -529,8 +499,7 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:attribute name="kinetic_friction" type="floatPositive"/>
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
-			<!-- TODO: NO part code, if attached -->
-			<xs:assert test="if( @attached=true and exists(@part_code) ) then false() else true()"/>
+			<xs:assert test="if( @attached = true() and exists(@part_code) ) then false() else true()"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="nut">
@@ -547,20 +516,24 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:attribute name="clipped_to" type="integerPositive"/>
 			<xs:attribute name="fixed_to" type="integerPositive"/>
 			<xs:attribute name="strength_property_class" type="xs:string"/>
-			<!-- TODO: NO part code, if attached -->
-			<xs:assert test="if( @attached=true and exists(@part_code) ) then false() else true()"/>
+			<xs:attribute name="part_code" type="xs:string"/>
+			<xs:assert test="if( ( exists(@clipped_to) or exists(@fixed_to) ) and exists(@part_code) ) then false() else true()"/>
+			<xs:assert test="if( exists(@fixed_to) and exists(@clipped_to) ) then false() else true()"/>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="bolt">
+	<xs:element name="bolt" substitutionGroup="threaded_connection_type">
 		<xs:complexType>
 			<xs:all>
 				<xs:element ref="nut" minOccurs="1" maxOccurs="1"/>
 			</xs:all>
 			<xs:attribute name="clipped_to" type="integerPositive"/>
 			<xs:attribute name="fixed_to" type="integerPositive"/>
+			<xs:assert test="if( exists(@fixed_to) and exists(@clipped_to) ) then false() else true()"/>
+			<xs:assert test="if( exists(nut/@fixed_to) and exists(@fixed_to) ) then false() else true()"/>
+			<xs:assert test="if( exists(nut/@clipped_to) and exists(@clipped_to) ) then false() else true()"/>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="screw">
+	<xs:element name="screw" substitutionGroup="threaded_connection_type">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="flow_drilled" minOccurs="0" maxOccurs="unbounded"/>
@@ -573,17 +546,16 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:attribute name="pre_machined_hole_diameter" type="floatZeroPositive"/>
 			<xs:attribute name="pre_machined_hole_index" type="integerPositive"/>
 			<xs:attribute name="pilot_hole_diameter" type="floatZeroPositive"/>
-			<!-- TODO: exist only if <connected_to> properly filled out with parts to be connected -->
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="gumdrop">
+	<xs:element name="gumdrop" substitutionGroup="connection_0d_type sequence_connection_0d_type">
 		<xs:complexType>
-			<xs:attribute name="diameter" type="floatZeroPositive"/>
+			<xs:attribute name="diameter" type="floatZeroPositive"/>			<!-- NOTE: floatPositive in doc, relaxed to floatZeroPositive  -->
 			<xs:attribute name="mass" type="floatZeroPositive"/>
 			<xs:attribute name="material" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="clinch">
+	<xs:element name="clinch" substitutionGroup="connection_0d_type">
 		<xs:complexType>
 			<xs:all>
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
@@ -603,7 +575,7 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="heat_stake">
+	<xs:element name="heat_stake" substitutionGroup="connection_0d_type">
 		<xs:complexType>
 			<xs:all>
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
@@ -615,12 +587,12 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:attribute name="head_height" type="floatZeroPositive"/>
 			<xs:attribute name="void_diameter" type="floatZeroPositive"/>
 			<xs:attribute name="hole_diameter" type="floatPositive"/>
-			<!-- TODO: diameter < hole_diameter-->
-			<!-- TODO: void_diameter < diameter -->
-			<!-- TODO: hole_diameter < head_diameter -->
+			<xs:assert test="if( exists(@diameter) and exists(@hole_diameter) and @diameter ge @hole_diameter ) then false() else true()"/>
+			<xs:assert test="if( exists(@void_diameter) and exists(@diameter) and @void_diameter ge @diameter ) then false() else true()"/>
+			<xs:assert test="if( exists(@hole_diameter) and exists(@head_diameter) and @hole_diameter ge @head_diameter ) then false() else true()"/>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="clip">
+	<xs:element name="clip" substitutionGroup="connection_0d_type">
 		<xs:complexType>
 			<xs:all>
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
@@ -637,13 +609,11 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:attribute name="clipped_to" type="integerPositive"/>
 			<xs:attribute name="material" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
-			<!-- TODO: hole_length > 0 implies hole_diameter > 0 -->
-			<!-- TODO: pin_width > 0 implies pin_diameter > 0 -->
-			<xs:assert test="if( @hole_length gt 0 and @hole_diameter = 0 ) then false() else true()"/> 
-			<xs:assert test="if( @pin_width gt 0 and @pin_diameter = 0 ) then false() else true()"/> 
+			<xs:assert test="if( @hole_length gt 0 and @hole_diameter = 0 ) then false() else true()"/>
+			<xs:assert test="if( @pin_width gt 0 and @pin_diameter = 0 ) then false() else true()"/>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="nail">
+	<xs:element name="nail" substitutionGroup="connection_0d_type">
 		<xs:complexType>
 			<xs:all>
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
@@ -664,15 +634,15 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 	<!-- ************************************************************************************************************************************************************* -->
 	<xs:element name="connection_1d">
 		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="loc_list">
+			<xs:all>
+				<xs:element name="loc_list" minOccurs="1" maxOccurs="unbounded">			<!-- NOTE: Cardinality is assumed from examples -->
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="loc" minOccurs="1" maxOccurs="unbounded">
 								<xs:complexType>
 									<xs:simpleContent>
 										<xs:extension base="xs:string">
-											<xs:attribute name="v" type="xs:integer" use="required"/>
+											<xs:attribute name="v" type="xs:float" use="required"/>
 										</xs:extension>
 									</xs:simpleContent>
 								</xs:complexType>
@@ -682,19 +652,16 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 					</xs:complexType>
 				</xs:element>
 				<xs:element ref="custom_attributes_list" minOccurs="0" maxOccurs="1"/>
-				<xs:choice minOccurs="0" maxOccurs="1">
-					<xs:element ref="seamweld"/>
-					<xs:element ref="adhesive_line"/>
-					<xs:element ref="hemming"/>
-					<xs:element ref="sequence_connection_0d"/>
-				</xs:choice>
+				<xs:element ref="connection_1d_type" minOccurs="1" maxOccurs="1"/>			<!-- NOTE: exactly 1, after discussion -->
 				<xs:element ref="contact_list" minOccurs="0" maxOccurs="1"/>
-			</xs:sequence>
+				<xs:element ref="appdata" minOccurs="0" maxOccurs="1"/>						<!-- NOTE: it is referenced at page 30, but it isn't contained in connection_1d description -->
+			</xs:all>
 			<xs:attribute name="label" type="xs:string"/>
 			<xs:attribute name="quality_control" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="seamweld">
+	<xs:element name="connection_1d_type" abstract="true"/>
+	<xs:element name="seamweld" substitutionGroup="connection_1d_type">
 		<xs:complexType>
 			<xs:choice minOccurs="0" maxOccurs="1">
 				<xs:element ref="butt_joint"/>
@@ -756,9 +723,6 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 						<xs:attribute name="gap" type="floatPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
-						<xs:assert test="if( (exists(./units/@angle) and (./units/@angle='deg') and (@sheet_angle ge 0) and (@sheet_angle lt 360) ) or 
-						(exists(./units/@angle) and (./units/@angle='rad') and (@sheet_angle ge 0) and (@sheet_angle lt 6.2831853 ) ) ) then true() else false()"/>
-						<!-- TODO: add restriction with range [0, 360) -->
 					</xs:complexType>
 				</xs:element>
 			</xs:all>
@@ -836,9 +800,6 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 						<xs:attribute name="gap" type="floatPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
-						<xs:assert test="if( (exists(./units/@angle) and (./units/@angle='deg') and (@sheet_angle ge 0) and (@sheet_angle lt 360) ) or 
-						(exists(./units/@angle) and (./units/@angle='rad') and (@sheet_angle ge 0) and (@sheet_angle lt 6.2831853 ) ) ) then true() else false()"/>
-						<!-- TODO: add restriction with range [0, 360) -->
 					</xs:complexType>
 				</xs:element>
 			</xs:all>
@@ -856,7 +817,7 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 	</xs:element>
 	<xs:element name="edge_weld">
 		<xs:complexType>
-			<xs:sequence>
+			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:attribute name="u" use="required">
@@ -898,12 +859,9 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 						<xs:attribute name="gap" type="floatPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
-						<xs:assert test="if( (exists(./units/@angle) and (./units/@angle='deg') and (@sheet_angle ge 0) and (@sheet_angle lt 360) ) or 
-						(exists(./units/@angle) and (./units/@angle='rad') and (@sheet_angle ge 0) and (@sheet_angle lt 6.2831853 ) ) ) then true() else false()"/>
-						<!-- TODO: add restriction with range [0, 360) -->
 					</xs:complexType>
 				</xs:element>
-			</xs:sequence>
+			</xs:all>
 			<xs:attribute name="base" type="integerPositive"/>
 			<xs:attribute name="technology">
 				<xs:simpleType>
@@ -918,7 +876,7 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 	</xs:element>
 	<xs:element name="i_weld">
 		<xs:complexType>
-			<xs:sequence>
+			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:attribute name="u" use="required">
@@ -951,12 +909,9 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 						<xs:attribute name="gap" type="floatPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
-						<xs:assert test="if( (exists(./units/@angle) and (./units/@angle='deg') and (@sheet_angle ge 0) and (@sheet_angle lt 360) ) or 
-						(exists(./units/@angle) and (./units/@angle='rad') and (@sheet_angle ge 0) and (@sheet_angle lt 6.2831853 ) ) ) then true() else false()"/>
-						<!-- TODO: add restriction with range [0, 360) -->
 					</xs:complexType>
 				</xs:element>
-			</xs:sequence>
+			</xs:all>
 			<xs:attribute name="base" type="integerPositive"/>
 			<xs:attribute name="technology">
 				<xs:simpleType>
@@ -971,7 +926,7 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 	</xs:element>
 	<xs:element name="overlap_weld">
 		<xs:complexType>
-			<xs:sequence>
+			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:attribute name="base" type="integerPositive"/>
@@ -1030,12 +985,9 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 						<xs:attribute name="gap" type="floatPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
-						<xs:assert test="if( (exists(./units/@angle) and (./units/@angle='deg') and (@sheet_angle ge 0) and (@sheet_angle lt 360) ) or 
-						(exists(./units/@angle) and (./units/@angle='rad') and (@sheet_angle ge 0) and (@sheet_angle lt 6.2831853 ) ) ) then true() else false()"/>
-						<!-- TODO: add restriction with range [0, 360) -->
 					</xs:complexType>
 				</xs:element>
-			</xs:sequence>
+			</xs:all>
 			<xs:attribute name="base" type="integerPositive"/>
 			<xs:attribute name="technology">
 				<xs:simpleType>
@@ -1050,7 +1002,7 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 	</xs:element>
 	<xs:element name="y_joint">
 		<xs:complexType>
-			<xs:sequence>
+			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:attribute name="base" type="integerPositive"/>
@@ -1111,12 +1063,9 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 						<xs:attribute name="gap" type="floatPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
-						<xs:assert test="if( (exists(./units/@angle) and (./units/@angle='deg') and (@sheet_angle ge 0) and (@sheet_angle lt 360) ) or 
-						(exists(./units/@angle) and (./units/@angle='rad') and (@sheet_angle ge 0) and (@sheet_angle lt 6.2831853 ) ) ) then true() else false()"/>
-						<!-- TODO: add restriction with range [0, 360) -->
 					</xs:complexType>
 				</xs:element>
-			</xs:sequence>
+			</xs:all>
 			<xs:attribute name="base" type="integerPositive"/>
 			<xs:attribute name="technology">
 				<xs:simpleType>
@@ -1131,7 +1080,7 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 	</xs:element>
 	<xs:element name="k_joint">
 		<xs:complexType>
-			<xs:sequence>
+			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:attribute name="base" type="integerPositive"/>
@@ -1192,12 +1141,9 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 						<xs:attribute name="gap" type="floatPositive" use="required"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive" use="required"/>
 						<xs:attribute name="sheet_angle" type="xs:float" use="required"/>
-						<xs:assert test="if( (exists(./units/@angle) and (./units/@angle='deg') and (@sheet_angle ge 0) and (@sheet_angle lt 360) ) or 
-						(exists(./units/@angle) and (./units/@angle='rad') and (@sheet_angle ge 0) and (@sheet_angle lt 6.2831853 ) ) ) then true() else false()"/>
-						<!-- TODO: add restriction with range [0, 360) -->
 					</xs:complexType>
 				</xs:element>
-			</xs:sequence>
+			</xs:all>
 			<xs:attribute name="base" type="integerPositive"/>
 			<xs:attribute name="technology">
 				<xs:simpleType>
@@ -1212,7 +1158,7 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 	</xs:element>
 	<xs:element name="cruciform_joint">
 		<xs:complexType>
-			<xs:sequence>
+			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:attribute name="base" type="integerPositive"/>
@@ -1273,12 +1219,9 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 						<xs:attribute name="gap" type="floatPositive" use="required"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive" use="required"/>
 						<xs:attribute name="sheet_angle" type="xs:float" use="required"/>
-						<xs:assert test="if( (exists(./units/@angle) and (./units/@angle='deg') and (@sheet_angle ge 0) and (@sheet_angle lt 360) ) or 
-						(exists(./units/@angle) and (./units/@angle='rad') and (@sheet_angle ge 0) and (@sheet_angle lt 6.2831853 ) ) ) then true() else false()"/>
-						<!-- TODO: add restriction with range [0, 360) -->
 					</xs:complexType>
 				</xs:element>
-			</xs:sequence>
+			</xs:all>
 			<xs:attribute name="base" type="integerPositive"/>
 			<xs:attribute name="technology">
 				<xs:simpleType>
@@ -1293,7 +1236,7 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 	</xs:element>
 	<xs:element name="flared_joint">
 		<xs:complexType>
-			<xs:sequence>
+			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:attribute name="u" use="required">
@@ -1318,7 +1261,7 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 					</xs:complexType>
 				</xs:element>
-			</xs:sequence>
+			</xs:all>
 			<xs:attribute name="base" type="integerPositive"/>
 			<xs:attribute name="technology">
 				<xs:simpleType>
@@ -1329,7 +1272,7 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="adhesive_line">
+	<xs:element name="adhesive_line" substitutionGroup="connection_1d_type">
 		<xs:complexType>
 			<xs:attribute name="base" type="integerPositive"/>
 			<xs:attribute name="width" type="floatZeroPositive"/>
@@ -1337,7 +1280,7 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:attribute name="material" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="hemming">
+	<xs:element name="hemming" substitutionGroup="connection_1d_type">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="region" minOccurs="0" maxOccurs="3"/>
@@ -1369,17 +1312,19 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:attribute>
+			<xs:assert test="if( (@label eq 'A' or label eq 'C') and exists(connection_1d) and not(exists(connection_1d/adhesive_line))) then false() else true()"/>
+			<xs:assert test="if( (@label eq 'A' or label eq 'C') and exists(connection_2d) and not(exists(connection_2d/adhesive_face))) then false() else true()"/>
+			<xs:assert test="if( (@label eq 'B') and (exists(connection_1d) or exists(connection_2d)) ) then false() else true()"/>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="sequence_connection_0d">
+	<xs:element name="sequence_connection_0d" substitutionGroup="connection_1d_type">
 		<xs:complexType>
 			<xs:all>
-				<xs:element ref="spotweld" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="gumdrop" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="sequence_connection_0d_type" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
 			<xs:attribute name="spacing" type="floatZeroPositive" use="required"/>
 			<xs:attribute name="margin" type="floatZeroPositive" default="0.0"/>
-			<xs:attribute name="priority">
+			<xs:attribute name="priority" default="spacing">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="spacing"/>
@@ -1389,8 +1334,8 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="sequence_connection_0d_type" abstract="true"/>
 	<!-- ***************************************************************************************************************************************************************************** -->
-	<!-- Seite 144: 9 2D connections -->
 	<xs:element name="connection_2d">
 		<xs:complexType>
 			<xs:all>
@@ -1410,14 +1355,21 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<!-- TODO: v: unique within the parent element -->
 				<xs:element ref="face_list" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="appdata" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="custom_attributes_list" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
 			<xs:attribute name="label" type="xs:string"/>
 			<xs:attribute name="quality_control" type="xs:string"/>
+			<xs:assert test="every $x in face_list/face satisfies loc_list/loc[@v=$x/@v1]"/>
+			<xs:assert test="every $x in face_list/face satisfies loc_list/loc[@v=$x/@v2]"/>
+			<xs:assert test="every $x in face_list/face satisfies loc_list/loc[@v=$x/@v3]"/>
+			<xs:assert test="every $x in face_list/face satisfies loc_list/loc[@v=$x/@v4]"/>
 		</xs:complexType>
+		<xs:unique name="vuq">
+			<xs:selector xpath="loc_list/loc"/>
+			<xs:field xpath="@v"/>
+		</xs:unique>
 	</xs:element>
 	<xs:element name="adhesive_face">
 		<xs:complexType>
@@ -1438,10 +1390,10 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:attribute name="v1" type="xs:integer" use="required"/>
 			<xs:attribute name="v2" type="xs:integer" use="required"/>
 			<xs:attribute name="v3" type="xs:integer" use="required"/>
-			<xs:attribute name="v4" type="xs:integer" use="required"/>
-			<!-- must correspond to an v in a loc from loc_list -->
+			<xs:attribute name="v4" type="xs:integer" use="optional"/>
 		</xs:complexType>
 	</xs:element>
+	<!-- ***************************************************************************************************************************************************************************** -->
 	<xs:simpleType name="integerPositive">
 		<xs:restriction base="xs:integer">
 			<xs:minExclusive value="0"/>
@@ -1457,116 +1409,146 @@ elementFormDefault="qualified" vc:minVersion="1.1">
 			<xs:minInclusive value="0.0"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="alphanumeric">
-		<xs:restriction base="xs:string"/>
-		<!--TODO mallon me xs:pattern-->
-	</xs:simpleType>
 	<xs:simpleType name="nonEmptyString">
 		<xs:restriction base="xs:string">
 			<xs:minLength value="1"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="onlyDigitsString">
-		<xs:restriction base="xs:string">
-			<xs:pattern value="[0-9]+"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<!-- Seite 42: 6 Data Common to any Connection -->
 	<xs:element name="custom_attributes_list">
-		<!-- DONE: there must be at least one element inside <custom_attributes_list/> -->
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="custom_attributes" minOccurs="1" maxOccurs="unbounded"/>
 			</xs:sequence>
 		</xs:complexType>
-	</xs:element>
-	<xs:element name="custom_attributes">
-		<!-- DONE: restrict that owner & for are non-empty strings -->
-		<xs:complexType>
-			<xs:choice minOccurs="1" maxOccurs="unbounded">
-				<!-- DONE: restrict that at least one of these elements exists -->
-				<xs:element ref="string" minOccurs="0" maxOccurs="unbounded"/>
-				<xs:element ref="real" minOccurs="0" maxOccurs="unbounded"/>
-				<xs:element ref="integer" minOccurs="0" maxOccurs="unbounded"/>
-				<!-- TODO: int or integer? -->
-				<xs:element ref="string_list" minOccurs="0" maxOccurs="unbounded"/>
-				<xs:element ref="real_list" minOccurs="0" maxOccurs="unbounded"/>
-				<xs:element ref="int_list" minOccurs="0" maxOccurs="unbounded"/>
-			</xs:choice>
-			<xs:attribute name="owner" type="nonEmptyString" use="required"/>
-			<xs:attribute name="for" type="nonEmptyString"/>
-			<!-- DONE: owner & for must be unique within each <custom_attributes_list/> -->
-			<!-- TODO: owner - alphanumeric-->
-			<!-- TODO: for - alphanumeric-->
-		</xs:complexType>
-		<xs:unique name="owneruq">
-			<xs:selector xpath="custom_attributes_list/custom_attributes"/>
+		<xs:unique name="owner_for_unique">
+			<xs:selector xpath="custom_attributes"/>
 			<xs:field xpath="@owner"/>
-		</xs:unique>
-		<xs:unique name="foruq">
-			<xs:selector xpath="custom_attributes_list/custom_attributes"/>
 			<xs:field xpath="@for"/>
 		</xs:unique>
 	</xs:element>
+	<xs:element name="custom_attributes">
+		<xs:complexType>
+			<xs:choice minOccurs="1" maxOccurs="unbounded">
+				<xs:element ref="string"/>
+				<xs:element ref="real"/>
+				<xs:element ref="int"/>
+				<xs:element ref="string_list"/>
+				<xs:element ref="real_list"/>
+				<xs:element ref="int_list"/>
+			</xs:choice>
+			<xs:attribute name="owner" type="nonEmptyString" use="required"/>
+			<xs:attribute name="for" type="nonEmptyString"/>
+		</xs:complexType>
+		<xs:unique name="stringKeyUq">
+			<xs:selector xpath="string"/>
+			<xs:field xpath="@key"/>
+		</xs:unique>
+		<xs:unique name="realKeyUq">
+			<xs:selector xpath="real"/>
+			<xs:field xpath="@key"/>
+		</xs:unique>
+		<xs:unique name="intKeyUq">
+			<xs:selector xpath="int"/>
+			<xs:field xpath="@key"/>
+		</xs:unique>
+		<xs:unique name="stringListKeyUq">
+			<xs:selector xpath="string_list"/>
+			<xs:field xpath="@key"/>
+		</xs:unique>
+		<xs:unique name="realListKeyUq">
+			<xs:selector xpath="real_list"/>
+			<xs:field xpath="@key"/>
+		</xs:unique>
+		<xs:unique name="intListKeyUq">
+			<xs:selector xpath="int_list"/>
+			<xs:field xpath="@key"/>
+		</xs:unique>
+	</xs:element>
 	<xs:element name="string">
-		<!-- TODO: checkare mhpws prpeei na mpei to xs:simpleContent & xs:extension na mpoun kai sta real/int etc. -->
 		<xs:complexType>
 			<xs:simpleContent>
 				<xs:extension base="xs:string">
 					<xs:attribute name="key" type="nonEmptyString" use="required"/>
-				</xs:extension>
+				</xs:extension>	
 			</xs:simpleContent>
-			<!-- TODO: key - alphanumeric -->
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="real">
 		<xs:complexType>
-			<xs:attribute name="key" type="nonEmptyString" use="required"/>
-			<!-- TODO: key - alphanumeric -->
+			<xs:simpleContent>
+				<xs:extension base="xs:float">
+					<xs:attribute name="key" type="nonEmptyString" use="required"/>
+				</xs:extension>
+			</xs:simpleContent>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="integer">
+	<xs:element name="int">
 		<xs:complexType>
-			<xs:attribute name="key" type="nonEmptyString" use="required"/>
-			<!-- TODO: key - alphanumeric -->
+			<xs:simpleContent>
+				<xs:extension base="xs:int">
+					<xs:attribute name="key" type="nonEmptyString" use="required"/>
+				</xs:extension>
+			</xs:simpleContent>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="string_list">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="value" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element name="value" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:string">
+								<xs:attribute name="index" type="integerPositive" use="required"/>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
 			</xs:sequence>
 			<xs:attribute name="key" type="nonEmptyString" use="required"/>
-			<!-- TODO: key - alphanumeric -->
 		</xs:complexType>
-	</xs:element>
-	<xs:element name="value">
-		<xs:complexType>
-			<xs:attribute name="index" type="integerPositive" use="required"/>
-		</xs:complexType>
-		<!--<xs:unique name="indexuq">									- DONE: unique within the parent element -
-			<xs:selector xpath="value"/>							
+		<xs:unique name="stringListIndexUq">
+			<xs:selector xpath="value"/>
 			<xs:field xpath="@index"/>
-		</xs:unique>-->
+		</xs:unique>
 	</xs:element>
 	<xs:element name="real_list">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="value" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element name="value" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:float">
+								<xs:attribute name="index" type="integerPositive" use="required"/>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
 			</xs:sequence>
 			<xs:attribute name="key" type="nonEmptyString" use="required"/>
-			<!-- TODO: key - alphanumeric -->
 		</xs:complexType>
+		<xs:unique name="realListIndexUq">
+			<xs:selector xpath="value"/>
+			<xs:field xpath="@index"/>
+		</xs:unique>
 	</xs:element>
 	<xs:element name="int_list">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="value" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element name="value" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:int">
+								<xs:attribute name="index" type="integerPositive" use="required"/>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
 			</xs:sequence>
 			<xs:attribute name="key" type="nonEmptyString" use="required"/>
-			<!-- TODO: key - alphanumeric -->
 		</xs:complexType>
+		<xs:unique name="intListIndexUq">
+			<xs:selector xpath="value"/>
+			<xs:field xpath="@index"/>
+		</xs:unique>
 	</xs:element>
-	<!-- TODO: implement <value/> rule for string_list - integer_list - real_list -->
-	<!-- TODO: implement 2 Remarks at Page 46 -->
 </xs:schema>
