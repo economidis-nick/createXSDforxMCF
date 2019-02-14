@@ -25,6 +25,8 @@
 						
 						then false() else true()"/>
 		</xs:complexType>
+    
+		<!-- connection_group/id must be unique within xmcf -->
 		<xs:unique name="iduq">
 			<xs:selector xpath="connection_group"/>
 			<xs:field xpath="@id"/>
@@ -89,8 +91,9 @@
 	<xs:element name="appdata">
 		<xs:complexType>
 			<!-- 
-				NOTE: According to document, the following are the acceptable contents of appdata.
-			          They are commented, in order to be most clear that more applications would be added.
+				NOTE: We chose not to restrict the choice of elements under appdata, because the spec says:
+				"The following list does not imply that other application names are forbidden. 
+				Its noly purpose is to reserve the registered names against inappropriate use".
 			-->
 			<!--<xs:choice minOccurs="1" maxOccurs="unbounded">
 				<xs:element name="ANSA"/>
@@ -212,7 +215,7 @@
 	<xs:element name="connection_group">
 		<xs:complexType>
 			<xs:all>
-				<xs:element ref="connected_to" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="connected_to" minOccurs="1" maxOccurs="1"/>			
 				<xs:element ref="connection_list" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="contact_list" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
@@ -221,8 +224,25 @@
 							( connected_to/part[@label=$x] or connected_to/assy/part[@label=$x] ) ) ) then false() else true()"/>
 			<xs:assert test="if( exists(contact_list/contact/partner/@pid)   and not(every $x in contact_list/contact/partner/@pid satisfies 
 							( connected_to/part[@pid=$x] or connected_to/assy/part[@pid=$x] ) ) ) then false() else true()"/>
-			<xs:assert test="if ( exists(connection_list/connection_0d/connection_0d_type/threaded_connection/contact_list/contact) and count(connection_list/connection_0d/threaded_connection/contact_list/contact) ge ( count(connected_to/part) + count(connected_to/assy) ) ) then false() else true()"/>
-			<xs:assert test="if ( exists(connection_list/connection_0d/connection_0d_type/threaded_connection/contact_list/contact) and connection_list/connection_0d/threaded_connection/contact_list/contact/@index eq max( connected_to/*/@index) ) then false() else true()"/>
+			
+			<!-- there can be up to 1 contact with the thread -->
+			<xs:assert test="count(connection_list/connection_0d/connection_0d_type/threaded_connection/contact_list/contact[@thread='true']) le 1"/>
+      
+			<!--contact without thread: "Maximum no. of items = cardinality of <connected_to> -1-->
+			<xs:assert test="if ( exists(connection_list/connection_0d/connection_0d_type/threaded_connection/contact_list/contact) and
+			count(connection_list/connection_0d/connection_0d_type/threaded_connection/contact_list/contact[@thread='true']) eq 0 and
+			count(connection_list/connection_0d/threaded_connection/contact_list/contact) ge ( count(connected_to/part) + count(connected_to/assy) ) ) then false() else true()"/>
+
+			<!--contact with (1) thread: "Maximum no. of items = cardinality of <connected_to> -->
+			<xs:assert test="if ( exists(connection_list/connection_0d/connection_0d_type/threaded_connection/contact_list/contact) and
+			count(connection_list/connection_0d/connection_0d_type/threaded_connection/contact_list/contact[@thread='true']) eq 1 and
+			count(connection_list/connection_0d/threaded_connection/contact_list/contact) gt ( count(connected_to/part) + count(connected_to/assy) ) ) then false() else true()"/>
+			
+			<!--contact/index: "must be one of the indices defined in <connected_to>, but not the last one of them".-->
+			<xs:assert test="if ( exists(connection_list/connection_0d/connection_0d_type/threaded_connection/contact_list/contact) and 
+			connection_list/connection_0d/threaded_connection/contact_list/contact/@index eq max( connected_to/*/@index) ) then false() else true()"/>
+
+			<!--sheet_parameter/index: "it must refer to <part> index attribute-->
 			<xs:assert test="every $x in connection_list/connection_1d/seamweld/*/sheet_parameter satisfies connected_to/part[@index=$x/@index]"/>
 		</xs:complexType>
 		<xs:unique name="uniqueContact">
@@ -243,16 +263,19 @@
 				</xs:element>
 			</xs:all>
 			<!-- 
-				NOTE: According to document, any set of physical contact partners must not appear more than once.
-					  The first <xs:assert>, ensures that every pair of partners is distinct when it appears with the same
+				NOTE: "any set of physical contact partners must not appear more than once within a <contact_list>".
+					      The first <xs:assert>, ensures that every pair of partners is distinct when it appears with the same
 					  sequence. 
 			          The second and commented <xs:assert>, ensures that every partners'pair is distinct irrespective of the sequence of partners. 
 					  An extra check should be added for the case of the contact between one partner.
+					  An extra check should be added for the case of pid is used instead of label.
 			-->
 			<xs:assert test="count(contact) eq count( distinct-values( contact/concat(partner[1]/@label, partner[2]/@label) ) )"/>
-			<!--<xs:assert test="count( distinct-values( contact/concat(partner[1]/@label, partner[2]/@label) ) ) + 
-								count( distinct-values( contact/concat(partner[2]/@label, partner[1]/@label) ) ) eq 
-									count( distinct-values( (contact/concat(partner[1]/@label, partner[2]/@label), contact/concat(partner[2]/@label, partner[1]/@label)) ) )"/>-->
+			<!--<xs:assert test="(count( distinct-values( contact/concat(partner[1]/@label, partner[2]/@label) ) ) + 
+							  count( distinct-values( contact/concat(partner[2]/@label, partner[1]/@label) ) ) -
+							  2 * count( distinct-values( contact/concat(partner[1]/@label, partner[1]/@label) ) )) eq 
+							 (count( distinct-values( (contact/concat(partner[1]/@label, partner[2]/@label), contact/concat(partner[2]/@label, partner[1]/@label)) ) ) -
+							  count( distinct-values( contact/concat(partner[1]/@label, partner[1]/@label) ) ) )"/>-->
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="connected_to">
@@ -263,7 +286,9 @@
 						<xs:attribute name="pid" type="integerPositive"/>
 						<xs:attribute name="index" type="integerPositive" use="required"/>
 						<xs:attribute name="label" type="xs:string"/>
-						<xs:assert test="  if(not( exists(@label) ) and not( exists(@pid) ) ) then false() else true()"/>
+						
+						<xs:assert test="exists(@label) or exists(@pid)"/>
+						
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="assy">
@@ -273,7 +298,9 @@
 								<xs:complexType>
 									<xs:attribute name="pid" type="integerPositive"/>
 									<xs:attribute name="label" type="xs:string"/>
-									<xs:assert test="  if(not( exists(@label) ) and not( exists(@pid) ) ) then false() else true()"/>
+									
+									<xs:assert test="exists(@label) or exists(@pid)"/>
+
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
@@ -295,7 +322,7 @@
 		<xs:complexType>
 			<xs:attribute name="label" type="xs:string"/>
 			<xs:attribute name="pid" type="integerPositive"/>
-			<xs:assert test="if( not( exists(@label) ) and not( exists(@pid) ) ) then false() else true()"/>
+			<xs:assert test="exists(@label) or exists(@pid)"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="coefficients">
@@ -320,11 +347,10 @@
 				<xs:element name="loc" type="xs:string" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="appdata" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="custom_attributes_list" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="connection_0d_type" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="connection_0d_type" minOccurs="1" maxOccurs="1"/> <!--"Note: exactly one of the type elements must exist in <connection_od>. There is no default type"-->
 			</xs:all>
 			<xs:attribute name="label" type="xs:string"/>
 			<xs:attribute name="quality_control" type="xs:string"/>
-			<xs:assert test="every $r in connection_0d/rivet satisfies ($r/@head_height + $r/@sink_size > 0)"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="connection_0d_type" abstract="true"/>
@@ -398,7 +424,7 @@
 			<xs:attribute name="max_grip" type="floatPositive"/>
 			<xs:attribute name="clearance" type="floatPositive"/>
 			<xs:attribute name="material" type="xs:string"/>
-			<xs:assert test="@max_grip >= @min_grip"/>
+			<xs:assert test="if(exists(@max_grip) and exists(@min_grip) and @max_grip lt @min_grip) then false() else true()"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="self_piercing" substitutionGroup="rivet_type">
@@ -421,9 +447,18 @@
 			<xs:attribute name="shoulder_length" type="floatPositive"/>
 			<xs:attribute name="tennon_diameter" type="floatPositive"/>
 			<xs:attribute name="tennon_length" type="floatPositive"/>
-			<xs:assert test="if( ( exists(@hole_diameter) and exists(@hole_depth) ) or ( not(exists(@hole_diameter)) and not(exists(@hole_depth)) ) ) then true() else false()"/>
-			<xs:assert test="if( ( exists(@tennon_diameter) and exists(@shoulder_diameter) ) or ( not(exists(@tennon_diameter)) and not(exists(@shoulder_diameter)) ) ) then true() else false()"/>
-		</xs:complexType>
+			
+			<!-- max grip >= min_grip -->
+			<xs:assert test="if( exists(@max_grip) and exists(@min_grip) and @max_grip lt @min_grip) then false() else true()"/>
+
+			<!--The following are Recommendations:
+				"1. hole_diameter is defined with hole_depth and vice versa"
+				"2. tennon_diameter exist only if shoulder_diameter is defined and vice versa"
+				Therefore they were commented out
+			-->
+			<!--<xs:assert test="if( ( exists(@hole_diameter) and exists(@hole_depth) ) or ( not(exists(@hole_diameter)) and not(exists(@hole_depth)) ) ) then true() else false()"/>-->
+			<!--<xs:assert test="if( ( exists(@tennon_diameter) and exists(@shoulder_diameter) ) or ( not(exists(@tennon_diameter)) and not(exists(@shoulder_diameter)) ) ) then true() else false()"/>-->
+    </xs:complexType>
 	</xs:element>
 	<xs:element name="swop" substitutionGroup="rivet_type">
 		<xs:complexType>
@@ -457,11 +492,15 @@
 									<xs:attribute name="thread" type="xs:boolean" default="false"/>
 									<xs:attribute name="static_friction" type="floatPositive"/>
 									<xs:attribute name="kinetic_friction" type="floatPositive"/>
+                  
+									<!--"At least one of these two friction coefficients has to be specified"-->
 									<xs:assert test="if( not( exists(@static_friction) ) and not( exists(@kinetic_friction) ) ) then false() else true()"/>
 								</xs:complexType>
 							</xs:element>
 						</xs:all>
 					</xs:complexType>
+          
+					<!--threaded_connection/contact/index: "any specific index may occur not more than once".-->
 					<xs:unique name="indexuq">
 						<xs:selector xpath="contact"/>
 						<xs:field xpath="@index"/>
@@ -484,7 +523,10 @@
 			<xs:attribute name="kinetic_friction" type="floatPositive"/>
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
+      
+			<!--"length >= thread_length"-->
 			<xs:assert test="if( @length lt @thread_length ) then false() else true()"/>
+			<!--"If at least one of them is specified, head_height+sink_size>0 is required"-->
 			<xs:assert test=" if ( (exists(@head_height) or exists(@sink_size) ) and (@head_height + @sink_size le 0)) then false() else true()"/>
 		</xs:complexType>
 	</xs:element>
@@ -499,6 +541,8 @@
 			<xs:attribute name="kinetic_friction" type="floatPositive"/>
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
+      
+			<!--"NO part code, if attached"-->
 			<xs:assert test="if( @attached = true() and exists(@part_code) ) then false() else true()"/>
 		</xs:complexType>
 	</xs:element>
@@ -517,20 +561,29 @@
 			<xs:attribute name="fixed_to" type="integerPositive"/>
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
+      
+			<!--"NO part code, if attached"-->
 			<xs:assert test="if( ( exists(@clipped_to) or exists(@fixed_to) ) and exists(@part_code) ) then false() else true()"/>
+			<!--"Usually nut fixed_to prohibits nut clipped_to and vice versa"-->
 			<xs:assert test="if( exists(@fixed_to) and exists(@clipped_to) ) then false() else true()"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="bolt" substitutionGroup="threaded_connection_type">
 		<xs:complexType>
 			<xs:all>
-				<xs:element ref="nut" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="nut" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
 			<xs:attribute name="clipped_to" type="integerPositive"/>
 			<xs:attribute name="fixed_to" type="integerPositive"/>
+
+			<!--"Usually bolt fixed_to prohibits bolt clipped_to and vice versa"-->
 			<xs:assert test="if( exists(@fixed_to) and exists(@clipped_to) ) then false() else true()"/>
-			<xs:assert test="if( exists(nut/@fixed_to) and exists(@fixed_to) ) then false() else true()"/>
-			<xs:assert test="if( exists(nut/@clipped_to) and exists(@clipped_to) ) then false() else true()"/>
+
+			<!--"Usually nut clipped_to or fixed_to prohibits bolt clipped_to or fixed_to and vice versa"-->
+			<!--<xs:assert test="if( exists(nut/@fixed_to) and exists(@fixed_to) ) then false() else true()"/>
+			<xs:assert test="if( exists(nut/@clipped_to) and exists(@clipped_to) ) then false() else true()"/>-->
+			
+			<xs:assert test="if( (exists(nut/@fixed_to) or exists(nut/@clipped_to)) and (exists(@fixed_to) or exists(@clipped_to)) ) then false() else true()"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="screw" substitutionGroup="threaded_connection_type">
@@ -550,7 +603,7 @@
 	</xs:element>
 	<xs:element name="gumdrop" substitutionGroup="connection_0d_type sequence_connection_0d_type">
 		<xs:complexType>
-			<xs:attribute name="diameter" type="floatZeroPositive"/>			<!-- NOTE: floatPositive in doc, relaxed to floatZeroPositive  -->
+			<xs:attribute name="diameter" type="floatZeroPositive"/>
 			<xs:attribute name="mass" type="floatZeroPositive"/>
 			<xs:attribute name="material" type="xs:string"/>
 		</xs:complexType>
@@ -635,7 +688,7 @@
 	<xs:element name="connection_1d">
 		<xs:complexType>
 			<xs:all>
-				<xs:element name="loc_list" minOccurs="1" maxOccurs="unbounded">			<!-- NOTE: Cardinality is assumed from examples -->
+				<xs:element name="loc_list" minOccurs="1" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="loc" minOccurs="1" maxOccurs="unbounded">
@@ -652,13 +705,17 @@
 					</xs:complexType>
 				</xs:element>
 				<xs:element ref="custom_attributes_list" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="connection_1d_type" minOccurs="1" maxOccurs="1"/>			<!-- NOTE: exactly 1, after discussion -->
+				<xs:element ref="connection_1d_type" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="contact_list" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="appdata" minOccurs="0" maxOccurs="1"/>						<!-- NOTE: it is referenced at page 30, but it isn't contained in connection_1d description -->
+				<xs:element ref="appdata" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
 			<xs:attribute name="label" type="xs:string"/>
 			<xs:attribute name="quality_control" type="xs:string"/>
 		</xs:complexType>
+		<xs:unique name="uniqueLocListIndex">
+			<xs:selector xpath="loc_list"/>
+			<xs:field xpath="*/@index"/> 
+		</xs:unique>
 	</xs:element>
 	<xs:element name="connection_1d_type" abstract="true"/>
 	<xs:element name="seamweld" substitutionGroup="connection_1d_type">
@@ -720,7 +777,7 @@
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:attribute name="index" type="xs:integer" use="required"/>
-						<xs:attribute name="gap" type="floatPositive"/>
+						<xs:attribute name="gap" type="floatZeroPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
 					</xs:complexType>
@@ -797,7 +854,7 @@
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:attribute name="index" type="xs:integer" use="required"/>
-						<xs:attribute name="gap" type="floatPositive"/>
+						<xs:attribute name="gap" type="floatZeroPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
 					</xs:complexType>
@@ -856,7 +913,7 @@
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:attribute name="index" type="xs:integer" use="required"/>
-						<xs:attribute name="gap" type="floatPositive"/>
+						<xs:attribute name="gap" type="floatZeroPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
 					</xs:complexType>
@@ -906,7 +963,7 @@
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:attribute name="index" type="xs:integer" use="required"/>
-						<xs:attribute name="gap" type="floatPositive"/>
+						<xs:attribute name="gap" type="floatZeroPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
 					</xs:complexType>
@@ -982,7 +1039,7 @@
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:attribute name="index" type="xs:integer" use="required"/>
-						<xs:attribute name="gap" type="floatPositive"/>
+						<xs:attribute name="gap" type="floatZeroPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
 					</xs:complexType>
@@ -1060,7 +1117,7 @@
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:attribute name="index" type="xs:integer" use="required"/>
-						<xs:attribute name="gap" type="floatPositive"/>
+						<xs:attribute name="gap" type="floatZeroPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
 					</xs:complexType>
@@ -1138,7 +1195,7 @@
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:attribute name="index" type="xs:integer" use="required"/>
-						<xs:attribute name="gap" type="floatPositive" use="required"/>
+						<xs:attribute name="gap" type="floatZeroPositive" use="required"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive" use="required"/>
 						<xs:attribute name="sheet_angle" type="xs:float" use="required"/>
 					</xs:complexType>
@@ -1216,7 +1273,7 @@
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:attribute name="index" type="xs:integer" use="required"/>
-						<xs:attribute name="gap" type="floatPositive" use="required"/>
+						<xs:attribute name="gap" type="floatZeroPositive" use="required"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive" use="required"/>
 						<xs:attribute name="sheet_angle" type="xs:float" use="required"/>
 					</xs:complexType>
@@ -1257,7 +1314,7 @@
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:attribute name="index" type="xs:integer" use="required"/>
-						<xs:attribute name="gap" type="floatPositive"/>
+						<xs:attribute name="gap" type="floatZeroPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 					</xs:complexType>
 				</xs:element>
@@ -1287,6 +1344,9 @@
 			</xs:sequence>
 			<xs:attribute name="folded_width" type="floatPositive"/>
 			<xs:attribute name="folded_part" type="xs:integer"/>
+			<xs:assert test="count(hemming/region[@label='A']) le 1"/>
+			<xs:assert test="count(hemming/region[@label='B']) le 1"/>
+			<xs:assert test="count(hemming/region[@label='C']) le 1"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="region">
