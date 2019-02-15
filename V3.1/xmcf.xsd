@@ -245,10 +245,6 @@
 			<!--sheet_parameter/index: "it must refer to <part> index attribute-->
 			<xs:assert test="every $x in connection_list/connection_1d/seamweld/*/sheet_parameter satisfies connected_to/part[@index=$x/@index]"/>
 		</xs:complexType>
-		<xs:unique name="uniqueContact">
-			<xs:selector xpath="contact_list"/>
-			<xs:field xpath="*/@label"/> 
-		</xs:unique>
 	</xs:element>
 	<xs:element name="contact_list">
 		<xs:complexType>
@@ -738,18 +734,7 @@
 			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
-						<xs:attribute name="u" use="required">
-							<xs:simpleType>
-								<xs:restriction base="xs:float">
-									<xs:minInclusive value="0"/>
-									<xs:maxInclusive value="1"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
-						<xs:attribute name="x" type="xs:float" use="required"/>
-						<xs:attribute name="y" type="xs:float" use="required"/>
-						<xs:attribute name="z" type="xs:float" use="required"/>
-						<xs:attribute name="reference" type="xs:boolean" default="false"/>
+						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="section">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -800,18 +785,7 @@
 			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
-						<xs:attribute name="u" use="required">
-							<xs:simpleType>
-								<xs:restriction base="xs:float">
-									<xs:minInclusive value="0"/>
-									<xs:maxInclusive value="1"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
-						<xs:attribute name="x" type="xs:float" use="required"/>
-						<xs:attribute name="y" type="xs:float" use="required"/>
-						<xs:attribute name="z" type="xs:float" use="required"/>
-						<xs:attribute name="reference" type="xs:boolean" default="false"/>
+						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="section">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -877,18 +851,7 @@
 			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
-						<xs:attribute name="u" use="required">
-							<xs:simpleType>
-								<xs:restriction base="xs:float">
-									<xs:minInclusive value="0"/>
-									<xs:maxInclusive value="1"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
-						<xs:attribute name="x" type="xs:float" use="required"/>
-						<xs:attribute name="y" type="xs:float" use="required"/>
-						<xs:attribute name="z" type="xs:float" use="required"/>
-						<xs:attribute name="reference" type="xs:boolean" default="false"/>
+						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="section">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -936,18 +899,7 @@
 			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
-						<xs:attribute name="u" use="required">
-							<xs:simpleType>
-								<xs:restriction base="xs:float">
-									<xs:minInclusive value="0"/>
-									<xs:maxInclusive value="1"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
-						<xs:attribute name="x" type="xs:float" use="required"/>
-						<xs:attribute name="y" type="xs:float" use="required"/>
-						<xs:attribute name="z" type="xs:float" use="required"/>
-						<xs:attribute name="reference" type="xs:boolean" default="false"/>
+						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="width" type="floatPositive"/>
 						<xs:attribute name="filler">
 							<xs:simpleType>
@@ -987,18 +939,7 @@
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:attribute name="base" type="integerPositive"/>
-						<xs:attribute name="u" use="required">
-							<xs:simpleType>
-								<xs:restriction base="xs:float">
-									<xs:minInclusive value="0"/>
-									<xs:maxInclusive value="1"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
-						<xs:attribute name="x" type="xs:float" use="required"/>
-						<xs:attribute name="y" type="xs:float" use="required"/>
-						<xs:attribute name="z" type="xs:float" use="required"/>
-						<xs:attribute name="reference" type="xs:boolean" default="false"/>
+						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="section">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -1063,18 +1004,7 @@
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:attribute name="base" type="integerPositive"/>
-						<xs:attribute name="u" use="required">
-							<xs:simpleType>
-								<xs:restriction base="xs:float">
-									<xs:minInclusive value="0"/>
-									<xs:maxInclusive value="1"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
-						<xs:attribute name="x" type="xs:float" use="required"/>
-						<xs:attribute name="y" type="xs:float" use="required"/>
-						<xs:attribute name="z" type="xs:float" use="required"/>
-						<xs:attribute name="reference" type="xs:boolean" default="false"/>
+						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="section">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -1141,18 +1071,7 @@
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:attribute name="base" type="integerPositive"/>
-						<xs:attribute name="u" use="required">
-							<xs:simpleType>
-								<xs:restriction base="xs:float">
-									<xs:minInclusive value="0"/>
-									<xs:maxInclusive value="1"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
-						<xs:attribute name="x" type="xs:float" use="required"/>
-						<xs:attribute name="y" type="xs:float" use="required"/>
-						<xs:attribute name="z" type="xs:float" use="required"/>
-						<xs:attribute name="reference" type="xs:boolean" default="false"/>
+						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="section">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -1219,18 +1138,7 @@
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:attribute name="base" type="integerPositive"/>
-						<xs:attribute name="u" use="required">
-							<xs:simpleType>
-								<xs:restriction base="xs:float">
-									<xs:minInclusive value="0"/>
-									<xs:maxInclusive value="1"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
-						<xs:attribute name="x" type="xs:float" use="required"/>
-						<xs:attribute name="y" type="xs:float" use="required"/>
-						<xs:attribute name="z" type="xs:float" use="required"/>
-						<xs:attribute name="reference" type="xs:boolean" default="false"/>
+						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="section">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -1296,18 +1204,7 @@
 			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
-						<xs:attribute name="u" use="required">
-							<xs:simpleType>
-								<xs:restriction base="xs:float">
-									<xs:minInclusive value="0"/>
-									<xs:maxInclusive value="1"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
-						<xs:attribute name="x" type="xs:float" use="required"/>
-						<xs:attribute name="y" type="xs:float" use="required"/>
-						<xs:attribute name="z" type="xs:float" use="required"/>
-						<xs:attribute name="reference" type="xs:boolean" default="false"/>
+						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="width" type="floatPositive"/>
 					</xs:complexType>
 				</xs:element>
@@ -1454,6 +1351,20 @@
 		</xs:complexType>
 	</xs:element>
 	<!-- ***************************************************************************************************************************************************************************** -->
+	<xs:attributeGroup name="weld_position_common_attr">
+		<xs:attribute name="u" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:float">
+					<xs:minInclusive value="0"/>
+					<xs:maxInclusive value="1"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="x" type="xs:float" use="required"/>
+		<xs:attribute name="y" type="xs:float" use="required"/>
+		<xs:attribute name="z" type="xs:float" use="required"/>
+		<xs:attribute name="reference" type="xs:boolean" default="false"/>
+	</xs:attributeGroup>
 	<xs:simpleType name="integerPositive">
 		<xs:restriction base="xs:integer">
 			<xs:minExclusive value="0"/>
