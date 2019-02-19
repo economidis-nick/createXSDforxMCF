@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf.xsd">
+  <version>3.0.0</version>
+  <units length="mm" angle="deg" mass="kg" force="N" time="s" torque="Nm"/>
+  <date>2019-01-07</date>
+  <connection_group id="1">
+
+    <connected_to>
+      <assy index="1">
+        <part label="A"/>
+        <part label="B"/>
+      </assy>
+      <part index="2" label="C"/>
+    </connected_to>
+
+    <connection_list>
+
+      <connection_0d>
+        <loc>12.1058 37.1065 0.881963</loc>
+        <threaded_connection diameter="10" length="2">
+          <normal_direction x="0" y="0" z="-1"/>
+          <bolt>
+            <nut diameter="16" static_friction="0.8">
+              <washer outer_diameter="25" attached="false"/>
+            </nut>
+          </bolt>
+          <washer outer_diameter="20" attached="false" static_friction="0.8"/>
+          <contact_list>
+            <contact index="3" static_friction="0.8"/>
+          </contact_list>
+        </threaded_connection>
+      </connection_0d>
+
+      <connection_0d>
+        <loc>121.1 371.1 10.8</loc>
+        <threaded_connection diameter="10" length="2">
+          <normal_direction x="0" y="0" z="1"/>
+          <bolt>
+          <nut diameter="16"/>
+          </bolt>
+          <contact_list>
+            <contact index="1" static_friction="0.8"/>
+            <contact index="2" static_friction="0.8"/>
+          </contact_list>
+        </threaded_connection>
+      </connection_0d>
+
+    </connection_list>
+
+  </connection_group>
+</xmcf>
