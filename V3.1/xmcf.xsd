@@ -243,7 +243,7 @@
 			connection_list/connection_0d/threaded_connection/contact_list/contact/@index eq max( connected_to/*/@index) ) then false() else true()"/>
 
 			<!--sheet_parameter/index: "it must refer to <part> index attribute-->
-			<xs:assert test="every $x in connection_list/connection_1d/seamweld/*/sheet_parameter satisfies connected_to/part[@index=$x/@index]"/>
+			<xs:assert test="every $x in connection_list/connection_1d/seamweld/*/sheet_parameter satisfies connected_to/part[@index=$x/@index] or connected_to/assy[@index=$x/@index]"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="contact_list">
