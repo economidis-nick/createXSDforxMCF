@@ -10,20 +10,20 @@
 				<xs:element ref="femdata" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="connection_group" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:all>
-			<xs:assert test="if( ( not(exists(units)) and (exists(connection_group/connection_list/connection_0d/robscan[@orientation_angle lt -180.0]) or exists(connection_group/connection_list/connection_0d/robscan[@orientation_angle gt 180.0]) ) ) or 
-						( (units/@angle='deg') and (exists(connection_group/connection_list/connection_0d/robscan[@orientation_angle lt -180.0]) or exists(connection_group/connection_list/connection_0d/robscan[@orientation_angle gt 180.0])) ) or
-						( (units/@angle='rad') and (exists(connection_group/connection_list/connection_0d/robscan[@orientation_angle lt -3.14159265358979323846]) or exists(connection_group/connection_list/connection_0d/robscan[@orientation_angle gt 3.14159265358979323846])) ) ) then false() else true()"/>
 
-			<xs:assert test="if( ( not(exists(units)) and (exists(connection_group/connection_list/connection_1d/seamweld/*/sheet_parameter[@sheet_angle lt 0]) or 
-											exists(connection_group/connection_list/connection_1d/seamweld/*/sheet_parameter[@sheet_angle ge 360]) ) ) or 
-											
-						( (units/@angle='deg') and (exists(connection_group/connection_list/connection_1d/seamweld/*/sheet_parameter[@sheet_angle lt 0]) or 
-											exists(connection_group/connection_list/connection_1d/seamweld/*/sheet_parameter[@sheet_angle ge 360]) ) ) or 
-											
-						( (units/@angle='rad') and (exists(connection_group/connection_list/connection_1d/seamweld/*/sheet_parameter[@sheet_angle lt 0]) or 
-											exists(connection_group/connection_list/connection_1d/seamweld/*/sheet_parameter[@sheet_angle ge 2*3.14159265358979323846]) ) ) )
-						
-						then false() else true()"/>
+			<xs:assert test="if( (units/@angle='deg') and (exists(connection_group/connection_list/connection_0d/robscan[@orientation_angle lt -180.0]) )) then false() else true()"/>
+			<xs:assert test="if( (units/@angle='deg') and (exists(connection_group/connection_list/connection_0d/robscan[@orientation_angle gt  180.0]) )) then false() else true()"/>
+
+			<xs:assert test="if( ((units/@angle='rad') and (exists(connection_group/connection_list/connection_0d/robscan[@orientation_angle lt -3.14159265358979323846])))) then false() else true()"/>
+			<xs:assert test="if( ((units/@angle='rad') and (exists(connection_group/connection_list/connection_0d/robscan[@orientation_angle gt  3.14159265358979323846])))) then false() else true()"/>
+
+
+			<xs:assert test="if( (units/@angle='deg') and (exists(connection_group/connection_list/connection_1d/seamweld/*/sheet_parameter[@sheet_angle lt 0]))) then false() else true()"/>
+			<xs:assert test="if( (units/@angle='deg') and (exists(connection_group/connection_list/connection_1d/seamweld/*/sheet_parameter[@sheet_angle gt 360]))) then false() else true()"/>
+
+			<xs:assert test="if( (units/@angle='rad') and (exists(connection_group/connection_list/connection_1d/seamweld/*/sheet_parameter[@sheet_angle lt 0]))) then false() else true()"/>
+			<xs:assert test="if( (units/@angle='rad') and (exists(connection_group/connection_list/connection_1d/seamweld/*/sheet_parameter[@sheet_angle gt 2*3.14159265358979323846]))) then false() else true()"/>
+
 		</xs:complexType>
     
 		<!-- connection_group/id must be unique within xmcf -->
