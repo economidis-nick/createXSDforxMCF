@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf.xsd">
   <version>3.0.0</version>
-  <units length="mm" angle="deg" mass="kg" force="N" time="s" torque="Nm"/>
   <date>2019-01-07</date>
   <connection_group id="1">
     <connected_to>
@@ -11,7 +10,7 @@
     <connection_list>
       <connection_0d>
         <loc>12.1058 37.1065 0.881963</loc>
-        <spotweld diameter="1.07374e+09"/>
+        <spotweld/>
       </connection_0d>
     </connection_list>
   </connection_group>

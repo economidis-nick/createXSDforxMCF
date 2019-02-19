@@ -16,8 +16,8 @@
         </threaded_connection>
       </connection_0d>
       <connection_0d>
-        <loc>12.1058 227.106 0.881963</loc>
-        <threaded_connection diameter="0">
+        <loc>100 220 300</loc>
+        <threaded_connection diameter="10">
           <screw/>
           <washer outer_diameter="20" inner_diameter="10.3"/>
         </threaded_connection>
@@ -31,15 +31,15 @@
     </connected_to>
     <connection_list>
       <connection_0d>
-        <loc>12.1058 37.1065 0.881963</loc>
-        <threaded_connection diameter="0">
+        <loc>12.1 37.1 -10.8</loc>
+        <threaded_connection diameter="10">
           <screw base="1">
             <flow_drilled pre_machined_hole_diameter="18" pre_machined_hole_index="1" pilot_hole_diameter="12"/>
           </screw>
         </threaded_connection>
       </connection_0d>
       <connection_0d>
-        <loc>12.1058 37.1065 0.881963</loc>
+        <loc>121 37.1 -88</loc>
         <threaded_connection diameter="0">
           <screw/>
           <washer outer_diameter="20" inner_diameter="10.3"/>
