@@ -245,6 +245,32 @@
 			<!--sheet_parameter/index: "it must refer to <part> index attribute-->
 			<xs:assert test="every $x in connection_list/connection_1d/seamweld/*/sheet_parameter satisfies connected_to/part[@index=$x/@index] or connected_to/assy[@index=$x/@index]"/>
 		</xs:complexType>
+
+		<xs:key name="connected_to_key">
+			<xs:selector xpath="connected_to/*"/>
+			<xs:field xpath="@index"/>
+		</xs:key>
+		<xs:keyref name="robscan_base_index" refer="connected_to_key">
+			<xs:selector xpath="connection_list/connection_0d/robscan"/>
+			<xs:field xpath="@base"/>
+		</xs:keyref>
+		<xs:keyref name="clipped_to_index" refer="connected_to_key">
+			<xs:selector xpath="connection_list/connection_0d/threaded_connection/bolt"/>
+			<xs:field xpath="@clipped_to"/>
+		</xs:keyref>
+		<xs:keyref name="fixed_to_index" refer="connected_to_key">
+			<xs:selector xpath="connection_list/connection_0d/threaded_connection/bolt"/>
+			<xs:field xpath="@fixed_to"/>
+		</xs:keyref>
+		<xs:keyref name="nut_clipped_to_index" refer="connected_to_key">
+			<xs:selector xpath="connection_list/connection_0d/threaded_connection/bolt/nut"/>
+			<xs:field xpath="@clipped_to"/>
+		</xs:keyref>
+		<xs:keyref name="nut_fixed_to_index" refer="connected_to_key">
+			<xs:selector xpath="connection_list/connection_0d/threaded_connection/bolt/nut"/>
+			<xs:field xpath="@fixed_to"/>
+		</xs:keyref>
+
 	</xs:element>
 	<xs:element name="contact_list">
 		<xs:complexType>

@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf.xsd">
   <version>3.0.0</version>
+  <units length="mm" angle="deg" mass="kg" force="N" time="s" torque="Nm"/>
   <date>2019-01-07</date>
-  <connection_group id="2">
+  <connection_group id="1">
     <connected_to>
-      <part index="1" pid="1"/>
-      <part index="2" pid="2"/>
+      <part index="1" pid="3"/>
+      <part index="2" pid="4"/>
     </connected_to>
     <connection_list>
       <connection_0d>
-        <loc>12.1058 37.1065 0.881963</loc>
+        <loc>12.1058 237.106 0.881963</loc>
         <threaded_connection diameter="0" length="2">
           <normal_direction x="0" y="0" z="-1"/>
           <bolt>
-            <nut diameter="16" static_friction="0.8">
-              <washer outer_diameter="25" attached="false"/>
+            <nut diameter="16" height="5" static_friction="0.8" clipped_to="3">
+              <washer outer_diameter="25" thickness="1.5" attached="true"/>
             </nut>
           </bolt>
-          <washer outer_diameter="20" attached="false" static_friction="0.8"/>
+          <washer outer_diameter="20" inner_diameter="10.3" thickness="1.5" attached="false" static_friction="0.8" part_code="M10x20x1.5"/>
           <contact_list>
-            <contact index="1" thread="invalid_value" static_friction="0.8"/>
+            <contact index="1" thread="true" static_friction="0.8"/>
           </contact_list>
         </threaded_connection>
       </connection_0d>
