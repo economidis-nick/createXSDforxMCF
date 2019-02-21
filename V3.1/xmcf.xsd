@@ -743,10 +743,14 @@
 			</xs:all>
 			<xs:attribute name="label" type="xs:string"/>
 			<xs:attribute name="quality_control" type="xs:string"/>
+
+			<xs:assert xerces:message="connection_1d/loc_list: index must exist if more that 1 loc_list elements exist"
+				test="(count(loc_list) le 1)  or  count(loc_list[@index>0]) = count(loc_list)" />
+
 		</xs:complexType>
 		<xs:unique name="unique_loc_list_index">
 			<xs:selector xpath="loc_list"/>
-			<xs:field xpath="*/@index"/> 
+			<xs:field xpath="@index"/> 
 		</xs:unique>
 	</xs:element>
 	<xs:element name="connection_1d_type" abstract="true"/>
