@@ -529,7 +529,7 @@
 					</xs:complexType>
           
 					<!--threaded_connection/contact/index: "any specific index may occur not more than once".-->
-					<xs:unique name="indexuq">
+					<xs:unique name="unique_contact_index_in_contact_list">
 						<xs:selector xpath="contact"/>
 						<xs:field xpath="@index"/>
 					</xs:unique>
@@ -740,7 +740,7 @@
 			<xs:attribute name="label" type="xs:string"/>
 			<xs:attribute name="quality_control" type="xs:string"/>
 		</xs:complexType>
-		<xs:unique name="uniqueLocListIndex">
+		<xs:unique name="unique_loc_list_index">
 			<xs:selector xpath="loc_list"/>
 			<xs:field xpath="*/@index"/> 
 		</xs:unique>
@@ -1357,7 +1357,7 @@
 			
 			<!--<xs:assert test="matches(./face_list/face/@v4, ./loc_list/loc/@v)"/>-->
 		</xs:complexType>
-		<xs:unique name="vuq">
+		<xs:unique name="unique_v_in_loc_list">
 			<xs:selector xpath="loc_list/loc"/>
 			<xs:field xpath="@v"/>
 		</xs:unique>
@@ -1426,7 +1426,7 @@
 				<xs:element ref="custom_attributes" minOccurs="1" maxOccurs="unbounded"/>
 			</xs:sequence>
 		</xs:complexType>
-		<xs:unique name="owner_for_unique">
+		<xs:unique name="unique_owner_and_for_in_custom_attributes">
 			<xs:selector xpath="custom_attributes"/>
 			<xs:field xpath="@owner"/>
 			<xs:field xpath="@for"/>
@@ -1445,27 +1445,27 @@
 			<xs:attribute name="owner" type="nonEmptyString" use="required"/>
 			<xs:attribute name="for" type="nonEmptyString"/>
 		</xs:complexType>
-		<xs:unique name="stringKeyUq">
+		<xs:unique name="unique_key_in_string">
 			<xs:selector xpath="string"/>
 			<xs:field xpath="@key"/>
 		</xs:unique>
-		<xs:unique name="realKeyUq">
+		<xs:unique name="unique_key_in_real">
 			<xs:selector xpath="real"/>
 			<xs:field xpath="@key"/>
 		</xs:unique>
-		<xs:unique name="intKeyUq">
+		<xs:unique name="unique_key_in_int">
 			<xs:selector xpath="int"/>
 			<xs:field xpath="@key"/>
 		</xs:unique>
-		<xs:unique name="stringListKeyUq">
+		<xs:unique name="unique_key_in_string_list">
 			<xs:selector xpath="string_list"/>
 			<xs:field xpath="@key"/>
 		</xs:unique>
-		<xs:unique name="realListKeyUq">
+		<xs:unique name="unique_key_in_real_list">
 			<xs:selector xpath="real_list"/>
 			<xs:field xpath="@key"/>
 		</xs:unique>
-		<xs:unique name="intListKeyUq">
+		<xs:unique name="unique_key_in_int_list">
 			<xs:selector xpath="int_list"/>
 			<xs:field xpath="@key"/>
 		</xs:unique>
@@ -1512,7 +1512,7 @@
 			</xs:sequence>
 			<xs:attribute name="key" type="nonEmptyString" use="required"/>
 		</xs:complexType>
-		<xs:unique name="stringListIndexUq">
+		<xs:unique name="unique_value_index_in_string_list">
 			<xs:selector xpath="value"/>
 			<xs:field xpath="@index"/>
 		</xs:unique>
@@ -1532,7 +1532,7 @@
 			</xs:sequence>
 			<xs:attribute name="key" type="nonEmptyString" use="required"/>
 		</xs:complexType>
-		<xs:unique name="realListIndexUq">
+		<xs:unique name="unique_value_index_in_real_list">
 			<xs:selector xpath="value"/>
 			<xs:field xpath="@index"/>
 		</xs:unique>
@@ -1552,7 +1552,7 @@
 			</xs:sequence>
 			<xs:attribute name="key" type="nonEmptyString" use="required"/>
 		</xs:complexType>
-		<xs:unique name="intListIndexUq">
+		<xs:unique name="unique_value_index_in_int_list">
 			<xs:selector xpath="value"/>
 			<xs:field xpath="@index"/>
 		</xs:unique>
