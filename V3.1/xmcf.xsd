@@ -441,7 +441,7 @@
 			<xs:attribute name="sink_size" type="floatZeroPositive"/>
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
-			<xs:assert test=" if ( (exists(@head_height) or exists(@sink_size) ) and (@head_height + @sink_size le 0)) then false() else true()" 
+			<xs:assert test=" if ( (exists(@head_height) or exists(@sink_size) ) and sum(@head_height + @sink_size) le 0) then false() else true()" 
 						xerces:message="rivet: must @head_height + @sink_size > 0"/>
 		</xs:complexType>
 	</xs:element>
@@ -555,7 +555,7 @@
 			<!--"length >= thread_length"-->
 			<xs:assert test="if( @length lt @thread_length ) then false() else true()"/>
 			<!--"If at least one of them is specified, head_height+sink_size>0 is required"-->
-			<xs:assert test=" if ( (exists(@head_height) or exists(@sink_size) ) and (@head_height + @sink_size le 0)) then false() else true()"/>
+			<xs:assert test=" if ( (exists(@head_height) or exists(@sink_size) ) and sum(@head_height + @sink_size) le 0) then false() else true()"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="threaded_connection_type" abstract="true"/>
