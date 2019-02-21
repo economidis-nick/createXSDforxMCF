@@ -279,6 +279,10 @@
 			<xs:selector xpath="connection_list/connection_0d/threaded_connection/screw/flow_drilled"/>
 			<xs:field xpath="@pre_machined_hole_index"/>
 		</xs:keyref>
+		<xs:keyref name="adhesive_face_base" refer="connected_to_key">
+			<xs:selector xpath="connection_list/connection_2d/adhesive_face"/>
+			<xs:field xpath="@base"/>
+		</xs:keyref>
 
 	</xs:element>
 	<xs:element name="contact_list">
