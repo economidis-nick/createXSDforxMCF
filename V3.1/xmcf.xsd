@@ -1350,18 +1350,40 @@
 			</xs:all>
 			<xs:attribute name="label" type="xs:string"/>
 			<xs:attribute name="quality_control" type="xs:string"/>
+<!--
 			<xs:assert test="every $x in face_list/face satisfies loc_list/loc[@v=$x/@v1]"/>
 			<xs:assert test="every $x in face_list/face satisfies loc_list/loc[@v=$x/@v2]"/>
 			<xs:assert test="every $x in face_list/face satisfies loc_list/loc[@v=$x/@v3]"/>
 			<xs:assert test="every $x in face_list/face/@v4 satisfies loc_list/loc[@v=$x]"/>
-			
+-->			
 			<!--<xs:assert test="matches(./face_list/face/@v4, ./loc_list/loc/@v)"/>-->
 		</xs:complexType>
 		<xs:unique name="unique_v_in_loc_list">
 			<xs:selector xpath="loc_list/loc"/>
 			<xs:field xpath="@v"/>
 		</xs:unique>
+		<xs:key name="face_vertex_key">
+			<xs:selector xpath="loc_list/loc"/>
+			<xs:field xpath="@v"/>
+		</xs:key>
+		<xs:keyref name="face_v1_keyref" refer="face_vertex_key">
+			<xs:selector xpath="face_list/face"/>
+			<xs:field xpath="@v1"/>
+		</xs:keyref>
+		<xs:keyref name="face_v2_keyref" refer="face_vertex_key">
+			<xs:selector xpath="face_list/face"/>
+			<xs:field xpath="@v2"/>
+		</xs:keyref>
+		<xs:keyref name="face_v3_keyref" refer="face_vertex_key">
+			<xs:selector xpath="face_list/face"/>
+			<xs:field xpath="@v3"/>
+		</xs:keyref>
+		<xs:keyref name="face_v4_keyref" refer="face_vertex_key">
+			<xs:selector xpath="face_list/face"/>
+			<xs:field xpath="@v4"/>
+		</xs:keyref>
 	</xs:element>
+	
 	<xs:element name="adhesive_face">
 		<xs:complexType>
 			<xs:attribute name="base" type="integerPositive"/>
@@ -1382,9 +1404,11 @@
 			<xs:attribute name="v2" type="xs:integer" use="required"/>
 			<xs:attribute name="v3" type="xs:integer" use="required"/>
 			<xs:attribute name="v4" type="xs:integer" use="optional"/>
+
 			<xs:assert test="not(@v1=@v2) and not(@v1=@v3) and not(@v1=@v4) and not(@v2=@v3) and not(@v2=@v4) and not(@v3=@v4)"/>
 		</xs:complexType>
 	</xs:element>
+
 	<!-- ***************************************************************************************************************************************************************************** -->
 	<xs:attributeGroup name="weld_position_common_attr">
 		<xs:attribute name="u" use="required">
