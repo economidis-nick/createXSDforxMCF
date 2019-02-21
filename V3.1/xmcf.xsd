@@ -1353,7 +1353,9 @@
 			<xs:assert test="every $x in face_list/face satisfies loc_list/loc[@v=$x/@v1]"/>
 			<xs:assert test="every $x in face_list/face satisfies loc_list/loc[@v=$x/@v2]"/>
 			<xs:assert test="every $x in face_list/face satisfies loc_list/loc[@v=$x/@v3]"/>
-			<xs:assert test="every $x in face_list/face satisfies loc_list/loc[@v=$x/@v4]"/>
+			<xs:assert test="every $x in face_list/face/@v4 satisfies loc_list/loc[@v=$x]"/>
+			
+			<!--<xs:assert test="matches(./face_list/face/@v4, ./loc_list/loc/@v)"/>-->
 		</xs:complexType>
 		<xs:unique name="vuq">
 			<xs:selector xpath="loc_list/loc"/>
