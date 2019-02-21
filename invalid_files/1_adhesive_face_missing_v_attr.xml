@@ -17,12 +17,14 @@
           <loc v="5">2517.91 -455.818 877.939</loc>
           <loc v="6">2517.91 -455.818 872.831</loc>
           <loc v="7">2522.82 -455.818 872.831</loc>
+          <loc v="8">2527.73 -455.818 872.831</loc>
+          <loc v="9">2522.82 -455.818 857.51</loc>
+          <loc v="10">2522.82 -455.818 852.407</loc>
         </loc_list>
         <face_list>
-          <face v1="1" v2="2" v3="3" v4="4"/>
-          <face v1="5" v2="6" v3="7"/>
+          <face v1="1"        v3="3"  v4="4"/>
         </face_list>
-        <adhesive_face thickness="2" material="CAD_Material"/>
+        <adhesive_face/>
       </connection_2d>
     </connection_list>
   </connection_group>

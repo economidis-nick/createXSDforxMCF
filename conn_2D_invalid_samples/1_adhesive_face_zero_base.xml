@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf.xsd">
   <version>3.0.0</version>
-  <date>2019-01-21</date>
+  <date>2019-01-08</date>
   <connection_group id="1">
     <connected_to>
       <part index="1" pid="72001400"/>
@@ -15,14 +15,11 @@
           <loc v="3">2527.73 -455.818 877.939</loc>
           <loc v="4">2527.73 -455.818 883.046</loc>
           <loc v="5">2517.91 -455.818 877.939</loc>
-          <loc v="6">2517.91 -455.818 872.831</loc>
-          <loc v="7">2522.82 -455.818 872.831</loc>
         </loc_list>
         <face_list>
           <face v1="1" v2="2" v3="3" v4="4"/>
-          <face v1="5" v2="6" v3="7"/>
         </face_list>
-        <adhesive_face thickness="2" material="CAD_Material"/>
+        <adhesive_face base="0" thickness="2" material="CAD_Material"/>
       </connection_2d>
     </connection_list>
   </connection_group>
