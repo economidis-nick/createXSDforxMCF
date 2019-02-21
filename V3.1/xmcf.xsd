@@ -1382,7 +1382,7 @@
 			<xs:attribute name="v2" type="xs:integer" use="required"/>
 			<xs:attribute name="v3" type="xs:integer" use="required"/>
 			<xs:attribute name="v4" type="xs:integer" use="optional"/>
-			<!--<xs:assert test="every $x in face satisfies not($x/@v1=$x/@v2) and ($x/@v1 ne $x/@v3) and ($x/@v1 ne $x/@v4) and ($x/@v2 ne $x/@v3) and ($x/@v2 ne $x/@v4) and ($x/@v3 ne $x/@v4)"/>-->
+			<xs:assert test="not(@v1=@v2) and not(@v1=@v3) and not(@v1=@v4) and not(@v2=@v3) and not(@v2=@v4) and not(@v3=@v4)"/>
 		</xs:complexType>
 	</xs:element>
 	<!-- ***************************************************************************************************************************************************************************** -->
