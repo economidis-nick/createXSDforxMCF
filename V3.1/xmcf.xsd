@@ -244,8 +244,6 @@
 				satisfies $x ne max(connected_to/*/@index)"
 				/>
 
-			<!--sheet_parameter/index: "it must refer to <part> index attribute-->
-			<xs:assert test="every $x in connection_list/connection_1d/seamweld/*/sheet_parameter satisfies connected_to/part[@index=$x/@index] or connected_to/assy[@index=$x/@index]"/>
 		</xs:complexType>
 
 		<xs:key name="connected_to_key">
@@ -282,6 +280,11 @@
 		</xs:keyref>
 		<xs:keyref name="contact_list_index" refer="connected_to_key">
 			<xs:selector xpath="connection_list/connection_0d/threaded_connection/contact_list/contact"/>
+			<xs:field xpath="@index"/>
+		</xs:keyref>
+		<xs:keyref name="sheet_parameter_index" refer="connected_to_key">
+			<!--sheet_parameter/index: "it must refer to <part> index attribute-->
+			<xs:selector xpath="connection_list/connection_1d/seamweld/*/sheet_parameter"/>
 			<xs:field xpath="@index"/>
 		</xs:keyref>
 		<xs:keyref name="adhesive_face_base" refer="connected_to_key">
