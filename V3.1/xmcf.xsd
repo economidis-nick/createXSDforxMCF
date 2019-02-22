@@ -226,9 +226,6 @@
 			<xs:assert test="if( exists(contact_list/contact/partner/@pid)   and not(every $x in contact_list/contact/partner/@pid satisfies 
 							( connected_to/part[@pid=$x] or connected_to/assy/part[@pid=$x] ) ) ) then false() else true()"/>
 			
-			<!-- there can be up to 1 contact with the thread -->
-			<xs:assert test="count(connection_list/connection_0d/connection_0d_type/threaded_connection/contact_list/contact[@thread='true']) le 1"/>
-      
 			<!--contact without thread: "Maximum no. of items = cardinality of <connected_to> -1-->
 			<xs:assert test="if ( exists(connection_list/connection_0d/connection_0d_type/threaded_connection/contact_list/contact) and
 			count(connection_list/connection_0d/connection_0d_type/threaded_connection/contact_list/contact[@thread='true']) eq 0 and
@@ -538,6 +535,9 @@
 								</xs:complexType>
 							</xs:element>
 						</xs:all>
+
+						<xs:assert xerces:message=" there can be up to 1 contact with the thread "
+							test="count(contact[@thread=true()]) le 1"/>
 					</xs:complexType>
           
 					<!--threaded_connection/contact/index: "any specific index may occur not more than once".-->
