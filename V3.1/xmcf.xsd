@@ -515,8 +515,10 @@
 									<xs:attribute name="static_friction" type="floatPositive"/>
 									<xs:attribute name="kinetic_friction" type="floatPositive"/>
                   
-									<!--"At least one of these two friction coefficients has to be specified"-->
-									<xs:assert test="if( not( exists(@static_friction) ) and not( exists(@kinetic_friction) ) ) then false() else true()"/>
+									<xs:assert
+										xerces:message="threaded_connection/contact_list/contact: At least one of the two friction coefficients has to be specified"
+										test="exists(@static_friction) or exists(@kinetic_friction)"/>
+
 									<xs:assert
 										xerces:message="threaded_connection/contact_list/contact: index is required if thread is not 'true'"
 										test="@thread=true() or exists(@index)"/>
