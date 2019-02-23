@@ -435,8 +435,22 @@
 			<xs:attribute name="sink_size" type="floatZeroPositive"/>
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
-			<xs:assert test=" if ( (exists(@head_height) or exists(@sink_size) ) and sum(@head_height + @sink_size) le 0) then false() else true()" 
-						xerces:message="rivet: must @head_height + @sink_size > 0"/>
+
+			<xs:assert xerces:message="rivet: it must hold that (head_height + sink_size) > 0"
+				test="
+				if (exists(@head_height) and exists(@sink_size)) 
+				then (sum(@head_height + @sink_size) gt 0) 
+				else true()"/>
+			<xs:assert xerces:message="rivet: it must hold that (head_height + sink_size) > 0"
+				test="
+				if (exists(@head_height) and not(exists(@sink_size))) 
+				then (@head_height gt 0) 
+				else true()"/>
+			<xs:assert xerces:message="rivet: it must hold that (head_height + sink_size) > 0"
+				test="
+				if (not(exists(@head_height)) and exists(@sink_size)) 
+				then (@sink_size gt 0) 
+				else true()"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="rivet_type" abstract="true"/>
