@@ -226,21 +226,6 @@
 			<xs:assert test="if( exists(contact_list/contact/partner/@pid)   and not(every $x in contact_list/contact/partner/@pid satisfies 
 							( connected_to/part[@pid=$x] or connected_to/assy/part[@pid=$x] ) ) ) then false() else true()"/>
 			
-			<!--contact without thread: "Maximum no. of items = cardinality of <connected_to> -1-->
-			<xs:assert test="if ( exists(connection_list/connection_0d/connection_0d_type/threaded_connection/contact_list/contact) and
-			count(connection_list/connection_0d/connection_0d_type/threaded_connection/contact_list/contact[@thread='true']) eq 0 and
-			count(connection_list/connection_0d/threaded_connection/contact_list/contact) ge ( count(connected_to/part) + count(connected_to/assy) ) ) then false() else true()"/>
-
-			<!--contact with (1) thread: "Maximum no. of items = cardinality of <connected_to> -->
-			<xs:assert test="if ( exists(connection_list/connection_0d/connection_0d_type/threaded_connection/contact_list/contact) and
-			count(connection_list/connection_0d/connection_0d_type/threaded_connection/contact_list/contact[@thread='true']) eq 1 and
-			count(connection_list/connection_0d/threaded_connection/contact_list/contact) gt ( count(connected_to/part) + count(connected_to/assy) ) ) then false() else true()"/>
-			
-			<xs:assert xerces:message="threaded_connection/contact_list/contact: index must be one of the indices defined in &lt;connected_to&gt;, but not the last one of them."
-				test="every $x in connection_list/connection_0d/threaded_connection/contact_list/contact/@index
-				satisfies $x ne max(connected_to/*/@index)"
-				/>
-
 		</xs:complexType>
 
 		<xs:key name="connected_to_key">
@@ -532,6 +517,9 @@
                   
 									<!--"At least one of these two friction coefficients has to be specified"-->
 									<xs:assert test="if( not( exists(@static_friction) ) and not( exists(@kinetic_friction) ) ) then false() else true()"/>
+									<xs:assert
+										xerces:message="threaded_connection/contact_list/contact: index is required if thread is not 'true'"
+										test="@thread=true() or exists(@index)"/>
 								</xs:complexType>
 							</xs:element>
 						</xs:all>
