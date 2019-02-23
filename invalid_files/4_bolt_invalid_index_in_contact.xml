@@ -31,20 +31,6 @@
         </threaded_connection>
       </connection_0d>
 
-      <connection_0d>
-        <loc>121.1 371.1 10.8</loc>
-        <threaded_connection diameter="10" length="2">
-          <normal_direction x="0" y="0" z="1"/>
-          <bolt>
-          <nut diameter="16"/>
-          </bolt>
-          <contact_list>
-            <contact index="1" static_friction="0.8"/>
-            <contact index="2" static_friction="0.8"/>
-          </contact_list>
-        </threaded_connection>
-      </connection_0d>
-
     </connection_list>
 
   </connection_group>

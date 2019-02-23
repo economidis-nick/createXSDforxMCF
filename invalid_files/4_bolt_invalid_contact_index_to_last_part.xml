@@ -23,6 +23,7 @@
           <nut diameter="16"/>
           </bolt>
           <contact_list>
+            <contact index="1" static_friction="0.8"/>
             <contact index="2" static_friction="0.8"/>
           </contact_list>
         </threaded_connection>
