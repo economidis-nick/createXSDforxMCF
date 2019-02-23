@@ -446,7 +446,11 @@
 			<xs:attribute name="max_grip" type="floatPositive"/>
 			<xs:attribute name="clearance" type="floatPositive"/>
 			<xs:attribute name="material" type="xs:string"/>
-			<xs:assert test="if(exists(@max_grip) and exists(@min_grip) and @max_grip lt @min_grip) then false() else true()"/>
+
+			<xs:assert 
+				xerces:message="rivet/blind: rule is max grip >= min_grip"
+				test="if (exists(@max_grip) and exists(@min_grip)) then (@max_grip ge @min_grip) else true()"/>
+
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="self_piercing" substitutionGroup="rivet_type">
