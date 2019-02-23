@@ -470,8 +470,9 @@
 			<xs:attribute name="tennon_diameter" type="floatPositive"/>
 			<xs:attribute name="tennon_length" type="floatPositive"/>
 			
-			<!-- max grip >= min_grip -->
-			<xs:assert test="if( exists(@max_grip) and exists(@min_grip) and @max_grip lt @min_grip) then false() else true()"/>
+			<xs:assert 
+				xerces:message="rivet/solid: rule is max grip >= min_grip"
+				test="if (exists(@max_grip) and exists(@min_grip)) then (@max_grip ge @min_grip) else true()"/>
 
 			<!--The following are Recommendations:
 				"1. hole_diameter is defined with hole_depth and vice versa"
