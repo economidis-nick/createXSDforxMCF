@@ -264,10 +264,26 @@
 			<xs:selector xpath="connection_list/connection_0d/threaded_connection/contact_list/contact"/>
 			<xs:field xpath="@index"/>
 		</xs:keyref>
+		<xs:keyref name="clip_clipped_to_index" refer="connected_to_key">
+			<xs:selector xpath="connection_list/connection_0d/clip"/>
+			<xs:field xpath="@clipped_to"/>
+		</xs:keyref>
 		<xs:keyref name="sheet_parameter_index" refer="connected_to_key">
 			<!--sheet_parameter/index: "it must refer to <part> index attribute-->
 			<xs:selector xpath="connection_list/connection_1d/seamweld/*/sheet_parameter"/>
 			<xs:field xpath="@index"/>
+		</xs:keyref>
+		<xs:keyref name="folded_part_index" refer="connected_to_key">
+			<xs:selector xpath="connection_list/connection_1d/hemming"/>
+			<xs:field xpath="@folded_part"/>
+		</xs:keyref>
+		<xs:keyref name="hemming_top_part_index" refer="connected_to_key">
+			<xs:selector xpath="connection_list/connection_1d/hemming/region"/>
+			<xs:field xpath="@top_index"/>
+		</xs:keyref>
+		<xs:keyref name="hemming_bottom_part_index" refer="connected_to_key">
+			<xs:selector xpath="connection_list/connection_1d/hemming/region"/>
+			<xs:field xpath="@bottom_index"/>
 		</xs:keyref>
 		<xs:keyref name="adhesive_face_base" refer="connected_to_key">
 			<xs:selector xpath="connection_list/connection_2d/adhesive_face"/>
@@ -549,8 +565,8 @@
 							test="count(contact[@thread=true()]) le 1"/>
 					</xs:complexType>
           
-					<!--threaded_connection/contact/index: "any specific index may occur not more than once".-->
 					<xs:unique name="unique_contact_index_in_contact_list">
+						<!--threaded_connection/contact/index: "any specific index may occur not more than once".-->
 						<xs:selector xpath="contact"/>
 						<xs:field xpath="@index"/>
 					</xs:unique>
@@ -573,10 +589,10 @@
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
       
-			<!--"length >= thread_length"-->
-			<xs:assert test="if( @length lt @thread_length ) then false() else true()"/>
-			<!--"If at least one of them is specified, head_height+sink_size>0 is required"-->
-			<xs:assert test=" if ( (exists(@head_height) or exists(@sink_size) ) and sum(@head_height + @sink_size) le 0) then false() else true()"/>
+			<xs:assert 
+				xerces:message="it must hold that length >= thread_length"
+				test="if (@length lt @thread_length) then false() else true()" />
+
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="threaded_connection_type" abstract="true"/>
@@ -591,8 +607,9 @@
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
       
-			<!--"NO part code, if attached"-->
-			<xs:assert test="if( @attached = true() and exists(@part_code) ) then false() else true()"/>
+			<xs:assert 
+				xerces:message="threaded_connection/washer: NO part code, if attached"
+				test="if (@attached = true() and exists(@part_code)) then false() else true()"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="nut">
@@ -611,10 +628,12 @@
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
       
-			<!--"NO part code, if attached"-->
-			<xs:assert test="if( ( exists(@clipped_to) or exists(@fixed_to) ) and exists(@part_code) ) then false() else true()"/>
-			<!--"Usually nut fixed_to prohibits nut clipped_to and vice versa"-->
-			<xs:assert test="if( exists(@fixed_to) and exists(@clipped_to) ) then false() else true()"/>
+			<xs:assert 
+				xerces:message="bolt/nut: NO part code, if attached"
+				test="if ((exists(@clipped_to) or exists(@fixed_to)) and exists(@part_code)) then false() else true()"/>
+			<xs:assert
+				xerces:message="bolt/nut: nut fixed_to prohibits nut clipped_to and vice versa"
+				test="not (exists(@fixed_to) and exists(@clipped_to))"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="bolt" substitutionGroup="threaded_connection_type">
@@ -625,14 +644,14 @@
 			<xs:attribute name="clipped_to" type="integerPositive"/>
 			<xs:attribute name="fixed_to" type="integerPositive"/>
 
-			<!--"Usually bolt fixed_to prohibits bolt clipped_to and vice versa"-->
-			<xs:assert test="if( exists(@fixed_to) and exists(@clipped_to) ) then false() else true()"/>
+			<xs:assert 
+				xerces:message="bolt fixed_to prohibits bolt clipped_to and vice versa"
+				test="not (exists(@fixed_to) and exists(@clipped_to))"/>
 
-			<!--"Usually nut clipped_to or fixed_to prohibits bolt clipped_to or fixed_to and vice versa"-->
-			<!--<xs:assert test="if( exists(nut/@fixed_to) and exists(@fixed_to) ) then false() else true()"/>
-			<xs:assert test="if( exists(nut/@clipped_to) and exists(@clipped_to) ) then false() else true()"/>-->
-			
-			<xs:assert test="if( (exists(nut/@fixed_to) or exists(nut/@clipped_to)) and (exists(@fixed_to) or exists(@clipped_to)) ) then false() else true()"/>
+			<xs:assert 
+				xerces:message="nut clipped_to or fixed_to prohibits bolt clipped_to or fixed_to and vice versa"
+				test="not ((exists(nut/@fixed_to) or exists(nut/@clipped_to)) and (exists(@fixed_to) or exists(@clipped_to)))"/>
+
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="screw" substitutionGroup="threaded_connection_type">
@@ -689,9 +708,27 @@
 			<xs:attribute name="head_height" type="floatZeroPositive"/>
 			<xs:attribute name="void_diameter" type="floatZeroPositive"/>
 			<xs:attribute name="hole_diameter" type="floatPositive"/>
-			<xs:assert test="if( exists(@diameter) and exists(@hole_diameter) and @diameter ge @hole_diameter ) then false() else true()"/>
-			<xs:assert test="if( exists(@void_diameter) and exists(@diameter) and @void_diameter ge @diameter ) then false() else true()"/>
-			<xs:assert test="if( exists(@hole_diameter) and exists(@head_diameter) and @hole_diameter ge @head_diameter ) then false() else true()"/>
+
+			<xs:assert 
+				xerces:message="heat_stake: it must hold that hole_diameter > diameter"
+				test="if (exists(@diameter) and exists(@hole_diameter)) 
+				then (@diameter lt @hole_diameter)
+				else true()"/>
+			<xs:assert
+				xerces:message="heat_stake: it must hold that diameter > void_diameter"
+				test="if (exists(@void_diameter) and exists(@diameter))
+				then (@void_diameter lt @diameter)
+				else true()"/>
+			<xs:assert 
+				xerces:message="heat_stake: it must hold that head_diameter > hole_diameter"
+				test="if (exists(@hole_diameter) and exists(@head_diameter))
+				then (@hole_diameter lt @head_diameter)
+				else true()"/>
+			<xs:assert 
+				xerces:message="heat_stake: it must hold that head_diameter > diameter"
+				test="if (exists(@diameter) and exists(@head_diameter))
+				then (@diameter lt @head_diameter)
+				else true()"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="clip" substitutionGroup="connection_0d_type">
@@ -711,8 +748,13 @@
 			<xs:attribute name="clipped_to" type="integerPositive"/>
 			<xs:attribute name="material" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
-			<xs:assert test="if( @hole_length gt 0 and @hole_diameter = 0 ) then false() else true()"/>
-			<xs:assert test="if( @pin_width gt 0 and @pin_diameter = 0 ) then false() else true()"/>
+
+			<xs:assert 
+				xerces:message="hole_length > 0 implies hole_diameter > 0"
+				test="if (@hole_length gt 0 and @hole_diameter = 0) then false() else true()"/>
+			<xs:assert 
+				xerces:message="pin_width > 0 implies pin_diameter > 0"
+				test="if (@pin_width gt 0 and @pin_diameter = 0) then false() else true()"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="nail" substitutionGroup="connection_0d_type">
@@ -752,6 +794,11 @@
 						</xs:sequence>
 						<xs:attribute name="index" type="integerPositive"/>
 					</xs:complexType>
+
+					<xs:unique name="unique_v_in_connection_1d_loc_list">
+						<xs:selector xpath="loc_list/loc"/>
+						<xs:field xpath="@v"/>
+					</xs:unique>
 				</xs:element>
 				<xs:element ref="custom_attributes_list" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="connection_1d_type" minOccurs="1" maxOccurs="1"/>
@@ -1298,6 +1345,7 @@
 			</xs:sequence>
 			<xs:attribute name="folded_width" type="floatPositive"/>
 			<xs:attribute name="folded_part" type="xs:integer"/>
+
 			<xs:assert test="count(hemming/region[@label='A']) le 1"/>
 			<xs:assert test="count(hemming/region[@label='B']) le 1"/>
 			<xs:assert test="count(hemming/region[@label='C']) le 1"/>
@@ -1326,6 +1374,8 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:attribute>
+			<xs:attribute name="top_index" type="xs:integer"/>
+			<xs:attribute name="bottom_index" type="xs:integer"/>
 			<xs:assert test="if( (@label eq 'A' or label eq 'C') and exists(connection_1d) and not(exists(connection_1d/adhesive_line))) then false() else true()"/>
 			<xs:assert test="if( (@label eq 'A' or label eq 'C') and exists(connection_2d) and not(exists(connection_2d/adhesive_face))) then false() else true()"/>
 			<xs:assert test="if( (@label eq 'B') and (exists(connection_1d) or exists(connection_2d)) ) then false() else true()"/>
