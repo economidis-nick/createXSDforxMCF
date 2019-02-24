@@ -325,7 +325,7 @@
 				<xs:element name="part">
 					<xs:complexType>
 						<xs:attribute name="pid" type="integerPositive"/>
-						<xs:attribute name="index" type="integerPositive" use="required"/>
+						<xs:attribute name="index" type="partIndex" use="required"/>
 						<xs:attribute name="label" type="xs:string"/>
 						
 						<xs:assert test="exists(@label) or exists(@pid)"/>
@@ -345,7 +345,7 @@
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
-						<xs:attribute name="index" type="xs:integer" use="required"/>
+						<xs:attribute name="index" type="partIndex" use="required"/>
 					</xs:complexType>
 				</xs:element>
 			</xs:choice>
@@ -426,7 +426,7 @@
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="tangential_direction" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
-			<xs:attribute name="base" type="integerPositive"/>
+			<xs:attribute name="base" type="partIndex"/>
 			<xs:attribute name="pattern" type="nonEmptyString"/>
 			<xs:attribute name="gap" type="floatZeroPositive"/>
 			<xs:attribute name="width" type="floatPositive"/>
@@ -545,7 +545,7 @@
 						<xs:all>
 							<xs:element name="contact" minOccurs="1" maxOccurs="unbounded">
 								<xs:complexType>
-									<xs:attribute name="index" type="integerPositive"/>
+									<xs:attribute name="index" type="partIndex"/>
 									<xs:attribute name="thread" type="xs:boolean" default="false"/>
 									<xs:attribute name="static_friction" type="floatPositive"/>
 									<xs:attribute name="kinetic_friction" type="floatPositive"/>
@@ -623,8 +623,8 @@
 			<xs:attribute name="angle" type="floatPositive"/>
 			<xs:attribute name="static_friction" type="floatPositive"/>
 			<xs:attribute name="kinetic_friction" type="floatPositive"/>
-			<xs:attribute name="clipped_to" type="integerPositive"/>
-			<xs:attribute name="fixed_to" type="integerPositive"/>
+			<xs:attribute name="clipped_to" type="partIndex"/>
+			<xs:attribute name="fixed_to" type="partIndex"/>
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
       
@@ -641,8 +641,8 @@
 			<xs:all>
 				<xs:element ref="nut" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
-			<xs:attribute name="clipped_to" type="integerPositive"/>
-			<xs:attribute name="fixed_to" type="integerPositive"/>
+			<xs:attribute name="clipped_to" type="partIndex"/>
+			<xs:attribute name="fixed_to" type="partIndex"/>
 
 			<xs:assert 
 				xerces:message="bolt fixed_to prohibits bolt clipped_to and vice versa"
@@ -659,13 +659,13 @@
 			<xs:sequence>
 				<xs:element ref="flow_drilled" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>
-			<xs:attribute name="base" type="integerPositive"/>
+			<xs:attribute name="base" type="partIndex"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="flow_drilled">
 		<xs:complexType>
 			<xs:attribute name="pre_machined_hole_diameter" type="floatZeroPositive"/>
-			<xs:attribute name="pre_machined_hole_index" type="integerPositive"/>
+			<xs:attribute name="pre_machined_hole_index" type="partIndex"/>
 			<xs:attribute name="pilot_hole_diameter" type="floatZeroPositive"/>
 		</xs:complexType>
 	</xs:element>
@@ -745,7 +745,7 @@
 			<xs:attribute name="pin_width" type="floatZeroPositive"/>
 			<xs:attribute name="pin_length" type="floatZeroPositive"/>
 			<xs:attribute name="strap_length" type="floatZeroPositive"/>
-			<xs:attribute name="clipped_to" type="integerPositive"/>
+			<xs:attribute name="clipped_to" type="partIndex"/>
 			<xs:attribute name="material" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
 
@@ -865,14 +865,14 @@
 				</xs:element>
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
-						<xs:attribute name="index" type="xs:integer" use="required"/>
+						<xs:attribute name="index" type="partIndex" use="required"/>
 						<xs:attribute name="gap" type="floatZeroPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
 					</xs:complexType>
 				</xs:element>
 			</xs:all>
-			<xs:attribute name="base" type="integerPositive"/>
+			<xs:attribute name="base" type="partIndex"/>
 			<xs:attribute name="technology">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -931,14 +931,14 @@
 				</xs:element>
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
-						<xs:attribute name="index" type="xs:integer" use="required"/>
+						<xs:attribute name="index" type="partIndex" use="required"/>
 						<xs:attribute name="gap" type="floatZeroPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
 					</xs:complexType>
 				</xs:element>
 			</xs:all>
-			<xs:attribute name="base" type="integerPositive"/>
+			<xs:attribute name="base" type="partIndex"/>
 			<xs:attribute name="technology">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -979,14 +979,14 @@
 				</xs:element>
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
-						<xs:attribute name="index" type="xs:integer" use="required"/>
+						<xs:attribute name="index" type="partIndex" use="required"/>
 						<xs:attribute name="gap" type="floatZeroPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
 					</xs:complexType>
 				</xs:element>
 			</xs:all>
-			<xs:attribute name="base" type="integerPositive"/>
+			<xs:attribute name="base" type="partIndex"/>
 			<xs:attribute name="technology">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -1018,14 +1018,14 @@
 				</xs:element>
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
-						<xs:attribute name="index" type="xs:integer" use="required"/>
+						<xs:attribute name="index" type="partIndex" use="required"/>
 						<xs:attribute name="gap" type="floatZeroPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
 					</xs:complexType>
 				</xs:element>
 			</xs:all>
-			<xs:attribute name="base" type="integerPositive"/>
+			<xs:attribute name="base" type="partIndex"/>
 			<xs:attribute name="technology">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -1042,7 +1042,7 @@
 			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
-						<xs:attribute name="base" type="integerPositive"/>
+						<xs:attribute name="base" type="partIndex"/>
 						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="section">
 							<xs:simpleType>
@@ -1083,14 +1083,14 @@
 				</xs:element>
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
-						<xs:attribute name="index" type="xs:integer" use="required"/>
+						<xs:attribute name="index" type="partIndex" use="required"/>
 						<xs:attribute name="gap" type="floatZeroPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
 					</xs:complexType>
 				</xs:element>
 			</xs:all>
-			<xs:attribute name="base" type="integerPositive"/>
+			<xs:attribute name="base" type="partIndex"/>
 			<xs:attribute name="technology">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -1107,7 +1107,7 @@
 			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
-						<xs:attribute name="base" type="integerPositive"/>
+						<xs:attribute name="base" type="partIndex"/>
 						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="section">
 							<xs:simpleType>
@@ -1150,14 +1150,14 @@
 				</xs:element>
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
-						<xs:attribute name="index" type="xs:integer" use="required"/>
+						<xs:attribute name="index" type="partIndex" use="required"/>
 						<xs:attribute name="gap" type="floatZeroPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 						<xs:attribute name="sheet_angle" type="xs:float"/>
 					</xs:complexType>
 				</xs:element>
 			</xs:all>
-			<xs:attribute name="base" type="integerPositive"/>
+			<xs:attribute name="base" type="partIndex"/>
 			<xs:attribute name="technology">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -1174,7 +1174,7 @@
 			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
-						<xs:attribute name="base" type="integerPositive"/>
+						<xs:attribute name="base" type="partIndex"/>
 						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="section">
 							<xs:simpleType>
@@ -1217,14 +1217,14 @@
 				</xs:element>
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
-						<xs:attribute name="index" type="xs:integer" use="required"/>
+						<xs:attribute name="index" type="partIndex" use="required"/>
 						<xs:attribute name="gap" type="floatZeroPositive" use="required"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive" use="required"/>
 						<xs:attribute name="sheet_angle" type="xs:float" use="required"/>
 					</xs:complexType>
 				</xs:element>
 			</xs:all>
-			<xs:attribute name="base" type="integerPositive"/>
+			<xs:attribute name="base" type="partIndex"/>
 			<xs:attribute name="technology">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -1241,7 +1241,7 @@
 			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
-						<xs:attribute name="base" type="integerPositive"/>
+						<xs:attribute name="base" type="partIndex"/>
 						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="section">
 							<xs:simpleType>
@@ -1284,14 +1284,14 @@
 				</xs:element>
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
-						<xs:attribute name="index" type="xs:integer" use="required"/>
+						<xs:attribute name="index" type="partIndex" use="required"/>
 						<xs:attribute name="gap" type="floatZeroPositive" use="required"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive" use="required"/>
 						<xs:attribute name="sheet_angle" type="xs:float" use="required"/>
 					</xs:complexType>
 				</xs:element>
 			</xs:all>
-			<xs:attribute name="base" type="integerPositive"/>
+			<xs:attribute name="base" type="partIndex"/>
 			<xs:attribute name="technology">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -1314,13 +1314,13 @@
 				</xs:element>
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
-						<xs:attribute name="index" type="xs:integer" use="required"/>
+						<xs:attribute name="index" type="partIndex" use="required"/>
 						<xs:attribute name="gap" type="floatZeroPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
 					</xs:complexType>
 				</xs:element>
 			</xs:all>
-			<xs:attribute name="base" type="integerPositive"/>
+			<xs:attribute name="base" type="partIndex"/>
 			<xs:attribute name="technology">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -1332,7 +1332,7 @@
 	</xs:element>
 	<xs:element name="adhesive_line" substitutionGroup="connection_1d_type">
 		<xs:complexType>
-			<xs:attribute name="base" type="integerPositive"/>
+			<xs:attribute name="base" type="partIndex"/>
 			<xs:attribute name="width" type="floatZeroPositive"/>
 			<xs:attribute name="thickness" type="floatZeroPositive"/>
 			<xs:attribute name="material" type="xs:string"/>
@@ -1344,7 +1344,7 @@
 				<xs:element ref="region" minOccurs="0" maxOccurs="3"/>
 			</xs:sequence>
 			<xs:attribute name="folded_width" type="floatPositive"/>
-			<xs:attribute name="folded_part" type="xs:integer"/>
+			<xs:attribute name="folded_part" type="partIndex"/>
 
 			<xs:assert test="count(hemming/region[@label='A']) le 1"/>
 			<xs:assert test="count(hemming/region[@label='B']) le 1"/>
@@ -1374,8 +1374,8 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:attribute>
-			<xs:attribute name="top_index" type="xs:integer"/>
-			<xs:attribute name="bottom_index" type="xs:integer"/>
+			<xs:attribute name="top_index" type="partIndex"/>
+			<xs:attribute name="bottom_index" type="partIndex"/>
 			<xs:assert test="if( (@label eq 'A' or label eq 'C') and exists(connection_1d) and not(exists(connection_1d/adhesive_line))) then false() else true()"/>
 			<xs:assert test="if( (@label eq 'A' or label eq 'C') and exists(connection_2d) and not(exists(connection_2d/adhesive_face))) then false() else true()"/>
 			<xs:assert test="if( (@label eq 'B') and (exists(connection_1d) or exists(connection_2d)) ) then false() else true()"/>
@@ -1461,7 +1461,7 @@
 	
 	<xs:element name="adhesive_face">
 		<xs:complexType>
-			<xs:attribute name="base" type="integerPositive"/>
+			<xs:attribute name="base" type="partIndex"/>
 			<xs:attribute name="thickness" type="floatZeroPositive"/>
 			<xs:attribute name="material" type="xs:string"/>
 		</xs:complexType>
@@ -1499,6 +1499,9 @@
 		<xs:attribute name="z" type="xs:float" use="required"/>
 		<xs:attribute name="reference" type="xs:boolean" default="false"/>
 	</xs:attributeGroup>
+	<xs:simpleType name="partIndex">
+		<xs:restriction base="integerPositive"/>
+	</xs:simpleType>
 	<xs:simpleType name="integerPositive">
 		<xs:restriction base="xs:integer">
 			<xs:minExclusive value="0"/>
