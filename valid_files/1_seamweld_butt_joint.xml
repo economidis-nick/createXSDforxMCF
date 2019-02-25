@@ -27,7 +27,7 @@
         </loc_list>
         <seamweld>
           <butt_joint base="1" technology="resistance">
-            <weld_position u="1" x="0" y="6.123" z="1" section="Y" width="3" filler="yes"/>
+            <weld_position u="1" x="0" y="6.123" z="1" section="Y" width="3" filler="yes" reference="true"/>
           </butt_joint>
         </seamweld>
       </connection_1d>
