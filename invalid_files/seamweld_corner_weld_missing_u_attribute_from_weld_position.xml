@@ -20,10 +20,9 @@
           </custom_attributes>
         </custom_attributes_list>
         <seamweld>
-          <corner_weld base="1" technology="resistance">
-            <weld_position x="1" y="0" z="1" reference="true" section="HV" thickness="0.5" angle="45" filler="yes" filler_material="E7018-X" shape="straight" penetration="0.6"/>
-            <sheet_parameter index="2" gap="1"/>
-          </corner_weld>
+          <butt_joint base="1" technology="resistance">
+            <weld_position x="0" y="6.123" z="1" section="Y" width="3" filler="yes"/>
+          </butt_joint>
         </seamweld>
       </connection_1d>
     </connection_list>
