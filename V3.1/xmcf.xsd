@@ -273,6 +273,10 @@
 			<xs:selector xpath="connection_list/connection_1d/seamweld/*/sheet_parameter"/>
 			<xs:field xpath="@index"/>
 		</xs:keyref>
+		<xs:keyref name="seamweld_base_index" refer="connected_to_key">
+			<xs:selector xpath="connection_list/connection_1d/seamweld/*"/>
+			<xs:field xpath="@base"/>
+		</xs:keyref>
 		<xs:keyref name="folded_part_index" refer="connected_to_key">
 			<xs:selector xpath="connection_list/connection_1d/hemming"/>
 			<xs:field xpath="@folded_part"/>
@@ -366,6 +370,7 @@
 		<xs:complexType>
 			<xs:attribute name="static_friction" type="floatZeroPositive"/>
 			<xs:attribute name="kinetic_friction" type="floatZeroPositive"/>
+			<xs:assert test="exists(@static_friction) or exists(@kinetic_friction)"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="connection_list">
@@ -377,6 +382,7 @@
 			</xs:choice>
 		</xs:complexType>
 	</xs:element>
+
 	<!-- ***************************************************************************************************************************************************************** -->
 	<xs:element name="connection_0d">
 		<xs:complexType>
