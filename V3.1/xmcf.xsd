@@ -381,6 +381,10 @@
 				<xs:element ref="connection_2d"/>
 			</xs:choice>
 		</xs:complexType>
+		<xs:unique name="unique_v_in_connection_1d_loc_list">
+			<xs:selector xpath="connection_1d/loc_list/loc"/>
+			<xs:field xpath="@v"/>
+		</xs:unique>
 	</xs:element>
 
 	<!-- ***************************************************************************************************************************************************************** -->
@@ -800,11 +804,6 @@
 						</xs:sequence>
 						<xs:attribute name="index" type="integerPositive"/>
 					</xs:complexType>
-
-					<xs:unique name="unique_v_in_connection_1d_loc_list">
-						<xs:selector xpath="loc_list/loc"/>
-						<xs:field xpath="@v"/>
-					</xs:unique>
 				</xs:element>
 				<xs:element ref="custom_attributes_list" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="connection_1d_type" minOccurs="1" maxOccurs="1"/>
