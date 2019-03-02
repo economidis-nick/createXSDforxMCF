@@ -2,7 +2,7 @@
 
 This folder contains:
 
-1. The v3.1 document, with the changes with respect to its predecesor, v3.0.
+1. A v3.1 document, with the *proposed* changes with respect to its predecesor, v3.0.
 2. The schema file that captures the v3.1 specification 
 3. A test suite, used to develop the schema
 4. Examples that accompany the v3.1 document
