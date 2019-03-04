@@ -21,24 +21,4 @@ the original specification document and pdf
 * the corrected specification document, 
 * the developed xMCF3 schema, and
 * the accompanying examples for the updated document
-
-#### `test_suite/` contains:
-
-* `valid_files/` contains a set of files which should all pass the validation
-* `invalid_files/` contains a set of xml files which are wrong, and the schema validation should catch the errors.
-* `validator/` contains the validator, `xmcf3Validator.jar`, and the java source files and instructions used to create it.
-
-## Instructions
-
-To run the test suite, use the validator provided:
-
-    $ cd test_suite
-    $ java -jar xmcf3Validator.jar  -s ../V3.1/xmcf.xsd  valid_files/*.xml
-    $ java -jar xmcf3Validator.jar  -s ../V3.1/xmcf.xsd  invalid_files/*.xml
-
-The first call  of the validator should report that all tests have passed.
-The second call of the  validator should report that all tests have at least 1 error.
-
-In order to get more details regarding the error of a file under test, use the `-v` option:
-
-    $ java -jar xmcf3Validator.jar  -v  -s ../V3.1/xmcf.xsd  test_file.xml
+* a `test_suite` used for test-driven development of the schema
