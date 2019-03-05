@@ -16,6 +16,10 @@
         <loc>120.1 37.1 0.8</loc>
         <gumdrop diameter="0" mass="0"/>
       </connection_0d>
+      <connection_0d>
+        <loc>12.1058 37.1065 0.881963</loc>
+        <gumdrop diameter="5" mass="0.0033" material="CAD_Material"/>
+      </connection_0d>	  
     </connection_list>
   </connection_group>
 </xmcf>

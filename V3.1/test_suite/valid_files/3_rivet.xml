@@ -12,6 +12,13 @@
         <loc>12.1058 37.1065 0.881963</loc>
         <rivet/>
       </connection_0d>
+      <connection_0d>
+        <loc>12.1058 37.1065 0.881963</loc>
+        <rivet shaft_diameter="5" length="2" head_diameter="8">
+          <normal_direction x="0" y="0" z="-1"/>
+          <blind min_grip="3" max_grip="3.2" clearance="4.5" material="Steel"/>
+        </rivet>
+      </connection_0d>	  
     </connection_list>
   </connection_group>
 </xmcf>
