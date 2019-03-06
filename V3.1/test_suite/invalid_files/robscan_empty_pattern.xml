@@ -11,7 +11,7 @@
     <connection_list>
       <connection_0d>
         <loc>12.1058 37.1065 0.881963</loc>
-        <robscan width="1.07374e+09" pattern_width="1.07374e+09" pattern_length="1.07374e+09" pattern="">
+        <robscan width="0.4" pattern_width="5" pattern_length="12" pattern="">
           <normal_direction x="0" y="0" z="1"/>
           <tangential_direction x="1" y="0" z="0"/>
         </robscan>

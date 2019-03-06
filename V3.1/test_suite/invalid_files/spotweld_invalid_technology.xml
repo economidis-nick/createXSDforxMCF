@@ -11,7 +11,7 @@
     <connection_list>
       <connection_0d>
         <loc>12.1058 37.1065 0.881963</loc>
-        <spotweld diameter="1.07374e+09" technology="technology_type"/>
+        <spotweld diameter="5.6" technology="technology_type"/>
       </connection_0d>
     </connection_list>
   </connection_group>
