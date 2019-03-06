@@ -639,9 +639,6 @@
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
       
-			<xs:assert 
-				xerces:message="bolt/nut: NO part code, if attached"
-				test="if ((exists(@clipped_to) or exists(@fixed_to)) and exists(@part_code)) then false() else true()"/>
 			<xs:assert
 				xerces:message="bolt/nut: nut fixed_to prohibits nut clipped_to and vice versa"
 				test="not (exists(@fixed_to) and exists(@clipped_to))"/>
