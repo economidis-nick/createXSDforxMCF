@@ -9,6 +9,7 @@
       <part index="2" pid="2"/>
     </connected_to>
     <connection_list>
+	
       <connection_0d>
         <loc>12.1058 37.1065 0.881963</loc>
         <threaded_connection diameter="0" length="2">
@@ -18,7 +19,8 @@
           </bolt>
         </threaded_connection>
       </connection_0d>
-      <connection_0d>
+    
+	<connection_0d>
         <loc>12.1058 37.1065 0.881963</loc>
         <threaded_connection diameter="0" length="2">
           <normal_direction x="0" y="0" z="-1"/>
@@ -33,6 +35,7 @@
           </contact_list>
         </threaded_connection>
       </connection_0d>	  
+
     </connection_list>
   </connection_group>
 </xmcf>

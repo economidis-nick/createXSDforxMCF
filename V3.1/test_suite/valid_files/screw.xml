@@ -25,6 +25,15 @@
         </threaded_connection>
       </connection_0d>
 	  
+	  <connection_0d>
+        <loc>12.1 37.1 -10.8</loc>
+        <threaded_connection diameter="10">
+          <screw base="1">
+            <flow_drilled pre_machined_hole_diameter="18" pre_machined_hole_index="1" pilot_hole_diameter="12"/>
+          </screw>
+        </threaded_connection>
+      </connection_0d>
+	  
     </connection_list>
   </connection_group>
 </xmcf>
