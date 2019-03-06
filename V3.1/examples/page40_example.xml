@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:MEDINA="http://servicenet.t-systems.com/medina/xMCF"
+xsi:schemaLocation="http://servicenet.t-systems.com/medina/xMCF mcf_MEDINA.xsd" 
+xsi:noNamespaceSchemaLocation="xmcf.xsd">
+<!-- File Name: new_car.xml -->
+    <!-- some comments -->
+    <date> 2016-01-11 </date>
+    <version> 3.0.0 </version>
+    <units length="mm" angle="rad" mass="kg" force="N" time="s"/>
+    <appdata> <!--appdata at root level -->
+        <MEDINA xmlns="http://servicenet.t-systems.com/medina/xMCF">
+            <data_at_root>
+                <version MEDINA="MEDINA 8.4.2 Maintenance Release (64 Bit)"/>
+            </data_at_root>
+        </MEDINA>
+    </appdata>
+    <connection_group id="1">
+        <connected_to>
+            <part index="1" label="sheet_leftdoor__front_t=3" pid="20123213"/>
+            <part index="2" label="assembly_ leftdoor _hinge" pid="90123213"/>
+        </connected_to>
+        <appdata> <!--appdata at connection_group level -->
+            <MEDINA xmlns="http://servicenet.t-systems.com/medina/xMCF">
+                <data_at_connection_group>
+                </data_at_connection_group>
+            </MEDINA>
+        </appdata>
+        <connection_list>
+            <connection_0d>
+				<femdata>
+                    <NASTRAN>
+                        <CAE_DATA xmlns="FATXML" >
+                        </CAE_DATA>
+                    </NASTRAN>
+                </femdata>
+				<spotweld/>
+				<loc/>
+				<appdata/>
+            </connection_0d>
+            <connection_1d>
+                <loc_list>
+					<loc v="1"/>
+                </loc_list>
+                <seamweld>
+                </seamweld>
+                <appdata>
+                    <MEDINA xmlns="http://servicenet.t-systems.com/medina/xMCF">
+                        <data_at_connector>
+                        </data_at_connector>
+                    </MEDINA>
+                </appdata>
+            </connection_1d>
+            <connection_2d>
+				<loc_list>
+					<loc v="1"/>
+					<loc v="2"/>
+					<loc v="3"/>
+				</loc_list>
+				<face_list>
+					<face v1="1" v2="2" v3="3"/>
+				</face_list>
+				<appdata/>
+				<adhesive_face/>
+            </connection_2d>
+        </connection_list >
+    </connection_group>
+</xmcf>

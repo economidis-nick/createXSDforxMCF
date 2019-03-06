@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:MEDINA="http://servicenet.t-systems.com/medina/xMCF"
+xsi:schemaLocation="http://servicenet.t-systems.com/medina/xMCF mcf_MEDINA.xsd" 
+xsi:noNamespaceSchemaLocation="xmcf.xsd">
+    <date> 2014-08-07 </date>
+    <version> 3.0.0 </version>
+    <units length="mm" angle="rad" mass="kg" force="N" time="s"/>
+    <connection_group id="1">
+		<connected_to>
+			<part index="1" label="PART_7000400"/>
+			<part index="2" label="PART_7100100"/>
+			<part index="5" label="PART_5000300"/>
+			<part index="6" label="PART_5000800"/>
+		</connected_to>
+		<connection_list>
+			<connection_0d label="CLINCH_left_2123521">
+				<!-- Unit definition and connected to is important for clinch -->
+				<clinch clinch_type="TOX" button_diameter="3.0"
+					strength_class="HD" shear_strength="890" peel_strength="356">
+					<normal_direction x="0" y="0" z="-10"/>
+				</clinch>
+				<loc> 1645.83 821.145 616.585 </loc>
+				<appdata>
+				</appdata>
+			</connection_0d>
+		</connection_list>
+	</connection_group>
+</xmcf>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:MEDINA="http://servicenet.t-systems.com/medina/xMCF"
+xsi:schemaLocation="http://servicenet.t-systems.com/medina/xMCF mcf_MEDINA.xsd" 
+xsi:noNamespaceSchemaLocation="xmcf.xsd">
+    <date> 2014-08-07 </date>
+    <version> 3.0.0 </version>
+    <units length="mm" angle="rad" mass="kg" force="N" time="s"/>
+    <connection_group id="1">
+		<connected_to>
+			<part index="1" label="PART_7000400"/>
+			<part index="2" label="PART_7100100"/>
+			<part index="5" label="PART_5000300"/>
+			<part index="6" label="PART_5000800"/>
+		</connected_to>
+		<connection_list>
+			<connection_1d label="MyWeldLine">
+				<loc_list index="1"> <!-- first section -->
+					<loc v="0"   > 2581.21 -708.408 31.6532 </loc> <!-- first point -->
+					<loc v="1"   > 2581.42 -708.357 35.2816 </loc>
+					<loc v="2.22"> 2581.05 -708.302 39.0643 </loc> <!-- last  point -->
+				</loc_list>
+				<seamweld>
+					<corner_weld base="1" technology="resistance">
+						<weld_position u="0.2" x="1" y="0" z="1"
+                           reference="true"
+                           section="HV"
+                           thickness="0.5"
+                           angle="45"
+                           filler="yes"
+						   filler_material=" E7018-X"
+                           shape="straight"
+                           penetration="0.6"/>
+						<sheet_parameter index="2" gap="1.0"/>
+					</corner_weld>
+				</seamweld>
+				<appdata>
+				</appdata>
+			</connection_1d>
+		</connection_list>
+	</connection_group>
+</xmcf>

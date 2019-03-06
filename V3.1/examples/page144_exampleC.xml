@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:MEDINA="http://servicenet.t-systems.com/medina/xMCF"
+xsi:schemaLocation="http://servicenet.t-systems.com/medina/xMCF mcf_MEDINA.xsd" 
+xsi:noNamespaceSchemaLocation="xmcf.xsd">
+    <date> 2014-08-07 </date>
+    <version> 3.0.0 </version>
+    <units length="mm" angle="deg" mass="kg" force="N" time="s"/>
+    <connection_group id="1">
+		<connected_to>
+			<part index="1" label="outer hood panel"/>
+			<assy index="23">
+				<part label="inner hood panel"/>
+				<part label="reinforcement"/>
+			</assy>
+		</connected_to>
+
+		<connection_list>
+			<connection_1d label="11000">
+				<sequence_connection_0d spacing="30.0" margin="1.0" priority="spacing">
+					<spotweld diameter="6"/>
+				</sequence_connection_0d>
+				<loc_list>
+					<loc v="1"> 2169.300  -489.495  1773.936 </loc>
+					<loc v="2"> 2165.593  -480.000  1790.221 </loc>
+					<loc v="3"> 2165.593   480.000  1790.221 </loc>
+					<loc v="4"> 2169.302   489.495  1773.937 </loc>
+				</loc_list>
+				<appdata>
+				</appdata>
+			</connection_1d>
+		</connection_list>
+	</connection_group>
+</xmcf>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:MEDINA="http://servicenet.t-systems.com/medina/xMCF"
+xsi:schemaLocation="http://servicenet.t-systems.com/medina/xMCF mcf_MEDINA.xsd" 
+xsi:noNamespaceSchemaLocation="xmcf.xsd">
+    <date> 2014-08-07 </date>
+    <version> 3.0.0 </version>
+    <units length="mm" angle="rad" mass="kg" force="N" time="s"/>
+    <connection_group id="1">
+        <connected_to>
+        </connected_to>
+        <connection_list>
+			<connection_0d label="My0dConnection_id_100000">
+				<loc/>
+                <spotweld/>
+				<appdata/>
+				<femdata>
+					<NASTRAN>
+						<CAE_DATA VERSION="1">
+							<REPRESENTATION>
+							</REPRESENTATION>
+							<COMMENT>
+							</COMMENT>
+							<CAE_PART_MEMBER ID="1">
+								<ENTITY>
+									<TYPE>
+										CQUAD
+									</TYPE>
+									<ID>
+										12345-12356
+									</ID>
+								</ENTITY>
+							</CAE_PART_MEMBER>
+						</CAE_DATA>
+					</NASTRAN>
+				</femdata>
+			</connection_0d>
+        </connection_list>
+    </connection_group>
+</xmcf>
