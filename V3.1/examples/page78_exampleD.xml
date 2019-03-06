@@ -34,7 +34,8 @@
                   <nut diameter="16." height="6.4" 
                      torque="20" angle="35"
                      clipped_to="6" 
-                     strength_property_class="8.8">
+                     strength_property_class="8.8"
+                     part_code="N10 8.8">
                      <!-- Washer attached to nut with its friction to last part -->
                      <washer outer_diameter="25" attached="true" static_friction=".8"/>
                   </nut>
