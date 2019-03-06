@@ -1,5 +1,5 @@
 `
-Usage: java -jar xmcf3Validator.jar [-v] -s <schema_file_name> <xml_file_name>
+Usage: java -jar xmcf3Validator.jar [-v] -s schema_file_name xml_file_name_1 [xml_file_name_2 ...]
   options:
     -s, --schema    Defines XSD Schema validation file
     -v, --verbose   Shows verbose error messages
