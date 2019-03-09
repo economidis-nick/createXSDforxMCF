@@ -7,7 +7,7 @@
 				<xs:element ref="units" minOccurs="0" maxOccurs="1"/>
 				<xs:element name="date" type="xs:date" minOccurs="0" maxOccurs="1"/>
 				<xs:element name="version" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element ref="appdata" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="appdata" type="appdata_type" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="femdata" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="connection_group" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:all>
@@ -89,137 +89,46 @@
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="appdata">
-		<xs:complexType>
-			<!-- 
-				NOTE: We chose not to restrict the choice of elements under appdata, because the spec says:
-				"The following list does not imply that other application names are forbidden. 
-				Its noly purpose is to reserve the registered names against inappropriate use".
-			-->
-			<!--<xs:choice minOccurs="1" maxOccurs="unbounded">
-				<xs:element name="ANSA"/>
-				<xs:element name="FEMFAT"/>
-				<xs:element name="HyperMesh"/>
-				<xs:element name="LMSVirtualLab"/>
-				<xs:element name="MEDINA"/>
-				<xs:element name="NCODE"/>
-				<xs:element name="SyncroFIT"/>
-				<xs:any/>
-			</xs:choice>-->
-			<xs:sequence>
-				<xs:any minOccurs="0" processContents="skip"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
+
+	<xs:complexType name="appdata_type">
+		<!-- 
+		NOTE: We chose not to restrict the choice of elements under appdata, because the spec says:
+		"The following list does not imply that other application names are forbidden. 
+		Its noly purpose is to reserve the registered names against inappropriate use".
+		-->
+		<xs:sequence>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="femdata_type">
+		<xs:sequence>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
 	<xs:element name="femdata">
 		<xs:complexType>
-			<!-- 
-				NOTE: According to document, the following are the acceptable contents of femdata.
-					  In case that more applications would be added, we should use commented code instead.
-			-->
-			<!--<xs:sequence>
-				<xs:any minOccurs="0" processContents="skip"/>
-			</xs:sequence>-->
 			<xs:all>
-				<xs:element name="PAMCRASH" minOccurs="0" maxOccurs="1">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="LSDYNA" minOccurs="0" maxOccurs="1">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="PERMAS" minOccurs="0" maxOccurs="1">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="ABAQUS" minOccurs="0" maxOccurs="1">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="RADIOSS" minOccurs="0" maxOccurs="1">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="OPTISTRUCT" minOccurs="0" maxOccurs="1">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="NASTRAN" minOccurs="0" maxOccurs="1">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="FEMFAT" minOccurs="0" maxOccurs="1">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element ref="CAE_DATA" minOccurs="1" maxOccurs="unbounded"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
+				<xs:element name="PAMCRASH"   type="femdata_type" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="LSDYNA"     type="femdata_type" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="PERMAS"     type="femdata_type" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="ABAQUS"     type="femdata_type" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="RADIOSS"    type="femdata_type" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="OPTISTRUCT" type="femdata_type" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="NASTRAN"    type="femdata_type" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="FEMFAT"     type="femdata_type" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="CAE_DATA">
-		<xs:complexType>
-			<xs:all>
-				<xs:element name="REPRESENTATION" type="xs:string" minOccurs="0" maxOccurs="1"/>
-				<xs:element name="COMMENT" type="xs:string" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="CAE_PART_MEMBER" minOccurs="1" maxOccurs="unbounded"/>
-			</xs:all>
-			<xs:attribute name="VERSION" type="xs:integer" use="required"/>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="CAE_PART_MEMBER">
-		<xs:complexType>
-			<!-- NOTE: <any> is used in order to validate every schema. Alternatively, the following 
-					   schema should be used or replaced with FATXML specification.
-   			-->
-			<!-- 
-			<xs:sequence>
-				<xs:element name="ENTITY" minOccurs="0" maxOccurs="unbounded">
-					<xs:complexType>
-						<xs:all>
-							<xs:element name="TYPE" type="xs:string" minOccurs="1" maxOccurs="1"/>
-							<xs:element name="ID" type="xs:string" minOccurs="1" maxOccurs="1"/>
-						</xs:all>
-					</xs:complexType>
-				</xs:element>
-			</xs:sequence>
-			-->
-			<xs:sequence>
-				<xs:any minOccurs="0" processContents="skip"/>
-			</xs:sequence>
-			<xs:attribute name="ID" type="integerPositive"/>
-		</xs:complexType>
-	</xs:element>
+
 	<xs:element name="connection_group">
 		<xs:complexType>
 			<xs:all>
 				<xs:element ref="connected_to" minOccurs="1" maxOccurs="1"/>			
 				<xs:element ref="connection_list" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="contact_list" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="appdata" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="appdata" type="appdata_type" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
 			<xs:attribute name="id" type="xs:int" use="required"/>
 			<xs:assert test="if( exists(contact_list/contact/partner/@label) and not(every $x in contact_list/contact/partner/@label satisfies 
@@ -392,7 +301,7 @@
 		<xs:complexType>
 			<xs:all>
 				<xs:element name="loc" type="xs:string" minOccurs="1" maxOccurs="1"/>
-				<xs:element ref="appdata" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="appdata" type="appdata_type" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="femdata" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="custom_attributes_list" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="connection_0d_type" minOccurs="1" maxOccurs="1"/> <!--"Note: exactly one of the type elements must exist in <connection_od>. There is no default type"-->
@@ -810,7 +719,7 @@
 				<xs:element ref="custom_attributes_list" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="connection_1d_type" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="contact_list" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="appdata" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="appdata" type="appdata_type" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="femdata" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
 			<xs:attribute name="label" type="xs:string"/>
@@ -1483,7 +1392,7 @@
 					</xs:complexType>
 				</xs:element>
 				<xs:element ref="face_list" minOccurs="1" maxOccurs="1"/>
-				<xs:element ref="appdata" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="appdata" type="appdata_type" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="femdata" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="custom_attributes_list" minOccurs="0" maxOccurs="1"/>
 			</xs:all>

@@ -1,0 +1,26 @@
+<xmcf 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="xmcf.xsd">
+
+    <date> 2019-03-09 </date>
+    <version> 3.0.0 </version>
+
+    <connection_group id="1">
+        <connected_to/>
+        <connection_list>
+            <connection_0d>
+                <spotweld/>
+                <loc/>
+                <appdata>
+                
+                    <SOME_PREPROCESSOR 
+                            xmlns="http://www.some-preprocessor.com/xMCF" 
+                            xsi:schemaLocation="http://www.some-preprocessor.com/xMCF xmcf_Some_Preprocessor.xsd">
+                        <connector_id> X </connector_id> <!-- should fail because xmcf_Some_Preprocessor.xsd specifies that this must be xs:integer -->
+                    </SOME_PREPROCESSOR>
+
+                </appdata>
+            </connection_0d>
+        </connection_list>
+    </connection_group>
+</xmcf>
