@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
 <xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xmlns:MEDINA="http://servicenet.t-systems.com/medina/xMCF"
-xsi:schemaLocation="http://servicenet.t-systems.com/medina/xMCF mcf_MEDINA.xsd" 
-xsi:noNamespaceSchemaLocation="xmcf.xsd">
-<!-- File Name: new_car.xml -->
+    xmlns:MEDINA="http://servicenet.t-systems.com/medina/xMCF"
+    xsi:schemaLocation="http://servicenet.t-systems.com/medina/xMCF mcf_MEDINA.xsd" 
+    xsi:noNamespaceSchemaLocation="xmcf.xsd">
+    <!-- File Name: new_car.xml -->
     <!-- some comments -->
     <date> 2016-01-11 </date>
     <version> 3.0.0 </version>
@@ -28,19 +28,19 @@ xsi:noNamespaceSchemaLocation="xmcf.xsd">
         </appdata>
         <connection_list>
             <connection_0d>
-				<femdata>
+                <femdata>
                     <NASTRAN>
-                        <CAE_DATA xmlns="FATXML" >
+                        <CAE_DATA xmlns="FATXML">
                         </CAE_DATA>
                     </NASTRAN>
                 </femdata>
-				<spotweld/>
-				<loc/>
-				<appdata/>
+                <spotweld/>
+                <loc/>
+                <appdata/>
             </connection_0d>
             <connection_1d>
                 <loc_list>
-					<loc v="1"/>
+                    <loc v="1"/>
                 </loc_list>
                 <seamweld>
                 </seamweld>
@@ -52,17 +52,17 @@ xsi:noNamespaceSchemaLocation="xmcf.xsd">
                 </appdata>
             </connection_1d>
             <connection_2d>
-				<loc_list>
-					<loc v="1"/>
-					<loc v="2"/>
-					<loc v="3"/>
-				</loc_list>
-				<face_list>
-					<face v1="1" v2="2" v3="3"/>
-				</face_list>
-				<appdata/>
-				<adhesive_face/>
+                <loc_list>
+                    <loc v="1"/>
+                    <loc v="2"/>
+                    <loc v="3"/>
+                </loc_list>
+                <face_list>
+                    <face v1="1" v2="2" v3="3"/>
+                </face_list>
+                <appdata/>
+                <adhesive_face/>
             </connection_2d>
-        </connection_list >
+        </connection_list>
     </connection_group>
 </xmcf>
