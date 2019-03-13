@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf.xsd">
+  <version>3.0.0</version>
+  <date>2019-03-07</date>
+  <connection_group id="1">
+    <connected_to>
+    </connected_to>
+    <connection_list>
+
+      <connection_1d>
+        <loc_list>
+          <loc v="0">184 7.71793 47.796</loc>
+          <loc v="1">184 19.2821 </loc>
+        </loc_list>
+        <seamweld>
+          <corner_weld/>
+        </seamweld>
+      </connection_1d>
+    </connection_list>
+  </connection_group>
+</xmcf>
