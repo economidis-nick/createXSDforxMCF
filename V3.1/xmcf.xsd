@@ -1242,10 +1242,6 @@
 			<xs:attribute name="label" type="xs:string"/>
 			<xs:attribute name="quality_control" type="xs:string"/>
 		</xs:complexType>
-		<xs:unique name="unique_v_in_loc_list">
-			<xs:selector xpath="loc_list/loc"/>
-			<xs:field xpath="@v"/>
-		</xs:unique>
 		<xs:key name="face_vertex_key">
 			<xs:selector xpath="loc_list/loc"/>
 			<xs:field xpath="@v"/>
