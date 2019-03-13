@@ -807,7 +807,7 @@
 			</xs:attribute>
 		</xs:complexType>
 
-		<xs:unique name="unique_index_in_butt_joint_sheet_parameter">
+		<xs:unique name="unique_index_in_sheet_parameter">
 			<xs:selector xpath="sheet_parameter"/>
 			<xs:field xpath="@index"/>
 		</xs:unique>
@@ -879,11 +879,8 @@
 			</xs:attribute>
 		</xs:complexType>
 
-		<xs:unique name="unique_index_in_corner_weld_sheet_parameter">
-			<xs:selector xpath="sheet_parameter"/>
-			<xs:field xpath="@index"/>
-		</xs:unique>
-
+		<xs:unique ref="unique_index_in_sheet_parameter"/>
+		
 	</xs:element>
 	<xs:element name="edge_weld">
 		<xs:complexType>
@@ -933,10 +930,7 @@
 			</xs:attribute>
 		</xs:complexType>
 
-		<xs:unique name="unique_index_in_edge_weld_sheet_parameter">
-			<xs:selector xpath="sheet_parameter"/>
-			<xs:field xpath="@index"/>
-		</xs:unique>
+		<xs:unique ref="unique_index_in_sheet_parameter"/>
 
 	</xs:element>
 	<xs:element name="i_weld">
@@ -978,11 +972,8 @@
 			</xs:attribute>
 		</xs:complexType>
 
-		<xs:unique name="unique_index_in_i_weld_sheet_parameter">
-			<xs:selector xpath="sheet_parameter"/>
-			<xs:field xpath="@index"/>
-		</xs:unique>
-
+		<xs:unique ref="unique_index_in_sheet_parameter"/>
+		
 	</xs:element>
 	<xs:element name="overlap_weld">
 		<xs:complexType>
@@ -1049,11 +1040,8 @@
 			</xs:attribute>
 		</xs:complexType>
 
-		<xs:unique name="unique_index_in_overlap_weld_sheet_parameter">
-			<xs:selector xpath="sheet_parameter"/>
-			<xs:field xpath="@index"/>
-		</xs:unique>
-
+		<xs:unique ref="unique_index_in_sheet_parameter"/>
+		
 	</xs:element>
 	<xs:element name="y_joint">
 		<xs:complexType>
@@ -1122,10 +1110,7 @@
 			</xs:attribute>
 		</xs:complexType>
 
-		<xs:unique name="unique_index_in_y_joint_sheet_parameter">
-			<xs:selector xpath="sheet_parameter"/>
-			<xs:field xpath="@index"/>
-		</xs:unique>
+		<xs:unique ref="unique_index_in_sheet_parameter"/>
 
 	</xs:element>
 	<xs:element name="k_joint">
@@ -1195,10 +1180,7 @@
 			</xs:attribute>
 		</xs:complexType>
 
-		<xs:unique name="unique_index_in_k_joint_sheet_parameter">
-			<xs:selector xpath="sheet_parameter"/>
-			<xs:field xpath="@index"/>
-		</xs:unique>
+		<xs:unique ref="unique_index_in_sheet_parameter"/>
 
 	</xs:element>
 	<xs:element name="cruciform_joint">
@@ -1268,10 +1250,7 @@
 			</xs:attribute>
 		</xs:complexType>
 
-		<xs:unique name="unique_index_in_cruciform_joint_sheet_parameter">
-			<xs:selector xpath="sheet_parameter"/>
-			<xs:field xpath="@index"/>
-		</xs:unique>
+		<xs:unique ref="unique_index_in_sheet_parameter"/>
 
 	</xs:element>
 	<xs:element name="flared_joint">
@@ -1301,10 +1280,7 @@
 			</xs:attribute>
 		</xs:complexType>
 
-		<xs:unique name="unique_index_in_flared_joint_sheet_parameter">
-			<xs:selector xpath="sheet_parameter"/>
-			<xs:field xpath="@index"/>
-		</xs:unique>
+		<xs:unique ref="unique_index_in_sheet_parameter"/>
 
 	</xs:element>
 	<xs:element name="adhesive_line" substitutionGroup="connection_1d_type">
@@ -1591,7 +1567,7 @@
 			</xs:sequence>
 			<xs:attribute name="key" type="nonEmptyString" use="required"/>
 		</xs:complexType>
-		<xs:unique name="unique_value_index_in_string_list">
+		<xs:unique name="unique_value_index_in_type_list">
 			<xs:selector xpath="value"/>
 			<xs:field xpath="@index"/>
 		</xs:unique>
@@ -1611,10 +1587,7 @@
 			</xs:sequence>
 			<xs:attribute name="key" type="nonEmptyString" use="required"/>
 		</xs:complexType>
-		<xs:unique name="unique_value_index_in_real_list">
-			<xs:selector xpath="value"/>
-			<xs:field xpath="@index"/>
-		</xs:unique>
+		<xs:unique ref="unique_value_index_in_type_list"/>
 	</xs:element>
 	<xs:element name="int_list">
 		<xs:complexType>
@@ -1631,9 +1604,6 @@
 			</xs:sequence>
 			<xs:attribute name="key" type="nonEmptyString" use="required"/>
 		</xs:complexType>
-		<xs:unique name="unique_value_index_in_int_list">
-			<xs:selector xpath="value"/>
-			<xs:field xpath="@index"/>
-		</xs:unique>
+		<xs:unique ref="unique_value_index_in_type_list"/>
 	</xs:element>
 </xs:schema>

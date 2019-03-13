@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf.xsd">
+    <date> 2014-08-07 </date>
+    <version> 3.0.0 </version>
+    <units length="mm" angle="rad" mass="kg" force="N" time="s"/>
+    <connection_group id="1">
+        <connected_to>
+        </connected_to>
+        <connection_list>
+			<connection_0d>
+				<loc>2581.21 -708.408 31.6532 </loc>
+				<spotweld/>
+				<custom_attributes_list>
+					<custom_attributes owner="DepartmentA" for="Fatigue">
+						<int key="priority"> 1 </int>
+						<string key="used S-N curve">Steel_225_ISO</string>
+						<real key="fatigue_limit"> 223.1 </real>
+					</custom_attributes>
+					<custom_attributes owner="DepartmentA" for="Statics">
+						<int key="priority"> 2 </int>
+					</custom_attributes>
+					<custom_attributes owner="DepartmentB">
+						<string key="priority">high</string>
+						<real_list key="direction vector">
+							<value index="1">10.3 </value>
+							<value index="2"> -2.1</value>
+							<value index="3">-1.5</value>
+						</real_list>
+						<string_list key="verifiedby" >
+							<value index="1">john</value>
+							<value index="2">Smith</value>
+						</string_list>
+						<int_list key="referencedby">
+							<value index="1">10 </value>
+							<value index="2"> -2</value>
+							<value index="3">-1</value>
+						</int_list>
+					</custom_attributes>
+				</custom_attributes_list>
+			</connection_0d>
+        </connection_list>
+    </connection_group>
+</xmcf>
