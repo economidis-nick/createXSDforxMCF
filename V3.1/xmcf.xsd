@@ -775,14 +775,7 @@
 							</xs:simpleType>
 						</xs:attribute>
 						<xs:attribute name="width" type="floatPositive"/>
-						<xs:attribute name="filler">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="yes"/>
-									<xs:enumeration value="no"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
+						<xs:attribute name="filler" type="filler_type"/>
 						<xs:attribute name="filler_material" type="xs:string"/>
 					</xs:complexType>
 				</xs:element>
@@ -830,32 +823,10 @@
 						</xs:attribute>
 						<xs:attribute name="thickness" type="floatPositive"/>
 						<xs:attribute name="angle" type="xs:float"/>
-						<xs:attribute name="filler">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="yes"/>
-									<xs:enumeration value="no"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
+						<xs:attribute name="filler" type="filler_type"/>
 						<xs:attribute name="filler_material" type="xs:string"/>
-						<xs:attribute name="shape">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="straight"/>
-									<xs:enumeration value="convex"/>
-									<xs:enumeration value="concave"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
-						<xs:attribute name="penetration">
-							<xs:simpleType>
-								<xs:restriction base="xs:float">
-									<xs:minInclusive value="0"/>
-									<xs:maxInclusive value="1"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
+						<xs:attribute name="shape" type="shape_type"/>
+						<xs:attribute name="penetration" type="penetration_type"/>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
@@ -898,14 +869,7 @@
 							</xs:simpleType>
 						</xs:attribute>
 						<xs:attribute name="width" type="floatPositive"/>
-						<xs:attribute name="filler">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="yes"/>
-									<xs:enumeration value="no"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
+						<xs:attribute name="filler" type="filler_type"/>
 						<xs:attribute name="filler_material" type="xs:string"/>
 					</xs:complexType>
 				</xs:element>
@@ -940,14 +904,7 @@
 					<xs:complexType>
 						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="width" type="floatPositive"/>
-						<xs:attribute name="filler">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="yes"/>
-									<xs:enumeration value="no"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
+						<xs:attribute name="filler" type="filler_type"/>
 						<xs:attribute name="filler_material" type="xs:string"/>
 					</xs:complexType>
 				</xs:element>
@@ -991,32 +948,10 @@
 						</xs:attribute>
 						<xs:attribute name="thickness" type="floatPositive"/>
 						<xs:attribute name="angle" type="xs:float"/>
-						<xs:attribute name="filler">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="yes"/>
-									<xs:enumeration value="no"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
+						<xs:attribute name="filler" type="filler_type"/>
 						<xs:attribute name="filler_material" type="xs:string"/>
-						<xs:attribute name="shape">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="straight"/>
-									<xs:enumeration value="convex"/>
-									<xs:enumeration value="concave"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
-						<xs:attribute name="penetration">
-							<xs:simpleType>
-								<xs:restriction base="xs:float">
-									<xs:minInclusive value="0"/>
-									<xs:maxInclusive value="1"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
+						<xs:attribute name="shape" type="shape_type"/>
+						<xs:attribute name="penetration" type="penetration_type"/>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
@@ -1061,32 +996,10 @@
 						</xs:attribute>
 						<xs:attribute name="thickness" type="floatPositive"/>
 						<xs:attribute name="angle" type="xs:float"/>
-						<xs:attribute name="filler">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="yes"/>
-									<xs:enumeration value="no"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
+						<xs:attribute name="filler" type="filler_type"/>
 						<xs:attribute name="filler_material" type="xs:string"/>
-						<xs:attribute name="shape">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="straight"/>
-									<xs:enumeration value="convex"/>
-									<xs:enumeration value="concave"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
-						<xs:attribute name="penetration">
-							<xs:simpleType>
-								<xs:restriction base="xs:float">
-									<xs:minInclusive value="0"/>
-									<xs:maxInclusive value="1"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
+						<xs:attribute name="shape" type="shape_type"/>
+						<xs:attribute name="penetration" type="penetration_type"/>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
@@ -1131,32 +1044,10 @@
 						</xs:attribute>
 						<xs:attribute name="thickness" type="floatPositive"/>
 						<xs:attribute name="angle" type="xs:float"/>
-						<xs:attribute name="filler">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="yes"/>
-									<xs:enumeration value="no"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
+						<xs:attribute name="filler" type="filler_type"/>
 						<xs:attribute name="filler_material" type="xs:string"/>
-						<xs:attribute name="shape">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="straight"/>
-									<xs:enumeration value="convex"/>
-									<xs:enumeration value="concave"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
-						<xs:attribute name="penetration">
-							<xs:simpleType>
-								<xs:restriction base="xs:float">
-									<xs:minInclusive value="0"/>
-									<xs:maxInclusive value="1"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
+						<xs:attribute name="shape" type="shape_type"/>
+						<xs:attribute name="penetration" type="penetration_type"/>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
@@ -1201,32 +1092,10 @@
 						</xs:attribute>
 						<xs:attribute name="thickness" type="floatPositive"/>
 						<xs:attribute name="angle" type="xs:float"/>
-						<xs:attribute name="filler">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="yes"/>
-									<xs:enumeration value="no"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
+						<xs:attribute name="filler" type="filler_type"/>
 						<xs:attribute name="filler_material" type="xs:string"/>
-						<xs:attribute name="shape">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="straight"/>
-									<xs:enumeration value="convex"/>
-									<xs:enumeration value="concave"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
-						<xs:attribute name="penetration">
-							<xs:simpleType>
-								<xs:restriction base="xs:float">
-									<xs:minInclusive value="0"/>
-									<xs:maxInclusive value="1"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
+						<xs:attribute name="shape" type="shape_type"/>
+						<xs:attribute name="penetration" type="penetration_type"/>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="sheet_parameter" minOccurs="0" maxOccurs="unbounded">
@@ -1319,14 +1188,7 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:attribute>
-			<xs:attribute name="fill_percentage">
-				<xs:simpleType>
-					<xs:restriction base="xs:float">
-						<xs:minInclusive value="0"/>
-						<xs:maxInclusive value="100"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:attribute>
+			<xs:attribute name="fill_percentage" type="fill_percentage_type"/>
 			<xs:attribute name="top_index" type="partIndex"/>
 			<xs:attribute name="bottom_index" type="partIndex"/>
 			<xs:assert test="if( (@label eq 'A' or label eq 'C') and exists(connection_1d) and not(exists(connection_1d/adhesive_line))) then false() else true()"/>
@@ -1432,6 +1294,35 @@
 	</xs:element>
 
 	<!-- ***************************************************************************************************************************************************************************** -->
+	<xs:simpleType name="fill_percentage_type">
+		<xs:restriction base="xs:float">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="penetration_type">
+		<xs:restriction base="xs:float">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+						
+	<xs:simpleType name="filler_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="yes"/>
+			<xs:enumeration value="no"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="shape_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="straight"/>
+			<xs:enumeration value="convex"/>
+			<xs:enumeration value="concave"/>
+		</xs:restriction>
+	</xs:simpleType>
+						
 	<xs:simpleType name="loc_type">
         <xs:restriction base="xs:string">
             <xs:pattern value="\s*[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?\s+[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?\s+[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?\s*"/>
