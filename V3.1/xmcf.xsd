@@ -225,20 +225,25 @@
 					</xs:complexType>
 				</xs:element>
 			</xs:all>
-			<!-- 
 				NOTE: "any set of physical contact partners must not appear more than once within a <contact_list>".
 					      The first <xs:assert>, ensures that every pair of partners is distinct when it appears with the same
-					  sequence. 
-			          The second and commented <xs:assert>, ensures that every partners'pair is distinct irrespective of the sequence of partners. 
-					  An extra check should be added for the case of the contact between one partner.
-					  An extra check should be added for the case of pid is used instead of label.
-			-->
-			<xs:assert test="count(contact) eq count( distinct-values( contact/concat(partner[1]/@label, partner[2]/@label) ) )"/>
-			<!--<xs:assert test="(count( distinct-values( contact/concat(partner[1]/@label, partner[2]/@label) ) ) + 
-							  count( distinct-values( contact/concat(partner[2]/@label, partner[1]/@label) ) ) -
-							  2 * count( distinct-values( contact/concat(partner[1]/@label, partner[1]/@label) ) )) eq 
-							 (count( distinct-values( (contact/concat(partner[1]/@label, partner[2]/@label), contact/concat(partner[2]/@label, partner[1]/@label)) ) ) -
-							  count( distinct-values( contact/concat(partner[1]/@label, partner[1]/@label) ) ) )"/>-->
+			
+			<xs:assert xerces:message="contact_list/contact: any set of physical contact partners must not appear more than once within a &lt;contact_list&gt;."
+					   test="if( count(contact/partner[1]/@label) + count(contact/partner[2]/@label) eq 2*count(contact) )
+				             then ( 2*count(contact) eq ( 
+						            count( distinct-values( (contact/concat(partner[1]/@label, partner[2]/@label), 
+			                                                 contact/concat(partner[2]/@label, partner[1]/@label)) ) ) +
+			                        count( contact[partner[1]/@label eq partner[2]/@label])) ) 
+			                 else true() "/>
+			
+			<xs:assert xerces:message="contact_list/contact: any set of physical contact partners must not appear more than once within a &lt;contact_list&gt;."
+					   test="if( count(contact/partner[1]/@pid) + count(contact/partner[2]/@pid) eq 2*count(contact) )
+			                 then ( 2*count(contact) eq ( 
+					                count( distinct-values( (contact/concat(partner[1]/@pid, partner[2]/@pid), 
+			                                                 contact/concat(partner[2]/@pid, partner[1]/@pid)) ) ) +
+			                        count( contact[partner[1]/@pid eq partner[2]/@pid])) ) 
+			                 else true() "/>
+
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="connected_to">
