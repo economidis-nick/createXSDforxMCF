@@ -225,17 +225,19 @@
 					</xs:complexType>
 				</xs:element>
 			</xs:all>
-				
-			<xs:assert xerces:message="contact_list/contact: any set of physical contact partners must not appear more than once within a &lt;contact_list&gt;."
-					   test="if( count(contact/partner[1]/@label) + count(contact/partner[2]/@label) eq 2*count(contact) )
+			
+			<!-- NOTE: if condition ensures that every partner in this contact_list is described by its label -->
+			<xs:assert xerces:message="contact_list/contact: any pair of physical contact partners must not appear more than once within a &lt;contact_list&gt;."
+					   test="if( exists(contact/partner/@label) and not(exists(contact/partner/@pid)) )
 				             then ( 2*count(contact) eq ( 
 						            count( distinct-values( (contact/concat(partner[1]/@label, partner[2]/@label), 
 			                                                 contact/concat(partner[2]/@label, partner[1]/@label)) ) ) +
 			                        count( contact[partner[1]/@label eq partner[2]/@label])) ) 
 			                 else true() "/>
 			
-			<xs:assert xerces:message="contact_list/contact: any set of physical contact partners must not appear more than once within a &lt;contact_list&gt;."
-					   test="if( count(contact/partner[1]/@pid) + count(contact/partner[2]/@pid) eq 2*count(contact) )
+			<!-- NOTE: if condition ensures that every partner in this contact_list is described by its pid -->
+			<xs:assert xerces:message="contact_list/contact: any pair of physical contact partners must not appear more than once within a &lt;contact_list&gt;."
+					   test="if( exists(contact/partner/@pid) and not(exists(contact/partner/@label)) )
 			                 then ( 2*count(contact) eq ( 
 					                count( distinct-values( (contact/concat(partner[1]/@pid, partner[2]/@pid), 
 			                                                 contact/concat(partner[2]/@pid, partner[1]/@pid)) ) ) +
