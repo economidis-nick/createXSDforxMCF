@@ -225,9 +225,7 @@
 					</xs:complexType>
 				</xs:element>
 			</xs:all>
-				NOTE: "any set of physical contact partners must not appear more than once within a <contact_list>".
-					      The first <xs:assert>, ensures that every pair of partners is distinct when it appears with the same
-			
+				
 			<xs:assert xerces:message="contact_list/contact: any set of physical contact partners must not appear more than once within a &lt;contact_list&gt;."
 					   test="if( count(contact/partner[1]/@label) + count(contact/partner[2]/@label) eq 2*count(contact) )
 				             then ( 2*count(contact) eq ( 
