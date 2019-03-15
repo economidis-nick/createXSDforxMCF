@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf.xsd">
+  <version>3.0.0</version>
+  <date>2019-01-07</date>
+  <connection_group id="1">
+    <connected_to>
+      <part index="1" label="sheet_steel_in_door_left_32_thickness3.2" pid="3202132"/>
+      <assy index="42">
+		<part label="sheet_steel_in_door_left_30_thickness2.70" pid="110013"/>
+		<part label="sheet_steel_in_door_left_31_thickness2.75" pid="110099"/>
+	  </assy>
+    </connected_to>
+	<contact_list>
+		<contact>
+			<partner pid="3202132"/>
+			<partner pid="3202132"/>
+			<coefficients static_friction="0.3" kinetic_friction=".25"/>
+		</contact>
+		<contact>
+			<partner pid="110013"/>
+			<partner pid="110013"/>
+			<coefficients static_friction="0.52" kinetic_friction=".25"/>
+		</contact>
+		<contact>
+			<partner pid="3202132"/>
+			<partner pid="3202132"/>
+			<coefficients static_friction="0.4" kinetic_friction=".25"/>
+		</contact>
+	</contact_list>
+    <connection_list>
+      <connection_0d>
+        <loc>12.1058 37.1065 0.881963</loc>
+        <spotweld/>
+      </connection_0d>
+      <connection_0d>
+        <loc>12.1058 37.1065 0.881963</loc>
+        <spotweld diameter="5.6" technology="laser"/>
+      </connection_0d>	  
+    </connection_list>
+  </connection_group>
+</xmcf>
