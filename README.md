@@ -1,4 +1,5 @@
 # Create XSD for xMCF
+<em>Question CF: Don't we want to use the Greek letter 'χ', as in 'χMCF'?</em>
 
 We are building the XML schema for xMCF 3.0. 
 xMCF is the extended Master Connection File, a standard of storing connection files for the Automotive Industry. 
