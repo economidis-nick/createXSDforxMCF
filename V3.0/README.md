@@ -6,7 +6,7 @@
 The specification of xMCF 3.0 derived from xMCF 2.1.
 
 The people involved in the development of xMCF were:
-- Carsten Franke (T-Systems)
+- Carsten Franke (T-Systems International GmbH, nowadays PROSTEP AG)
 - Nick Economidis (BETA CAE Systems)
 - Janos Golumba (Ford)
 
