@@ -35,12 +35,12 @@
                     </NASTRAN>
                 </femdata>
                 <spotweld/>
-                <loc/>
+                <loc>1645.83 821.145 616.585</loc>
                 <appdata/>
             </connection_0d>
             <connection_1d>
                 <loc_list>
-                    <loc v="1"/>
+                    <loc v="1">1645.83 822.145 614.585</loc>
                 </loc_list>
                 <seamweld>
                 </seamweld>
@@ -53,9 +53,9 @@
             </connection_1d>
             <connection_2d>
                 <loc_list>
-                    <loc v="1"/>
-                    <loc v="2"/>
-                    <loc v="3"/>
+                    <loc v="1">1645.83 821.145 616.585</loc>
+                    <loc v="2">1645.83 -821.145 616.585</loc>
+                    <loc v="3">1645.83 821.145 -616.585</loc>
                 </loc_list>
                 <face_list>
                     <face v1="1" v2="2" v3="3"/>

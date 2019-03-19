@@ -11,7 +11,7 @@ xsi:noNamespaceSchemaLocation="xmcf.xsd">
         </connected_to>
         <connection_list>
 			<connection_0d label="My0dConnection_id_100000">
-				<loc/>
+				<loc>1645.83 821.145 616.585</loc>
                 <spotweld/>
 				<appdata/>
 				<femdata>

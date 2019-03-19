@@ -12,7 +12,7 @@ xsi:noNamespaceSchemaLocation="xmcf.xsd">
         <connection_list>
             <connection_1d label="1000032">
                 <loc_list>
-					<loc v="0"/>											<!-- NOTE: this line is added -->
+					<loc v="0">1645.83 821.145 616.585</loc>											<!-- NOTE: this line is added -->
                 </loc_list>
                 <seamweld>
                 </seamweld>

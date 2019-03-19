@@ -26,7 +26,7 @@ xsi:noNamespaceSchemaLocation="xmcf.xsd">
         <connection_list>
             <connection_0d>
                 <spotweld/>
-                <loc/>
+                <loc>1645.83 821.145 616.585</loc>
                 <appdata/>
             </connection_0d>
         </connection_list>
