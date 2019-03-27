@@ -794,15 +794,7 @@
 				</xs:element>
 			</xs:all>
 			<xs:attribute name="base" type="partIndex"/>
-			<xs:attribute name="technology">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="resistance"/>
-						<xs:enumeration value="arc"/>
-						<xs:enumeration value="laser"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:attribute>
+			<xs:attribute name="technology" type="technology_type"/>
 		</xs:complexType>
 
 		<xs:unique name="unique_index_in_sheet_parameter">
@@ -844,15 +836,7 @@
 				</xs:element>
 			</xs:all>
 			<xs:attribute name="base" type="partIndex"/>
-			<xs:attribute name="technology">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="resistance"/>
-						<xs:enumeration value="arc"/>
-						<xs:enumeration value="laser"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:attribute>
+			<xs:attribute name="technology" type="technology_type"/>
 		</xs:complexType>
 
 		<xs:unique ref="unique_index_in_sheet_parameter"/>
@@ -888,15 +872,7 @@
 				</xs:element>
 			</xs:all>
 			<xs:attribute name="base" type="partIndex"/>
-			<xs:attribute name="technology">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="resistance"/>
-						<xs:enumeration value="arc"/>
-						<xs:enumeration value="laser"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:attribute>
+			<xs:attribute name="technology" type="technology_type"/>
 		</xs:complexType>
 
 		<xs:unique ref="unique_index_in_sheet_parameter"/>
@@ -923,15 +899,7 @@
 				</xs:element>
 			</xs:all>
 			<xs:attribute name="base" type="partIndex"/>
-			<xs:attribute name="technology">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="resistance"/>
-						<xs:enumeration value="arc"/>
-						<xs:enumeration value="laser"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:attribute>
+			<xs:attribute name="technology" type="technology_type"/>
 		</xs:complexType>
 
 		<xs:unique ref="unique_index_in_sheet_parameter"/>
@@ -969,15 +937,7 @@
 				</xs:element>
 			</xs:all>
 			<xs:attribute name="base" type="partIndex"/>
-			<xs:attribute name="technology">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="resistance"/>
-						<xs:enumeration value="arc"/>
-						<xs:enumeration value="laser"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:attribute>
+			<xs:attribute name="technology" type="technology_type"/>
 		</xs:complexType>
 
 		<xs:unique ref="unique_index_in_sheet_parameter"/>
@@ -1017,15 +977,7 @@
 				</xs:element>
 			</xs:all>
 			<xs:attribute name="base" type="partIndex"/>
-			<xs:attribute name="technology">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="resistance"/>
-						<xs:enumeration value="arc"/>
-						<xs:enumeration value="laser"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:attribute>
+			<xs:attribute name="technology" type="technology_type"/>
 		</xs:complexType>
 
 		<xs:unique ref="unique_index_in_sheet_parameter"/>
@@ -1065,15 +1017,7 @@
 				</xs:element>
 			</xs:all>
 			<xs:attribute name="base" type="partIndex"/>
-			<xs:attribute name="technology">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="resistance"/>
-						<xs:enumeration value="arc"/>
-						<xs:enumeration value="laser"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:attribute>
+			<xs:attribute name="technology" type="technology_type"/>
 		</xs:complexType>
 
 		<xs:unique ref="unique_index_in_sheet_parameter"/>
@@ -1113,15 +1057,7 @@
 				</xs:element>
 			</xs:all>
 			<xs:attribute name="base" type="partIndex"/>
-			<xs:attribute name="technology">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="resistance"/>
-						<xs:enumeration value="arc"/>
-						<xs:enumeration value="laser"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:attribute>
+			<xs:attribute name="technology" type="technology_type"/>
 		</xs:complexType>
 
 		<xs:unique ref="unique_index_in_sheet_parameter"/>
@@ -1295,6 +1231,16 @@
 	</xs:element>
 
 	<!-- ***************************************************************************************************************************************************************************** -->
+	<xs:simpleType name="technology_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="resistance"/>
+			<xs:enumeration value="arc"/>
+			<xs:enumeration value="laser"/>
+			<xs:enumeration value="friction"/>
+			<xs:enumeration value="brazing"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
 	<xs:simpleType name="fill_percentage_type">
 		<xs:restriction base="xs:float">
 			<xs:minInclusive value="0"/>
