@@ -10,9 +10,9 @@
 		</connected_to>
         <connection_list>
 			<connection_0d label="RVT_2123921">
-				<rivet shaft_diameter="3.35" head_diameter="5.5" length="4">
+				<rivet shaft_diameter="3.35" head_diameter="5.5" length="4" hardness="410">
 					<normal_direction x="0" y="0" z="3"/>
-					<self_piercing hardness="410" head_label="N000000002651" shaft_label="C" 
+					<self_piercing head_label="N000000002651" shaft_label="C" 
 						die_depth="2.5" die_label="DZ11x2,5-0,50" die_diameter="11" />
 				</rivet>
 				<loc> 1645.83 821.145 616.585 </loc>

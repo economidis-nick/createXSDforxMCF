@@ -373,6 +373,7 @@
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="rivet_type" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
+			<xs:attribute name="hardness" type="floatPositive"/>
 			<xs:attribute name="shaft_diameter" type="floatPositive"/>
 			<xs:attribute name="length" type="floatPositive"/>
 			<xs:attribute name="head_diameter" type="floatPositive"/>
@@ -415,7 +416,6 @@
 	</xs:element>
 	<xs:element name="self_piercing" substitutionGroup="rivet_type">
 		<xs:complexType>
-			<xs:attribute name="hardness" type="floatPositive"/>
 			<xs:attribute name="head_label" type="xs:string"/>
 			<xs:attribute name="shaft_label" type="xs:string"/>
 			<xs:attribute name="die_label" type="xs:string"/>
