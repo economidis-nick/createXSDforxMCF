@@ -1,0 +1,9 @@
+# Ignore Windows Explorer Links to other objects of file sysetms.
+*.lnk
+
+# Ignore Windows Explorer temp. files
+Thumbs.db
+
+# Ignore MS Office temp. files
+~$*
+~WRL*.tmp
