@@ -1084,13 +1084,7 @@
 				</xs:element>
 			</xs:all>
 			<xs:attribute name="base" type="partIndex"/>
-			<xs:attribute name="technology">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="arc"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:attribute>
+			<xs:attribute name="technology" type="technology_type"/>
 		</xs:complexType>
 
 		<xs:unique ref="unique_index_in_sheet_parameter"/>
