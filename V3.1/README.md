@@ -9,6 +9,10 @@ This folder contains:
 
 ultimately, when the document changes and the xsd are confirmed, we will place the final pdf with the official specification document in this folder.
 
-**Note 1**: test suite contains a validator, which you can use to validate your xmcf files against the schema.
+## Notes
 
-**Note 2**: the schema is best viewed using the Altova XML Spy, because it is quite complicated and writted in xsd1.1
+* test suite contains a validator, which you can use to validate your xmcf files against the schema.
+
+* the schema is best viewed using the Altova XML Spy, because it is quite complicated and written in xsd1.1
+
+* the only entry point of the schema is assumed to be the `<xmcf>` element.
