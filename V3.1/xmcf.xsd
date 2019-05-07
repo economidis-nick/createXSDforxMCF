@@ -31,7 +31,7 @@
 			<xs:assert test="if( (units/@angle='rad') and (exists(connection_group/connection_list/connection_1d/seamweld/*/sheet_parameter[@sheet_angle gt 2*3.14159265358979323846]))) then false() else true()"/>
 
 			<xs:assert xerces:message="rivet/self_piercing/hardness is deprecated under after v3.0.0"
-			           test="not( exists(connection_group/connection_list/connection_0d/rivet/self_piercing/@hardness) and not ( version/text() = '3.0.0') )"/>
+			           test="not( exists(connection_group/connection_list/connection_0d/rivet/self_piercing/@hardness) and not ( normalize-space(version/text()) = '3.0.0') )"/>
 		</xs:complexType>
     
 		<!-- connection_group/id must be unique within xmcf -->
