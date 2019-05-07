@@ -16,10 +16,7 @@
 					head_diameter="16.0" head_height="5" thread_length="35" 
 					torque="80" angle="30" pretension="1200" part_code="M10x50 12.9" >
 					<normal_direction x="0" y="0" z="-10"/>
-					<!--No Washer under bolt ehad in this case-->
-					<bolt fixed_to="5" >
-						<!--No Nut in this case-->
-					</bolt>
+					<screw base="5"/>
 				</threaded_connection>
 				<loc> 1500.3809  838.75885  730.6529 </loc>
 				<appdata>
