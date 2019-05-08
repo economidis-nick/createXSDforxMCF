@@ -1372,21 +1372,31 @@
 	<xs:element name="real">
 		<xs:complexType>
 			<xs:simpleContent>
-				<xs:extension base="xs:float">
+				<xs:extension base="emptyReal">
 					<xs:attribute name="key" type="nonEmptyString" use="required"/>
 				</xs:extension>
 			</xs:simpleContent>
 		</xs:complexType>
 	</xs:element>
+	<xs:simpleType name="emptyReal">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\s*[+-]?([0-9]*[.])?[0-9]+\s*|.{0}|\s*"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:element name="int">
 		<xs:complexType>
 			<xs:simpleContent>
-				<xs:extension base="xs:int">
+				<xs:extension base="emptyInteger">
 					<xs:attribute name="key" type="nonEmptyString" use="required"/>
 				</xs:extension>
 			</xs:simpleContent>
 		</xs:complexType>
 	</xs:element>
+	<xs:simpleType name="emptyInteger">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\s*[0-9]\s*|.{0}|\s*"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:element name="string_list">
 		<xs:complexType>
 			<xs:sequence>

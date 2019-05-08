@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf.xsd">
+    <date> 2014-08-07 </date>
+    <version> 3.0.0 </version>
+    <units length="mm" angle="rad" mass="kg" force="N" time="s"/>
+    <connection_group id="1">
+        <connected_to>
+        </connected_to>
+        <connection_list>
+			<connection_0d>
+				<loc>2581.21 -708.408 31.6532 </loc>
+				<spotweld/>
+				<custom_attributes_list>
+					<custom_attributes owner="DepartmentA" for="Fatigue">
+						<int key="priority"></int>
+						<string key="used S-N curve">Steel_225_ISO</string>
+						<real key="fatigue_limit"> 223.1 </real>
+					</custom_attributes>
+				</custom_attributes_list>
+			</connection_0d>
+        </connection_list>
+    </connection_group>
+</xmcf>
