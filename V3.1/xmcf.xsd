@@ -315,6 +315,7 @@
 				<xs:element name="loc" type="loc_type" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="appdata" type="appdata_type" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="femdata" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="contact_list" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="custom_attributes_list" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="connection_0d_type" minOccurs="1" maxOccurs="1"/> <!--"Note: exactly one of the type elements must exist in <connection_od>. There is no default type"-->
 			</xs:all>
@@ -1175,6 +1176,7 @@
 				<xs:element ref="face_list" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="appdata" type="appdata_type" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="femdata" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="contact_list" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="custom_attributes_list" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
 			<xs:attribute name="label" type="xs:string"/>
