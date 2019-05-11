@@ -11,15 +11,18 @@
 				<loc>2581.21 -708.408 31.6532 </loc>
 				<spotweld/>
 				<custom_attributes_list>
+				
 					<custom_attributes owner="DepartmentA" for="Fatigue">
 						<int key="priority"> 1 </int>
 						<string key="used S-N curve">Steel_225_ISO</string>
 						<real key="fatigue_limit"> 223.1 </real>
 					</custom_attributes>
-					<custom_attributes owner="DepartmentA" for="Statics">
+
+					<custom_attributes owner="DepartmentA" for="Statics"> <!-- same 'owner', different 'for' -->
 						<int key="priority"> 2 </int>
 					</custom_attributes>
-					<custom_attributes owner="DepartmentB">
+
+					<custom_attributes owner="DepartmentB">  <!-- without 'for' -->
 						<string key="priority">high</string>
 						<real_list key="direction vector">
 							<value index="1">10.3 </value>
@@ -36,6 +39,19 @@
 							<value index="3">-1</value>
 						</int_list>
 					</custom_attributes>
+
+					<custom_attributes owner="TestingDepartmentA">  <!-- empty values are allowed -->
+						<int key="some integer"></int>
+						<string key="some string"></string>
+						<real key="some real"></real>
+					</custom_attributes>
+
+					<custom_attributes owner="TestingDepartmentB">  <!-- negative values are allowed -->
+						<int key="negative int"> -1 </int>
+						<real key="negative real"> -30.6 </real>
+						<real key="negative real2"> -30 </real>
+					</custom_attributes>
+
 				</custom_attributes_list>
 			</connection_0d>
         </connection_list>
