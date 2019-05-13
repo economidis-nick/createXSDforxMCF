@@ -5,17 +5,11 @@
   <connection_group id="1">
     <connected_to>
 		<assy index="42">
-			<part label="sheet_steel_in_door_left_30_thickness2.70" pid="110013"/>
-			<part label="sheet_steel_in_door_left_31_thickness2.75" pid="110099"/>
+			<part label="PART_7000400" pid="110013"/>
+			<part label="PART_7000800" pid="110099"/>
 		</assy>
 	</connected_to>
-	<contact_list>
-		<contact>
-			<partner label="sheet_steel_in_door_left_31_thickness2.75"/>
-			<partner label="sheet_steel_in_door_left_30_thickness2.70"/>
-			<coefficients static_friction="0.3" kinetic_friction=".25"/>
-		</contact>
-	</contact_list>
+
     <connection_list>
       <connection_0d>
         <loc>12.1058 37.1065 0.881963</loc>

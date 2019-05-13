@@ -11,7 +11,7 @@
 			<part index="6" label="PART_5000800"/>
 		</connected_to>
 		<connection_list>
-			<connection_0d label="100532">
+			<connection_0d label="BOLT_100532">
 				<threaded_connection diameter="10.0" length="50.0"
 					head_diameter="16.0" head_height="5" sink_size="3"> 
 					<normal_direction x="3.0" y="0.0"  z="0.0"/>   

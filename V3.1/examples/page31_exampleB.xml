@@ -10,7 +10,7 @@ xsi:noNamespaceSchemaLocation="xmcf.xsd">
         <connected_to>
         </connected_to>
         <connection_list>
-            <connection_1d label="1000032">
+            <connection_1d>
                 <loc_list>
 					<loc v="0">1645.83 821.145 616.585</loc>											
                 </loc_list>

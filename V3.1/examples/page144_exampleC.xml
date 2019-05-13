@@ -5,15 +5,15 @@
     <units length="mm" angle="deg" mass="kg" force="N" time="s"/>
     <connection_group id="1">
 		<connected_to>
-			<part index="1" label="outer hood panel"/>
+			<part index="1" label="PART_7000400"/>
 			<assy index="23">
-				<part label="inner hood panel"/>
-				<part label="reinforcement"/>
+				<part label="PART_5000300"/>
+				<part label="PART_5000800"/>
 			</assy>
 		</connected_to>
 
 		<connection_list>
-			<connection_1d label="11000">
+			<connection_1d label="SPOT_LINE_100574">
 				<sequence_connection_0d spacing="30.0" margin="1.0" priority="spacing">
 					<spotweld diameter="6"/>
 				</sequence_connection_0d>

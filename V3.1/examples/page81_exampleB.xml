@@ -11,7 +11,7 @@
 			<part index="6" label="PART_5000800"/>
 		</connected_to>
 		<connection_list>
-			<connection_0d label="135">
+			<connection_0d label="SCREW 100532">
 				<threaded_connection length="50" diameter="10" 
 					head_diameter="16" head_height="5" thread_length="35">
 					<normal_direction x="0" y="0" z="-10"/>

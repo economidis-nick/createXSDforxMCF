@@ -11,7 +11,7 @@
 			<part index="6" label="PART_5000800"/>
 		</connected_to>
 		<connection_list>
-			<connection_0d label="135"> 
+			<connection_0d label="BOLT_135"> 
 				<threaded_connection diameter="10" length="50" head_diameter="16" head_height="5" 	   thread_length="35" torque="80" angle="30" pretension="1200"
 					part_code="M10x50 12.9">
 					<normal_direction x="0" y="0" z="-10"/>
