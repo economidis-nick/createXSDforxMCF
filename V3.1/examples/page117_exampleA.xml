@@ -19,7 +19,6 @@
 				</loc_list>				
 				<seamweld>
 					<edge_weld base="1" technology="arc">
-					<!-- BUG: previous value of reference was no-->
 						<weld_position u="1" x="1" y="1" z="0"
 							reference="false"
 							section="V"

@@ -19,9 +19,7 @@
 				</loc_list>
 				<seamweld>
 					<butt_joint base="1" technology="arc">
-						<weld_position u="0.2" x="1" y="0" z="1"
-							section="X"
-							width="1.5"/>
+						<weld_position u="0.2" x="1" y="0" z="1"/>
 						<sheet_parameter index="2" gap="1.0"/>
 					</butt_joint>
 				</seamweld>

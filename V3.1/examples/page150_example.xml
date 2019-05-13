@@ -29,7 +29,6 @@
 				</face_list>
 				<appdata>
 				</appdata>
-				<!-- BUG: closing tag of custom_attributes_list was wrong -->
 				<!--<custom_attributes_list>
 				</custom_attributes_list>-->
 			</connection_2d>

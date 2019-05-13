@@ -16,10 +16,9 @@
 					<loc v="0"   > 2581.21 -708.408 31.6532 </loc> <!-- first point -->
 					<loc v="1"   > 2581.42 -708.357 35.2816 </loc>
 					<loc v="2.22"> 2581.05 -708.302 39.0643 </loc> <!-- last  point -->
-				</loc_list>				<!-- BUG: closingtag was missing -->
+				</loc_list>
 				<seamweld>
 					<overlap_weld base="1" technology="resistance">
-						<!-- BUG: previous value of reference was no -->
 						<weld_position u="0" x="0" y="0" z="1"
 						reference="false"
 						section="Fillet"

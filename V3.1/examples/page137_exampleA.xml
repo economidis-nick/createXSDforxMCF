@@ -22,7 +22,6 @@
 						<weld_position u="0" x="1" y="1" z="1"
 							reference="false"
 							width="1.0" />
-						<!-- BUG: closing " in sheet_thickness was missing -->
 						<sheet_parameter index="2" gap="0" sheet_thickness="1.5"/>
 					</flared_joint >
 				</seamweld>

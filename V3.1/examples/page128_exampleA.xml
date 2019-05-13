@@ -19,7 +19,6 @@
 				</loc_list>				
 				<seamweld>
 					<y_joint base="1" technology="resistance">
-						<!-- BUG: previous value of reference was no -->
 						<weld_position u="0.5" x="1" y="0" z="1"
 							reference="false"
 							section="HY"

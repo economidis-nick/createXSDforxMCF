@@ -6,9 +6,7 @@
     <connection_group id="1">
 		<connected_to>
 			<part index="1" label="outer hood panel"/>
-			<!-- BUG: previous element defined as assembly, now assy is used  -->
 			<assy index="23">
-				<!-- BUG: index attribute from assy/part was removed -->
 				<part label="inner hood panel"/>
 				<part label="reinforcement"/>
 			</assy>
@@ -25,7 +23,6 @@
 			<appdata>
 			</appdata>
 			<hemming folded_width="5" folded_part="1">
-				<!-- BUG: region_A, region_B, region_C was replaced with region element and attribute label=A/B/C -->
 				<region label="A" fill_percentage="50">
 					<connection_1d label="100574 region A adhesive">
 						<adhesive_line base="1" width="4" thickness="1" material="CAD_test_Mat"/>

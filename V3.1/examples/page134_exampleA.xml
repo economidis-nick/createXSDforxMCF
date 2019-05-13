@@ -19,7 +19,6 @@
 				</loc_list>				
 				<seamweld>
 					<cruciform_joint base="1" technology="arc">
-						<!-- BUG: previous value of reference was yes -->
 						<weld_position u="0.2" x="1" y="0" z="1"
 							thickness="3.0"
 							penetration="0.8"

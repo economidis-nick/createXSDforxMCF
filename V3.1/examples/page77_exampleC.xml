@@ -16,9 +16,9 @@
 					head_diameter="16" head_height="5" thread_length="35" 
 					torque="80" angle="30" pretension="1200" part_code="M10x50 12.9">
 					<normal_direction x="0" y="0" z="-10"/>
-					<!-- Washer next to head -->
+					<!-- Washer is part of the head, so it cannot have part code -->
 					<washer outer_diameter="20" inner_diameter="10.3" thickness="1.5" 
-						attached="false" part_code="M10x20x1.5"/>
+						attached="true"/>
 					<bolt>
 						<nut diameter="16." height="5" static_friction="0.8" clipped_to="5"/>
 					</bolt>

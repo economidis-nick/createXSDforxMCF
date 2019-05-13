@@ -19,9 +19,6 @@
 				</loc_list>				
 				<seamweld>
 					<k_joint base="2" technology="resistance">
-						<!-- BUG: previous value of reference was yes -->
-						<!-- BUG: 1st weld_position, @section value, missing " -->
-						<!-- BUG: previous value of penetration was 3.0 -->
 						<weld_position u="1.0" x="2" y="0" z="1"
 							reference="true"
 							penetration="0.3"

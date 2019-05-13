@@ -16,7 +16,7 @@
 					<loc v="0"   > 2581.21 -708.408 31.6532 </loc> <!-- first point -->
 					<loc v="1"   > 2581.42 -708.357 35.2816 </loc>
 					<loc v="2.22"> 2581.05 -708.302 39.0643 </loc> <!-- last  point -->
-				</loc_list>				<!-- BUG: closingtag was missing -->
+				</loc_list>
 				<loc_list index="2"> <!-- second section -->
 					<loc v="1"  > 2581.05 -708.302 40.3340 </loc>  <!-- first point -->
 					<loc v="2.1"> 2581.05 -708.302 48.5300 </loc>  <!-- last  point -->

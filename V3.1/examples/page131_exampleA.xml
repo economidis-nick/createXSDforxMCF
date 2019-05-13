@@ -19,7 +19,6 @@
 				</loc_list>				
 				<seamweld>
 					<k_joint base="2" technology="resistance">
-						<!-- BUG: sheet_parameter attribute sheet_thickness was thickness -->
 						<weld_position u="1.0" x="2" y="0" z="1"/>
 						<weld_position u="0.0" x="1" y="0" z="2"/>
 						<weld_position u="1.0" x="-2" y="0" z="1"/>

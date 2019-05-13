@@ -5,14 +5,14 @@ xsi:schemaLocation="http://servicenet.t-systems.com/medina/xMCF mcf_MEDINA.xsd"
 xsi:noNamespaceSchemaLocation="xmcf.xsd">
     <date> 2014-08-07 </date>
     <version> 3.0.0 </version>
-    <units length="mm" angle="rad" mass="kg" force="N" time="s"/>			<!-- NOTE: this line is modified -->
+    <units length="mm" angle="rad" mass="kg" force="N" time="s"/>			
     <connection_group id="1">
         <connected_to>
         </connected_to>
         <connection_list>
             <connection_1d label="1000032">
                 <loc_list>
-					<loc v="0">1645.83 821.145 616.585</loc>											<!-- NOTE: this line is added -->
+					<loc v="0">1645.83 821.145 616.585</loc>											
                 </loc_list>
                 <seamweld>
                 </seamweld>

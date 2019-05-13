@@ -28,13 +28,13 @@
 					<contact_list>
 						<!-- Friction within thread -->
 						<contact thread="true" static_friction="0.8" />
-						<!-- Friction part 1 to 2 -->
+						<!-- Friction between part 1 and next part, 2 -->
 						<contact index="1" static_friction="0.8" />
-						<!-- Friction part 2 to 5 -->
-						<!-- Assuming, indices 3 & 4 are not defined in <connected_to/> -->
+						<!-- Friction between part 2 and next part, 5 -->
+						<!-- Be aware: Indices 3 & 4 are not defined in <connected_to/> -->
 						<contact index="2" static_friction="0.8" />
-						<!-- Friction part 5 to last part -->
-						<!-- Assuming there is exactly one more index after 5 in <connected_to/> -->
+						<!-- Friction between part 5 and next part, 6 -->
+						<!-- Be aware: There is exactly one more index after 5 in <connected_to/> -->
 						<contact index="5" static_friction="0.8" />
 					</contact_list>
 				</threaded_connection>
