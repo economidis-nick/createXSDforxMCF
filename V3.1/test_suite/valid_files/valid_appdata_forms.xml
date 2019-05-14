@@ -3,7 +3,7 @@
 	xsi:noNamespaceSchemaLocation="xmcf.xsd">
 
 	<date> 2019-03-09 </date>
-	<version> 3.0.0 </version>
+	<version> 3.0.1 </version>
 
 	<connection_group id="1">
 		<connected_to/>

@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://servicenet.t-systems.com/medina/xMCF mcf_MEDINA.xsd" 
 	xsi:noNamespaceSchemaLocation="xmcf.xsd">
 	<date> 2016-01-11 </date>
-	<version> 3.0.0 </version>
+	<version> 3.0.1 </version>
 	<units length="mm" angle="rad" mass="kg" force="N" time="s"/>
 
 	<connection_group id="1">
