@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf.xsd">
-  <version>3.0.0</version>
+  <version>3.0.1</version>
   <date>2019-01-21</date>
   <connection_group id="1">
     <connected_to>
