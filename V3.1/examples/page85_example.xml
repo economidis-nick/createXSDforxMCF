@@ -11,7 +11,7 @@
 			<part index="6" label="PART_5000800"/>
 		</connected_to>
 		<connection_list>
-			<connection_0d label="SW_left_Gh_2123921">
+			<connection_0d label="DROP 2123921">
 				<!-- Assumed Unit system with mass attribute with value="kg" -->
 				<gumdrop diameter="5.0" mass="0.0033" material="CAD_Material" />
 				<loc> 1645.83 821.145 616.585 </loc>
