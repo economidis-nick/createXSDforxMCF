@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
 <xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xsi:schemaLocation="http://servicenet.t-systems.com/medina/xMCF mcf_MEDINA.xsd" 
-xsi:noNamespaceSchemaLocation="xmcf.xsd">
-    <date> 2016-01-11 </date>
-    <version> 3.0.0 </version>
-    <units length="mm" angle="rad" mass="kg" force="N" time="s"/>
-   
-    <appdata> <!-- appdata at root level -->
-        <MEDINA xmlns="http://servicenet.t-systems.com/medina/xMCF">
-            <data_at_root>
-                <version MEDINA="MEDINA 8.4.2 Maintenance Release (64 Bit)"/>
-            </data_at_root>
-        </MEDINA>
-    </appdata>
- 
-    <connection_group id="1">
-        <connected_to>
-        </connected_to>
-        <appdata> <!--appdata at connection_group level -->
-            <MEDINA xmlns="http://servicenet.t-systems.com/medina/xMCF">
-                <data_at_connection_group>
-                </data_at_connection_group>
-            </MEDINA>
-        </appdata>
-        <connection_list>
-            <connection_0d>
-                <spotweld/>
-                <loc>1645.83 821.145 616.585</loc>
-                <appdata/>
-            </connection_0d>
-        </connection_list>
-    </connection_group>
+	xsi:schemaLocation="http://servicenet.t-systems.com/medina/xMCF mcf_MEDINA.xsd" 
+	xsi:noNamespaceSchemaLocation="xmcf.xsd">
+	<date> 2016-01-11 </date>
+	<version> 3.0.1 </version>
+	<units length="mm" angle="rad" mass="kg" force="N" time="s"/>
+
+	<appdata> <!-- appdata at root level -->
+		<MEDINA xmlns="http://servicenet.t-systems.com/medina/xMCF">
+			<data_at_root>
+				<version MEDINA="MEDINA 8.4.2 Maintenance Release (64 Bit)"/>
+			</data_at_root>
+		</MEDINA>
+	</appdata>
+
+	<connection_group id="1">
+		<connected_to>
+		</connected_to>
+		<appdata> <!--appdata at connection_group level -->
+			<MEDINA xmlns="http://servicenet.t-systems.com/medina/xMCF">
+				<data_at_connection_group>
+				</data_at_connection_group>
+			</MEDINA>
+		</appdata>
+		<connection_list>
+			<connection_0d>
+				<spotweld/>
+				<loc>1645.83 821.145 616.585</loc>
+				<appdata/>
+			</connection_0d>
+		</connection_list>
+	</connection_group>
 </xmcf>

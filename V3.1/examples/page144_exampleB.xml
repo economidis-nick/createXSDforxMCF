@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
 <xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf.xsd">
-    <date> 2014-08-07 </date>
-    <version> 3.0.0 </version>
-    <units length="mm" angle="deg" mass="kg" force="N" time="s"/>
-    <connection_group id="1">
+	<date> 2014-08-07 </date>
+	<version> 3.0.1 </version>
+	<units length="mm" angle="deg" mass="kg" force="N" time="s"/>
+	<connection_group id="1">
 		<connected_to>
 			<part index="1" label="PART_7000400"/>
 			<assy index="23">

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
 <xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf.xsd">
-    <date> 2014-08-07 </date>
-    <version> 3.0.0 </version>
-    <units length="mm" angle="rad" mass="kg" force="N" time="s"/>
-    <connection_group id="1">
+	<date> 2014-08-07 </date>
+	<version> 3.0.1 </version>
+	<units length="mm" angle="rad" mass="kg" force="N" time="s"/>
+	<connection_group id="1">
 		<connected_to>
 			<part index="1" pid="1"/>
 			<part index="2" pid="2"/>
 		</connected_to>
-        <connection_list>
+		<connection_list>
 			<connection_0d label="RVT_2123921">
 				<rivet shaft_diameter="3.35" head_diameter="5.5" head_type="dome" length="4">
 					<blind min_grip="3" max_grip="3.2" clearance="4.5" material="Steel"/>
@@ -18,6 +18,6 @@
 				<appdata>
 				</appdata>
 			</connection_0d>
-        </connection_list>
-    </connection_group>
+		</connection_list>
+	</connection_group>
 </xmcf>
