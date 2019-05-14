@@ -9,12 +9,12 @@
 
 To run the test suite, use the validator provided:
 
-    $ java -jar xmcf3Validator.jar  -s ../V3.1/xmcf.xsd  valid_files/*.xml
-    $ java -jar xmcf3Validator.jar  -s ../V3.1/xmcf.xsd  invalid_files/*.xml
+    $ java -jar xmcf3Validator.jar  -s ../V3.0r1/xmcf.xsd  valid_files/*.xml
+    $ java -jar xmcf3Validator.jar  -s ../V3.0r1/xmcf.xsd  invalid_files/*.xml
 
 The first call  of the validator should report that all tests have passed.
 The second call of the validator should report that all tests have at least 1 error.
 
 In order to get more details regarding the error of a file under test, use the `-v` option:
 
-    $ java -jar xmcf3Validator.jar  -v  -s ../V3.1/xmcf.xsd  test_file.xml
+    $ java -jar xmcf3Validator.jar  -v  -s ../V3.0r1/xmcf.xsd  test_file.xml
