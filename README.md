@@ -17,7 +17,7 @@ In order for us to test-drive the development the schema, we have built a test s
 #### `V3.0/` contains:
 the original specification document and pdf
 
-#### `V3.1/` contains:
+#### `V3.0r1/` contains:
 
 * the corrected specification document, 
 * the developed xMCF3 schema, and
