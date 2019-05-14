@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
-<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf.xsd">
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_0_1.xsd">
     <date> 2014-08-07 </date>
     <version> 3.0.1 </version>
     <units length="mm" angle="rad" mass="kg" force="N" time="s"/>

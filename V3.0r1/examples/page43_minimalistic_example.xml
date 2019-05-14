@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
 <xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://servicenet.t-systems.com/medina/xMCF mcf_MEDINA.xsd" 
-	xsi:noNamespaceSchemaLocation="xmcf.xsd">
+	xsi:noNamespaceSchemaLocation="xmcf_3_0_1.xsd">
 	<date> 2016-01-11 </date>
 	<version> 3.0.1 </version>
 	<units length="mm" angle="rad" mass="kg" force="N" time="s"/>

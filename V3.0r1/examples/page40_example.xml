@@ -2,7 +2,7 @@
 <xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns:MEDINA="http://servicenet.t-systems.com/medina/xMCF"
 	xsi:schemaLocation="http://servicenet.t-systems.com/medina/xMCF mcf_MEDINA.xsd" 
-	xsi:noNamespaceSchemaLocation="xmcf.xsd">
+	xsi:noNamespaceSchemaLocation="xmcf_3_0_1.xsd">
 	<!-- File Name: new_car.xml -->
 	<!-- some comments -->
 	<date> 2016-01-11 </date>

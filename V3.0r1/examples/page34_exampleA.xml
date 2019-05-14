@@ -2,7 +2,7 @@
 <xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
       xmlns:MEDINA="http://servicenet.t-systems.com/medina/xMCF"
       xsi:schemaLocation="http://servicenet.t-systems.com/medina/xMCF mcf_MEDINA.xsd" 
-      xsi:noNamespaceSchemaLocation="xmcf.xsd">
+      xsi:noNamespaceSchemaLocation="xmcf_3_0_1.xsd">
 	<date> 2014-08-07 </date>
 	<version> 3.0.1 </version>
 	<units length="mm" angle="rad" mass="kg" force="N" time="s"/>

@@ -1,6 +1,6 @@
 <xmcf 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:noNamespaceSchemaLocation="xmcf.xsd">
+    xsi:noNamespaceSchemaLocation="xmcf_3_0_1.xsd">
 
     <date> 2019-03-09 </date>
     <version> 3.0.1 </version>
