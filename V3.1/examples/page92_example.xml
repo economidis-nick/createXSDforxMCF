@@ -12,7 +12,6 @@
 		</connected_to>
 		<connection_list>
 			<connection_0d label="CLIP_1001">
-				<!-- BUG: attachement_type replaced with attachment_type -->
 				<clip clipped_to="1" attachment_type="push into round hole" hole_diameter="8.0"     	    hole_length="12.0" pin_diameter="10.0" pin_length="10.0" material="polyamid">
 					<normal_direction x="0" y="0" z="-10"/>
 					<tangential_direction x="0" y="10" z="0"/>
