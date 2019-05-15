@@ -7,8 +7,8 @@
 		<connected_to>
 			<part index="1" pid="1"/>
 			<assy index="1">
-				<part label="A"/>
-				<part label="B"/>
+				<part label="PART_7000400"/>
+				<part label="PART_7000800"/>
 			</assy>
 		</connected_to>
 		<connection_list>
