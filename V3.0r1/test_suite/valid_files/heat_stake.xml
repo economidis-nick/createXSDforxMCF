@@ -32,7 +32,7 @@
 
       <connection_0d>
         <loc>12.1058 37.1065 0.881963</loc>
-	<heat_stake heat_stake_type="domed" head_height="0"/>  <!-- this looks wrong -->
+	<heat_stake heat_stake_type="domed" head_height="0"/>  <!-- zero head height is allowed -->
       </connection_0d>
 
       <connection_0d>
