@@ -47,7 +47,7 @@
             <weld_position u="0.6" x="-1" y="0" z="1" reference="true" section="HY" thickness="5" angle="50" filler="yes" filler_material="E7018-X" penetration="0.8"/>
             <weld_position u="0.8" x="1" y="0" z="-1" reference="true" section="HY" thickness="6" angle="75" filler="yes" filler_material="E7018-X" shape="straight" penetration="0.4"/>
             <sheet_parameter index="2" gap="1.5" sheet_thickness="1.5" sheet_angle="90"/>
-			<sheet_parameter index="1" gap="1.5" sheet_thickness="1.5" sheet_angle="90"/>
+            <sheet_parameter index="1" gap="1.5" sheet_thickness="1.5" sheet_angle="90"/>
           </cruciform_joint>
         </seamweld>
       </connection_1d>	  

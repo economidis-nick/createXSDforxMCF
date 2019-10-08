@@ -22,7 +22,7 @@
             <weld_position u="0.6" x="-1" y="0" z="1" />
             <weld_position u="0.8" x="1" y="0" z="-1" />
             <sheet_parameter index="1" />
-			<sheet_parameter index="1" />
+	    <sheet_parameter index="1" />  <!-- index must be unique -->
           </cruciform_joint>
         </seamweld>
       </connection_1d>	  
