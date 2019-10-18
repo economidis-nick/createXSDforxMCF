@@ -31,7 +31,7 @@
           </bolt>
           <washer outer_diameter="20" attached="false" static_friction="0.8"/>
           <contact_list>
-            <contact index="1" thread="true" static_friction="0.8"/>
+            <contact thread="true" static_friction="0.8"/>
           </contact_list>
         </threaded_connection>
       </connection_0d>	  

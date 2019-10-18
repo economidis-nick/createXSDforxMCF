@@ -36,7 +36,7 @@
 						<partner label="PART_9004400"/>
 						<coefficients static_friction="0.4" kinetic_friction=".25"/>
 					</contact>
-			</contact_list>
+				</contact_list>
 			</connection_0d>
 
 		</connection_list>

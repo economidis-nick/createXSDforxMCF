@@ -42,15 +42,27 @@
 					<contact_list>
 						<!-- Friction between thread and nut: -->
 						<contact thread="true" static_friction="0.8" kinetic_friction="0.6"/> 
-						<!-- Friction between part 1 and next part, 2: -->
-						<contact index="1" static_friction="0.8"/>   
-						<!-- Friction between part 2 and next part, 5: -->
-						<!-- Be aware: Indices 3 & 4 are not defined in <connected_to/> -->
-						<contact index="2" static_friction="0.8"/>   
-						<!-- Friction between part 5 and next part, 6: -->
-						<contact index="5" static_friction="0.8"/>   
 					</contact_list>
 				</threaded_connection>
+
+				<contact_list>      <!-- friction between adjacent flange partners -->
+					<contact>
+						<partner label="PART_7000400"/>
+						<partner label="PART_7100100"/>
+						<coefficients static_friction="0.8"/>
+					</contact>
+					<contact>
+						<partner label="PART_7100100"/>
+						<partner label="PART_5000300"/>
+						<coefficients static_friction="0.8"/>
+					</contact>
+					<contact>
+						<partner label="PART_5000300"/>
+						<partner label="PART_5000800"/>
+						<coefficients static_friction="0.8"/>
+					</contact>
+				</contact_list>
+
 			</connection_0d>
 		</connection_list>
 	</connection_group>

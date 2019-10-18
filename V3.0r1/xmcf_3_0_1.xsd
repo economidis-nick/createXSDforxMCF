@@ -143,9 +143,6 @@
 			<xs:assert test="if( exists(contact_list/contact/partner/@pid)   and not(every $x in contact_list/contact/partner/@pid satisfies 
 							( connected_to/part[@pid=$x] or connected_to/assy/part[@pid=$x] ) ) ) then false() else true()"/>
 			
-			<xs:assert xerces:message="threaded_connection/contact_list/contact: index must be one of the indices defined in &lt;connected_to&gt;, but not the last one of them."
-				test="every $x in connection_list/connection_0d/threaded_connection/contact_list/contact/@index
-				satisfies $x ne max(connected_to/*/@index)"/>
 		</xs:complexType>
 
 		<xs:key name="connected_to_key">
@@ -179,10 +176,6 @@
 		<xs:keyref name="pre_machined_hole_index" refer="connected_to_key">
 			<xs:selector xpath="connection_list/connection_0d/threaded_connection/screw/flow_drilled"/>
 			<xs:field xpath="@pre_machined_hole_index"/>
-		</xs:keyref>
-		<xs:keyref name="contact_list_index" refer="connected_to_key">
-			<xs:selector xpath="connection_list/connection_0d/threaded_connection/contact_list/contact"/>
-			<xs:field xpath="@index"/>
 		</xs:keyref>
 		<xs:keyref name="clip_clipped_to_index" refer="connected_to_key">
 			<xs:selector xpath="connection_list/connection_0d/clip"/>
@@ -479,7 +472,6 @@
 						<xs:all>
 							<xs:element name="contact" minOccurs="1" maxOccurs="unbounded">
 								<xs:complexType>
-									<xs:attribute name="index" type="partIndex"/>
 									<xs:attribute name="thread" type="xs:boolean" default="false"/>
 									<xs:attribute name="static_friction" type="floatPositive"/>
 									<xs:attribute name="kinetic_friction" type="floatPositive"/>
@@ -489,8 +481,8 @@
 										test="exists(@static_friction) or exists(@kinetic_friction)"/>
 
 									<xs:assert
-										xerces:message="threaded_connection/contact_list/contact: index is required if thread is not 'true'"
-										test="@thread=true() or exists(@index)"/>
+										xerces:message="threaded_connection/contact_list/contact: thread must be 'true'. False is reserved for future."
+										test="@thread=true()"/>
 								</xs:complexType>
 							</xs:element>
 						</xs:all>
@@ -498,12 +490,6 @@
 						<xs:assert xerces:message=" there can be up to 1 contact with the thread "
 							test="count(contact[@thread=true()]) le 1"/>
 					</xs:complexType>
-          
-					<xs:unique name="unique_contact_index_in_contact_list">
-						<!--threaded_connection/contact/index: "any specific index may occur not more than once".-->
-						<xs:selector xpath="contact"/>
-						<xs:field xpath="@index"/>
-					</xs:unique>
 				</xs:element>
 			</xs:all>
 			<xs:attribute name="diameter" type="floatZeroPositive"/>

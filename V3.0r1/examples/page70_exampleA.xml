@@ -10,6 +10,7 @@
 			<part index="5" label="PART_5000300"/>
 			<part index="6" label="PART_5000800"/>
 		</connected_to>
+
 		<connection_list>
 			<connection_0d label="BOLT_135"> <!-- bolt with washers -->
 				<loc> 84 60 10 </loc>
@@ -25,19 +26,30 @@
 							<washer outer_diameter="25" attached="false" static_friction="0.8" />
 						</nut>
 					</bolt>
-					<contact_list>
+					<contact_list>   <!-- threaded connection contact, according to 7.5.2 -->
 						<!-- Friction within thread -->
 						<contact thread="true" static_friction="0.8" />
-						<!-- Friction between part 1 and next part, 2 -->
-						<contact index="1" static_friction="0.8" />
-						<!-- Friction between part 2 and next part, 5 -->
-						<!-- Be aware: Indices 3 & 4 are not defined in <connected_to/> -->
-						<contact index="2" static_friction="0.8" />
-						<!-- Friction between part 5 and next part, 6 -->
-						<!-- Be aware: There is exactly one more index after 5 in <connected_to/> -->
-						<contact index="5" static_friction="0.8" />
 					</contact_list>
 				</threaded_connection>
+
+				<contact_list>        <!-- Local Contact definition, according to 5.3.2.5 -->
+					<contact>
+						<partner label="PART_7000400"/>
+						<partner label="PART_7100100"/>
+						<coefficients static_friction="0.8"/>
+					</contact>
+					<contact>
+						<partner label="PART_7100100"/>
+						<partner label="PART_5000300"/>
+						<coefficients static_friction="0.8"/>
+					</contact>
+					<contact>
+						<partner label="PART_5000300"/>
+						<partner label="PART_5000800"/>
+						<coefficients static_friction="0.8"/>
+					</contact>
+				</contact_list>
+
 			</connection_0d>
 		</connection_list>
 	</connection_group>
