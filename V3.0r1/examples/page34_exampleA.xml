@@ -16,22 +16,14 @@
 				<appdata/>
 				<femdata>
 					<NASTRAN>
-						<CAE_DATA VERSION="1">
-							<REPRESENTATION>
-							</REPRESENTATION>
-							<COMMENT>
-							</COMMENT>
-							<CAE_PART_MEMBER ID="1">
-								<ENTITY>
-									<TYPE>
-										CQUAD
-									</TYPE>
-									<ID>
-										12345-12356
-									</ID>
-								</ENTITY>
-							</CAE_PART_MEMBER>
-						</CAE_DATA>
+						<entity>
+							<TYPE>
+								CQUAD
+							</TYPE>
+							<ID>
+								12345-12356
+							</ID>
+						</entity>
 					</NASTRAN>
 				</femdata>
 			</connection_0d>

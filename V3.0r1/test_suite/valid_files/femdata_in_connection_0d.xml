@@ -15,9 +15,10 @@
 			<connection_0d>
 				<femdata>
 					<NASTRAN>
-						<CAE_DATA VERSION="1">
-							<CAE_PART_MEMBER ID="1"/>
-						</CAE_DATA>
+						<entity>
+							<TYPE> CHEXA </TYPE>
+							<ID> 999293 </ID>
+						</entity>
 					</NASTRAN>
 				</femdata>
 				<spotweld/>

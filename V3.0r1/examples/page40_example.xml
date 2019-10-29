@@ -30,8 +30,10 @@
 			<connection_0d>
 				<femdata>
 					<NASTRAN>
-						<CAE_DATA xmlns="FATXML">
-						</CAE_DATA>
+						<entity>
+							<TYPE> CQUAD </TYPE>
+							<ID> 12345-12356 </ID>
+						</entity>
 					</NASTRAN>
 				</femdata>
 				<spotweld/>
