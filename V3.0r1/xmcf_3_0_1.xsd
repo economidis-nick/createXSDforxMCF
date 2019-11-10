@@ -129,6 +129,28 @@
 		</xs:complexType>
 	</xs:element>
 
+	<xs:complexType name="stacking_type">
+		<xs:all>
+			<xs:element name="level"   minOccurs="0" maxOccurs="unbounded">	
+				<xs:complexType>
+					<xs:attribute name="order" type="xs:int" use="required"/>
+					<xs:attribute name="part_index" type="partIndex" use="required"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:all>
+		<xs:attribute name="nr_levels" type="integerPositive" use="optional"/>
+
+		<xs:assert 
+			xerces:message="&lt;level&gt; and nr_levels cannot appear together in &lt;stacking&gt;"
+			test="not (exists(level) and exists(@nr_levels))"
+		/>
+		<xs:assert 
+			xerces:message="one of &lt;level&gt; or nr_levels must exist in &lt;stacking&gt;"
+			test="exists(level) or exists(@nr_levels)"
+		/>
+		
+	</xs:complexType>
+
 	<xs:element name="connection_group">
 		<xs:complexType>
 			<xs:all>
@@ -143,6 +165,41 @@
 			<xs:assert test="if( exists(contact_list/contact/partner/@pid)   and not(every $x in contact_list/contact/partner/@pid satisfies 
 							( connected_to/part[@pid=$x] or connected_to/assy/part[@pid=$x] ) ) ) then false() else true()"/>
 			
+
+
+			<xs:assert 
+			xerces:message="stacking/nr_levels: nr_levels is less than connected parts in &lt;connected_to&gt;."
+			test="every $s in (
+						connection_list/connection_0d/stacking | 
+						connection_list/connection_1d/stacking | 
+						connection_list/connection_2d/stacking 
+						) satisfies
+				(
+					not(exists($s/@nr_levels))
+					or ($s/@nr_levels > count(connected_to/*))
+				)
+					   "/>
+
+			
+			<xs:assert  
+			xerces:message="stacking/level/part_index: some entries of &lt;connected_to&gt; are not referenced 2."
+			test="every $x in connected_to/*/@index satisfies
+			(
+				every $s in (
+						connection_list/connection_0d/stacking | 
+						connection_list/connection_1d/stacking | 
+						connection_list/connection_2d/stacking 
+						) satisfies
+				(
+						not(exists($s/level))
+						or ($s/level[@part_index=$x])
+				)
+			)
+			"/>
+
+
+
+
 		</xs:complexType>
 
 		<xs:key name="connected_to_key">
@@ -205,6 +262,14 @@
 		<xs:keyref name="adhesive_face_base" refer="connected_to_key">
 			<xs:selector xpath="connection_list/connection_2d/adhesive_face"/>
 			<xs:field xpath="@base"/>
+		</xs:keyref>
+		<xs:keyref name="stacking_level_part_index" refer="connected_to_key">
+			<xs:selector xpath="
+			connection_list/connection_0d/stacking/level | 
+			connection_list/connection_1d/stacking/level | 
+			connection_list/connection_2d/stacking/level 
+			"/>
+			<xs:field xpath="@part_index"/>
 		</xs:keyref>
 
 	</xs:element>
@@ -299,6 +364,7 @@
 				<xs:element ref="connection_2d"/>
 			</xs:choice>
 		</xs:complexType>
+		
 	</xs:element>
 
 	<!-- ***************************************************************************************************************************************************************** -->
@@ -310,6 +376,12 @@
 				<xs:element ref="femdata" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="contact_list" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="custom_attributes_list" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="stacking" type="stacking_type" minOccurs="0" maxOccurs="1">
+					<xs:unique name="unique_0d_stacking_order">
+						<xs:selector xpath="./*"/>
+						<xs:field xpath="@order"/>
+					</xs:unique>
+				</xs:element>
 				<xs:element ref="connection_0d_type" minOccurs="1" maxOccurs="1"/> <!--"Note: exactly one of the type elements must exist in <connection_od>. There is no default type"-->
 			</xs:all>
 			<xs:attribute name="label" type="xs:string"/>
@@ -721,6 +793,12 @@
 				<xs:element ref="contact_list" minOccurs="0" maxOccurs="1"/>
 				<xs:element name="appdata" type="appdata_type" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="femdata" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="stacking" type="stacking_type" minOccurs="0" maxOccurs="1">
+					<xs:unique name="unique_1d_stacking_order">
+						<xs:selector xpath="./*"/>
+						<xs:field xpath="@order"/>
+					</xs:unique>
+				</xs:element>
 			</xs:all>
 			<xs:attribute name="label" type="xs:string"/>
 			<xs:attribute name="quality_control" type="xs:string"/>
@@ -1164,6 +1242,12 @@
 				<xs:element ref="femdata" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="contact_list" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="custom_attributes_list" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="stacking" type="stacking_type" minOccurs="0" maxOccurs="1">
+					<xs:unique name="unique_2d_stacking_order">
+						<xs:selector xpath="./*"/>
+						<xs:field xpath="@order"/>
+					</xs:unique>
+				</xs:element>
 			</xs:all>
 			<xs:attribute name="label" type="xs:string"/>
 			<xs:attribute name="quality_control" type="xs:string"/>
