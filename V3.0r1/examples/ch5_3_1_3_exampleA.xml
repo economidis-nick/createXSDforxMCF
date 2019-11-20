@@ -5,8 +5,8 @@
 	<connection_group id="1">
 
 		<connected_to>
-			<part index="1" label="PART_GREEN"/> 
-			<part index="2" label="PART_RED"/> 
+			<part index="1" label="PART_7000800"/>   <!-- green -->
+			<part index="2" label="PART_7000400"/>   <!-- red   -->
 		</connected_to>
 
 		<connection_list>
