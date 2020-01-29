@@ -47,7 +47,7 @@
 					</custom_attributes>
 
 					<custom_attributes owner="TestingDepartmentB">  <!-- negative values are allowed -->
-						<int key="negative int"> -1 </int>
+						<int key="negative int"> -12 </int>
 						<real key="negative real"> -30.6 </real>
 						<real key="negative real2"> -30 </real>
 					</custom_attributes>
