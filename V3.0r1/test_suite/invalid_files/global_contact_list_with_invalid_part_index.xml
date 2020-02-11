@@ -12,19 +12,9 @@
 		</connected_to>
 		<contact_list>
 			<contact>
-				<partner pid="3202132"/>
-				<partner pid="110013"/>
+				<partner part_index="2"/>
+				<partner part_index="3"/>
 				<coefficients static_friction="0.3" kinetic_friction=".25"/>
-			</contact>
-			<contact>
-				<partner pid="110013"/>
-				<partner pid="3202132"/>
-				<coefficients static_friction="0.3" kinetic_friction=".25"/>
-			</contact>
-			<contact>
-				<partner pid="3202132"/>
-				<partner pid="3202132"/>
-				<coefficients static_friction="0.4" kinetic_friction=".25"/>
 			</contact>
 		</contact_list>
 		<connection_list>
@@ -32,10 +22,6 @@
 				<loc>12.1058 37.1065 0.881963</loc>
 				<spotweld/>
 			</connection_0d>
-			<connection_0d>
-				<loc>12.1058 37.1065 0.881963</loc>
-				<spotweld diameter="5.6" technology="laser"/>
-			</connection_0d>	  
 		</connection_list>
 	</connection_group>
 </xmcf>
