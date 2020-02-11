@@ -28,24 +28,9 @@
 				<adhesive_face thickness="2" material="CAD_Material"/>
 				<contact_list>
 					<contact>
-						<partner label="PART_9004400"/>
-						<partner pid="110013"/>
+						<partner part_index="1"/>
+						<partner part_index="42"/>
 						<coefficients static_friction="0.3" kinetic_friction=".25"/>
-					</contact>
-					<contact>
-						<partner label="PART_9004400"/>
-						<partner pid="110099"/>
-						<coefficients static_friction="0.52" kinetic_friction=".25"/>
-					</contact>
-					<contact>
-						<partner pid="110013"/>
-						<partner pid="110013"/>
-						<coefficients static_friction="0.52" kinetic_friction=".25"/>
-					</contact>
-					<contact>
-						<partner label="PART_9004400"/>
-						<partner label="PART_9004400"/>
-						<coefficients static_friction="0.4" kinetic_friction=".25"/>
 					</contact>
 				</contact_list>
 			</connection_2d>

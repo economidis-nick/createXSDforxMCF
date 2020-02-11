@@ -13,12 +13,13 @@
 		<connection_list>
 			<connection_0d label="BOLT_135">   <!-- bolt with washers -->
 				<loc> 84 60 10 </loc>
-				<!-- Friction is "head to washer": -->
+				<!-- Friction between "head to washer" and "thread to nut": -->
 				<threaded_connection diameter="10" length="50" thread_length="26" 
 					head_diameter="16" head_height="6.4" head_type="hexagonal" 
 					sink_size="0" pitch="0.75" lead="1.5"
 					torque="20" angle="35" pretension="180" 
 					static_friction="0.8" kinetic_friction="0.6"
+					thread_static_friction="0.6"
 					strength_property_class="8.8"
 					part_code="M10x50 8.8">
 					<normal_direction x="0" y="0" z="-10"/>
@@ -39,26 +40,22 @@
 							<washer outer_diameter="25" attached="true" static_friction=".8"/>
 						</nut>
 					</bolt>
-					<contact_list>
-						<!-- Friction between thread and nut: -->
-						<contact thread="true" static_friction="0.8" kinetic_friction="0.6"/> 
-					</contact_list>
 				</threaded_connection>
 
 				<contact_list>      <!-- friction between adjacent flange partners -->
 					<contact>
-						<partner label="PART_7000400"/>
-						<partner label="PART_7100100"/>
+						<partner part_index="1"/>
+						<partner part_index="2"/>
 						<coefficients static_friction="0.8"/>
 					</contact>
 					<contact>
-						<partner label="PART_7100100"/>
-						<partner label="PART_5000300"/>
+						<partner part_index="2"/>
+						<partner part_index="5"/>
 						<coefficients static_friction="0.8"/>
 					</contact>
 					<contact>
-						<partner label="PART_5000300"/>
-						<partner label="PART_5000800"/>
+						<partner part_index="5"/>
+						<partner part_index="6"/>
 						<coefficients static_friction="0.8"/>
 					</contact>
 				</contact_list>

@@ -22,7 +22,7 @@
     
 	<connection_0d>
         <loc>12.1058 37.1065 0.881963</loc>
-        <threaded_connection diameter="0" length="2">
+        <threaded_connection diameter="0" length="2" thread_static_friction="0.8">
           <normal_direction x="0" y="0" z="-1"/>
           <bolt>
             <nut diameter="16" static_friction="0.8">
@@ -30,9 +30,6 @@
             </nut>
           </bolt>
           <washer outer_diameter="20" attached="false" static_friction="0.8"/>
-          <contact_list>
-            <contact thread="true" static_friction="0.8"/>
-          </contact_list>
         </threaded_connection>
       </connection_0d>	  
 

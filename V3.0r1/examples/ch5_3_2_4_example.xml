@@ -12,14 +12,9 @@
 		</connected_to>
 		<contact_list>
 			<contact>
-				<partner label="PART_9004400"/>
-				<partner label="PART_7000400"/>
+				<partner part_index="1"/>
+				<partner part_index="42"/>
 				<coefficients static_friction="0.3" kinetic_friction=".25"/>
-			</contact>
-			<contact>
-				<partner label="PART_7000800"/>
-				<partner pid="3202132"/>
-				<coefficients static_friction="0.52" kinetic_friction=".25"/>
 			</contact>
 		</contact_list>
 		<connection_list>
