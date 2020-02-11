@@ -554,6 +554,7 @@
 			<xs:attribute name="static_friction" type="floatPositive"/>
 			<xs:attribute name="kinetic_friction" type="floatPositive"/>
 			<xs:attribute name="thread_static_friction" type="floatPositive"/>
+			<xs:attribute name="thread_kinetic_friction" type="floatPositive"/>
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
       
