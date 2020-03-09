@@ -307,13 +307,11 @@
 				<xs:element name="part">
 					<xs:complexType>
 						<xs:attribute name="index" type="partIndex" use="required"/>
-						<xs:attribute name="label" type="xs:string"/>
+						<xs:attribute name="label" type="nonEmptyString"/>
 						<xs:attribute name="pid" type="integerPositive"/>
-						<xs:attribute name="pname" type="xs:string"/>
+						<xs:attribute name="pname" type="nonEmptyString"/>
 						
 						<xs:assert test="exists(@label) or exists(@pid) or exists(@pname)"/>
-						<xs:assert xerces:message="connected_to/part: pid and pname cannot both be used to describe a property" 
-							test="not(exists(@pname) and exists(@pid))"/>
 						
 					</xs:complexType>
 				</xs:element>
@@ -322,13 +320,11 @@
 						<xs:sequence>
 							<xs:element name="part" minOccurs="2" maxOccurs="unbounded">
 								<xs:complexType>
-									<xs:attribute name="label" type="xs:string"/>
+									<xs:attribute name="label" type="nonEmptyString"/>
 									<xs:attribute name="pid" type="integerPositive"/>
-									<xs:attribute name="pname" type="xs:string"/>
+									<xs:attribute name="pname" type="nonEmptyString"/>
 									
 									<xs:assert test="exists(@label) or exists(@pid) or exists(@pname)"/>
-									<xs:assert xerces:message="connected_to/part: pid and pname cannot both be used to describe a property" 
-										test="not(exists(@pname) and exists(@pid))"/>
 
 								</xs:complexType>
 							</xs:element>
