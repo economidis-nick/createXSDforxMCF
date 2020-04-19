@@ -94,6 +94,16 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:attribute>
+			<xs:attribute name="angular_speed" default="Hz">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Hz"/>
+						<xs:enumeration value="kHz"/>
+						<xs:enumeration value="rpm"/>
+						<xs:enumeration value="rad/s"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 
@@ -528,6 +538,12 @@
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="clinch_rivet_stud" substitutionGroup="rivet_type">
+		<xs:complexType>
+			<xs:attribute name="press_in_force" type="floatPositive"/>
+		</xs:complexType>
+	</xs:element>
+
 	<xs:element name="threaded_connection" substitutionGroup="connection_0d_type">
 		<xs:complexType>
 			<xs:all>
@@ -737,6 +753,24 @@
 			<xs:attribute name="part_code" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="rotation_joint" substitutionGroup="connection_0d_type">
+		<xs:complexType>
+			<xs:all>
+				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="rotation_joint_type" minOccurs="1" maxOccurs="1"/>
+			</xs:all>
+			<xs:attribute name="diameter" type="floatPositive"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="rotation_joint_type" abstract="true"/>
+	<xs:element name="rotav" substitutionGroup="rotation_joint_type">
+		<xs:complexType>
+			<xs:attribute name="rotational_speed" type="floatPositive"/>
+			<xs:attribute name="compression_force" type="floatPositive"/>
+			<xs:attribute name="hardness" type="floatPositive"/>
+		</xs:complexType>
+	</xs:element>	
+
 	<!-- ************************************************************************************************************************************************************* -->
 	<xs:element name="connection_1d">
 		<xs:complexType>
