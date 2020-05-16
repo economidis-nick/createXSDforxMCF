@@ -2,10 +2,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" 
 	xmlns:xerces="http://xerces.apache.org" elementFormDefault="qualified" vc:minVersion="1.1">
 	
-	<!-- NOTE: Using the following include tag, femdata elements would be validate under the specified XML Schema. 
-			   In order to validate CAE_DATA, it must be declared as top level in 04_FATXML_META_DATA_V1.2_R2.xsd -->
-	<!--<xs:include schemaLocation="04_FATXML_META_DATA_V1.2_R2.xsd"/>-->
-	
+	<xs:include schemaLocation="FATXML_ENTITY_V1.2_R3.xsd"/> <!-- includes definition of entity_type of femdata-->
 	<xs:element name="xmcf">
 		<xs:complexType>
 			<xs:all>
@@ -120,7 +117,7 @@
 
 	<xs:complexType name="femdata_type">
 		<xs:sequence>
-			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="entity" type="entity_type" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 
