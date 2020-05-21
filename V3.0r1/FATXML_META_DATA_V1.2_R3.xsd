@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:include schemaLocation="FATXML_ENTITY_V1.2_R3.xsd"/>
+
+  <xs:simpleType name="double_or_empty">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value=""/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:double"/>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="integer_or_empty">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value=""/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:integer"/>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="valid_cad_part_types">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PART"/>
+      <xs:enumeration value="GROUP"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="link_types">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="YES"/>
+      <xs:enumeration value="NO"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="time_types">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="S"/>
+      <xs:enumeration value="MS"/>
+      <xs:enumeration value="US"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="mass_types">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="KG"/>
+      <xs:enumeration value="HKG"/>
+      <xs:enumeration value="GRAM"/>
+      <xs:enumeration value="TON"/>
+      <xs:enumeration value="DTON"/>
+      <xs:enumeration value="SLUG"/>
+      <xs:enumeration value="POUND"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="length_types">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="M"/>
+      <xs:enumeration value="MM"/>
+      <xs:enumeration value="CM"/>
+      <xs:enumeration value="FOOT"/>
+      <xs:enumeration value="INCH"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="intrange">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d+-\d+"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="intANDintrange">
+    <xs:union memberTypes="xs:positiveInteger intrange"/>
+  </xs:simpleType>
+  <xs:simpleType name="intANDintrangeList">
+    <xs:list itemType="intANDintrange"/>
+  </xs:simpleType>
+  <xs:simpleType name="rgbcolor_or_empty">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value=""/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="rgba\(\d{1,3},\d{1,3},\d{1,3},[0-1]{1}\.\d{2}\)"/>
+          <!-- Beispiel rgba(1,34,222,0.99) -->
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="fatdate_or_empty">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value=""/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\s*([0-9]{4}\.[0-1]{1}[0-9]{1}\.[0-3]{1}[0-9]{1})\s*"/>
+          <!-- Format: YYYY-MM-DD -->
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:element name="CAE_META_DATA">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="CAE_AUXILIARY_DATA" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ID_OFFSET" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="integer_or_empty">
+                <xs:attribute name="TYPE" type="xs:string" use="required"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SOLVER" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NAME" minOccurs="1" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GENERATED_BY" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NAME" minOccurs="1" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="UNIT" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="LENGTH" type="length_types" use="required"/>
+            <xs:attribute name="MASS" type="mass_types" use="required"/>
+            <xs:attribute name="TIME" type="time_types" use="required"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CAD_PART" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" minOccurs="1" maxOccurs="1"/>
+              <xs:element name="PDM_DATA" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="NAME" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="VERSION" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="VARIANTE" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="ALTERNATIVE" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="PRODUCT_STATUS" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="PART_STATUS" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="PDM_TREEPATH" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="TYPE" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="PROJECT_IDENTIFIER" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="CAD_FILENAME" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="CAD_FILEPATH" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="PDA" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="CAD_DATE" type="fatdate_or_empty" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="PDM_DATE" type="fatdate_or_empty" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="DESIGNER" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="PART_COMMENT" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="TRANSFORMATION" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="R11" type="double_or_empty" default="1" minOccurs="0" maxOccurs="1"/>
+                          <xs:element name="R12" type="double_or_empty" default="0" minOccurs="0" maxOccurs="1"/>
+                          <xs:element name="R13" type="double_or_empty" default="0" minOccurs="0" maxOccurs="1"/>
+                          <xs:element name="T1" type="double_or_empty" default="0" minOccurs="0" maxOccurs="1"/>
+                          <xs:element name="R21" type="double_or_empty" default="0" minOccurs="0" maxOccurs="1"/>
+                          <xs:element name="R22" type="double_or_empty" default="1" minOccurs="0" maxOccurs="1"/>
+                          <xs:element name="R23" type="double_or_empty" default="0" minOccurs="0" maxOccurs="1"/>
+                          <xs:element name="T2" type="double_or_empty" default="0" minOccurs="0" maxOccurs="1"/>
+                          <xs:element name="R31" type="double_or_empty" default="0" minOccurs="0" maxOccurs="1"/>
+                          <xs:element name="R32" type="double_or_empty" default="0" minOccurs="0" maxOccurs="1"/>
+                          <xs:element name="R33" type="double_or_empty" default="1" minOccurs="0" maxOccurs="1"/>
+                          <xs:element name="T3" type="double_or_empty" default="0" minOccurs="0" maxOccurs="1"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="AUXILIARY_DATA" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="PDD_PROPERTIES" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="PDD_PROPERTY" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="MATERIAL" minOccurs="0" maxOccurs="1">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="NAME" minOccurs="0" maxOccurs="1"/>
+                                      <xs:element name="MATERIAL_NUMBER" minOccurs="0" maxOccurs="1"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="DENSITY" type="double_or_empty" use="optional"/>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="ID" type="xs:integer" use="required"/>
+                              <xs:attribute name="ID_NAME" type="xs:string" use="optional"/>
+                              <xs:attribute name="PDD_PID" type="integer_or_empty" use="optional"/>
+                              <xs:attribute name="PDD_THICKNESS" type="double_or_empty" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="PDD_WEIGHT" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:attribute name="ESTIMATE" type="double_or_empty" use="optional"/>
+                        <xs:attribute name="CALCULATE" type="double_or_empty" use="optional"/>
+                        <xs:attribute name="WEIGHT" type="double_or_empty" use="optional"/>
+                        <xs:attribute name="TARGET" type="double_or_empty" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="CAE_DATA" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="REPRESENTATION" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="COMMENT" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="CAE_PART_MEMBER" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="ENTITY" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:complexContent>
+                                <xs:extension base="entity_type">
+                                  <xs:attribute name="INSTANCE" type="xs:positiveInteger" use="optional" default="1"/>
+                                  <xs:attribute name="LINK" type="xs:string" use="optional" default="NO"/>
+                                </xs:extension>
+                              </xs:complexContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="ID" type="xs:integer" use="required"/>
+                        <xs:attribute name="COLOR" type="rgbcolor_or_empty" use="optional"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="VERSION" type="xs:integer" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="TYPE" type="valid_cad_part_types" use="optional"/>
+            <xs:attribute name="INSTANCE" type="xs:positiveInteger" use="optional" default="1"/>
+            <xs:attribute name="LINK" type="link_types" use="optional" default="NO"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="VERSION" type="xs:decimal" use="required"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
