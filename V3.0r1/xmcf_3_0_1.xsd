@@ -966,7 +966,6 @@
 						<xs:attribute name="index" type="partIndex" use="required"/>
 						<xs:attribute name="gap" type="floatZeroPositive"/>
 						<xs:attribute name="sheet_thickness" type="floatPositive"/>
-						<xs:attribute name="sheet_angle" type="xs:float"/>
 					</xs:complexType>
 				</xs:element>
 			</xs:all>

@@ -22,7 +22,7 @@
 							width="1.0"
 							filler="no" 
 							filler_material=" E7018-X"/>
-						<sheet_parameter index="2" gap="0" sheet_thickness="1.5" sheet_angle="0"/>
+						<sheet_parameter index="2" gap="0" sheet_thickness="1.5"/>
 					</i_weld>
 				</seamweld>
 				<appdata>
