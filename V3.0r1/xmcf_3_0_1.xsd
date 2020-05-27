@@ -108,7 +108,7 @@
 		<!-- 
 		NOTE: We chose not to restrict the choice of elements under appdata, because the spec says:
 		"The following list does not imply that other application names are forbidden. 
-		Its noly purpose is to reserve the registered names against inappropriate use".
+		Its only purpose is to reserve the registered names against inappropriate use".
 		-->
 		<xs:sequence>
 			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
