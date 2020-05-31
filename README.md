@@ -1,6 +1,6 @@
 # Create XSD for χMCF (aka xMCF)
 
-We are building the XML schema for χMCF 3.0. 
+We are building the XML schema for χMCF 3. 
 χMCF is the extended Master Connection File, a standard of storing connection files for the Automotive Industry. 
 The project has been initiated by VDA. 
 
@@ -19,6 +19,6 @@ the original specification document and pdf
 #### `V3.1/` contains:
 
 * the corrected specification document, 
-* the developed χMCF3 schema, and
+* the developed χMCF3.1 schema, and
 * the accompanying examples for the updated document
 * a `test_suite` used for test-driven development of the schema
