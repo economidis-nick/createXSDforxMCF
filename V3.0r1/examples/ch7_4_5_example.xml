@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
-<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_0_1.xsd">
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_1_0.xsd">
 	<date> 2020-04-20 </date>
-	<version> 3.0.1 </version>
+	<version> 3.1.0 </version>
 	<units length="mm" angle="rad" mass="kg" force="N" time="s"/>
 	<connection_group id="1">
 		<connected_to>

@@ -2,11 +2,11 @@
 <xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns:MEDINA="http://servicenet.t-systems.com/medina/xMCF"
 	xsi:schemaLocation="http://servicenet.t-systems.com/medina/xMCF mcf_MEDINA.xsd" 
-	xsi:noNamespaceSchemaLocation="xmcf_3_0_1.xsd">
+	xsi:noNamespaceSchemaLocation="xmcf_3_1_0.xsd">
 	<!-- File Name: new_car.xml -->
 	<!-- some comments -->
 	<date> 2016-01-11 </date>
-	<version> 3.0.1 </version>
+	<version> 3.1.0 </version>
 	<units length="mm" angle="rad" mass="kg" force="N" time="s"/>
 	<appdata> <!--appdata at root level -->
 		<MEDINA xmlns="http://servicenet.t-systems.com/medina/xMCF">
