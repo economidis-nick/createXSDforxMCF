@@ -1341,13 +1341,16 @@
 			<xs:enumeration value="concave"/>
 		</xs:restriction>
 	</xs:simpleType>
-						
+
 	<xs:simpleType name="loc_type">
-		<xs:restriction base="xs:string">
-			<xs:pattern value="\s*[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?\s+[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?\s+[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?\s*"/>
+		<xs:restriction>
+			<xs:simpleType>
+				<xs:list itemType="xs:float"/>
+			</xs:simpleType>
+			<xs:length value="3"/>
 		</xs:restriction>
 	</xs:simpleType>
-	
+
 	<xs:attributeGroup name="weld_position_common_attr">
 		<xs:attribute name="u" use="required">
 			<xs:simpleType>
@@ -1454,9 +1457,16 @@
 		</xs:complexType>
 	</xs:element>
 	<xs:simpleType name="emptyReal">
-		<xs:restriction base="xs:string">
-			<xs:pattern value="\s*[+-]?([0-9]*[.])?[0-9]+\s*|.{0}|\s*"/>
-		</xs:restriction>
+		<xs:union>
+			<xs:simpleType>
+				<xs:restriction base='xs:float'/>
+			</xs:simpleType>
+			<xs:simpleType>
+				<xs:restriction base='xs:string'>
+					<xs:pattern value="\s*"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:union>
 	</xs:simpleType>
 	<xs:element name="int">
 		<xs:complexType>
@@ -1468,9 +1478,16 @@
 		</xs:complexType>
 	</xs:element>
 	<xs:simpleType name="emptyInteger">
-		<xs:restriction base="xs:string">
-			<xs:pattern value="\s*([+-]?[0-9]+)?\s*"/>
-		</xs:restriction>
+		<xs:union>
+			<xs:simpleType>
+				<xs:restriction base='xs:integer'/>
+			</xs:simpleType>
+			<xs:simpleType>
+				<xs:restriction base='xs:string'>
+					<xs:pattern value="\s*"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:union>
 	</xs:simpleType>
 	<xs:element name="string_list">
 		<xs:complexType>

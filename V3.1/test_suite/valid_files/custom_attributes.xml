@@ -8,14 +8,33 @@
         </connected_to>
         <connection_list>
 			<connection_0d>
-				<loc>2581.21 -708.408 31.6532 </loc>
+				<loc>2581. 4.0 3.3 </loc>
 				<spotweld/>
 				<custom_attributes_list>
 				
 					<custom_attributes owner="DepartmentA" for="Fatigue">
-						<int key="priority"> 1 </int>
-						<string key="used S-N curve">Steel_225_ISO</string>
-						<real key="fatigue_limit"> 223.1 </real>
+						<int key="integer_without_spaces">1</int>
+						<int key="integer_with_spaces"> 1 </int>
+						<int key="empty_integer"></int>
+						<int key="empty_integer_with_spaces">   </int>
+						<string key="some_string">Steel_225_ISO</string>
+						<real key="float_with_dot"> 223 </real>
+						<real key="float_ending_with_dot"> 223. </real>
+						<real key="float_ending_with_number"> 223.3 </real>
+						<!-- <real key="only_dot"> . </real> -->
+						<!-- <real key="sign_and_dot"> -. </real> -->
+						<real key="dot_first"> .3 </real>
+						<real key="positive_dot_first"> +3. </real>
+						<real key="negative_dot_first"> -.1 </real>
+						<real key="with_positive_exp"> .1e+3</real>
+						<real key="with_positive_Exp"> .1E+3</real>
+						<real key="with_positive_Exp2"> .1E+003</real>
+						<real key="leading_zeroes_with_positive_exp"> 000.1E+003</real>
+						<real key="with_negative_exp"> .1e-2</real>
+						<real key="with_negative_Exp"> .1E-2</real>
+						<real key="with_negative_Exp2"> .1E-002</real>
+						<real key="whitespace_only">  </real>
+						<real key="empty"></real>
 					</custom_attributes>
 
 					<custom_attributes owner="DepartmentA" for="Statics"> <!-- same 'owner', different 'for' -->
