@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_1_0.xsd">
+	<date> 2014-08-07 </date>
+	<version> 3.1.0 </version>
+	<units length="mm" angle="deg" mass="kg" force="N" time="s"/>
+	<connection_group id="1">
+
+		<connected_to>
+			<part index="1" label="PART_7000400"/>     <!-- outer hood panel -->
+			<assy index="23">
+				<part label="PART_5000300"/>       <!-- inner hood panel -->
+				<part label="PART_5000800"/>       <!-- reinforcement -->
+			</assy>
+		</connected_to>
+
+		<connection_list>
+			<connection_1d label="HMG_100574">
+				<loc_list>  <!-- hemming root's path -->
+					<loc v="1"> 2169.300  -489.495  1773.936 </loc>
+					<loc v="2"> 2165.593  -480.000  1790.221 </loc>
+					<loc v="3"> 2165.593   480.000  1790.221 </loc>
+					<loc v="4"> 2169.302   489.495  1773.937 </loc>
+				</loc_list>
+				<appdata>
+				</appdata>
+				<hemming folded_width="5" folded_part="1">
+					<region label="A" fill_percentage="50">
+						<connection_1d label="100574 region A adhesive">
+							<adhesive_line base="1" width="4" thickness="1" material="CAD_test_Mat"/>
+							<loc_list>  <!-- adhesive's path -->
+								<loc v="1"> 2169.300  -489.495  1773.936 </loc>
+							</loc_list>
+							<appdata>   <!-- adhesive's appdata -->
+							</appdata>
+						</connection_1d>
+					</region>
+					<region label="B" fill_percentage="100"/>
+					<region label="C" top_index="23" bottom_index="1" fill_percentage="100">
+						<connection_2d label="100574 region C adhesive">
+							<adhesive_face thickness="1" material="CAD_test_Mat"/>
+							<loc_list>   <!-- adhesive face's nodes -->
+								<loc v="1"> 2169.300  -489.495  1773.936 </loc>
+								<loc v="2"> 2165.593  -480.000  1790.221 </loc>
+								<loc v="3"> 2165.593   480.000  1790.221 </loc>
+							</loc_list>
+							<face_list>  <!-- adhesive's facets -->
+								<face v1="1" v2="2" v3="3"/>
+							</face_list>
+							<appdata>    <!-- adhesive's appdata -->
+							</appdata>
+						</connection_2d>
+					</region>
+				</hemming>
+			</connection_1d>
+		</connection_list>
+	</connection_group>
+</xmcf>

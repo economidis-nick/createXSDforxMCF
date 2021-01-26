@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_1_0.xsd">
+	<date> 2014-08-07 </date>
+	<version> 3.1.0 </version>
+	<units length="mm" angle="deg" mass="kg" force="N" time="s"/>
+	<connection_group id="1">
+		<connected_to>
+			<part index="1" label="PART_7000400"/>
+			<part index="2" label="PART_7100100"/>
+		</connected_to>
+		<connection_list>
+			<connection_1d>
+				<loc_list>
+					<loc v="0"> 2581.21 -708.408 31.6532 </loc>
+					<loc v="1"> 2581.42 -708.357 35.2816 </loc>
+					<loc v="2"> 2581.05 -708.302 39.0643 </loc>
+				</loc_list>				
+				<seamweld>
+					<k_joint base="2" technology="resistance">
+						<weld_position u="1.0" x="2" y="0" z="1"
+							reference="true"
+							penetration="0.3"
+							thickness="1.4"
+							angle="15"
+							section="HV"
+							filler="yes"
+							filler_material=" E7018-X"
+							shape="straight" />
+						<weld_position u="0.0" x="1" y="0" z="2"
+							reference="true"
+							penetration="0.3"
+							thickness="1.1"
+							angle="90"
+							section="HV"
+							filler="yes"
+							filler_material=" E7018-X"
+							shape="straight" />
+						<weld_position u="1.0" x="-2" y="0" z="1"
+							reference="true"
+							penetration="0.3"
+							thickness=".5"
+							angle="30"
+							section="HV"
+							filler="yes"
+							filler_material=" E7018-X"
+							shape="straight" />
+						<sheet_parameter index="1" gap="1.5" sheet_thickness="1.5" sheet_angle="45"/>
+						<sheet_parameter index="2" gap="1.0" sheet_thickness="1.5" sheet_angle="30"/>
+
+					</k_joint>
+				</seamweld>
+				<appdata>
+				</appdata>
+			</connection_1d>
+		</connection_list>
+	</connection_group>
+</xmcf>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_1_0.xsd">
+  <version>3.1.0</version>
+  <units length="mm" angle="deg" mass="kg" force="N" time="s" torque="Nm"/>
+  <date>2019-01-07</date>
+  <connection_group id="1">
+    <connected_to>
+      <part index="1" pid="1"/>
+      <part index="2" pid="2"/>
+    </connected_to>
+    <connection_list>
+      <connection_0d>
+        <loc>12.1058 37.1065 0.881963</loc>
+        <threaded_connection diameter="6" length="25">
+          <normal_direction x="0" y="0" z="-1"/>
+          <bolt/>
+        </threaded_connection>
+      </connection_0d>
+    </connection_list>
+  </connection_group>
+</xmcf>

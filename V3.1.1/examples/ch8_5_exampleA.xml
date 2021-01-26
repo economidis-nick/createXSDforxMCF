@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_1_0.xsd">
+	<date> 2014-08-07 </date>
+	<version> 3.1.0 </version>
+	<units length="mm" angle="deg" mass="kg" force="N" time="s"/>
+	<connection_group id="1">
+		<connected_to>
+			<part index="1" label="PART_7000400"/>
+			<assy index="23">
+				<part label="PART_5000300"/>
+				<part label="PART_5000800"/>
+			</assy>
+		</connected_to>
+
+		<connection_list>
+			<connection_1d label="SPOT_LINE_11000">
+				<sequence_connection_0d spacing="30.0">
+					<spotweld/>
+				</sequence_connection_0d> 
+				<loc_list>
+					<loc v="1"> 2169.300  -489.495  1773.936 </loc>
+					<loc v="2"> 2165.593  -480.000  1790.221 </loc>
+					<loc v="3"> 2165.593   480.000  1790.221 </loc>
+					<loc v="4"> 2169.302   489.495  1773.937 </loc>
+				</loc_list>
+				<appdata>
+				</appdata>
+			</connection_1d>
+		</connection_list>
+	</connection_group>
+</xmcf>

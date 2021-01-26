@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_1_0.xsd">
+	<date> 2014-08-07 </date>
+	<version> 3.1.0 </version>
+	<units length="mm" angle="deg" mass="kg" force="N" time="s"/>
+	<connection_group id="1">
+		<connected_to>
+			<part index="1"  label="PART_7000400"/>
+			<part index="23" label="PART_5000300"/>
+		</connected_to>
+
+		<connection_list>
+			<connection_2d>
+				<adhesive_face thickness="2.0" material="CAD_Material"/>
+				<loc_list>
+					<loc v="1"> 2001.557  14.435  1736.898 </loc>
+					<loc v="2"> 1994.802  14.435  1734.247 </loc>
+					<loc v="3"> 1994.790  0.0436  1734.256 </loc>
+					<loc v="4"> 2001.547  0.0545  1736.911 </loc>
+					<loc v="5"> 2008.298  14.435  1739.550 </loc>
+					<loc v="6"> 2008.336  28.784  1739.524 </loc>
+				</loc_list>
+				<face_list>
+					<face v1="1" v2="2" v3="3" v4="4"/>   <!-- quadrangular facet -->
+					<face v1="1" v2="5" v3="6"/>          <!-- triangular facet   -->
+				</face_list>
+				<appdata>
+				</appdata>
+				<!--<custom_attributes_list>
+				</custom_attributes_list>-->
+			</connection_2d>
+		</connection_list>
+	</connection_group>
+</xmcf>

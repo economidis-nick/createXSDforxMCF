@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xmlns:MEDINA="http://servicenet.t-systems.com/medina/xMCF"
+      xsi:schemaLocation="http://servicenet.t-systems.com/medina/xMCF mcf_MEDINA.xsd" 
+      xsi:noNamespaceSchemaLocation="xmcf_3_1_0.xsd">
+	<date> 2014-08-07 </date>
+	<version> 3.1.0 </version>
+	<units length="mm" angle="rad" mass="kg" force="N" time="s"/>			
+	<connection_group id="1">
+		<connected_to>
+		</connected_to>
+		<connection_list>
+			<connection_1d>
+				<loc_list>
+					<loc v="0">1645.83 821.145 616.585</loc>											
+				</loc_list>
+				<seamweld>
+				</seamweld>
+				<appdata>
+					<MEDINA xmlns="http://servicenet.t-systems.com/medina/xMCF">
+						<data_at_connector>
+						</data_at_connector>
+					</MEDINA>
+				</appdata>
+			</connection_1d>
+		</connection_list>
+	</connection_group>
+</xmcf>
