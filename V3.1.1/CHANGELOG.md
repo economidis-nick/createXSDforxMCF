@@ -5,7 +5,7 @@
 
 # Change Log
 All notable changes to this project will be documented in this file.  
-It's a team effort to make them as straightforward as possible. 
+It's a team effort to make this documentation as straightforward as possible. 
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project ~~adheres to~~ is inspired by [Semantic Versioning](http://semver.org/) since V3.1.
@@ -14,7 +14,8 @@ and this project ~~adheres to~~ is inspired by [Semantic Versioning](http://semv
 ## [Unreleased / to become 3.1.1] - 2021-01-27
  
 ### Added
-- &hellip; 
+- some paragraphs to section _5.2.2	Finite Element Specific Data `<femdata/>`_
+- new section _5.2.2.1	Reasoning about `<femdata/>`_
 
 ### Changed
 - &hellip;
@@ -54,7 +55,7 @@ Official release to be found at VDA Server as ["FAT-Schriftenreihe 286"](https:/
 	- Clips / snap joints
 	- Nails
 - New sections:
-	- 6.5 Distinction between `<custom_attributes_list/>` and `<appdata/>`
+	- _6.5 Distinction between `<custom_attributes_list/>` and `<appdata/>`_
 - Working Group feedback Nov. 2015 &ndash; Jan. 2016.
    
 <!--
