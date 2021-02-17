@@ -16,6 +16,7 @@ and this project ~~adheres to~~ is inspired by [Semantic Versioning](http://semv
 ### Added
 - some paragraphs to section _5.2.2	Finite Element Specific Data `<femdata/>`_
 - new section _5.2.2.1	Reasoning about `<femdata/>`_
+- new section _8.1.2.1	Intermittent Connection Lines_ with according example &chi;MCF file.
 
 ### Changed
 - &hellip;
