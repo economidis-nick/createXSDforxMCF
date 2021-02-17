@@ -21,7 +21,7 @@
 					<corner_weld base="1" technology="resistance">
 						<weld_position u="0.2" x="1" y="0" z="1"/>
 						<sheet_parameter index="2" gap="1.0" sheet_thickness="1.5" sheet_angle="90"/>
-						<regular_step offset="20" step_length="10" distance="50"/>
+						<regular_segments offset="20" segment_length="10" distance="50"/>
 					</corner_weld>
 				</seamweld>
 				<appdata>
