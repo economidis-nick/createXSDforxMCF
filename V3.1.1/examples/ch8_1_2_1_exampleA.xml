@@ -20,8 +20,9 @@
 				<seamweld>
 					<corner_weld base="1" technology="resistance">
 						<weld_position u="0.2" x="1" y="0" z="1"/>
+							<regular_segments begin_margin="1.0" end_margin="3.0" density="0.666" num_segments="30"/>
+						</weld_position>
 						<sheet_parameter index="2" gap="1.0" sheet_thickness="1.5" sheet_angle="90"/>
-						<regular_segments begin_margin="1.0" end_margin="3.0" density="0.666" num_segments="30"/>
 					</corner_weld>
 				</seamweld>
 				<appdata>
