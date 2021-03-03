@@ -19,12 +19,13 @@
 				</loc_list>
 				<seamweld>
 					<corner_weld base="1" technology="resistance">
-						<weld_position u="0.2" x="1" y="0" z="1"/>
+						<weld_position u="0.2" x="1" y="0" z="1">
+							<segment_list>
+								<segment from="30" to="180" />
+								<segment from="210" to="240" />
+							</segment_list>
+						</weld_position>
 						<sheet_parameter index="2" gap="1.0" sheet_thickness="1.5" sheet_angle="90"/>
-						<segment_list>
-							<segment from="30" to="180" />
-							<segment from="210" to="240" />
-						</segment_list>
 					</corner_weld>
 				</seamweld>
 				<appdata>
