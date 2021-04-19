@@ -13,14 +13,13 @@
 		<connection_list>
 			<connection_1d label="MyWeldLine">
 				<loc_list index="1"> <!-- first section -->
-					<loc v="0"   > 2581.21 -708.408 31.6532 </loc> <!-- first point -->
-					<loc v="1"   > 2581.42 -708.357 35.2816 </loc>
-					<loc v="2.22"> 2581.05 -708.302 39.0643 </loc> <!-- last  point -->
+					<loc v="0"   > 2581.21 -708.408 31.6532 </loc> 
+					<loc v="1"   > 2581.42 -708.357 43.6816 </loc>
 				</loc_list>
 				<seamweld>
 					<corner_weld base="1" technology="resistance">
 						<weld_position u="0.2" x="1" y="0" z="1">
-							<regular_segments begin_margin="1.0" end_margin="3.0" density="0.666" num_segments="30"/>
+							<regular_segments num_segments="4" length="2" spacing="3"/>
 						</weld_position>
 						<sheet_parameter index="2" gap="1.0" sheet_thickness="1.5" sheet_angle="90"/>
 					</corner_weld>
