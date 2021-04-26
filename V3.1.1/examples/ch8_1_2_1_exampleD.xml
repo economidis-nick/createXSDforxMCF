@@ -14,7 +14,7 @@
 			<connection_1d label="MyWeldLine">
 				<loc_list index="1"> <!-- first section -->
 					<loc v="0"   > 2581.21 -708.408 31.6532 </loc>
-					<loc v="1"   > 2581.42 -708.357 39.2816 </loc>
+					<loc v="1"   > 2581.42 -708.357 49.2816 </loc>
 				</loc_list>
 				<seamweld>
 					<corner_weld base="1" technology="resistance">
