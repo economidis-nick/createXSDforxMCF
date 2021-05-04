@@ -14,14 +14,19 @@ and this project ~~adheres to~~ is inspired by [Semantic Versioning](http://semv
 ## [Unreleased / to become 3.1.1] - 2021-01-27
  
 ### Added
-- some paragraphs to section _5.2.2	Finite Element Specific Data `<femdata/>`_
-- new section _5.2.2.1	Reasoning about `<femdata/>`_
-- new section _8.1.2.1	Intermittent Connection Lines_ with according example &chi;MCF files.
+- some paragraphs to section _5.2.2	Finite Element Specific Data `<femdata/>`_ 
+  &mdash; addresses issue #52.
+- new section _5.2.2.1	Reasoning about `<femdata/>`_ 
+  &mdash; addresses issue #52.
+- new section _8.1.2.1	Intermittent Connection Lines_ with according example &chi;MCF files. 
+  &mdash; addresses issue #53.
 
 ### Changed
+- Small insertion, adressing issue #55
 - &hellip;
 
 ### Fixed
+- Issue #56 (soon :wink:)
 - &hellip;
 
 
