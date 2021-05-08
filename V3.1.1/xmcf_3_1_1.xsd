@@ -632,7 +632,7 @@
 	<xs:element name="screw" substitutionGroup="threaded_connection_type">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="flow_drilled" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="flow_drilled" minOccurs="0" maxOccurs="1"/>
 			</xs:sequence>
 			<xs:attribute name="base" type="partIndex"/>
 		</xs:complexType>
@@ -838,6 +838,10 @@
 			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
+						<xs:choice minOccurs="0" maxOccurs="1">
+							<xs:element ref="segment_list"/>
+							<xs:element ref="regular_segments"/>
+						</xs:choice>
 						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="section">
 							<xs:simpleType>
@@ -880,6 +884,10 @@
 			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
+						<xs:choice minOccurs="0" maxOccurs="1">
+							<xs:element ref="segment_list"/>
+							<xs:element ref="regular_segments"/>
+						</xs:choice>
 						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="section">
 							<xs:simpleType>
@@ -919,6 +927,10 @@
 			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
+						<xs:choice minOccurs="0" maxOccurs="1">
+							<xs:element ref="segment_list"/>
+							<xs:element ref="regular_segments"/>
+						</xs:choice>
 						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="section">
 							<xs:simpleType>
@@ -955,6 +967,10 @@
 			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
+						<xs:choice minOccurs="0" maxOccurs="1">
+							<xs:element ref="segment_list"/>
+							<xs:element ref="regular_segments"/>
+						</xs:choice>
 						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="width" type="floatPositive"/>
 						<xs:attribute name="filler" type="filler_type"/>
@@ -981,6 +997,10 @@
 			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
+						<xs:choice minOccurs="0" maxOccurs="1">
+							<xs:element ref="segment_list"/>
+							<xs:element ref="regular_segments"/>
+						</xs:choice>
 						<xs:attribute name="base" type="partIndex"/>
 						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="section">
@@ -1019,6 +1039,10 @@
 			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
+						<xs:choice minOccurs="0" maxOccurs="1">
+							<xs:element ref="segment_list"/>
+							<xs:element ref="regular_segments"/>
+						</xs:choice>
 						<xs:attribute name="base" type="partIndex"/>
 						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="section">
@@ -1059,6 +1083,10 @@
 			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
+						<xs:choice minOccurs="0" maxOccurs="1">
+							<xs:element ref="segment_list"/>
+							<xs:element ref="regular_segments"/>
+						</xs:choice>
 						<xs:attribute name="base" type="partIndex"/>
 						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="section">
@@ -1099,6 +1127,10 @@
 			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
+						<xs:choice minOccurs="0" maxOccurs="1">
+							<xs:element ref="segment_list"/>
+							<xs:element ref="regular_segments"/>
+						</xs:choice>
 						<xs:attribute name="base" type="partIndex"/>
 						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="section">
@@ -1139,6 +1171,10 @@
 			<xs:all>
 				<xs:element name="weld_position" minOccurs="0" maxOccurs="unbounded">
 					<xs:complexType>
+						<xs:choice minOccurs="0" maxOccurs="1">
+							<xs:element ref="segment_list"/>
+							<xs:element ref="regular_segments"/>
+						</xs:choice>
 						<xs:attributeGroup ref="weld_position_common_attr"/>
 						<xs:attribute name="width" type="floatPositive"/>
 					</xs:complexType>
@@ -1158,6 +1194,45 @@
 		<xs:unique ref="unique_index_in_sheet_parameter"/>
 
 	</xs:element>
+	
+	
+	<xs:element name="regular_segments">
+		<xs:complexType>
+			<xs:attribute name="num_segments" type="integerPositive" use="required"/>
+			<xs:attribute name="length" type="floatPositive" use="required"/>
+			<xs:attribute name="spacing" type="floatPositive" use="required"/>
+			<xs:attribute name="first_spacing" type="floatZeroPositive" use="optional" default="0.0"/>
+			<xs:attribute name="last_spacing" type="floatZeroPositive" use="optional" default="0.0"/>
+			<xs:attribute name="keep" use="optional" default="density">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="spacing"/>
+						<xs:enumeration value="length"/>
+						<xs:enumeration value="density"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="max_percentage_of_compensation" type="floatPercentage" use="optional" default="1.0"/>
+			<xs:attribute name="max_absolute_compensation" type="floatZeroPositive" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="segment_list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="segment" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="from" type="floatZeroPositive"/>
+						<xs:attribute name="to" type="floatPositive"/>
+						
+						<xs:assert test="@from lt @to"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	
 	<xs:element name="adhesive_line" substitutionGroup="connection_1d_type">
 		<xs:complexType>
 			<xs:attribute name="base" type="partIndex"/>
@@ -1365,6 +1440,9 @@
 		<xs:attribute name="z" type="xs:float" use="required"/>
 		<xs:attribute name="reference" type="xs:boolean" default="false"/>
 	</xs:attributeGroup>
+	
+	
+	
 	<xs:simpleType name="partIndex">
 		<xs:restriction base="integerPositive"/>
 	</xs:simpleType>
@@ -1381,6 +1459,12 @@
 	<xs:simpleType name="floatZeroPositive">
 		<xs:restriction base="xs:float">
 			<xs:minInclusive value="0.0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="floatPercentage">
+		<xs:restriction base="xs:float">
+			<xs:minInclusive value="0.0"/>
+			<xs:maxInclusive value="100.0"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="nonEmptyString">

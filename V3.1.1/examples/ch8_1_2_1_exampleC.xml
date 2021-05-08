@@ -18,13 +18,13 @@
 				</loc_list>
 				<seamweld>
 					<corner_weld base="1" technology="resistance">
-					<weld_position u="0.2" x="1" y="0" z="1"/>
+					<weld_position u="0.2" x="1" y="0" z="1">
 						<regular_segments first_spacing="2.5" num_segments="3" spacing="3.0" length="2.0"/>
 					</weld_position>
-					<weld_position u="0.5" x="-1" y="0" z="1"/>
+					<weld_position u="0.5" x="-1" y="0" z="1">
 						<regular_segments last_spacing="2.5" num_segments="3" spacing="3.0" length="2.0"/>
 					</weld_position>
-						<sheet_parameter index="2" gap="1.0" sheet_thickness="1.5" sheet_angle="90"/>
+					<sheet_parameter index="2" gap="1.0" sheet_thickness="1.5" sheet_angle="90"/>
 					</corner_weld>
 				</seamweld>
 				<appdata>
