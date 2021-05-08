@@ -24,6 +24,6 @@ the original specification document and pdf
 
 #### `V3.1.1/` contains:
 * the improved specification document V3.1.1, 
-* the developed &chi;MCF3.1 schema (yet _unchanged_), and
+* the developed &chi;MCF3.1 schema, and
 * the accompanying examples for the updated document
 * a `test_suite` used for test-driven development of the schema
