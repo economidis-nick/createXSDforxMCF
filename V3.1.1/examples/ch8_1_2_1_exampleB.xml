@@ -12,9 +12,9 @@
 		</connected_to>
 		<connection_list>
 			<connection_1d label="MyWeldLine">
-				<loc_list index="1"> <!-- first section -->
+				<loc_list>
 					<loc v="0"   > 2581.21 -708.408 31.6532 </loc>
-					<loc v="1"   > 2581.42 -708.357 46.2816 </loc>
+					<loc v="1"   > 2581.21 -708.408 46.0882 </loc>
 				</loc_list>
 				<seamweld>
 					<corner_weld base="1" technology="resistance">
@@ -28,6 +28,23 @@
 				</seamweld>
 				<appdata>
 				</appdata>
+			</connection_1d>
+
+			<connection_1d label="MyOppositeWeldLine">
+				<loc_list>
+					<loc v="0"   > -2581.21 -708.408 31.6532 </loc>
+					<loc v="1"   > -2581.21 -708.408 46.0882 </loc>
+				</loc_list>
+				<seamweld>
+					<corner_weld base="1" technology="resistance">
+						<weld_position u="0.2" x="1" y="0" z="1">
+							<regular_segments num_segments="3"
+							first_spacing="1.0" last_spacing="0.5" length="2.0" spacing="3.5" 
+							keep="length" max_percentage_of_compensation="3.0"/>
+						</weld_position>
+						<sheet_parameter index="2" gap="1.0" sheet_thickness="1.5" sheet_angle="90"/>
+					</corner_weld>
+				</seamweld>
 			</connection_1d>
 		</connection_list>
 	</connection_group>
