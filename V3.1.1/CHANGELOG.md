@@ -26,7 +26,7 @@ and this project ~~adheres to~~ is inspired by [Semantic Versioning](http://semv
 - &hellip;
 
 ### Fixed
-- Issue [#56](https://github.com/economidis-nick/createXSDforxMCF/issues/56) (soon :wink:)
+- Issue [#56](https://github.com/economidis-nick/createXSDforxMCF/issues/56)
 - &hellip;
 
 
