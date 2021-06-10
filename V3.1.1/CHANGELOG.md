@@ -11,7 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project ~~adheres to~~ is inspired by [Semantic Versioning](http://semver.org/) since V3.1.
 
  
-## [Unreleased / to become 3.1.1] - 2021-01-27
+## [Unreleased / to become 3.1.1] - 2021-06-10
  
 ### Added
 - some paragraphs to section _5.2.2	Finite Element Specific Data `<femdata/>`_ 
@@ -26,6 +26,7 @@ and this project ~~adheres to~~ is inspired by [Semantic Versioning](http://semv
 - &hellip;
 
 ### Fixed
+- Issue [#49](https://github.com/economidis-nick/createXSDforxMCF/issues/49)
 - Issue [#56](https://github.com/economidis-nick/createXSDforxMCF/issues/56)
 - &hellip;
 
