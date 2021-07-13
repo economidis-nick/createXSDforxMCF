@@ -407,6 +407,10 @@
 	</xs:element>
 	<xs:element name="spotweld" substitutionGroup="connection_0d_type sequence_connection_0d_type">
 		<xs:complexType>
+			<xs:all>
+				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="tangential_direction" minOccurs="0" maxOccurs="1"/>
+			</xs:all>
 			<xs:attribute name="diameter" type="floatPositive"/>
 			<xs:attribute name="technology">
 				<xs:simpleType>
@@ -441,6 +445,7 @@
 		<xs:complexType>
 			<xs:all>
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="tangential_direction" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="rivet_type" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
 			<xs:attribute name="hardness" type="floatPositive"/>
@@ -545,6 +550,7 @@
 		<xs:complexType>
 			<xs:all>
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="tangential_direction" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="threaded_connection_type" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="washer" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
@@ -646,6 +652,10 @@
 	</xs:element>
 	<xs:element name="gumdrop" substitutionGroup="connection_0d_type sequence_connection_0d_type">
 		<xs:complexType>
+			<xs:all>
+				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="tangential_direction" minOccurs="0" maxOccurs="1"/>
+			</xs:all>
 			<xs:attribute name="diameter" type="floatZeroPositive"/>
 			<xs:attribute name="mass" type="floatZeroPositive"/>
 			<xs:attribute name="material" type="xs:string"/>
@@ -655,6 +665,7 @@
 		<xs:complexType>
 			<xs:all>
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="tangential_direction" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
 			<xs:attribute name="clinch_type" type="xs:string"/>
 			<xs:attribute name="strength_class" type="xs:string"/>
@@ -675,6 +686,7 @@
 		<xs:complexType>
 			<xs:all>
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="tangential_direction" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
 			<xs:attribute name="heat_stake_type" type="xs:string"/>
 			<xs:attribute name="strength" type="floatPositive"/>

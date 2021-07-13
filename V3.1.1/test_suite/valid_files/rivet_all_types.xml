@@ -74,6 +74,14 @@
 				<clinch_rivet_stud press_in_force="2000"/>
 			</rivet>
 		</connection_0d>
+		<connection_0d>
+			<loc> 1645.83 821.145 616.585 </loc>
+			<rivet shaft_diameter="4.0" length="6.0" hardness="400">
+				<normal_direction x="0" y="0" z="3" />
+				<tangential_direction x="3" y="0" z="0" />
+				<clinch_rivet_stud press_in_force="2000"/>
+			</rivet>
+		</connection_0d>
 
     </connection_list>
   </connection_group>

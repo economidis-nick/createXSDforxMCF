@@ -43,6 +43,14 @@
 				</clinch>
 			</connection_0d>
 
+			<connection_0d>
+				<loc>60 0 0</loc>
+				<clinch clinch_type="TOX" button_diameter="3.0" strength_class="HD" shear_strength="890" peel_strength="356" die_type="round">
+					<normal_direction x="0" y="0" z="1"/>
+					<tangential_direction x="1" y="0" z="0"/>
+				</clinch>
+			</connection_0d>
+
 		</connection_list>
 	</connection_group>
 </xmcf>

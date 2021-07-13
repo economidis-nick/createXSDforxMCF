@@ -20,6 +20,17 @@
         </threaded_connection>
       </connection_0d>
     
+      <connection_0d>
+        <loc>12.1058 37.1065 0.881963</loc>
+        <threaded_connection diameter="0" length="2">
+          <normal_direction x="0" y="0" z="-1"/>
+          <tangential_direction x="1" y="0" z="0"/>
+          <bolt>
+            <nut/>
+          </bolt>
+        </threaded_connection>
+      </connection_0d>
+    
 	<connection_0d>
         <loc>12.1058 37.1065 0.881963</loc>
         <threaded_connection diameter="0" length="2" thread_static_friction="0.8">

@@ -57,6 +57,14 @@
         </heat_stake>
       </connection_0d>
 
+      <connection_0d>
+        <loc>12.1058 37.1065 0.881963</loc>
+        <heat_stake heat_stake_type="domed" strength="20" diameter="3" head_diameter="5" hole_diameter="4" void_diameter="1">
+		<normal_direction x="1" y="0" z="0"/>
+		<tangential_direction x="0" y="0" z="1"/>
+        </heat_stake>
+      </connection_0d>
+
     </connection_list>
   </connection_group>
 </xmcf>
