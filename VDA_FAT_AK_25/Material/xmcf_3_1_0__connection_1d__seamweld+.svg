@@ -1,0 +1,211 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="443" height="582" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<rect x="182" y="25" width="75" height="22" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<text x="219.5" y="36" style="font-family:Arial;font-size:8pt;fill:rgb(0,0,0);font-weight:bold;text-anchor:middle;dominant-baseline:central">butt_joint</text>
+<line x1="183" y1="46" x2="186" y2="43" style="stroke:rgb(0,0,0);stroke-width:2"/>
+<path d="M186 43 L188 45 L189 40 L184 41 L186 43 Z" style="fill:rgb(0,0,0)"/>
+<rect x="252" y="31" width="10" height="10" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="254" y1="36" x2="260" y2="36" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="257" y1="33" x2="257" y2="39" style="stroke:rgb(0,0,0);stroke-width:1"/>
+
+<rect x="182" y="77" width="89" height="22" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<text x="226.5" y="88" style="font-family:Arial;font-size:8pt;fill:rgb(0,0,0);font-weight:bold;text-anchor:middle;dominant-baseline:central">corner_weld</text>
+<line x1="183" y1="98" x2="186" y2="95" style="stroke:rgb(0,0,0);stroke-width:2"/>
+<path d="M186 95 L188 97 L189 92 L184 93 L186 95 Z" style="fill:rgb(0,0,0)"/>
+<rect x="266" y="83" width="10" height="10" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="268" y1="88" x2="274" y2="88" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="271" y1="85" x2="271" y2="91" style="stroke:rgb(0,0,0);stroke-width:1"/>
+
+<rect x="182" y="129" width="80" height="22" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<text x="222" y="140" style="font-family:Arial;font-size:8pt;fill:rgb(0,0,0);font-weight:bold;text-anchor:middle;dominant-baseline:central">edge_weld</text>
+<line x1="183" y1="150" x2="186" y2="147" style="stroke:rgb(0,0,0);stroke-width:2"/>
+<path d="M186 147 L188 149 L189 144 L184 145 L186 147 Z" style="fill:rgb(0,0,0)"/>
+<rect x="257" y="135" width="10" height="10" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="259" y1="140" x2="265" y2="140" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="262" y1="137" x2="262" y2="143" style="stroke:rgb(0,0,0);stroke-width:1"/>
+
+<rect x="329" y="184" width="92" height="22" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1;stroke-dasharray:4,1"/>
+<rect x="326" y="181" width="92" height="22" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1;stroke-dasharray:4,1"/>
+<text x="372" y="192" style="font-family:Arial;font-size:8pt;fill:rgb(0,0,0);font-weight:bold;text-anchor:middle;dominant-baseline:central">weld_position</text>
+<text x="408" y="213" style="font-family:Arial;font-size:7.2pt;fill:rgb(0,0,0);text-anchor:end;dominant-baseline:central">0..∞</text>
+
+<rect x="329" y="236" width="105" height="22" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1;stroke-dasharray:4,1"/>
+<rect x="326" y="233" width="105" height="22" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1;stroke-dasharray:4,1"/>
+<text x="378.5" y="244" style="font-family:Arial;font-size:8pt;fill:rgb(0,0,0);font-weight:bold;text-anchor:middle;dominant-baseline:central">sheet_parameter</text>
+<text x="421" y="265" style="font-family:Arial;font-size:7.2pt;fill:rgb(0,0,0);text-anchor:end;dominant-baseline:central">0..∞</text>
+
+<line x1="316" y1="192" x2="326" y2="192" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<line x1="316" y1="244" x2="326" y2="244" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<line x1="316" y1="192" x2="316" y2="244" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<line x1="306" y1="218" x2="316" y2="218" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<path d="M272 208 L295 208 L301 214 L301 222 L295 228 L272 228 L266 222 L266 214 Z" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="279" y1="214" x2="275" y2="214" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="279" y1="218" x2="271" y2="218" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="279" y1="222" x2="275" y2="222" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="275" y1="214" x2="275" y2="222" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="287" y1="214" x2="291" y2="214" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="287" y1="218" x2="295" y2="218" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="287" y1="222" x2="291" y2="222" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="291" y1="214" x2="291" y2="222" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<ellipse cx="283" cy="214" rx="2" ry="2" style="rgb(0,0,0)"/>
+<ellipse cx="283" cy="218" rx="2" ry="2" style="rgb(0,0,0)"/>
+<ellipse cx="283" cy="222" rx="2" ry="2" style="rgb(0,0,0)"/>
+<rect x="296" y="213" width="10" height="10" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="298" y1="218" x2="304" y2="218" style="stroke:rgb(0,0,0);stroke-width:1"/>
+
+<line x1="246" y1="218" x2="266" y2="218" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<rect x="182" y="207" width="59" height="22" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<text x="211.5" y="218" style="font-family:Arial;font-size:8pt;fill:rgb(0,0,0);font-weight:bold;text-anchor:middle;dominant-baseline:central">i_weld</text>
+<line x1="183" y1="228" x2="186" y2="225" style="stroke:rgb(0,0,0);stroke-width:2"/>
+<path d="M186 225 L188 227 L189 222 L184 223 L186 225 Z" style="fill:rgb(0,0,0)"/>
+<rect x="236" y="213" width="10" height="10" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="238" y1="218" x2="244" y2="218" style="stroke:rgb(0,0,0);stroke-width:1"/>
+
+<rect x="182" y="285" width="93" height="22" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<text x="228.5" y="296" style="font-family:Arial;font-size:8pt;fill:rgb(0,0,0);font-weight:bold;text-anchor:middle;dominant-baseline:central">overlap_weld</text>
+<line x1="183" y1="306" x2="186" y2="303" style="stroke:rgb(0,0,0);stroke-width:2"/>
+<path d="M186 303 L188 305 L189 300 L184 301 L186 303 Z" style="fill:rgb(0,0,0)"/>
+<rect x="270" y="291" width="10" height="10" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="272" y1="296" x2="278" y2="296" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="275" y1="293" x2="275" y2="299" style="stroke:rgb(0,0,0);stroke-width:1"/>
+
+<path d="M274 338 L297 338 L303 344 L303 352 L297 358 L274 358 L268 352 L268 344 Z" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="281" y1="344" x2="277" y2="344" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="281" y1="348" x2="273" y2="348" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="281" y1="352" x2="277" y2="352" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="277" y1="344" x2="277" y2="352" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="289" y1="344" x2="293" y2="344" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="289" y1="348" x2="297" y2="348" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="289" y1="352" x2="293" y2="352" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="293" y1="344" x2="293" y2="352" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<ellipse cx="285" cy="344" rx="2" ry="2" style="rgb(0,0,0)"/>
+<ellipse cx="285" cy="348" rx="2" ry="2" style="rgb(0,0,0)"/>
+<ellipse cx="285" cy="352" rx="2" ry="2" style="rgb(0,0,0)"/>
+<rect x="298" y="343" width="10" height="10" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="300" y1="348" x2="306" y2="348" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="303" y1="345" x2="303" y2="351" style="stroke:rgb(0,0,0);stroke-width:1"/>
+
+<line x1="248" y1="348" x2="268" y2="348" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<rect x="182" y="337" width="61" height="22" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<text x="212.5" y="348" style="font-family:Arial;font-size:8pt;fill:rgb(0,0,0);font-weight:bold;text-anchor:middle;dominant-baseline:central">y_joint</text>
+<line x1="183" y1="358" x2="186" y2="355" style="stroke:rgb(0,0,0);stroke-width:2"/>
+<path d="M186 355 L188 357 L189 352 L184 353 L186 355 Z" style="fill:rgb(0,0,0)"/>
+<rect x="238" y="343" width="10" height="10" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="240" y1="348" x2="246" y2="348" style="stroke:rgb(0,0,0);stroke-width:1"/>
+
+<rect x="331" y="392" width="92" height="22" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1;stroke-dasharray:4,1"/>
+<rect x="328" y="389" width="92" height="22" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1;stroke-dasharray:4,1"/>
+<text x="374" y="400" style="font-family:Arial;font-size:8pt;fill:rgb(0,0,0);font-weight:bold;text-anchor:middle;dominant-baseline:central">weld_position</text>
+<text x="410" y="421" style="font-family:Arial;font-size:7.2pt;fill:rgb(0,0,0);text-anchor:end;dominant-baseline:central">0..∞</text>
+
+<rect x="331" y="444" width="105" height="22" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1;stroke-dasharray:4,1"/>
+<rect x="328" y="441" width="105" height="22" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1;stroke-dasharray:4,1"/>
+<text x="380.5" y="452" style="font-family:Arial;font-size:8pt;fill:rgb(0,0,0);font-weight:bold;text-anchor:middle;dominant-baseline:central">sheet_parameter</text>
+<text x="423" y="473" style="font-family:Arial;font-size:7.2pt;fill:rgb(0,0,0);text-anchor:end;dominant-baseline:central">0..∞</text>
+
+<line x1="318" y1="400" x2="328" y2="400" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<line x1="318" y1="452" x2="328" y2="452" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<line x1="318" y1="400" x2="318" y2="452" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<line x1="308" y1="426" x2="318" y2="426" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<path d="M274 416 L297 416 L303 422 L303 430 L297 436 L274 436 L268 430 L268 422 Z" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="281" y1="422" x2="277" y2="422" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="281" y1="426" x2="273" y2="426" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="281" y1="430" x2="277" y2="430" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="277" y1="422" x2="277" y2="430" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="289" y1="422" x2="293" y2="422" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="289" y1="426" x2="297" y2="426" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="289" y1="430" x2="293" y2="430" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="293" y1="422" x2="293" y2="430" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<ellipse cx="285" cy="422" rx="2" ry="2" style="rgb(0,0,0)"/>
+<ellipse cx="285" cy="426" rx="2" ry="2" style="rgb(0,0,0)"/>
+<ellipse cx="285" cy="430" rx="2" ry="2" style="rgb(0,0,0)"/>
+<rect x="298" y="421" width="10" height="10" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="300" y1="426" x2="306" y2="426" style="stroke:rgb(0,0,0);stroke-width:1"/>
+
+<line x1="248" y1="426" x2="268" y2="426" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<rect x="182" y="415" width="61" height="22" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<text x="212.5" y="426" style="font-family:Arial;font-size:8pt;fill:rgb(0,0,0);font-weight:bold;text-anchor:middle;dominant-baseline:central">k_joint</text>
+<line x1="183" y1="436" x2="186" y2="433" style="stroke:rgb(0,0,0);stroke-width:2"/>
+<path d="M186 433 L188 435 L189 430 L184 431 L186 433 Z" style="fill:rgb(0,0,0)"/>
+<rect x="238" y="421" width="10" height="10" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="240" y1="426" x2="246" y2="426" style="stroke:rgb(0,0,0);stroke-width:1"/>
+
+<path d="M316 494 L339 494 L345 500 L345 508 L339 514 L316 514 L310 508 L310 500 Z" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="323" y1="500" x2="319" y2="500" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="323" y1="504" x2="315" y2="504" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="323" y1="508" x2="319" y2="508" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="319" y1="500" x2="319" y2="508" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="331" y1="500" x2="335" y2="500" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="331" y1="504" x2="339" y2="504" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="331" y1="508" x2="335" y2="508" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="335" y1="500" x2="335" y2="508" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<ellipse cx="327" cy="500" rx="2" ry="2" style="rgb(0,0,0)"/>
+<ellipse cx="327" cy="504" rx="2" ry="2" style="rgb(0,0,0)"/>
+<ellipse cx="327" cy="508" rx="2" ry="2" style="rgb(0,0,0)"/>
+<rect x="340" y="499" width="10" height="10" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="342" y1="504" x2="348" y2="504" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="345" y1="501" x2="345" y2="507" style="stroke:rgb(0,0,0);stroke-width:1"/>
+
+<line x1="290" y1="504" x2="310" y2="504" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<rect x="182" y="493" width="103" height="22" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<text x="233.5" y="504" style="font-family:Arial;font-size:8pt;fill:rgb(0,0,0);font-weight:bold;text-anchor:middle;dominant-baseline:central">cruciform_joint</text>
+<line x1="183" y1="514" x2="186" y2="511" style="stroke:rgb(0,0,0);stroke-width:2"/>
+<path d="M186 511 L188 513 L189 508 L184 509 L186 511 Z" style="fill:rgb(0,0,0)"/>
+<rect x="280" y="499" width="10" height="10" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="282" y1="504" x2="288" y2="504" style="stroke:rgb(0,0,0);stroke-width:1"/>
+
+<path d="M296 546 L319 546 L325 552 L325 560 L319 566 L296 566 L290 560 L290 552 Z" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="303" y1="552" x2="299" y2="552" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="303" y1="556" x2="295" y2="556" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="303" y1="560" x2="299" y2="560" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="299" y1="552" x2="299" y2="560" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="311" y1="552" x2="315" y2="552" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="311" y1="556" x2="319" y2="556" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="311" y1="560" x2="315" y2="560" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="315" y1="552" x2="315" y2="560" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<ellipse cx="307" cy="552" rx="2" ry="2" style="rgb(0,0,0)"/>
+<ellipse cx="307" cy="556" rx="2" ry="2" style="rgb(0,0,0)"/>
+<ellipse cx="307" cy="560" rx="2" ry="2" style="rgb(0,0,0)"/>
+<rect x="320" y="551" width="10" height="10" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="322" y1="556" x2="328" y2="556" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="325" y1="553" x2="325" y2="559" style="stroke:rgb(0,0,0);stroke-width:1"/>
+
+<line x1="270" y1="556" x2="290" y2="556" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<rect x="182" y="545" width="83" height="22" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<text x="223.5" y="556" style="font-family:Arial;font-size:8pt;fill:rgb(0,0,0);font-weight:bold;text-anchor:middle;dominant-baseline:central">flared_joint</text>
+<line x1="183" y1="566" x2="186" y2="563" style="stroke:rgb(0,0,0);stroke-width:2"/>
+<path d="M186 563 L188 565 L189 560 L184 561 L186 563 Z" style="fill:rgb(0,0,0)"/>
+<rect x="260" y="551" width="10" height="10" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="262" y1="556" x2="268" y2="556" style="stroke:rgb(0,0,0);stroke-width:1"/>
+
+<line x1="172" y1="36" x2="182" y2="36" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<line x1="172" y1="88" x2="182" y2="88" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<line x1="172" y1="140" x2="182" y2="140" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<line x1="172" y1="218" x2="182" y2="218" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<line x1="172" y1="296" x2="182" y2="296" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<line x1="172" y1="348" x2="182" y2="348" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<line x1="172" y1="426" x2="182" y2="426" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<line x1="172" y1="504" x2="182" y2="504" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<line x1="172" y1="556" x2="182" y2="556" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<line x1="172" y1="36" x2="172" y2="556" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<line x1="162" y1="296" x2="172" y2="296" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<path d="M128 286 L151 286 L157 292 L157 300 L151 306 L128 306 L122 300 L122 292 Z" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1;stroke-dasharray:4,1"/>
+<line x1="127" y1="296" x2="131" y2="296" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="131" y1="296" x2="135" y2="292" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="143" y1="292" x2="147" y2="292" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="143" y1="296" x2="151" y2="296" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="143" y1="300" x2="147" y2="300" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="147" y1="292" x2="147" y2="300" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<ellipse cx="139" cy="292" rx="2" ry="2" style="rgb(0,0,0)"/>
+<ellipse cx="139" cy="296" rx="2" ry="2" style="rgb(0,0,0)"/>
+<ellipse cx="139" cy="300" rx="2" ry="2" style="rgb(0,0,0)"/>
+<rect x="152" y="291" width="10" height="10" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="154" y1="296" x2="160" y2="296" style="stroke:rgb(0,0,0);stroke-width:1"/>
+
+<line x1="102" y1="296" x2="122" y2="296" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<rect x="20" y="285" width="77" height="22" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<text x="58.5" y="296" style="font-family:Arial;font-size:8pt;fill:rgb(0,0,0);font-weight:bold;text-anchor:middle;dominant-baseline:central">seamweld</text>
+<rect x="92" y="291" width="10" height="10" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="94" y1="296" x2="100" y2="296" style="stroke:rgb(0,0,0);stroke-width:1"/>
+</svg>

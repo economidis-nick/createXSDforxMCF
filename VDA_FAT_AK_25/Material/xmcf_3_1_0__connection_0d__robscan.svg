@@ -1,0 +1,38 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="304" height="114" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<rect x="173" y="25" width="106" height="22" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1;stroke-dasharray:4,1"/>
+<text x="226" y="36" style="font-family:Arial;font-size:8pt;fill:rgb(0,0,0);font-weight:bold;text-anchor:middle;dominant-baseline:central">normal_direction</text>
+<line x1="174" y1="46" x2="177" y2="43" style="stroke:rgb(0,0,0);stroke-width:2"/>
+<path d="M177 43 L179 45 L180 40 L175 41 L177 43 Z" style="fill:rgb(0,0,0)"/>
+
+<rect x="173" y="77" width="121" height="22" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1;stroke-dasharray:4,1"/>
+<text x="233.5" y="88" style="font-family:Arial;font-size:8pt;fill:rgb(0,0,0);font-weight:bold;text-anchor:middle;dominant-baseline:central">tangential_direction</text>
+<line x1="174" y1="98" x2="177" y2="95" style="stroke:rgb(0,0,0);stroke-width:2"/>
+<path d="M177 95 L179 97 L180 92 L175 93 L177 95 Z" style="fill:rgb(0,0,0)"/>
+
+<line x1="163" y1="36" x2="173" y2="36" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<line x1="163" y1="88" x2="173" y2="88" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<line x1="163" y1="36" x2="163" y2="88" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<line x1="153" y1="62" x2="163" y2="62" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<path d="M119 52 L142 52 L148 58 L148 66 L142 72 L119 72 L113 66 L113 58 Z" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="126" y1="58" x2="122" y2="58" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="126" y1="62" x2="118" y2="62" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="126" y1="66" x2="122" y2="66" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="122" y1="58" x2="122" y2="66" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="134" y1="58" x2="138" y2="58" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="134" y1="62" x2="142" y2="62" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="134" y1="66" x2="138" y2="66" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="138" y1="58" x2="138" y2="66" style="stroke:rgb(0,0,0);stroke-width:1"/>
+<ellipse cx="130" cy="58" rx="2" ry="2" style="rgb(0,0,0)"/>
+<ellipse cx="130" cy="62" rx="2" ry="2" style="rgb(0,0,0)"/>
+<ellipse cx="130" cy="66" rx="2" ry="2" style="rgb(0,0,0)"/>
+<rect x="143" y="57" width="10" height="10" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="145" y1="62" x2="151" y2="62" style="stroke:rgb(0,0,0);stroke-width:1"/>
+
+<line x1="93" y1="62" x2="113" y2="62" style="stroke:rgb(0,0,0);stroke-width:1;stroke-linecap:round"/>
+<rect x="20" y="51" width="68" height="22" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<text x="54" y="62" style="font-family:Arial;font-size:8pt;fill:rgb(0,0,0);font-weight:bold;text-anchor:middle;dominant-baseline:central">robscan</text>
+<rect x="83" y="57" width="10" height="10" style="fill:rgb(255,255,255);stroke:rgb(0,0,0);stroke-width:1"/>
+<line x1="85" y1="62" x2="91" y2="62" style="stroke:rgb(0,0,0);stroke-width:1"/>
+</svg>
