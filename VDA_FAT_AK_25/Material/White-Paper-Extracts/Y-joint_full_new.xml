@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ap:Uos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ap="http://standards.iso.org/iso/ts/10303/-3001/-ed-1/tech/xml-schema/bo_model" xmlns:cmn="http://standards.iso.org/iso/ts/10303/-3000/-ed-1/tech/xml-schema/common" xsi:schemaLocation="http://standards.iso.org/iso/ts/10303/-3001/-ed-1/tech/xml-schema/bo_model
+C:\Daten\07-ISO~1\SC4\stepmod\data\business_object_models\managed_model_based_3d_engineering\bom.xsd">
+	<Header>
+		<Name>PROSTEP AG</Name>
+	</Header>
+	<DataContainer xsi:type="ap:AP242DataContainer">
+		<!-- Festlegung der Eiheiten -->			
+		<Unit uid="u--000000002">
+			<Kind>
+				<ClassString>SI system</ClassString>
+			</Kind>
+			<Name>
+				<ClassString>metre</ClassString>
+			</Name>
+			<Prefix>
+				<ClassString>milli</ClassString>
+			</Prefix>
+		</Unit>
+		<Unit uid="u--000000003">
+			<Kind>
+				<ClassString>SI system</ClassString>
+			</Kind>
+			<Name>
+				<ClassString>radian</ClassString>
+			</Name>
+		</Unit>
+		<Organization uid="o--000000178">
+			<Id id="mercedes-benz.com"/>
+			<Name>
+				<CharacterString>Mercedes-Benz</CharacterString>
+			</Name>
+			<OrganizationTypes>
+				<ClassString>company</ClassString>
+			</OrganizationTypes>
+		</Organization>
+		<Class uid="c--idRole">
+			<Id id="identification information"/>
+		</Class>
+		<ViewContext uid="ac--mechanicaldesign--design">
+
+			<ApplicationDomain>
+				<ProxyString>mechanical design</ProxyString>
+			</ApplicationDomain>
+			<LifeCycleStage>
+				<ProxyString>design</ProxyString>
+			</LifeCycleStage>
+		</ViewContext>
+		<!-- Klassifizierung der Verbindungstechniken -->
+		<Class uid="cla--pp">
+			<Id id="MAG Schweissen"/>
+		</Class>
+		<!-- Definition der Technologieparameter -->
+		<!-- Schweißraupe "oben rechts" -->
+		<!--Die Bauteilverbindung muss im Kontext eines übergeordneten Bauteils definiert sein.
+		Dies kann unabhängig von der Assembly-Struktur erfolgen-->
+		<Part uid="p--59">
+			<Id>
+				<Identifier uid="id1" id="Part_59" idContextRef="o--000000178" idRoleRef="c--idRole"/>
+			</Id>
+			<Name>
+				<CharacterString>Y-Assembly</CharacterString>
+			</Name>
+			<PartTypes>
+				<ClassString>assembly</ClassString>
+			</PartTypes>
+			<Versions>
+				<PartVersion uid="pv--id1">
+					<Id id="/ANY"/>
+					<Views>
+						<!--Hier wird die Bauteilverbindung definiert-->
+						<PartView xsi:type="ap:MatingDefinition" uid="pvv--id1">
+							<InitialContext uidRef="ac--mechanicaldesign--design"/>
+							<ShapeElement uid="aj1" xsi:type="ap:AssemblyJoint">
+								<ShapeElement1 uidRef="ose1"/>
+								<ShapeElement2 uidRef="ose2"/>
+							</ShapeElement>
+							<ShapeElement uid="aj2" xsi:type="ap:AssemblyJoint">
+								<ShapeElement1 uidRef="ose3"/>
+								<ShapeElement2 uidRef="ose4"/>
+							</ShapeElement>
+							<!-- Parameter der Bauteilkombination - ein Spalt von 0.14mm:-->
+							<PropertyValueAssignment uid="pva--id3">
+								<AssignedPropertyValues>
+									<PropertyValue uid="pv--gap" xsi:type="ap:NumericalValue">
+										<Definition>
+											<PropertyDefinitionString>gap</PropertyDefinitionString>
+										</Definition>
+										<Unit uidRef="u--000000002"/>
+										<ValueComponent>0.14</ValueComponent>
+									</PropertyValue>
+								</AssignedPropertyValues>
+							</PropertyValueAssignment>
+							<!-- Das erste Element der Bauteilkombination: das angeschweißte Blech im Winkel 30°-->
+							<ViewOccurrenceRelationship uid="pvvid--10" xsi:type="ap:MatedPartAssociation">
+								<Related uidRef="pi--1"/>
+								<RelationType>
+									<ClassString>next assembly occurrence</ClassString>
+								</RelationType>
+								<PropertyValueAssignment uid="pva--id2">
+									<AssignedPropertyValues>
+										<PropertyValue uid="pv--sheet_angle" xsi:type="ap:NumericalValue">
+											<Definition>
+												<PropertyDefinitionString>sheet angle</PropertyDefinitionString>
+											</Definition>
+											<Unit uidRef="u--000000003"/>
+											<ValueComponent>30</ValueComponent>
+										</PropertyValue>
+									</AssignedPropertyValues>
+								</PropertyValueAssignment>
+								<MatedPartRelationship uid="mpr1">
+									<ClassifiedAs>
+										<Classification uidRef="cla--pp"/>
+									</ClassifiedAs>
+									<MatedShapes>
+										<AssemblyJoint uidRef="aj1"/>
+										<AssemblyJoint uidRef="aj2"/>
+									</MatedShapes>
+									<MatingType>welding</MatingType>
+									<Related uidRef="pvvid--11"/>
+								</MatedPartRelationship>
+							</ViewOccurrenceRelationship>
+							<!-- Das zweite Element der Bauteilkombination: das Basisblech -->
+							<ViewOccurrenceRelationship uid="pvvid--11" xsi:type="ap:MatedPartAssociation">
+								<Related uidRef="pi--2"/>
+								<RelationType>
+									<ClassString>next assembly occurrence</ClassString>
+								</RelationType>
+							</ViewOccurrenceRelationship>
+						</PartView>
+					</Views>
+				</PartVersion>
+			</Versions>
+		</Part>
+		<!-- Definition des Basisblechs -->
+		<Part uid="p--58">
+			<Id>
+				<Identifier uid="id3" id="Part_58" idContextRef="o--000000178" idRoleRef="c--idRole"/>
+			</Id>
+			<Name>
+				<CharacterString>Basisblech</CharacterString>
+			</Name>
+			<PartTypes>
+				<ClassString>part</ClassString>
+			</PartTypes>
+			<Versions>
+				<PartVersion uid="pv--id2">
+					<Id id="/ANY"/>
+					<Views>
+						<PartView uid="pvv--id2">
+							<InitialContext uidRef="ac--mechanicaldesign--design"/>
+							<Occurrence xsi:type="ap:SingleOccurrence" uid="pi--1">
+								<Id id="58.1"/>
+								<ShapeElement xsi:type="ap:OccurrenceShapeElement" uid="ose1">
+									<Definition uidRef="se1"/>
+								</ShapeElement>
+								<ShapeElement xsi:type="ap:OccurrenceShapeElement" uid="ose2">
+									<Definition uidRef="se2"/>
+								</ShapeElement>
+							</Occurrence>
+							<ShapeElement uid="se1">
+								<PropertyValueAssignment uid="pva--id4">
+									<AssignedPropertyValues>
+										<PropertyValue uid="pv--thickness1" xsi:type="ap:NumericalValue">
+											<Definition>
+												<PropertyDefinitionString>thickness</PropertyDefinitionString>
+											</Definition>
+											<Unit uidRef="u--000000002"/>
+											<ValueComponent>4</ValueComponent>
+										</PropertyValue>
+									</AssignedPropertyValues>
+								</PropertyValueAssignment>
+								<PropertyValueAssignment uid="pva--id5">
+									<AssignedPropertyValues>
+										<PropertyValue uid="pv--penetration" xsi:type="ap:NumericalValue">
+											<Definition>
+												<PropertyDefinitionString>penetration</PropertyDefinitionString>
+											</Definition>
+											<Unit uidRef="u--000000002"/>
+											<ValueComponent>0.5</ValueComponent>
+										</PropertyValue>
+									</AssignedPropertyValues>
+								</PropertyValueAssignment>
+			<PropertyValueAssignment uid="pva--id6">
+				<AssignedPropertyValues>
+					<PropertyValue uid="pv--angle" xsi:type="ap:NumericalValue">
+						<Definition>
+							<PropertyDefinitionString>angle</PropertyDefinitionString>
+						</Definition>
+						<Unit uidRef="u--000000003"/>
+						<ValueComponent>20</ValueComponent>
+					</PropertyValue>
+				</AssignedPropertyValues>
+			</PropertyValueAssignment>
+		</ShapeElement>
+		<ShapeElement uid="se2"/>
+		<!-- Schweißraupe "oben links" -->
+		<ShapeElement uid="se3">
+			<PropertyValueAssignment uid="pva--id7">
+				<AssignedPropertyValues>
+					<PropertyValue uid="pv--thickness2" xsi:type="ap:NumericalValue">
+						<Definition>
+							<PropertyDefinitionString>thickness</PropertyDefinitionString>
+						</Definition>
+						<Unit uidRef="u--000000002"/>
+						<ValueComponent>5</ValueComponent>
+					</PropertyValue>
+				</AssignedPropertyValues>
+			</PropertyValueAssignment>
+			<PropertyValueAssignment uid="pva--id8">
+				<AssignedPropertyValues>
+					<PropertyValue uid="pv--penetration2" xsi:type="ap:NumericalValue">
+						<Definition>
+							<PropertyDefinitionString>penetration</PropertyDefinitionString>
+						</Definition>
+						<Unit uidRef="u--000000002"/>
+						<ValueComponent>0.5</ValueComponent>
+					</PropertyValue>
+				</AssignedPropertyValues>
+			</PropertyValueAssignment>
+			<PropertyValueAssignment uid="pva--id9">
+				<AssignedPropertyValues>
+					<PropertyValue uid="pv--angle2" xsi:type="ap:NumericalValue">
+						<Definition>
+							<PropertyDefinitionString>angle</PropertyDefinitionString>
+						</Definition>
+						<Unit uidRef="u--000000003"/>
+						<ValueComponent>45</ValueComponent>
+					</PropertyValue>
+				</AssignedPropertyValues>
+			</PropertyValueAssignment>
+		</ShapeElement>
+		<ShapeElement uid="se4"/>
+						</PartView>
+					</Views>
+				</PartVersion>
+			</Versions>
+		</Part>
+		<!-- Definition des angeschweißten Blechs -->
+		<Part uid="p--57">
+			<Id>
+				<Identifier uid="id57" id="Part_57" idContextRef="o--000000178" idRoleRef="c--idRole"/>
+			</Id>
+			<Name>
+				<CharacterString>angeschweisstes Blech</CharacterString>
+			</Name>
+			<PartTypes>
+				<ClassString>part</ClassString>
+			</PartTypes>
+			<Versions>
+				<PartVersion uid="pv--id3">
+					<Id id="/ANY"/>
+					<Views>
+						<PartView uid="pvv--id4">
+							<InitialContext uidRef="ac--mechanicaldesign--design"/>
+							<Occurrence xsi:type="ap:SingleOccurrence" uid="pi--2">
+								<Id id="57.1"/>
+							</Occurrence>
+							<PropertyValueAssignment uid="pva--id1">
+								<AssignedPropertyValues>
+									<PropertyValue uid="pv--sheet_thickness" xsi:type="ap:NumericalValue">
+										<Definition>
+											<PropertyDefinitionString>sheet thickness</PropertyDefinitionString>
+										</Definition>
+										<Unit uidRef="u--000000002"/>
+										<ValueComponent>1.5</ValueComponent>
+									</PropertyValue>
+								</AssignedPropertyValues>
+							</PropertyValueAssignment>
+						</PartView>
+					</Views>
+				</PartVersion>
+			</Versions>
+		</Part>
+	</DataContainer>
+</ap:Uos>

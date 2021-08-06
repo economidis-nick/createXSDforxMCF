@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ap:Uos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ap="http://standards.iso.org/iso/ts/10303/-3001/-ed-1/tech/xml-schema/bo_model" xmlns:cmn="http://standards.iso.org/iso/ts/10303/-3000/-ed-1/tech/xml-schema/common" xsi:schemaLocation="http://standards.iso.org/iso/ts/10303/-3001/-ed-1/tech/xml-schema/bo_model
+C:\Daten\07-ISO~1\SC4\stepmod\data\business_object_models\managed_model_based_3d_engineering\bom.xsd">
+	<Header>
+		<Name>PROSTEP AG</Name>
+	</Header>
+	<DataContainer xsi:type="ap:AP242DataContainer">
+		<!-- Festlegung der Eiheiten -->			
+		<Unit uid="u--2">
+			<Kind>
+				<ClassString>SI system</ClassString>
+			</Kind>
+			<Name>
+				<ClassString>metre</ClassString>
+			</Name>
+			<Prefix>
+				<ClassString>milli</ClassString>
+			</Prefix>
+		</Unit>
+		<Unit uid="u--3">
+			<Kind>
+				<ClassString>SI system</ClassString>
+			</Kind>
+			<Name>
+				<ClassString>newtonmetre</ClassString>
+			</Name>
+		</Unit>
+		<Unit uid="u--4">
+			<Kind>
+				<ClassString>SI system</ClassString>
+			</Kind>
+			<Name>
+				<ClassString>radian</ClassString>
+			</Name>
+		</Unit>
+		<Organization uid="o--000000178">
+			<Id id="mercedes-benz.com"/>
+			<Name>
+				<CharacterString>Mercedes-Benz</CharacterString>
+			</Name>
+			<OrganizationTypes>
+				<ClassString>company</ClassString>
+			</OrganizationTypes>
+		</Organization>
+		<Class uid="c--idRole">
+			<Id id="identification information"/>
+		</Class>
+		<ViewContext uid="ac--mechanicaldesign--design">
+
+			<ApplicationDomain>
+				<ProxyString>mechanical design</ProxyString>
+			</ApplicationDomain>
+			<LifeCycleStage>
+				<ProxyString>design</ProxyString>
+			</LifeCycleStage>
+		</ViewContext>
+		<!-- Klassifizierung der Verbindungstechniken -->
+		<Class uid="cla--pp">
+			<Id id="Threaded Connection"/>
+		</Class>
+		<!-- Definition der Technologieparameter -->
+		<!-- Schweißraupe "oben rechts" -->
+		<!--Die Bauteilverbindung muss im Kontext eines übergeordneten Bauteils definiert sein.
+		Dies kann unabhängig von der Assembly-Struktur erfolgen-->
+		<Part uid="p--ThreadExample">
+			<Id>
+				<Identifier uid="id1" id="ThreadExample" idContextRef="o--000000178" idRoleRef="c--idRole"/>
+			</Id>
+			<Name>
+				<CharacterString>ThreadExample</CharacterString>
+			</Name>
+			<PartTypes>
+				<ClassString>assembly</ClassString>
+			</PartTypes>
+			<Versions>
+				<PartVersion uid="pv--ThreadExample">
+					<Id id="/ANY"/>
+					<Views>
+						<!--Hier wird die Bauteilverbindung definiert-->
+						<PartView xsi:type="ap:MatingDefinition" uid="pvv--ThreadExample">
+							<InitialContext uidRef="ac--mechanicaldesign--design"/>
+							<!-- 1. Blech -->
+							<ViewOccurrenceRelationship uid="pvvid--10" xsi:type="ap:MatedPartAssociation">
+								<Related uidRef="pi--7000400"/>
+								<RelationType>
+									<ClassString>next assembly occurrence</ClassString>
+								</RelationType>
+								<MatedPartRelationship uid="mpr1">
+									<ClassifiedAs>
+										<Classification uidRef="cla--pp"/>
+									</ClassifiedAs>
+									<MatingType>bolted_joint</MatingType>
+									<Related uidRef="pvvid--11"/>
+								</MatedPartRelationship>
+							</ViewOccurrenceRelationship>
+							<!-- 2. Blech -->
+							<ViewOccurrenceRelationship uid="pvvid--11" xsi:type="ap:MatedPartAssociation">
+								<Related uidRef="pi--7100100"/>
+								<RelationType>
+									<ClassString>next assembly occurrence</ClassString>
+								</RelationType>
+								<MatedPartRelationship uid="mpr2">
+									<ClassifiedAs>
+										<Classification uidRef="cla--pp"/>
+									</ClassifiedAs>
+									<MatingType>bolted_joint</MatingType>
+									<Related uidRef="pvvid--12"/>
+								</MatedPartRelationship>
+							</ViewOccurrenceRelationship>
+							<!-- 3. Blech -->
+							<ViewOccurrenceRelationship uid="pvvid--12" xsi:type="ap:MatedPartAssociation">
+								<Related uidRef="pi--5000300"/>
+								<RelationType>
+									<ClassString>next assembly occurrence</ClassString>
+								</RelationType>
+								<MatedPartRelationship uid="mpr3">
+									<ClassifiedAs>
+										<Classification uidRef="cla--pp"/>
+									</ClassifiedAs>
+									<MatingType>bolted_joint</MatingType>
+									<Related uidRef="pvvid--13"/>
+								</MatedPartRelationship>
+							</ViewOccurrenceRelationship>
+							<!-- 4. Blech -->
+							<ViewOccurrenceRelationship uid="pvvid--13" xsi:type="ap:MatedPartAssociation">
+								<Related uidRef="pi--5000800"/>
+								<RelationType>
+									<ClassString>next assembly occurrence</ClassString>
+								</RelationType>
+							</ViewOccurrenceRelationship>
+						</PartView>
+					</Views>
+				</PartVersion>
+			</Versions>
+		</Part>
+		<!-- Definition Blech 1 -->
+		<Part uid="p--7000400">
+			<Id>
+				<Identifier uid="id3" id="7000400" idContextRef="o--000000178" idRoleRef="c--idRole"/>
+			</Id>
+			<Name>
+				<CharacterString>Part 7000400</CharacterString>
+			</Name>
+			<PartTypes>
+				<ClassString>part</ClassString>
+			</PartTypes>
+			<Versions>
+				<PartVersion uid="pv--7000400">
+					<Id id="/ANY"/>
+					<Views>
+						<PartView uid="pvv--7000400">
+							<InitialContext uidRef="ac--mechanicaldesign--design"/>
+							<Occurrence xsi:type="ap:SingleOccurrence" uid="pi--7000400">
+								<Id id="7000400.1"/>
+							</Occurrence>
+						</PartView>
+					</Views>
+				</PartVersion>
+			</Versions>
+		</Part>
+		<!-- Definition des 2. Blechs -->
+		<Part uid="p--7100100">
+			<Id>
+				<Identifier uid="id4" id="7100100" idContextRef="o--000000178" idRoleRef="c--idRole"/>
+			</Id>
+			<Name>
+				<CharacterString>Part 7100100</CharacterString>
+			</Name>
+			<PartTypes>
+				<ClassString>part</ClassString>
+			</PartTypes>
+			<Versions>
+				<PartVersion uid="pv--7100100">
+					<Id id="/ANY"/>
+					<Views>
+						<PartView uid="pvv--7100100">
+							<InitialContext uidRef="ac--mechanicaldesign--design"/>
+							<Occurrence xsi:type="ap:SingleOccurrence" uid="pi--7100100">
+								<Id id="7100100.1"/>
+							</Occurrence>
+						</PartView>
+					</Views>
+				</PartVersion>
+			</Versions>
+		</Part>
+		<!-- Definition des 3. Blechs -->
+		<Part uid="p--5000300">
+			<Id>
+				<Identifier uid="id5" id="5000300" idContextRef="o--000000178" idRoleRef="c--idRole"/>
+			</Id>
+			<Name>
+				<CharacterString>Part 5000300</CharacterString>
+			</Name>
+			<PartTypes>
+				<ClassString>part</ClassString>
+			</PartTypes>
+			<Versions>
+				<PartVersion uid="pv--5000300">
+					<Id id="/ANY"/>
+					<Views>
+						<PartView uid="pvv--5000300">
+							<InitialContext uidRef="ac--mechanicaldesign--design"/>
+							<Occurrence xsi:type="ap:SingleOccurrence" uid="pi--5000300">
+								<Id id="5000300.1"/>
+							</Occurrence>
+						</PartView>
+					</Views>
+				</PartVersion>
+			</Versions>
+		</Part>
+		<!-- Definition des 4. Blechs -->
+		<Part uid="p--5000800">
+			<Id>
+				<Identifier uid="id6" id="5000800" idContextRef="o--000000178" idRoleRef="c--idRole"/>
+			</Id>
+			<Name>
+				<CharacterString>Part 5000800</CharacterString>
+			</Name>
+			<PartTypes>
+				<ClassString>part</ClassString>
+			</PartTypes>
+			<Versions>
+				<PartVersion uid="pv--5000800">
+					<Id id="/ANY"/>
+					<Views>
+						<PartView uid="pvv--5000800">
+							<InitialContext uidRef="ac--mechanicaldesign--design"/>
+							<Occurrence xsi:type="ap:SingleOccurrence" uid="pi--5000800">
+								<Id id="5000800.1"/>
+							</Occurrence>
+						</PartView>
+					</Views>
+				</PartVersion>
+			</Versions>
+		</Part>
+		<!-- Definition der Schraube -->
+		<Part uid="p--MX10">
+			<Id>
+				<Identifier uid="id7" id="M10x50 8.8" idContextRef="o--000000178" idRoleRef="c--idRole"/>
+			</Id>
+			<Name>
+				<CharacterString>M10x50 8.8</CharacterString>
+			</Name>
+			<PartTypes>
+				<ClassString>part</ClassString>
+			</PartTypes>
+			<Versions>
+				<PartVersion uid="pv--MX10">
+					<Id id="/ANY"/>
+					<Views>
+						<PartView uid="pvv--MX10">
+							<InitialContext uidRef="ac--mechanicaldesign--design"/>
+							<Occurrence xsi:type="ap:SingleOccurrence" uid="pi--MX10">
+								<Id id="MX10.1"/>
+								<PropertyValueAssignment uid="pva--id6">
+									<AssignedPropertyValues>
+										<PropertyValue uid="pv--torque" xsi:type="ap:NumericalValue">
+											<Definition>
+												<PropertyDefinitionString>torque</PropertyDefinitionString>
+											</Definition>
+											<Unit uidRef="u--3"/>
+											<ValueComponent>20</ValueComponent>
+										</PropertyValue>
+									</AssignedPropertyValues>
+								</PropertyValueAssignment>
+							</Occurrence>
+							<PropertyValueAssignment uid="pva--id1">
+								<AssignedPropertyValues>
+									<PropertyValue uid="pv--diameter" xsi:type="ap:NumericalValue">
+										<Definition>
+											<PropertyDefinitionString>head diameter</PropertyDefinitionString>
+										</Definition>
+										<Unit uidRef="u--2"/>
+										<ValueComponent>16</ValueComponent>
+									</PropertyValue>
+								</AssignedPropertyValues>
+							</PropertyValueAssignment>
+							<PropertyValueAssignment uid="pva--id2">
+								<AssignedPropertyValues>
+									<PropertyValue uid="pv--height" xsi:type="ap:NumericalValue">
+										<Definition>
+											<PropertyDefinitionString>head height</PropertyDefinitionString>
+										</Definition>
+										<Unit uidRef="u--2"/>
+										<ValueComponent>6.4</ValueComponent>
+									</PropertyValue>
+								</AssignedPropertyValues>
+							</PropertyValueAssignment>
+							<PropertyValueAssignment uid="pva--id3">
+								<AssignedPropertyValues>
+									<PropertyValue uid="pv--type" xsi:type="ap:StringValue">
+										<Definition>
+											<PropertyDefinitionString>head type</PropertyDefinitionString>
+										</Definition>
+										<ValueComponent>
+											<CharacterString>hexagonal</CharacterString>
+										</ValueComponent>
+									</PropertyValue>
+								</AssignedPropertyValues>
+							</PropertyValueAssignment>
+							<PropertyValueAssignment uid="pva--id4">
+								<AssignedPropertyValues>
+									<PropertyValue uid="pv--sink" xsi:type="ap:NumericalValue">
+										<Definition>
+											<PropertyDefinitionString>sink size</PropertyDefinitionString>
+										</Definition>
+										<Unit uidRef="u--2"/>
+										<ValueComponent>0</ValueComponent>
+									</PropertyValue>
+								</AssignedPropertyValues>
+							</PropertyValueAssignment>
+							<PropertyValueAssignment uid="pva--id5">
+								<AssignedPropertyValues>
+									<PropertyValue uid="pv--pitch" xsi:type="ap:NumericalValue">
+										<Definition>
+											<PropertyDefinitionString>pitch</PropertyDefinitionString>
+										</Definition>
+										<Unit uidRef="u--2"/>
+										<ValueComponent>0.75</ValueComponent>
+									</PropertyValue>
+								</AssignedPropertyValues>
+							</PropertyValueAssignment>
+						</PartView>
+					</Views>
+				</PartVersion>
+			</Versions>
+		</Part>
+		<!-- Definition der Unterlegscheibe -->
+		<Part uid="p--W20">
+			<Id>
+				<Identifier uid="id8" id="W20/10.4x1.25 8.8" idContextRef="o--000000178" idRoleRef="c--idRole"/>
+			</Id>
+			<Name>
+				<CharacterString>W20/10.4x1.25 8.8</CharacterString>
+			</Name>
+			<PartTypes>
+				<ClassString>part</ClassString>
+			</PartTypes>
+			<Versions>
+				<PartVersion uid="pv--W20">
+					<Id id="/ANY"/>
+					<Views>
+						<PartView uid="pvv--W20W20">
+							<InitialContext uidRef="ac--mechanicaldesign--design"/>
+							<Occurrence xsi:type="ap:SingleOccurrence" uid="pi--W200">
+								<Id id="W20.1"/>
+							</Occurrence>
+						</PartView>
+					</Views>
+				</PartVersion>
+			</Versions>
+		</Part>
+		<!-- Definition der Mutter -->
+		<Part uid="p--N10">
+			<Id>
+				<Identifier uid="id9" id="N10 8.8" idContextRef="o--000000178" idRoleRef="c--idRole"/>
+			</Id>
+			<Name>
+				<CharacterString>N10 8.8</CharacterString>
+			</Name>
+			<PartTypes>
+				<ClassString>part</ClassString>
+			</PartTypes>
+			<Versions>
+				<PartVersion uid="pv--N10">
+					<Id id="/ANY"/>
+					<Views>
+						<PartView uid="pvv--N10">
+							<InitialContext uidRef="ac--mechanicaldesign--design"/>
+							<Occurrence xsi:type="ap:SingleOccurrence" uid="pi--N10">
+								<Id id="N10.1"/>
+							</Occurrence>
+						</PartView>
+					</Views>
+				</PartVersion>
+			</Versions>
+		</Part>
+	</DataContainer>
+</ap:Uos>
