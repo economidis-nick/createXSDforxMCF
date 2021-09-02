@@ -8,6 +8,9 @@ This folder contains:
    was _deprecated_ in course of ISO standardization (see also issue #66). 
    Please use [xMCF_V3.1_PAS_V1.0_210826.docx](xMCF_V3.1_PAS_V1.0_210826.docx) instead! 
    (Effective 2021-09-02.)
+0. A **spread sheet** [Mapping_Table_Excel_xMCF_STEP.xlsx](Mapping_Table_Excel_xMCF_STEP.xlsx), 
+   which will become essential content of new section
+   _Annex B (informative)  Cross-Reference Table between STEP (ISO 10303-242:2020) & &chi;MCF_.
 2. The **schema file** that captures the v3.1.1 specification 
 3. **Examples** that accompany the v3.1.1 document
 4. A **test suite**, used to develop the schema
