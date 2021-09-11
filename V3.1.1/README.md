@@ -15,7 +15,7 @@ This folder contains:
 3. **Examples** that accompany the v3.1.1 document
 4. A **test suite**, used to develop the schema
 
-ultimately, when the document changes and the xsd are confirmed, we will place the final pdf with the official specification document in this folder.
+Ultimately, when the document changes and the xsd are confirmed, we will place the final pdf with the official specification document in this folder.
 
 ## Notes
 
@@ -23,4 +23,4 @@ ultimately, when the document changes and the xsd are confirmed, we will place t
 
 * the schema is best viewed using the Altova XML Spy, because it is quite complicated and written in xsd1.1
 
-* the only entry point of the schema is assumed to be the `<xmcf>` element.
+* the only entry point of the schema is assumed to be the `<xmcf/>` element.
