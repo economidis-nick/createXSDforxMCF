@@ -20,11 +20,14 @@ and this project ~~adheres to~~ is inspired by [Semantic Versioning](http://semv
   &mdash; addresses issue [#52](https://github.com/economidis-nick/createXSDforxMCF/issues/52).
 - new section _8.1.2.1	Intermittent Connection Lines_ with according example &chi;MCF files. 
   &mdash; addresses issue [#53](https://github.com/economidis-nick/createXSDforxMCF/issues/53).
+- new section _8.2.2 Attribute ident_ with according example.
+  &mdash; addresses issue [#65](https://github.com/economidis-nick/createXSDforxMCF/issues/65).
 
 ### Changed
 - Small insertion, addressing issue [#55](https://github.com/economidis-nick/createXSDforxMCF/issues/55)
 - Spec re-formatted according to ISO requirements [#63](https://github.com/economidis-nick/createXSDforxMCF/issues/63) (2021-09-02)
 - &hellip;
+- <normal_direction> and <tangential_direction> are now allowed in every <connection_0d>, addressing issue [#64](https://github.com/economidis-nick/createXSDforxMCF/issues/64)
 
 ### Fixed
 - Issue [#49](https://github.com/economidis-nick/createXSDforxMCF/issues/49)
