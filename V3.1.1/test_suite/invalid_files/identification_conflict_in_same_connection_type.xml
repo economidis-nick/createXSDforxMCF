@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_1_0.xsd">
+  <version>3.1.1</version>
+  <date>2021-10-27</date>
+  <connection_group id="1">
+    <connected_to>
+      <part index="1" pid="1"/>
+      <part index="2" pid="2"/>
+    </connected_to>
+    <connection_list>
+
+      <connection_0d ident="100">
+        <loc>12.1058 37.1065 0.881963</loc>
+        <spotweld/>
+      </connection_0d>
+
+      <connection_0d ident="100">
+        <loc>12.1058 37.1065 0.881963</loc>
+        <spotweld diameter="5.6" technology="laser"/>
+      </connection_0d>	  
+
+	<connection_1d ident="100">
+		<loc_list>
+			<loc v="0">184 7.71793 47.796</loc>
+			<loc v="1">184 19.2821 31.204</loc>
+		</loc_list>
+        <adhesive_line width="1"/>
+	</connection_1d>
+
+
+
+	<connection_1d ident="200">
+		<loc_list>
+			<loc v="0">-184 7.71793 47.796</loc>
+			<loc v="1">-184 19.2821 31.204</loc>
+		</loc_list>
+        <adhesive_line width="1"/>
+	</connection_1d>
+
+	<connection_1d ident="200">
+		<loc_list>
+			<loc v="0">184 7.71793 47.796</loc>
+			<loc v="1">184 19.2821 31.204</loc>
+		</loc_list>
+        <adhesive_line width="2"/>
+	</connection_1d>
+
+
+
+	<connection_2d  ident="300">
+		<loc_list>
+			<loc v="1">-2522.82 -455.818 883.046</loc>
+			<loc v="2">-2522.82 -455.818 877.939</loc>
+			<loc v="3">-2527.73 -455.818 877.939</loc>
+			<loc v="4">-2527.73 -455.818 883.046</loc>
+			<loc v="5">-2517.91 -455.818 877.939</loc>
+			<loc v="6">-2517.91 -455.818 872.831</loc>
+			<loc v="7">-2522.82 -455.818 872.831</loc>
+		</loc_list>
+		<face_list>
+			<face v1="1" v2="2" v3="3" v4="4"/>
+			<face v1="5" v2="6" v3="7"/>
+		</face_list>
+		<adhesive_face thickness="2" material="CAD_Material"/>
+	</connection_2d>
+
+	<connection_2d  ident="300">
+		<loc_list>
+			<loc v="1">2522.82 -455.818 883.046</loc>
+			<loc v="2">2522.82 -455.818 877.939</loc>
+			<loc v="3">2527.73 -455.818 877.939</loc>
+			<loc v="4">2527.73 -455.818 883.046</loc>
+			<loc v="5">2517.91 -455.818 877.939</loc>
+			<loc v="6">2517.91 -455.818 872.831</loc>
+			<loc v="7">2522.82 -455.818 872.831</loc>
+		</loc_list>
+		<face_list>
+			<face v1="1" v2="2" v3="3" v4="4"/>
+			<face v1="5" v2="6" v3="7"/>
+		</face_list>
+		<adhesive_face thickness="2"/>
+	</connection_2d>
+
+	  
+    </connection_list>
+  </connection_group>
+</xmcf>

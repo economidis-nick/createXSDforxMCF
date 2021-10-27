@@ -36,6 +36,15 @@
 			<xs:selector xpath="connection_group"/>
 			<xs:field xpath="@id"/>
 		</xs:unique>
+		<xs:unique name="unique_connection_xd_ident">
+			<xs:selector xpath="
+				connection_group/connection_list/connection_0d |
+				connection_group/connection_list/connection_1d |
+				connection_group/connection_list/connection_2d 
+				"/>
+			<xs:field xpath="@ident"/>
+		</xs:unique>
+
 	</xs:element>
 	<xs:element name="units">
 		<xs:complexType>
@@ -387,6 +396,7 @@
 				<xs:element ref="connection_0d_type" minOccurs="1" maxOccurs="1"/> <!--"Note: exactly one of the type elements must exist in <connection_od>. There is no default type"-->
 			</xs:all>
 			<xs:attribute name="label" type="xs:string"/>
+			<xs:attribute name="ident" type="connection_identifier"/>
 			<xs:attribute name="quality_control" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
@@ -817,6 +827,7 @@
 				</xs:element>
 			</xs:all>
 			<xs:attribute name="label" type="xs:string"/>
+			<xs:attribute name="ident" type="connection_identifier"/>
 			<xs:attribute name="quality_control" type="xs:string"/>
 
 			<xs:assert xerces:message="connection_1d/loc_list: index must exist if more that 1 loc_list elements exist"
@@ -1344,6 +1355,7 @@
 				</xs:element>
 			</xs:all>
 			<xs:attribute name="label" type="xs:string"/>
+			<xs:attribute name="ident" type="connection_identifier"/>
 			<xs:attribute name="quality_control" type="xs:string"/>
 		</xs:complexType>
 		<xs:key name="face_vertex_key">
@@ -1459,6 +1471,9 @@
 	
 	
 	
+	<xs:simpleType name="connection_identifier">
+		<xs:restriction base="integerPositive"/>
+	</xs:simpleType>
 	<xs:simpleType name="partIndex">
 		<xs:restriction base="integerPositive"/>
 	</xs:simpleType>
