@@ -1345,7 +1345,10 @@
 				<xs:element ref="face_list" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="appdata" type="appdata_type" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="femdata" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="contact_list" minOccurs="0" maxOccurs="1"/>
+				<!-- contact_list is not available in connection_2d.
+				     Remove comments if it becomes available 
+				<xs:element ref="contact_list" minOccurs="0" maxOccurs="1"/>  
+				-->
 				<xs:element ref="custom_attributes_list" minOccurs="0" maxOccurs="1"/>
 				<xs:element name="stacking" type="stacking_type" minOccurs="0" maxOccurs="1">
 					<xs:unique name="unique_2d_stacking_order">
