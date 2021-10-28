@@ -506,7 +506,7 @@
 			<xs:attribute name="die_label" type="xs:string"/>
 			<xs:attribute name="die_diameter" type="floatPositive"/>
 			<xs:attribute name="die_depth" type="floatPositive"/>
-			<xs:attribute name="hardness" type="floatPositive"/>
+			<xs:attribute name="hardness" type="floatPositive"/> <!-- "hardness" moved under <rivet>. "hardness" is allowed under <self_piercing> only in v3.0.0 - see assertion -->
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="solid" substitutionGroup="rivet_type">
