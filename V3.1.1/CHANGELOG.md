@@ -26,12 +26,13 @@ and this project ~~adheres to~~ is inspired by [Semantic Versioning](http://semv
 ### Changed
 - Small insertion, addressing issue [#55](https://github.com/economidis-nick/createXSDforxMCF/issues/55)
 - Spec re-formatted according to ISO requirements [#63](https://github.com/economidis-nick/createXSDforxMCF/issues/63) (2021-09-02)
-- &hellip;
 - <normal_direction> and <tangential_direction> are now allowed in every <connection_0d>, addressing issue [#64](https://github.com/economidis-nick/createXSDforxMCF/issues/64)
+- &hellip;
 
 ### Fixed
 - Issue [#49](https://github.com/economidis-nick/createXSDforxMCF/issues/49)
 - Issue [#56](https://github.com/economidis-nick/createXSDforxMCF/issues/56)
+- Issue [#48](https://github.com/economidis-nick/createXSDforxMCF/issues/48)
 - &hellip;
 
 
