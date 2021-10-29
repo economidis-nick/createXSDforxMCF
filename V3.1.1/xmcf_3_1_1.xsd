@@ -334,8 +334,13 @@
 						<xs:attribute name="label" type="nonEmptyString"/>
 						<xs:attribute name="pid" type="integerPositive"/>
 						<xs:attribute name="pname" type="nonEmptyString"/>
+						<xs:attribute name="instance" type="nonEmptyString"/>
 						
 						<xs:assert test="exists(@label) or exists(@pid) or exists(@pname)"/>
+						<xs:assert test="
+						if (exists(@instance))
+						then (exists(@label))
+						else true()"/>
 						
 					</xs:complexType>
 				</xs:element>
@@ -347,8 +352,13 @@
 									<xs:attribute name="label" type="nonEmptyString"/>
 									<xs:attribute name="pid" type="integerPositive"/>
 									<xs:attribute name="pname" type="nonEmptyString"/>
+									<xs:attribute name="instance" type="nonEmptyString"/>
 									
 									<xs:assert test="exists(@label) or exists(@pid) or exists(@pname)"/>
+									<xs:assert test="
+									if (exists(@instance))
+									then (exists(@label))
+									else true()"/>
 
 								</xs:complexType>
 							</xs:element>
