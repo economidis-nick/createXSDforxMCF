@@ -7,7 +7,7 @@
     <xs:import schemaLocation="https://standards.iso.org/iso/8329/ed-1/en/xmcf_3_1_1.xsd"/>
 -->
 
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns="https://standards.iso.org/iso/8329/ed-1/en/"  targetNamespace="https://standards.iso.org/iso/8329/ed-1/en/" version="3.1.1"
 	xmlns:xerces="http://xerces.apache.org" elementFormDefault="qualified" vc:minVersion="1.1">
 	
 	<xs:include schemaLocation="FATXML_ENTITY_V1.2_R3.xsd"/> <!-- includes definition of entity_type of femdata-->
