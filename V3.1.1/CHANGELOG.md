@@ -37,7 +37,7 @@ and this project ~~adheres to~~ is inspired by [Semantic Versioning](http://semv
 
 
 ## [3.1] - 2020-06-19
-Official release to be found at VDA Server as ["&chi;MCF &ndash; A Standard for Describing Connections & Joints in Mechanical Structures (Version 3.1)"](https://www.vda.de/en/services/Publications/Publication.~1654~.html).
+Official release to be found at VDA Server as ["&chi;MCF &ndash; A Standard for Describing Connections & Joints in Mechanical Structures (Version 3.1)"](https://en.vda.de/en/services/Publications/xmcf.html).
 
 ### Added
 - Connection types: 
@@ -56,7 +56,7 @@ Official release to be found at VDA Server as ["&chi;MCF &ndash; A Standard for 
 
  
 ## [3.0] - 2016-05-19
-Official release to be found at VDA Server as ["FAT-Schriftenreihe 286"](https://www.vda.de/de/services/Publikationen/fat-schriftenreihe-286.html).
+Official release to be found at VDA Server as ["FAT-Schriftenreihe 286"](https://en.vda.de/en/services/Publications/fat-schriftenreihe-286.html).
 
 ### Added
 - Connection types: 
