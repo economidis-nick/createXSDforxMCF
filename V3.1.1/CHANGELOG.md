@@ -48,7 +48,7 @@ Official release to be found at VDA Server as ["&chi;MCF &ndash; A Standard for 
 - Decisions and agreements from Working Group meetings May 2019 & May 2020.
 
 ### Changed
-- Re-Use of [FATXML](https://www.vda.de/de/services/Publikationen/fatxml-format-version-v1.2.html) element in &chi;MCF's `<femdata/>` element.
+- Re-Use of [FATXML](https://www.vda.de/vda/de/aktuelles/publikationen/publication/fatxml-format-version-v1.2) element in &chi;MCF's `<femdata/>` element.
 
 <!--
 ### Fixed
