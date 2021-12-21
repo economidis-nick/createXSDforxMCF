@@ -6,6 +6,15 @@
 	<date> 2014-08-07 </date>
 	<version> 3.1.1 </version>
 	<units length="mm" angle="rad" mass="kg" force="N" time="s"/>
+
+	<appdata>
+		<MEDINA xmlns="http://servicenet.t-systems.com/medina/xMCF">
+			<data_at_root>
+                <version MEDINA="MEDINA 8.4.2 Maintenance Release (64 Bit)"/>
+            </data_at_root>
+		</MEDINA>
+	</appdata>
+
 	<connection_group id="1">
 		<connected_to>
 		</connected_to>
@@ -13,19 +22,6 @@
 			<connection_0d>
 				<loc>1645.83 821.145 616.585</loc>
 				<spotweld/>
-				<appdata/>
-				<femdata>
-					<NASTRAN>
-						<entity>
-							<TYPE>
-								CQUAD
-							</TYPE>
-							<ID>
-								12345-12356
-							</ID>
-						</entity>
-					</NASTRAN>
-				</femdata>
 			</connection_0d>
 		</connection_list>
 	</connection_group>
