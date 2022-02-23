@@ -878,18 +878,7 @@
 							<xs:element ref="regular_segments"/>
 						</xs:choice>
 						<xs:attributeGroup ref="weld_position_common_attr"/>
-						<xs:attribute name="section">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="I"/>
-									<xs:enumeration value="V"/>
-									<xs:enumeration value="U"/>
-									<xs:enumeration value="X"/>
-									<xs:enumeration value="Y"/>
-									<xs:enumeration value="Radius"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
+						<xs:attribute name="section" type="xs:string"/>
 						<xs:attribute name="width" type="floatPositive"/>
 						<xs:attribute name="filler" type="filler_type"/>
 						<xs:attribute name="filler_material" type="xs:string"/>
@@ -924,15 +913,7 @@
 							<xs:element ref="regular_segments"/>
 						</xs:choice>
 						<xs:attributeGroup ref="weld_position_common_attr"/>
-						<xs:attribute name="section">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="U"/>
-									<xs:enumeration value="HV"/>
-									<xs:enumeration value="Fillet"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
+						<xs:attribute name="section" type="xs:string"/>
 						<xs:attribute name="thickness" type="floatPositive"/>
 						<xs:attribute name="angle" type="xs:float"/>
 						<xs:attribute name="filler" type="filler_type"/>
@@ -967,15 +948,7 @@
 							<xs:element ref="regular_segments"/>
 						</xs:choice>
 						<xs:attributeGroup ref="weld_position_common_attr"/>
-						<xs:attribute name="section">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="I"/>
-									<xs:enumeration value="V"/>
-									<xs:enumeration value="U"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
+						<xs:attribute name="section" type="xs:string"/>
 						<xs:attribute name="width" type="floatPositive"/>
 						<xs:attribute name="filler" type="filler_type"/>
 						<xs:attribute name="filler_material" type="xs:string"/>
@@ -1038,13 +1011,7 @@
 						</xs:choice>
 						<xs:attribute name="base" type="partIndex"/>
 						<xs:attributeGroup ref="weld_position_common_attr"/>
-						<xs:attribute name="section">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="Fillet"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
+						<xs:attribute name="section" type="xs:string"/>
 						<xs:attribute name="thickness" type="floatPositive"/>
 						<xs:attribute name="angle" type="xs:float"/>
 						<xs:attribute name="filler" type="filler_type"/>
@@ -1080,15 +1047,7 @@
 						</xs:choice>
 						<xs:attribute name="base" type="partIndex"/>
 						<xs:attributeGroup ref="weld_position_common_attr"/>
-						<xs:attribute name="section">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="HV"/>
-									<xs:enumeration value="HY"/>
-									<xs:enumeration value="Fillet"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
+						<xs:attribute name="section" type="xs:string"/>
 						<xs:attribute name="thickness" type="floatPositive"/>
 						<xs:attribute name="angle" type="xs:float"/>
 						<xs:attribute name="filler" type="filler_type"/>
@@ -1124,15 +1083,7 @@
 						</xs:choice>
 						<xs:attribute name="base" type="partIndex"/>
 						<xs:attributeGroup ref="weld_position_common_attr"/>
-						<xs:attribute name="section">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="HV"/>
-									<xs:enumeration value="HY"/>
-									<xs:enumeration value="Fillet"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
+						<xs:attribute name="section" type="xs:string"/>
 						<xs:attribute name="thickness" type="floatPositive"/>
 						<xs:attribute name="angle" type="xs:float"/>
 						<xs:attribute name="filler" type="filler_type"/>
@@ -1168,15 +1119,7 @@
 						</xs:choice>
 						<xs:attribute name="base" type="partIndex"/>
 						<xs:attributeGroup ref="weld_position_common_attr"/>
-						<xs:attribute name="section">
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:enumeration value="HV"/>
-									<xs:enumeration value="HY"/>
-									<xs:enumeration value="Fillet"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
+						<xs:attribute name="section" type="xs:string"/>
 						<xs:attribute name="thickness" type="floatPositive"/>
 						<xs:attribute name="angle" type="xs:float"/>
 						<xs:attribute name="filler" type="filler_type"/>
