@@ -1,0 +1,26 @@
+<connection_list>
+	<connection_1d label="1000032">
+		<loc_list>
+			<loc v="0">68 0 0</loc>
+			<loc v="1">88 0 0</loc>
+		</loc_list>
+		<seamweld>
+			<butt_joint base="1" technology="resistance" section="Y" filler="yes">
+				<weld_position u="1" x="O" y="6.12323e-17" z="1" width="3" />
+			</butt_joint>
+		</seamweld>
+		<appdata>
+			<MEDINA xmlns="http://servicenet.t-systems.com/medina/xMCF">
+				<data_at_connector>
+					<original_loc_list>
+						<loc u="0">68 4 10</loc>
+						<loc u="1">88 4 10</loc>
+					</original_loc_list>
+					<connection_data adjust_limit="1" weld_position_id="1" max_projection_distance="10" />
+					<administrative_data element_label="Weldline_Overlap-Join" part_tree_position="fixed" connector_property_id="1000032" />
+				</data_at_connector>
+			</MEDINA>
+		</appdata>
+	</connection_1d>
+</connection_list>
+
