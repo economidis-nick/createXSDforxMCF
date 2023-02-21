@@ -91,6 +91,21 @@ cd "$figures_dir"
 for f in $figures_expanded; do
   ln -s ../$f 
 done
+# Make file names conformant to ISO naming scheme
+mv ButtJoint.svg  8329_ed1fig54.svg
+mv CornerWeld.svg  8329_ed1fig56.svg
+mv CrossJoint.svg  8329_ed1fig74.svg
+mv DoubleCornerWeld.svg  8329_ed1fig58.svg
+mv DoubleOverlapWeld1Side.svg  8329_ed1fig66.svg
+mv DoubleOverlapWeld2Sides.svg  8329_ed1fig68.svg
+mv EdgeWeld.svg  8329_ed1fig60.svg
+mv IWeld.svg  8329_ed1fig62.svg
+mv KJoint.svg  8329_ed1fig72.svg
+mv OverlapWeld.svg  8329_ed1fig64.svg
+mv YJoint.svg  8329_ed1fig70.svg
+mv xMCF-AP242-federative_use.svg  8329_ed1figB1.svg
+mv Seam_weld_types_and_attributes_as_embedded_Excel-table.docx  8329_ed1fig49.docx
+
 cd ..
 rm "$figures_zip"
 # echo zip -r "$figures_zip" "$figures_dir"
