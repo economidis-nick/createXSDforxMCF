@@ -8,8 +8,8 @@ IFS='
 
 Time=`date +"%Y%m%d-%H%M%S"`
 
-word_version="../ISO-CD_PAS_8329.docx"
-pdf_version="../ISO-CD_PAS_8329.pdf"
+word_version="ISO-CD_PAS_8329.docx"
+pdf_version="ISO-CD_PAS_8329.pdf"
 electr_inserts="\
 ../xmcf_3_1_1.xsd
 ../../V3.1.1/examples"
@@ -31,6 +31,11 @@ complete_zip="ISO-CD_PAS_8329_${Time}.zip"
 echo "electr_inserts=$electr_inserts"
 echo "figures=$figures"
 echo "complete=$complete"
+
+
+ln -s "../$word_version"
+ln -s "../$pdf_version"
+
 
 # Verification that each file can be read
 for f in $electr_inserts $figures $word_version $pdf_version; do
