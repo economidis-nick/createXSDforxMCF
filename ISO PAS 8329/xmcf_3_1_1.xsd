@@ -10,11 +10,14 @@
 			<xs:all>
 				<xs:element ref="units" minOccurs="0" maxOccurs="1"/>
 				<xs:element name="date" type="xs:date" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="time" type="xs:time" minOccurs="0" maxOccurs="1"/>
 				<xs:element name="version" type="nonEmptyString" minOccurs="1" maxOccurs="1"/>
 				<xs:element name="appdata" type="appdata_type" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="femdata" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="connection_group" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:all>
+
+			<xs:assert test="if(exists(time)) then exists(date) else true()"/>
 
 			<xs:assert test="if( (units/@angle='deg') and (exists(connection_group/connection_list/connection_0d/robscan[@orientation_angle lt -180.0]) )) then false() else true()"/>
 			<xs:assert test="if( (units/@angle='deg') and (exists(connection_group/connection_list/connection_0d/robscan[@orientation_angle gt  180.0]) )) then false() else true()"/>
