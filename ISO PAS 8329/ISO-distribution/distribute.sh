@@ -19,7 +19,8 @@ figures="\
 ../ISO-CD_PAS_8329_Figures-master.pptx
 ../../V3.1.1/resources/Seam_weld_types_and_attributes_as_embedded_Excel-table.docx
 ../../V3.1.1/resources/xMCF-AP242-federative_use.svg
-../../V3.1.1/resources/Seamweld_Images/*.svg"
+../../V3.1.1/resources/Seamweld_Images/*.svg
+../../V3.1.1/resources/Seamweld_Images/8329_ed1fig49.xlsx"
 figures_dir="ISO-CD_PAS_8329_Figures"
 figures_zip="${figures_dir}.zip"
 complete="$word_version
@@ -98,16 +99,44 @@ for f in $figures_expanded; do
 done
 # Make file names conformant to ISO naming scheme
 mv ButtJoint.svg  8329_ed1fig54.svg
-mv CornerWeld.svg  8329_ed1fig56.svg
-mv CrossJoint.svg  8329_ed1fig74.svg
+mv ButtJoint_sheetparameters.svg				8329_ed1fig54.svg
+mv ButtJoint_weldparameters.svg					8329_ed1fig55.svg
+rm ButtJoint_wo_notation.svg
+rm CornerWeld.svg
+mv CornerWeld_sheetparameter.svg 				8329_ed1fig56.svg
+mv CornerWeld_weldparameter.svg   				8329_ed1fig57.svg
+# mv CrossJoint.svg  8329_ed1fig74.svg
+rm CrossJoint.svg
+mv CrossJoint_sheetparameters.svg 				8329_ed1fig74.svg
+mv CrossJoint_weldparameters.svg 				8329_ed1fig75.svg
 mv DoubleCornerWeld.svg  8329_ed1fig58.svg
-mv DoubleOverlapWeld1Side.svg  8329_ed1fig66.svg
-mv DoubleOverlapWeld2Sides.svg  8329_ed1fig68.svg
-mv EdgeWeld.svg  8329_ed1fig60.svg
-mv IWeld.svg  8329_ed1fig62.svg
-mv KJoint.svg  8329_ed1fig72.svg
+mv DoubleCornerWeld_weldparameters.svg  		8329_ed1fig59.svg
+rm DoubleOverlapWeld1Side.svg
+mv DoubleOverlapWeld1Side_sheetparameters.svg	8329_ed1fig66.svg
+mv DoubleOverlapWeld1Side_weldparameters.svg	8329_ed1fig67.svg
+rm DoubleOverlapWeld2Sides.svg  
+mv DoubleOverlapWeld2Sides_sheetparameters.svg	8329_ed1fig68.svg
+mv DoubleOverlapWeld2Sides_weldparameters.svg	8329_ed1fig69.svg
+rm EdgeWeld.svg
+mv EdgeWeld_sheetparameters.svg 		 		8329_ed1fig60.svg
+mv EdgeWeld_weldparameters.svg  				8329_ed1fig61.svg
+mv flaredweld_sheetparameters.svg  				8329_ed1fig76.svg
+mv flaredweld_weldparameters.svg  				8329_ed1fig77.svg
+rm IWeld.svg
+mv IWeld_sheetparameter.svg  					8329_ed1fig62.svg
+mv IWeld_weldparameter.svg  					8329_ed1fig63.svg
+mv OverlapWeld_sheetparameters.svg  			8329_ed1fig64.svg
+mv OverlapWeld_weldparameters.svg  				8329_ed1fig65.svg
+rm KJoint.svg
+# mv KJoint.svg  8329_ed1fig72.svg
+mv KJoint_sheetparameters.svg 					8329_ed1fig72.svg
+mv KJoint_weldparameters.svg 					8329_ed1fig73.svg
 mv OverlapWeld.svg  8329_ed1fig64.svg
-mv YJoint.svg  8329_ed1fig70.svg
+mv YJoint.svg  									8329_ed1fig51.svg
+# mv YJoint_sheetparameters.svg					8329_ed1fig51a.svg
+mv YJoint_sheetparameters.svg  					8329_ed1fig70.svg
+# mv YJoint_weldparameters.svg 					8329_ed1fig51b.svg
+mv YJoint_weldparameters.svg   					8329_ed1fig71.svg
 mv xMCF-AP242-federative_use.svg  8329_ed1figB1.svg
 mv Seam_weld_types_and_attributes_as_embedded_Excel-table.docx  8329_ed1fig49.docx
 
