@@ -8,8 +8,14 @@ IFS='
 
 Time=`date +"%Y%m%d-%H%M%S"`
 
-word_version="ISO-CD_PAS_8329.docx"
-pdf_version="ISO-CD_PAS_8329.pdf"
+base_name="ISO_PAS_8329"
+word_version="${base_name}.docx"
+if [[ ! -e "$word_version" ]];  then
+  base_name="ISO-CD_PAS_8329"
+fi
+word_version="${base_name}.docx"
+pdf_version="${base_name}.pdf"
+
 electr_inserts="\
 ../xmcf_3_1_1.xsd
 ../../V3.1.1/examples"
