@@ -27,13 +27,13 @@ figures="\
 ../../V3.1.1/resources/xMCF-AP242-federative_use.svg
 ../../V3.1.1/resources/Seamweld_Images/*.svg
 ../../V3.1.1/resources/Seamweld_Images/8329_ed1fig49.xlsx"
-figures_dir="ISO-CD_PAS_8329_Figures"
+figures_dir="${base_name}_Figures"
 figures_zip="${figures_dir}.zip"
 complete="$word_version
 $pdf_version
 $electr_inserts_zip
 $figures_zip"
-complete_zip="ISO-CD_PAS_8329_${Time}.zip"
+complete_zip="${base_name}_${Time}.zip"
 
 echo "electr_inserts=$electr_inserts"
 echo "figures=$figures"
@@ -63,7 +63,7 @@ fi
 
 # Creating "$electr_inserts_zip"
 if [[ -e "$electr_inserts_dir" ]]; then
-  rm -r "$electr_inserts_dir"
+  rm -rf "$electr_inserts_dir"
 fi
 mkdir "$electr_inserts_dir"
 rc=$?
@@ -83,7 +83,7 @@ zip -r "$electr_inserts_zip" "$electr_inserts_dir"
 
 # Creating "$figures_zip"
 if [[ -e "$figures_dir" ]]; then
-  rm -r "$figures_dir"
+  rm -rf "$figures_dir"
 fi
 mkdir "$figures_dir"
 rc=$?
@@ -104,7 +104,8 @@ for f in $figures_expanded; do
   ln -s ../$f 
 done
 # Make file names conformant to ISO naming scheme
-mv ButtJoint.svg  8329_ed1fig54.svg
+# mv ButtJoint.svg  8329_ed1fig54.svg
+rm ButtJoint.svg
 mv ButtJoint_sheetparameters.svg				8329_ed1fig54.svg
 mv ButtJoint_weldparameters.svg					8329_ed1fig55.svg
 rm ButtJoint_wo_notation.svg
