@@ -19,10 +19,10 @@ pdf_version="${base_name}.pdf"
 electr_inserts="\
 ../xmcf_3_1_1.xsd
 ../../V3.1.1/examples"
-electr_inserts_dir="ISO-CD_PAS_8329_electronic-inserts"
+electr_inserts_dir="${base_name}_electronic-inserts"
 electr_inserts_zip="${electr_inserts_dir}.zip"
 figures="\
-../ISO-CD_PAS_8329_Figures-master.pptx
+../${base_name}_Figures-master.pptx
 ../../V3.1.1/resources/Seam_weld_types_and_attributes_as_embedded_Excel-table.docx
 ../../V3.1.1/resources/xMCF-AP242-federative_use.svg
 ../../V3.1.1/resources/Seamweld_Images/*.svg
