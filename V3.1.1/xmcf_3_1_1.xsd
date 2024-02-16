@@ -607,7 +607,7 @@
 	<xs:element name="threaded_connection_type" abstract="true"/>
 	<xs:element name="washer">
 		<xs:complexType>
-			<xs:attribute name="outer_diameter" type="floatPositive"/>
+			<xs:attribute name="outer_diameter" type="floatPositive" use="required"/>
 			<xs:attribute name="inner_diameter" type="floatPositive"/>
 			<xs:attribute name="thickness" type="floatPositive"/>
 			<xs:attribute name="attached" type="xs:boolean" default="false"/>
