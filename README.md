@@ -11,7 +11,7 @@ we are developing the schema, as well as complete examples to accompany the docu
 
 In order for us to test-drive the development of the schema, we have built a test suite.
 
-With version &chi;MCF 3.1.1, we strive for ISO standardization, see [ISO/AWI PAS 8329](https://www.iso.org/standard/83119.html).
+With version &chi;MCF 3.1.1, we strive for ISO standardization, see [ISO/CD PAS 8329](https://www.iso.org/standard/83119.html).
 
 
 ## Folder Contents
