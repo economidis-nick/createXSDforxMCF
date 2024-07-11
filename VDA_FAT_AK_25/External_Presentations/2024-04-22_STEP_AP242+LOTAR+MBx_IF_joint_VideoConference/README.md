@@ -1,5 +1,9 @@
 # 2024-04-22 Joint Video Conference
 
+## Usage of AP 242 in combination with ISO/DPAS 8329 Extended master connection file (&chi;MCF)
+
+### Agenda
+
 These slides were presented during a joint video conference of VDA FAT AK 25, STEP AP 242, LOTAR, MBx IF, PDM IF, and EWIS IF on 2024-04-22.
 
 The objective of the meeting was to ensure that every group is aware of the different activities. 
@@ -10,7 +14,7 @@ The agenda comprised:
 * LOTAR 3D mechanical PMI: Past pilots for hole (2020) and Assembly with fastener (2021)  
   (CAx IF user group requirement) 
 * PDM IF: Fastener activities 
-* VDA FAT AK 25: Usage of AP242 in combination with ISO/DPAS 8329 Extended master connection file (&chi;MCF) (@DrCaFr)
+* VDA FAT AK 25: Usage of AP 242 in combination with ISO/DPAS 8329 Extended master connection file (&chi;MCF) (@DrCaFr)
 * EWIS IF 
 * STEP AP 242: Structural Joints w/ Fasteners 
 
