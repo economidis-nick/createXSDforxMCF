@@ -1,10 +1,12 @@
 # 2019-05-21 8th BEFORE REALITY Conference
 
+## &chi;MCF v3.0: An Interface Standard for Exchanging Weld Information and beyond within CAD/CAE
+
 These slides were presented at BETA CAE's _8th BEFORE REALITY Conference_ in Munich on 2019-05-21.
 
 DOI: [10.13140/RG.2.2.12446.96329](http://dx.doi.org/10.13140/RG.2.2.12446.96329) 
 
-## Description
+### Abstract
 
 Joining technologies play an important role in modern automotive structures whose designs are mainly determined by functions vs. weight and cost. This leads to the application of a variety of materials with a wide spectrum of mechanical and physical properties and, hence, requires joining technologies specifically tailored to the joining partners. These joining technologies have to be cost-optimized and to deliver desired mechanical properties like high fatigue and crash strengths. In order to characterize a specific joint completely, numerous attributes like geometry, process parameters, strengths etc. are necessary. Different divisions like CAD, CAE Manufacturing or different OEMs use often only a subset of these attributes. Therefore, each engineering function has been using their own way to describe joints leading to incompatibilities or gaps in data transfers. 
 
