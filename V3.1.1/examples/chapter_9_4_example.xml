@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_1_1.xsd">
+	<version> 3.1.1 </version>
+	<date> 2021-07-13 </date>
+	<units length="mm" angle="rad" mass="kg" force="N" time="s"/>
+	<connection_group id="1">
+		<connected_to>
+			<part index="1" pid="1"/>
+			<part index="2" pid="2"/>
+		</connected_to>
+		<connection_list>
+			<connection_0d label="RVT_2123921">
+				<rivet shaft_diameter="5.0" head_diameter="8" length="3.5">
+					<normal_direction x="0" y="0" z="3"/>
+				</rivet>
+				<loc> 1645.83 821.145 616.585 </loc>
+				<appdata>
+				</appdata>
+			</connection_0d>
+
+			<connection_0d label="RVT_2123922">
+				<rivet shaft_diameter="5.0" head_diameter="8" length="3.5">
+					<normal_direction x="0" y="0" z="3"/>
+					<tangential_direction x="3" y="0" z="0"/>
+				</rivet>
+				<loc> 1645.83 -821.145 616.585 </loc>
+				<appdata>
+				</appdata>
+			</connection_0d>
+		</connection_list>
+	</connection_group>
+</xmcf>

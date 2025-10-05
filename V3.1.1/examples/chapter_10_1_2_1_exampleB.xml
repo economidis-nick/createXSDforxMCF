@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_1_1.xsd">
+    <date> 2021-05-09 </date>
+    <version> 3.1.1 </version>
+    <units length="mm" angle="deg" mass="kg" force="N" time="s"/>
+    <connection_group id="1">
+		<connected_to>
+			<part index="1" label="PART_7000400"/>
+			<part index="2" label="PART_7100100"/>
+			<part index="5" label="PART_5000300"/>
+			<part index="6" label="PART_5000800"/>
+		</connected_to>
+		<connection_list>
+			<connection_1d label="MyWeldLine">
+				<loc_list>
+					<loc v="0"   > 2581.21 -708.408 31.6532 </loc>
+					<loc v="1"   > 2581.21 -708.408 46.0882 </loc>
+				</loc_list>
+				<seamweld>
+					<corner_weld base="1" technology="resistance">
+						<weld_position u="0.2" x="1" y="0" z="1">
+							<regular_segments num_segments="3"
+							first_spacing="1.0" last_spacing="0.5" length="2.0" spacing="3.5" 
+							keep="length" max_absolute_compensation="0.2"/>
+						</weld_position>
+						<sheet_parameter index="2" gap="1.0" sheet_thickness="1.5" sheet_angle="90"/>
+					</corner_weld>
+				</seamweld>
+				<appdata>
+				</appdata>
+			</connection_1d>
+
+			<connection_1d label="MyOppositeWeldLine">
+				<loc_list>
+					<loc v="0"   > -2581.21 -708.408 31.6532 </loc>
+					<loc v="1"   > -2581.21 -708.408 46.0882 </loc>
+				</loc_list>
+				<seamweld>
+					<corner_weld base="1" technology="resistance">
+						<weld_position u="0.2" x="1" y="0" z="1">
+							<regular_segments num_segments="3"
+							first_spacing="1.0" last_spacing="0.5" length="2.0" spacing="3.5" 
+							keep="length" max_percentage_of_compensation="3.0"/>
+						</weld_position>
+						<sheet_parameter index="2" gap="1.0" sheet_thickness="1.5" sheet_angle="90"/>
+					</corner_weld>
+				</seamweld>
+			</connection_1d>
+		</connection_list>
+	</connection_group>
+</xmcf>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_1_1.xsd">
+  <version>3.1.0</version>
+  <units length="mm" angle="deg" mass="kg" force="N" time="s" torque="Nm"/>
+  <date>2019-01-07</date>
+  <connection_group id="1">
+    <connected_to>
+      <part index="1" pid="1"/>
+      <part index="2" pid="2"/>
+    </connected_to>
+
+    <connection_list>
+      <connection_0d>
+        <loc>12.1058 37.1065 0.881963</loc>
+        <threaded_connection diameter="6">
+          <screw/>
+        </threaded_connection>
+      </connection_0d>
+	  
+      <connection_0d>
+        <loc>12.1058 37.1065 0.881963</loc>
+        <threaded_connection diameter="6" length="20" head_diameter="10">
+          <screw/>
+          <washer outer_diameter="12" inner_diameter="6.5"/>
+        </threaded_connection>
+      </connection_0d>
+	  
+	  <connection_0d>
+        <loc>12.1 37.1 -10.8</loc>
+        <threaded_connection diameter="10">
+          <screw base="1">
+            <flow_drilled pre_machined_hole_diameter="18" pre_machined_hole_index="1" pilot_hole_diameter="12"/>
+          </screw>
+        </threaded_connection>
+      </connection_0d>
+	  
+    </connection_list>
+  </connection_group>
+</xmcf>

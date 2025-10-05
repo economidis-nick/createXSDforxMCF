@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_1_1.xsd">
+    <date> 2014-08-07 </date>
+    <version> 3.1.0 </version>
+    <units length="mm" angle="rad" mass="kg" force="N" time="s"/>
+    <connection_group id="1">
+        <connected_to>
+        </connected_to>
+        <connection_list>
+			<connection_0d>
+				<loc>2581. 4.0 3.3 </loc>
+				<spotweld/>
+				<custom_attributes_list>
+				
+					<custom_attributes owner="DepartmentA" for="Fatigue">
+						<int key="integer_without_spaces">1</int>
+						<int key="integer_with_spaces"> 1 </int>
+						<int key="empty_integer"></int>
+						<int key="empty_integer_with_spaces">   </int>
+						<string key="some_string">Steel_225_ISO</string>
+						<real key="float_with_dot"> 223 </real>
+						<real key="float_ending_with_dot"> 223. </real>
+						<real key="float_ending_with_number"> 223.3 </real>
+						<!-- <real key="only_dot"> . </real> -->
+						<!-- <real key="sign_and_dot"> -. </real> -->
+						<real key="dot_first"> .3 </real>
+						<real key="positive_dot_first"> +3. </real>
+						<real key="negative_dot_first"> -.1 </real>
+						<real key="with_positive_exp"> .1e+3</real>
+						<real key="with_positive_Exp"> .1E+3</real>
+						<real key="with_positive_Exp2"> .1E+003</real>
+						<real key="leading_zeroes_with_positive_exp"> 000.1E+003</real>
+						<real key="with_negative_exp"> .1e-2</real>
+						<real key="with_negative_Exp"> .1E-2</real>
+						<real key="with_negative_Exp2"> .1E-002</real>
+						<real key="whitespace_only">  </real>
+						<real key="empty"></real>
+					</custom_attributes>
+
+					<custom_attributes owner="DepartmentA" for="Statics"> <!-- same 'owner', different 'for' -->
+						<int key="priority"> 2 </int>
+					</custom_attributes>
+
+					<custom_attributes owner="DepartmentB">  <!-- without 'for' -->
+						<string key="priority">high</string>
+						<real_list key="direction vector">
+							<value index="1">10.3 </value>
+							<value index="2"> -2.1</value>
+							<value index="3">-1.5</value>
+						</real_list>
+						<string_list key="verifiedby" >
+							<value index="1">john</value>
+							<value index="2">Smith</value>
+						</string_list>
+						<int_list key="referencedby">
+							<value index="1">10 </value>
+							<value index="2"> -2</value>
+							<value index="3">-1</value>
+						</int_list>
+					</custom_attributes>
+
+					<custom_attributes owner="TestingDepartmentA">  <!-- empty values are allowed -->
+						<int key="some integer"></int>
+						<string key="some string"></string>
+						<real key="some real"></real>
+					</custom_attributes>
+
+					<custom_attributes owner="TestingDepartmentB">  <!-- negative values are allowed -->
+						<int key="negative int"> -12 </int>
+						<real key="negative real"> -30.6 </real>
+						<real key="negative real2"> -30 </real>
+					</custom_attributes>
+
+				</custom_attributes_list>
+			</connection_0d>
+        </connection_list>
+    </connection_group>
+</xmcf>

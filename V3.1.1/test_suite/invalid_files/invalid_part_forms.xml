@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_1_1.xsd">
+	<version>3.1.0</version>
+	<date>2020-02-08</date>
+	<connection_group id="1">
+		<connected_to>
+			<part index="1" label=""/> <!-- empty label -->
+			<part index="2" label="PART_7000800"/>
+		</connected_to>
+
+		<connection_list>
+			<connection_0d>
+				<loc>12.1058 37.1065 0.881963</loc>
+				<spotweld/>
+			</connection_0d>	  
+		</connection_list>
+	</connection_group>
+
+	<connection_group id="2">
+		<connected_to>
+			<part index="1" pname=""/> <!-- empty pname -->
+			<part index="2" pname="P800 Shell Property"/>
+		</connected_to>
+
+		<connection_list>
+			<connection_0d>
+				<loc>12.1058 37.1065 0.881963</loc>
+				<spotweld/>
+			</connection_0d>	  
+		</connection_list>
+	</connection_group>
+
+</xmcf>

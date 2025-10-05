@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ap:Uos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ap="http://standards.iso.org/iso/ts/10303/-3001/-ed-1/tech/xml-schema/bo_model" xmlns:cmn="http://standards.iso.org/iso/ts/10303/-3000/-ed-1/tech/xml-schema/common" xsi:schemaLocation="http://standards.iso.org/iso/ts/10303/-3001/-ed-1/tech/xml-schema/bo_model
+    C:\Daten\07-ISO~1\SC4\stepmod\data\business_object_models\managed_model_based_3d_engineering\bom.xsd">
+  <Header>
+    <Name>PROSTEP AG</Name>
+  </Header>
+  <DataContainer xsi:type="ap:AP242DataContainer">
+    <Unit uid="u--000000002">
+      <Kind>
+        <ClassString>SI system</ClassString>
+      </Kind>
+      <Name>
+        <ClassString>metre</ClassString>
+      </Name>
+      <Prefix>
+        <ClassString>milli</ClassString>
+      </Prefix>
+    </Unit>
+    <Unit uid="u--000000003">
+      <Kind>
+        <ClassString>SI system</ClassString>
+      </Kind>
+      <Name>
+        <ClassString>radian</ClassString>
+      </Name>
+    </Unit>
+    <Organization uid="o--000000178">
+      <Id id="mercedes-benz.com"/>
+      <Name>
+        <CharacterString>Mercedes-Benz</CharacterString>
+      </Name>
+      <OrganizationTypes>
+        <ClassString>company</ClassString>
+      </OrganizationTypes>
+    </Organization>
+    <ViewContext uid="ac--mechanicaldesign--design">
+      <ApplicationDomain>
+        <ProxyString>mechanical design</ProxyString>
+      </ApplicationDomain>
+      <LifeCycleStage>
+        <ProxyString>design</ProxyString>
+      </LifeCycleStage>
+    </ViewContext>
+    <Class uid="cla--pp">
+      <Id>
+        <Identifier uid="fdf--id1" id="MAG Schweissen"/>
+      </Id>
+    </Class>
+    <Part uid="p--59">
+      <Id>
+        <Identifier uid="id1" id="Part_59" idContextRef="o--000000178"/>
+      </Id>
+      <Name>
+        <CharacterString>Y-Assembly</CharacterString>
+      </Name>
+      <PartTypes>
+        <ClassString>assembly</ClassString>
+      </PartTypes>
+      <Versions>
+        <PartVersion uid="pv--id1">
+          <Id>
+            <Identifier uid="id2" id="/ANY"/>
+          </Id>
+          <Views>
+            <PartView xsi:type="ap:MatingDefinition" uid="pvv--id1">
+              <InitialContext uidRef="ac--mechanicaldesign--design"/>
+              <DocumentAssignment uid="da1">
+                <AssignedDocument uidRef="f1"></AssignedDocument>
+                <Role>
+                  <ClassString>mandatory</ClassString>
+                </Role>
+              </DocumentAssignment>
+              <ViewOccurrenceRelationship 
+                uid="pvvid--10" xsi:type="ap:MatedPartAssociation">
+                <Related uidRef="pi--1"/>
+                <RelationType>
+                  <ClassString>next assembly occurrence</ClassString>
+                </RelationType>
+              </ViewOccurrenceRelationship>
+              <ViewOccurrenceRelationship uid="pvvid--11" 
+                xsi:type="ap:MatedPartAssociation">
+                <Related uidRef="pi--2"/>
+                <RelationType>
+                  <ClassString>next assembly occurrence</ClassString>
+                </RelationType>
+              </ViewOccurrenceRelationship>
+            </PartView>
+          </Views>
+        </PartVersion>
+      </Versions>
+    </Part>
+    <Part uid="p--58">
+      <Id>
+        <Identifier uid="id3" id="Part_58" idContextRef="o--000000178"/>
+      </Id>
+      <Name>
+        <CharacterString>Basisblech</CharacterString>
+      </Name>
+      <PartTypes>
+        <ClassString>part</ClassString>
+      </PartTypes>
+      <Versions>
+        <PartVersion uid="pv--id2">
+          <Id>
+            <Identifier uid="id4" id="/ANY"/>
+          </Id>
+          <Views>
+            <PartView uid="pvv--id2">
+              <InitialContext uidRef="ac--mechanicaldesign--design"/>
+              <Occurrence xsi:type="ap:SingleOccurrence" uid="pi--1">
+                <Id id="58.1"/>
+              </Occurrence>
+            </PartView>
+          </Views>
+        </PartVersion>
+      </Versions>
+    </Part>
+    <Part uid="p--57">
+      <Id>
+        <Identifier uid="id57" id="Part_57" idContextRef="o--000000178"/>
+      </Id>
+      <Name>
+        <CharacterString>angeschweisstes Blech</CharacterString>
+      </Name>
+      <PartTypes>
+        <ClassString>part</ClassString>
+      </PartTypes>
+      <Versions>
+        <PartVersion uid="pv--id3">
+          <Id>
+            <Identifier uid="id11" id="/ANY"/>
+          </Id>
+          <Views>
+            <PartView uid="pvv--id4">
+              <InitialContext uidRef="ac--mechanicaldesign--design"/>
+              <Occurrence xsi:type="ap:SingleOccurrence" uid="pi--2">
+                <Id id="57.1"/>
+              </Occurrence>
+              <PropertyValueAssignment uid="pva--id1">
+                <AssignedPropertyValues>
+                  <PropertyValue uid="pv--sheet_thickness" xsi:type="ap:NumericalValue">
+                    <Definition>
+                      <PropertyDefinitionString>
+                        sheet thickness
+                      </PropertyDefinitionString>
+                    </Definition>
+                    <Unit uidRef="u--000000002"></Unit>
+                    <ValueComponent>1.5</ValueComponent>
+                  </PropertyValue>
+                </AssignedPropertyValues>
+              </PropertyValueAssignment>
+            </PartView>
+          </Views>
+        </PartVersion>
+      </Versions>
+    </Part>
+    <File xsi:type="ap:DigitalFile" uid="f1">
+      <FileFormat uidRef="fp1"></FileFormat>
+      <Id id="NEUTRAL_xMCF_3-0_seamweld_y_double_flanged.xml"></Id>
+      <Locations>
+        <ExternalItem uid="ei1">
+          <Id id="NEUTRAL_xMCF_3-0_seamweld_y_double_flanged.xml"></Id>
+        </ExternalItem>
+      </Locations>
+    </File>
+    <FormatProperty uid="fp1">
+      <DataFormat>
+        <ClassString>xMCF</ClassString>
+      </DataFormat>
+    </FormatProperty>
+  </DataContainer>
+</ap:Uos>

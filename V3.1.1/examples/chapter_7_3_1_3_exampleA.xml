@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_1_1.xsd">
+	<version>3.1.1</version>
+	<date>2019-11-10</date>
+	<connection_group id="1">
+
+		<connected_to>
+			<part index="1" label="PART_7000800"/>   <!-- green -->
+			<part index="2" label="PART_7000400"/>   <!-- red   -->
+		</connected_to>
+
+		<connection_list>
+			<connection_0d label="A">
+				<stacking>
+					<level order="1" part_index="1"/>   <!-- green -->
+					<level order="2" part_index="2"/>   <!-- red   -->
+					<level order="3" part_index="1"/>   <!-- green -->
+				</stacking>
+				<loc>100 100 0</loc>
+				<spotweld/>
+			</connection_0d>
+
+			<connection_0d label="B">
+				<stacking>
+					<level order="1" part_index="2"/>   <!-- red   -->
+					<level order="2" part_index="1"/>   <!-- green -->
+				</stacking>
+				<loc>200 100 0</loc>
+				<spotweld/>
+			</connection_0d>
+
+			<connection_0d label="C">
+				<stacking>
+					<level order="1" part_index="1"/>   <!-- green -->
+					<level order="2" part_index="1"/>   <!-- green -->
+					<level order="3" part_index="2"/>   <!-- red   -->
+				</stacking>
+				<loc>0 150 0</loc>
+				<spotweld/>
+			</connection_0d>
+		</connection_list >
+
+	</connection_group>
+</xmcf>
+
+
+

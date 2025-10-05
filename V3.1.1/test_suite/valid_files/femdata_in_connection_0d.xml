@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xmlns:MEDINA="http://servicenet.t-systems.com/medina/xMCF"
+      xsi:schemaLocation="http://servicenet.t-systems.com/medina/xMCF mcf_MEDINA.xsd" 
+      xsi:noNamespaceSchemaLocation="xmcf_3_1_1.xsd">
+	<date> 2016-01-11 </date>
+	<version> 3.1.0 </version>
+	<units length="mm" angle="rad" mass="kg" force="N" time="s"/>
+	<connection_group id="1">
+		<connected_to>
+			<part index="1" label="PART_8000880" pid="20123213"/>
+			<part index="2" label="PART_8100340" pid="90123213"/>
+		</connected_to>
+		<connection_list>
+			<connection_0d>
+				<femdata>
+					<NASTRAN>
+						<entity>
+							<TYPE> CHEXA </TYPE>
+							<ID> 999293 </ID>
+						</entity>
+					</NASTRAN>
+				</femdata>
+				<spotweld/>
+				<loc>-1 -1 -1</loc>
+				<appdata/>
+			</connection_0d>
+		</connection_list>
+	</connection_group>
+</xmcf>

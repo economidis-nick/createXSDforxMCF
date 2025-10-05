@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_1_1.xsd">
+	<version>3.1.0</version>
+	<date>2019-01-21</date>
+	<connection_group id="1">
+		<connected_to>
+			<part index="1" pid="3202132"/>
+			<part index="2" pid="1100131"/>
+		</connected_to>
+		<contact_list>		<!-- global contact_list -->
+			<contact>
+				<partner part_index="1"/>
+				<partner part_index="2"/>
+				<coefficients static_friction="0.3" kinetic_friction=".25"/>
+			</contact>
+		</contact_list>
+		<connection_list>
+			<connection_2d>
+				<loc_list>
+					<loc v="1">2522.82 -455.818 883.046</loc>
+					<loc v="2">2522.82 -455.818 877.939</loc>
+					<loc v="3">2527.73 -455.818 877.939</loc>
+					<loc v="4">2527.73 -455.818 883.046</loc>
+				</loc_list>
+				<face_list>
+					<face v1="1" v2="2" v3="3" v4="4"/>
+				</face_list>
+				<adhesive_face/>
+				<contact_list>		<!-- local contact_list overrides the global one. -->
+					<contact>
+						<partner part_index="1"/>
+						<partner part_index="2"/>
+						<coefficients static_friction="0.8" kinetic_friction=".25"/>   
+					</contact>
+				</contact_list>
+			</connection_2d>
+
+			<connection_2d>
+				<loc_list>
+					<loc v="1">522.8 -45.5 83.0</loc>
+					<loc v="2">522.8 -45.5 77.9</loc>
+					<loc v="3">527.7 -45.5 77.9</loc>
+				</loc_list>
+				<face_list>
+					<face v1="1" v2="2" v3="3"/>
+				</face_list>
+				<adhesive_face/> 		<!-- This uses the global contact_list. -->
+			</connection_2d>
+
+		</connection_list>
+	</connection_group>
+</xmcf>

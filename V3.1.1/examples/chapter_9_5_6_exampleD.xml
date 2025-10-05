@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_1_1.xsd">
+	<version> 3.1.1 </version>
+	<date> 2016-01-08 </date>
+	<units length="mm" angle="deg" mass="kg" force="N" torque="Nm" time="s"/>
+	<connection_group id="1">
+		<connected_to>
+			<part index="1" label="PART_7000400"/>
+			<part index="2" label="PART_7100100"/>
+			<part index="5" label="PART_5000300"/>
+			<part index="6" label="PART_5000800"/>
+		</connected_to>
+		<connection_list>
+			<connection_0d label="BOLT_135">   <!-- bolt with washers -->
+				<loc> 84 60 10 </loc>
+				<!-- Friction between "head to washer" and "thread to nut": -->
+				<threaded_connection diameter="10" length="50" thread_length="26" 
+					head_diameter="16" head_height="6.4" head_type="hexagonal" 
+					sink_size="0" pitch="0.75" lead="1.5"
+					torque="20" angle="35" pretension="180" 
+					static_friction="0.8" kinetic_friction="0.6"
+					thread_static_friction="0.6"
+					strength_property_class="8.8"
+					part_code="M10x50 8.8">
+					<normal_direction x="0" y="0" z="-10"/>
+					<!-- Washer next to head with its friction to 1st part -->
+					<washer outer_diameter="20" inner_diameter="10.4" thickness="1.25" 
+						attached="false" 
+						static_friction="0.8" kinetic_friction="0.6" 
+						strength_property_class="8.8"
+						part_code="W20/10.4x1.25 8.8"/>
+					<bolt>
+						<!-- No Friction nut to washer, since washer is attached! -->
+						<nut diameter="16." height="6.4" 
+							torque="20" angle="35"
+							clipped_to="6" 
+							strength_property_class="8.8"
+							part_code="N10 8.8">
+							<!-- Washer attached to nut with its friction to last part -->
+							<washer outer_diameter="25" attached="true" static_friction=".8"/>
+						</nut>
+					</bolt>
+				</threaded_connection>
+
+				<contact_list>      <!-- friction between adjacent flange partners -->
+					<contact>
+						<partner part_index="1"/>
+						<partner part_index="2"/>
+						<coefficients static_friction="0.8"/>
+					</contact>
+					<contact>
+						<partner part_index="2"/>
+						<partner part_index="5"/>
+						<coefficients static_friction="0.8"/>
+					</contact>
+					<contact>
+						<partner part_index="5"/>
+						<partner part_index="6"/>
+						<coefficients static_friction="0.8"/>
+					</contact>
+				</contact_list>
+
+			</connection_0d>
+		</connection_list>
+	</connection_group>
+</xmcf>

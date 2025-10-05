@@ -6,4 +6,5 @@ Thumbs.db
 
 # Ignore MS Office temp. files
 ~$*
+~WRD*.tmp
 ~WRL*.tmp

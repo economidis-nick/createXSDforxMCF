@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_1_1.xsd">
+  <version>3.1.1</version>
+  <units length="mm" angle="deg" mass="kg" force="N" time="s" torque="Nm" angular_speed="Hz"/>
+  <date>2022-03-08</date>
+  <connection_group id="1">
+    <connected_to>
+      <part index="1" label="A"/>
+      <part index="2" label="B"/>
+    </connected_to>
+    <connection_list>
+      <connection_0d>
+        <loc>64.879 -28.904 -1.5</loc>
+        <spotweld diameter="4" technology="resistance"/>
+      </connection_0d>
+      <connection_0d>
+        <loc>64.879 -17.1568 -1.5</loc>
+        <spotweld diameter="4" technology="resistance"/>
+      </connection_0d>
+      <connection_1d>
+        <loc_list index="1">
+          <loc v="0">72.1126 30.3371 0</loc>
+          <loc v="1">72.1126 66.2383 0</loc>
+        </loc_list>
+        <seamweld>
+          <overlap_weld base="2" technology="brazing">
+            <weld_position u="0.50" x="7.071" y="0" z="7.071" thickness="1" angle="45" shape="straight" penetration="0" base="2"/>
+          </overlap_weld>
+        </seamweld>
+      </connection_1d>
+    </connection_list>
+  </connection_group>
+  <connection_group id="2">
+    <connected_to>
+      <part index="1" label="A"/>
+      <part index="2" label="C"/>
+    </connected_to>
+    <connection_list>
+      <connection_2d>
+        <loc_list>
+          <loc v="1">-29.0276 -34.8523 1.2</loc>
+          <loc v="2">-10.5834 -22.1918 1.2</loc>
+          <loc v="3">-29.0276 -15.8615 1.2</loc>
+          <loc v="4">-29.0276 -28.522 1.2</loc>
+          <loc v="5">-4.43533 -28.522 1.2</loc>
+          <loc v="6">-22.8795 -15.8615 1.2</loc>
+          <loc v="7">-35.1757 -15.8615 1.2</loc>
+          <loc v="8">-35.1757 -34.8523 1.2</loc>
+          <loc v="9">-16.7315 -34.8523 1.2</loc>
+          <loc v="10">-4.43533 -34.8523 1.2</loc>
+          <loc v="11">-4.43533 -15.8615 1.2</loc>
+          <loc v="12">-4.43533 -22.1918 1.2</loc>
+          <loc v="13">-35.1757 -28.522 1.2</loc>
+          <loc v="14">-22.8795 -34.8523 1.2</loc>
+          <loc v="15">-16.7315 -22.1918 1.2</loc>
+          <loc v="16">-16.7315 -15.8615 1.2</loc>
+          <loc v="17">-35.1757 -22.1918 1.2</loc>
+          <loc v="18">-16.7315 -28.522 1.2</loc>
+          <loc v="19">-10.5834 -28.522 1.2</loc>
+          <loc v="20">-22.8795 -28.522 1.2</loc>
+          <loc v="21">-10.5834 -34.8523 1.2</loc>
+          <loc v="22">-22.8795 -22.1918 1.2</loc>
+          <loc v="23">-29.0276 -22.1918 1.2</loc>
+          <loc v="24">-10.5834 -15.8615 1.2</loc>
+        </loc_list>
+        <face_list>
+          <face v1="4" v2="13" v3="8" v4="1"/>
+          <face v1="1" v2="14" v3="20" v4="4"/>
+          <face v1="23" v2="17" v3="13" v4="4"/>
+          <face v1="18" v2="20" v3="14" v4="9"/>
+          <face v1="4" v2="20" v3="22" v4="23"/>
+          <face v1="3" v2="7" v3="17" v4="23"/>
+          <face v1="19" v2="18" v3="9" v4="21"/>
+          <face v1="15" v2="22" v3="20" v4="18"/>
+          <face v1="23" v2="22" v3="6" v4="3"/>
+          <face v1="21" v2="10" v3="5" v4="19"/>
+          <face v1="18" v2="19" v3="2" v4="15"/>
+          <face v1="16" v2="6" v3="22" v4="15"/>
+          <face v1="2" v2="19" v3="5" v4="12"/>
+          <face v1="15" v2="2" v3="24" v4="16"/>
+          <face v1="12" v2="11" v3="24" v4="2"/>
+        </face_list>
+        <adhesive_face base="1" thickness="2"/>
+      </connection_2d>
+    </connection_list>
+  </connection_group>
+</xmcf>
