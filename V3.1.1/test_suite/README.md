@@ -19,6 +19,6 @@ In order to get more details regarding the error of a file under test, use the `
 
     $ java -jar xmcf3Validator.jar  -v  -s ../V3.1/xmcf_3_1_0.xsd  test_file.xml
 
-## Reuirements
+## Requirements
 
 In order to run the xmcf3validator.jar, you have to use Java 8.
