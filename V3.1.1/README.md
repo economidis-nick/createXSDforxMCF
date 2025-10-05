@@ -2,11 +2,11 @@
 
 This folder contains:
 
-1. A v3.1.1 **document**, with the *proposed* changes with respect to its predecessor, v3.1.0.  
+1. A v3.1.1 **document**, with the *accepted* changes (see 2021-10-21 WG meeting) with respect to its predecessor, v3.1.  
    __Attention:__ File 
-   [Documentation_xMCF_File_v3.1.1.docx](Documentation_xMCF_File_v3.1.1.docx) 
+   [Documentation_xMCF_File_v3.1.1.docx](./deprecated/Documentation_xMCF_File_v3.1.1.docx) 
    was _deprecated_ in course of ISO standardization (see also issue #66). 
-   Please use [xMCF_V3.1_PAS_V1.0_210826.docx](xMCF_V3.1_PAS_V1.0_210826.docx) instead! 
+   Please use [xMCF_V3.1_PAS.docx](./xMCF_V3.1.1_PAS.docx) instead! 
    (Effective 2021-09-02.)
 0. A **spread sheet** [Mapping_Table_Excel_xMCF_STEP.xlsx](Mapping_Table_Excel_xMCF_STEP.xlsx), 
    which will become essential content of new section
