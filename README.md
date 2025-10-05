@@ -40,8 +40,3 @@ the original specification document and pdf
 * external presentations of &chi;MCF, e.g. at conferences, 
 * additional helpful material, *not* used by the official standard document, and
 * minutes and attachments from working group meetings.
-
----
-
-@DrCaFr, 2022-11-04: Since the previous update of this README.md-file (2020-05-30), the topic of this project has been significantly expanded. 
-It is no longer about "Create XSD for &chi;MCF", but rather about ISO standardization. I have modified this README.md file accordingly.
