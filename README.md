@@ -27,13 +27,19 @@ the original specification document and pdf
 
 #### `V3.1.1/` contains:
 * the improved specification document V3.1.1, 
-* the developed &chi;MCF3.1 schema, and
+* the improved &chi;MCF3.1.1 schema, and
 * the accompanying examples for the updated document
 * a `test_suite` used for test-driven development of the schema
 
 #### `ISO PAS 8329/` contains:
-* the source for the officially published ISO standard,
-* including all the artefacts of &chi;MCF3.1.1, with some occasional minor bug fixes.
+* the source for the officially published ISO standard, 
+  which is &chi;MCF3.1.1, with some occasional minor bug fixes.
+* referring to the artefacts (graphics, examples, test cases) of &chi;MCF3.1.1.
+
+#### `VDA_FAT_AK_25/` contains:
+* external presentations of &chi;MCF, e.g. at conferences, 
+* additional helpful material, *not* used by the official standard document, and
+* minutes and attachments from working group meetings.
 
 ---
 
