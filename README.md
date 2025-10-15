@@ -13,7 +13,7 @@ In order for us to test-drive the development of the schema, we have built a tes
 
 With version &chi;MCF 3.1.1, we achieved ISO standardization in Aug. 2024, see [ISO/PAS 8329](https://www.iso.org/standard/83119.html).
 
-
+<!--
  <table border="1">
   <tr>
     <th bgcolor="yellow">Announcement</th>
@@ -33,7 +33,14 @@ With version &chi;MCF 3.1.1, we achieved ISO standardization in Aug. 2024, see [
 	</td>
   </tr>
 </table> 
+-->
 
+<hr/>
+
+The most recent meeting of the VDA FAT AK 25 &chi;MCF / ISO/PAS 8329 working group took place online, October&nbsp;15,&nbsp;2025.  
+Minutes are stored in directory [2025-10-15_VideoConference](./VDA_FAT_AK_25/Meetings/2025-10-15_VideoConference)
+
+<hr/>
 
 ## Folder Contents
 
