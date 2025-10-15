@@ -30,7 +30,7 @@ CONTACT Software presents
 Ford Werke presents an overview about tools supporting &chi;MCF 
 and a "traffic light assessment" of the maturity level of the individual tools.  
 
-[ ] Several tool vendors report progress or initial commitment, which will be added to the overview.
+- [ ] Several tool vendors report progress or initial commitment, which will be added to the overview.
 
 Ford Werke presents a typical landscape of connection data.  
 Today, mature system environments often require fundamental restructuring 
@@ -61,8 +61,7 @@ The &chi;MCF working group welcomes new participants from:
 
 CONTACT Software introduces to the &chi;MCF issue list, 
 which is maintained at 
-[GitHub](../../../../issues).
-<!-- https://github.com/economidis-nick/createXSDforxMCF/issues -->
+[GitHub](https://github.com/economidis-nick/createXSDforxMCF/issues).
 
 Currently, 73 issues are closed and 28 issues are open.  
 The open issues cover a wide range of topics and vary greatly in terms of difficulty.  
@@ -80,7 +79,7 @@ Boeing Co. supports this topic and emphasizes
 that the reuse of connector definitions is very relevant for aerospace industries, in general. 
 For example, a Boeing&nbsp;747 contains approximately 3 million connections.
 
-[ ] The members of the working group should identify those issues that are most relevant for practical application 
+- [ ] The members of the working group should identify those issues that are most relevant for practical application 
 so that work on them can begin as soon as possible.
 
 
@@ -91,7 +90,7 @@ that he will be retiring at the end of the year and
 that Ford will not be appointing a successor for him.  
 Volunteers are being sought to take on his role. 
 
-[ ] Ford will provide a job description 
+- [ ] Ford will provide a job description 
 specifying the individual tasks and the typical workload involved.
 
 
@@ -99,7 +98,7 @@ specifying the individual tasks and the typical workload involved.
 
 It is proposed and discussed that the “core team” be revived. 
 
-[ ] It is decided to conduct a survey on the priorities of the current issues.  
+- [ ] It is decided to conduct a survey on the priorities of the current issues.  
 The survey is scheduled to end in three weeks from today.
 
 It is decided to hold the next meeting on 2025-11-12 at 15:00&ndash;16:00 CET.  
