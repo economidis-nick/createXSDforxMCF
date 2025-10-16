@@ -46,6 +46,10 @@ which are investigated at prostep ivip's PDM Interoperability Forum.
 These use cases address the federated use of STEP AP 242 and &chi;MCF.  
 Dassault Aviation and BMW are sponsors for these use cases.
 
+According presentations:  
+* [PDM-IF Symposium 2025 V1.0.pdf](https://github.com/economidis-nick/createXSDforxMCF/blob/2db788473a74bdca339e661155983e151117f8bd/VDA_FAT_AK_25/Meetings/2025-10-15_VideoConference/PDM-IF%20Symposium%202025%20V1.0.pdf)
+* [PDM-IF Fasteners Status Consolidation Lothar Klein + Pierre.pptx](https://github.com/economidis-nick/createXSDforxMCF/blob/2db788473a74bdca339e661155983e151117f8bd/VDA_FAT_AK_25/Meetings/2025-10-15_VideoConference/PDM-IF%20Fasteners%20Status%20Consolidation%20Lothar%20Klein%20%2B%20Pierre.pptx)
+
 
 ## 4 &mdash; Introduction of new members
 
