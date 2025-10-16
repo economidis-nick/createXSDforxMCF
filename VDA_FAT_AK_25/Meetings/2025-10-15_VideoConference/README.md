@@ -28,9 +28,10 @@ CONTACT Software presents
 ## 2 &mdash; Software Support status, CAD & CAE
 
 Ford Werke presents an overview about tools supporting &chi;MCF 
-and a "traffic light assessment" of the maturity level of the individual tools.  
+and a "traffic light assessment" of the maturity level of the individual tools:
+[20251015_VDA_FAT_AK25_xMCF_Working_Group_published_Part_2.pdf](./20251015_VDA_FAT_AK25_xMCF_Working_Group_published_Part_2.pdf)
 
-- [ ] Several tool vendors report progress or initial commitment, which will be added to the overview.
+- [x] Several tool vendors report progress or initial commitment, which will be added to the overview.
 
 Ford Werke presents a typical landscape of connection data.  
 Today, mature system environments often require fundamental restructuring 
