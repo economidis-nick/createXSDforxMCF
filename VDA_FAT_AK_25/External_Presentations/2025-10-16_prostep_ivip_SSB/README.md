@@ -13,7 +13,7 @@ and publishes its findings in the form of fact sheets.
 
 ## Objectives of today's event 
 
-The χMCF working group was invited to present the ISO/DPAS 8329 standard:  
+The χMCF working group was invited to present the ISO/PAS 8329 standard:  
 Its objectives, content, applications, history and plans.
 
 The presentations slides are attached.
