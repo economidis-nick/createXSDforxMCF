@@ -26,7 +26,7 @@ The SSB suggested offering a **JSON** format in addition to the conventional **X
 **Rationale:** Conventional XML formats are long established for the file-based exchange of structured information.
 However, JSON is nowadays preferred for direct exchange via software APIs (e.g. REST).
 
-Issue #108 was created for this purpose.
+Issue [#108](https://github.com/economidis-nick/createXSDforxMCF/issues/108) was created for this purpose.
 
 
 ## Folder Contents
