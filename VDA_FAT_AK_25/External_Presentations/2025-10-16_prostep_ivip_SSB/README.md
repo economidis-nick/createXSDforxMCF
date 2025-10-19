@@ -19,6 +19,16 @@ Its objectives, content, applications, history and plans.
 The presentations slides are attached.
 
 
+## Results
+
+The SSB suggested offering a **JSON** format in addition to the conventional **XML** format.
+
+**Rationale:** Conventional XML formats are long established for the file-based exchange of structured information.
+However, JSON is nowadays preferred for direct exchange via software APIs (e.g. REST).
+
+Issue #108 was created for this purpose.
+
+
 ## Folder Contents
 
 * [20251016_ISOPAS_8329_at_SSB__published.pdf](./20251016_ISOPAS_8329_at_SSB__published.pdf)
