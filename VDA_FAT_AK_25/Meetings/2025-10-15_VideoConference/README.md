@@ -104,7 +104,8 @@ specifying the individual tasks and the typical workload involved.
 It is proposed and discussed that the “core team” be revived. 
 
 - [ ] It is decided to conduct a survey on the priorities of the current issues.  
-The survey is scheduled to end in three weeks from today.
+The survey is scheduled to end in three weeks from today.  
+Please find the survey at [&chi;MCF Open Issues Prioritization](https://dud-poll.inf.tu-dresden.de/xMCF/)!
 
 It is decided to hold the next meeting on 2025-11-12 at 15:00&ndash;16:00 CET.  
 The results of the survey will then be evaluated and the next steps will be determined. 
