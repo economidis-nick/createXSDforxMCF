@@ -38,7 +38,8 @@ With version &chi;MCF 3.1.1, we achieved ISO standardization in Aug. 2024, see [
 <hr/>
 
 The most recent meeting of the VDA FAT AK 25 &chi;MCF / ISO/PAS 8329 working group took place online, October&nbsp;15,&nbsp;2025.  
-Minutes are stored in directory [2025-10-15_VideoConference](./VDA_FAT_AK_25/Meetings/2025-10-15_VideoConference)
+Minutes are stored in directory [2025-10-15_VideoConference](./VDA_FAT_AK_25/Meetings/2025-10-15_VideoConference)  
+Please answer the survey about the priorities of our next actions at [&chi;MCF Open Issues Prioritization](https://dud-poll.inf.tu-dresden.de/xMCF/)!
 
 <hr/>
 
