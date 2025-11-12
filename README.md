@@ -3,15 +3,16 @@
 &chi;MCF stands for "extended Master Connection File", a standard for files describing connections of mechanical parts for automotive and similar industries. 
 The project has been initiated by [VDA](https://www.vda.de/en), the German Association of the Automotive Industry
 
-The &chi;MCF 3.0 format specification has been described in text, without a schema. 
-The following version &chi;MCF 3.1 features an XML schema and some improvements.
+The **&chi;MCF 3.0** format specification has been described in text, without a schema. 
+The following version **&chi;MCF 3.1** features an XML schema and some improvements.
 
 We have made slight corrections to the original document, and 
-we are developing the schema, as well as complete examples to accompany the documentation.
+we are developing the schema, as well as [complete examples](./V3.1.1/examples) to accompany the documentation.
 
-In order for us to test-drive the development of the schema, we have built a test suite.
+In order for us to test-drive the development of the [schema](./V3.1.1/xmcf_3_1_1.xsd), 
+we have built a [test suite](./V3.1.1/test_suite).
 
-With version &chi;MCF 3.1.1, we achieved ISO standardization in Aug. 2024, see [ISO/PAS 8329](https://www.iso.org/standard/83119.html).
+With version **&chi;MCF 3.1.1**, we achieved ISO standardization in Aug. 2024, see [ISO/PAS 8329](https://www.iso.org/standard/83119.html).
 
  <table border="1">
   <tr>
@@ -19,32 +20,37 @@ With version &chi;MCF 3.1.1, we achieved ISO standardization in Aug. 2024, see [
   </tr>
   <tr>
     <td align="center" bgcolor="yellow">
-	  The next meeting of the VDA FAT AK 25 &chi;MCF / ISO/PAS 8329 working group 
-	  is scheduled for <br/>
-	  <strong>Wed., November&nbsp;12,&nbsp;2025 15:00&ndash;16:00 CEST</strong> <br/>
+	  The next meetings of the VDA FAT AK 25 &chi;MCF / ISO/PAS 8329 working group 
+	  are scheduled for <br/> <br/>
+	  <strong>Wed., November&nbsp;26,&nbsp;2025 15:00&ndash;16:00 CET</strong> <br/>
+	  <strong>Wed., December&nbsp;10,&nbsp;2025 15:00&ndash;16:00 CET</strong> <br/>
 	  via Microsoft Teams&trade;.
 	</td>
   </tr>
+  <!--
   <tr>
     <td align="center" bgcolor="yellow">
 	  <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NzY4Y2M3NzEtMWQ4Zi00ZGMwLWJlYjQtYjBiNjMyNzc4NGFk%40thread.v2/0?context=%7b%22Tid%22%3a%22c990bb7a-51f4-439b-bd36-9c07fb1041c0%22%2c%22Oid%22%3a%22c43a17ef-8a9e-4c56-954e-97e492c7d670%22%7d">
 	  <b>Join the meeting via this link!</b></a>
 	</td>
   </tr>
+  -->
+  <!--
   <tr>
     <td align="center">
 	  Please <b>answer the survey</b> about the priorities of our next actions at <br/>
 	  <b><a href="https://dud-poll.inf.tu-dresden.de/xMCF/">&chi;MCF Open Issues Prioritization</a></b>!
 	</td>
   </tr>
+  -->
 </table> 
 <!--
 -->
 
 <hr/>
 
-The most recent meeting of the VDA FAT AK 25 &chi;MCF / ISO/PAS 8329 working group took place online, October&nbsp;15,&nbsp;2025.  
-Minutes are stored in directory [2025-10-15_VideoConference](./VDA_FAT_AK_25/Meetings/2025-10-15_VideoConference)  
+The most recent meeting of the VDA FAT AK 25 &chi;MCF / ISO/PAS 8329 working group took place online, November&nbsp;12,&nbsp;2025.  
+Minutes are stored in directory [2025-11-12_VideoConference](./VDA_FAT_AK_25/Meetings/2025-11-12_VideoConference).  
 
 <hr/>
 
