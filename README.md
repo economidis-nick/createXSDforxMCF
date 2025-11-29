@@ -20,21 +20,14 @@ With version **&chi;MCF 3.1.1**, we achieved ISO standardization in Aug. 2024, s
   </tr>
   <tr>
     <td align="center" bgcolor="yellow">
-	  The next meetings of the VDA FAT AK 25 &chi;MCF / ISO/PAS 8329 working group 
-	  are scheduled for <br/> <br/>
-	  <strong>Wed., November&nbsp;26,&nbsp;2025 15:00&ndash;16:00 CET</strong> <br/>
+	  The next meeting of the VDA FAT AK 25 &chi;MCF / ISO/PAS 8329 working group 
+	  is scheduled for <br/> <br/>
 	  <strong>Wed., December&nbsp;10,&nbsp;2025 15:00&ndash;16:00 CET</strong> <br/>
-	  via Microsoft Teams&trade;.
-	</td>
-  </tr>
-  <!--
-  <tr>
-    <td align="center" bgcolor="yellow">
-	  <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_NzY4Y2M3NzEtMWQ4Zi00ZGMwLWJlYjQtYjBiNjMyNzc4NGFk%40thread.v2/0?context=%7b%22Tid%22%3a%22c990bb7a-51f4-439b-bd36-9c07fb1041c0%22%2c%22Oid%22%3a%22c43a17ef-8a9e-4c56-954e-97e492c7d670%22%7d">
+	  via Microsoft Teams&trade;. <br/>
+	  <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2U4NzM1MDAtNWFkNC00NzAzLTk0ODgtMDBjYzE1YWE0Yzg5%40thread.v2/0?context=%7b%22Tid%22%3a%22c990bb7a-51f4-439b-bd36-9c07fb1041c0%22%2c%22Oid%22%3a%22c43a17ef-8a9e-4c56-954e-97e492c7d670%22%7d">
 	  <b>Join the meeting via this link!</b></a>
 	</td>
   </tr>
-  -->
   <!--
   <tr>
     <td align="center">
@@ -49,8 +42,8 @@ With version **&chi;MCF 3.1.1**, we achieved ISO standardization in Aug. 2024, s
 
 <hr/>
 
-The most recent meeting of the VDA FAT AK 25 &chi;MCF / ISO/PAS 8329 working group took place online, November&nbsp;12,&nbsp;2025.  
-Minutes are stored in directory [2025-11-12_VideoConference](./VDA_FAT_AK_25/Meetings/2025-11-12_VideoConference).  
+The most recent meeting of the VDA FAT AK 25 &chi;MCF / ISO/PAS 8329 working group took place online, November&nbsp;26,&nbsp;2025.  
+Minutes are stored in directory [2025-11-26_VideoConference](./VDA_FAT_AK_25/Meetings/2025-11-26_VideoConference).  
 
 <hr/>
 
