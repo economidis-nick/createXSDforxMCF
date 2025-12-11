@@ -8,3 +8,8 @@ Thumbs.db
 ~$*
 ~WRD*.tmp
 ~WRL*.tmp
+
+# Reinclude verson-subdirs for the case they have been excluded by a global rule, before
+!V3.0
+!V3.1
+!V3.1.1
