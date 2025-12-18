@@ -31,7 +31,7 @@ With version **&chi;MCF 3.1.1**, we achieved ISO standardization in Aug. 2024, s
   <tr>
     <td align="center" bgcolor="yellow">
 	  Find more details  
-	  <a href"https://github.com/economidis-nick/createXSDforxMCF/blob/master/VDA_FAT_AK_25/Meetings/2026-01-14_VideoConference/README.md"><b>here.</b></a>
+	  <a href="https://github.com/economidis-nick/createXSDforxMCF/blob/master/VDA_FAT_AK_25/Meetings/2026-01-14_VideoConference/README.md"><b>here.</b></a>
 	</td>
   </tr>
   <!--
