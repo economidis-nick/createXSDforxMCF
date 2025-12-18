@@ -6,7 +6,9 @@
 - Personnel changes / New members
 - Software news
 - χMCF-related findings in PTC Creo  
-- Recent progress & next steps regarding issues #105 and #61 
+- Recent progress & next steps regarding issues 
+  [#105](https://github.com/economidis-nick/createXSDforxMCF/issues/105) and 
+  [#61](https://github.com/economidis-nick/createXSDforxMCF/issues/61). 
 	- Brief summary & program for the next &chi;MCF release 
 	- New structures in GitHub / Initial implementation of the decisions from the last meeting
 	- Presentation and discussion of example files provided by Cadence/BETA&nbsp;CAE 
