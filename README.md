@@ -24,10 +24,14 @@ With version **&chi;MCF 3.1.1**, we achieved ISO standardization in Aug. 2024, s
 	  is scheduled for <br/> <br/>
 	  <strong>Wed., January&nbsp;14,&nbsp;2026 15:00&ndash;16:00 CET</strong> <br/>
 	  via Microsoft Teams&trade;. <br/>
-  <!--
-	  <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2U4NzM1MDAtNWFkNC00NzAzLTk0ODgtMDBjYzE1YWE0Yzg5%40thread.v2/0?context=%7b%22Tid%22%3a%22c990bb7a-51f4-439b-bd36-9c07fb1041c0%22%2c%22Oid%22%3a%22c43a17ef-8a9e-4c56-954e-97e492c7d670%22%7d">
+	  <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OGM2M2NiNGUtMmYyYi00NTAxLWJlOWUtNGJiYzhmZWJmMTRj%40thread.v2/0?context=%7b%22Tid%22%3a%22cd62a082-2dff-4531-9639-704a86053b5c%22%2c%22Oid%22%3a%22d63d16ce-f5c2-43f0-86fc-79cd9c3b38d7%22%7d">
 	  <b>Join the meeting via this link!</b></a>
-  -->
+	</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="yellow">
+	  Find more details  
+	  <a href"https://github.com/economidis-nick/createXSDforxMCF/blob/master/VDA_FAT_AK_25/Meetings/2026-01-14_VideoConference/README.md"><b>here.</b></a>
 	</td>
   </tr>
   <!--
