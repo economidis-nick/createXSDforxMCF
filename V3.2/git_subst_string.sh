@@ -32,7 +32,7 @@ ${PWD}  .....................................
     file_list=`ls -1 *.${file_ext}`
   fi
   
-   echo "------------- 0  $file_list"
+  # echo "------------- 0  $file_list"
   
   for f in $file_list; do
     
@@ -64,7 +64,7 @@ done # for all directories
 
 
 if [[ $changes > 0 ]] ; then 
-  echo "$PWD : $changes applied to files."
+  echo "$PWD : $changes changes applied to files."
   read -p "Press Enter to commit these changes, Ctrl-C to abort!"
   echo "${commit_msg}" | git commit -S -F-
 fi
