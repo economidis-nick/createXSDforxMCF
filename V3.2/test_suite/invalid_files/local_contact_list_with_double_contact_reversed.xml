@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_1_1.xsd">
+	<version>3.1.0</version>
+	<date>2019-01-07</date>
+	<connection_group id="1">
+		<connected_to>
+			<part index="1" label="PART_9004400" pid="3202132"/>
+			<assy index="42">
+				<part label="PART_7000400" pid="110013"/>
+				<part label="PART_7000800" pid="110099"/>
+			</assy>
+		</connected_to>
+		<connection_list>
+			<connection_0d>
+				<loc>12.1058 37.1065 0.881963</loc>
+				<spotweld/>
+				<contact_list>
+					<contact>
+						<partner part_index="1"/>
+						<partner part_index="42"/>
+						<coefficients static_friction="0.3" kinetic_friction=".25"/>
+					</contact>
+					<contact>
+						<partner part_index="1"/>
+						<partner part_index="42"/>
+						<coefficients static_friction="0.3" kinetic_friction=".25"/>
+					</contact>
+				</contact_list>
+			</connection_0d>
+		</connection_list>
+	</connection_group>
+</xmcf>

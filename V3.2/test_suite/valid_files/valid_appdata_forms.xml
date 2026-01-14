@@ -1,0 +1,32 @@
+<xmcf 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="xmcf_3_1_1.xsd">
+
+	<date> 2019-03-09 </date>
+	<version> 3.1.0 </version>
+
+	<connection_group id="1">
+		<connected_to/>
+		<connection_list>
+			<connection_0d>
+				<spotweld/>
+				<loc>0 0 0</loc>
+				<appdata>
+
+					<SOME_PREPROCESSOR 
+						xmlns="http://www.some-preprocessor.com/xMCF" 
+						xsi:schemaLocation="http://www.some-preprocessor.com/xMCF xmcf_Some_Preprocessor.xsd">
+						<connector_id> 333 </connector_id> <!-- validated by the xmcf_Some_Preprocessor.xsd -->
+					</SOME_PREPROCESSOR>
+
+					<SOME_PREPROCESSOR>
+						<unspecified_element/> <!-- not validated by the xmcf_Some_Preprocessor.xsd, but still valid xmcf -->
+					</SOME_PREPROCESSOR>
+
+					<UNSPECIFIED_PREPROCESSOR/> <!-- any non-schema elements may appear in <appdata> -->
+
+					</appdata>
+				</connection_0d>
+			</connection_list>
+		</connection_group>
+	</xmcf>

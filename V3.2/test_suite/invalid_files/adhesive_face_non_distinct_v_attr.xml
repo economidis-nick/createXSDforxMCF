@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_1_1.xsd">
+  <version>3.1.0</version>
+  <date>2019-01-21</date>
+  <connection_group id="1">
+    <connected_to>
+      <part index="1" pid="72001400"/>
+      <part index="2" pid="72001400"/>
+    </connected_to>
+    <connection_list>
+      <connection_2d>
+        <loc_list>
+          <loc v="1">2522.82 -455.818 883.046</loc>
+          <loc v="2">2522.82 -455.818 877.939</loc>
+          <loc v="3">2527.73 -455.818 877.939</loc>
+          <loc v="4">2527.73 -455.818 883.046</loc>
+          <loc v="5">2517.91 -455.818 877.939</loc>
+          <loc v="6">2517.91 -455.818 872.831</loc>
+          <loc v="7">2522.82 -455.818 872.831</loc>
+          <loc v="8">2527.73 -455.818 872.831</loc>
+          <loc v="9">2522.82 -455.818 857.51</loc>
+          <loc v="10">2522.82 -455.818 852.407</loc>
+        </loc_list>
+        <face_list>
+          <face v1="5" v2="5" v3="6" v4="7"/>
+          <face v1="7" v2="8" v3="8"/>
+          <face v1="8" v2="9" v3="10" v4="10"/>
+        </face_list>
+        <adhesive_face/>
+      </connection_2d>
+    </connection_list>
+  </connection_group>
+</xmcf>

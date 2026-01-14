@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_1_1.xsd">
+	<date> 2014-08-07 </date>
+	<version> 3.1.1 </version>
+	<units length="mm" angle="rad" mass="kg" force="N" time="s"/>
+	<connection_group id="1">
+		<connected_to>
+			<part index="1" label="PART_7000400"/>
+			<part index="2" label="PART_7100100"/>
+			<part index="5" label="PART_5000300"/>
+			<part index="6" label="PART_5000800"/>
+		</connected_to>
+		<connection_list>
+			<connection_0d label="CLIP_1001">
+				<clip clipped_to="1" attachment_type="push into round hole" hole_diameter="8.0"     	    hole_length="12.0" pin_diameter="10.0" pin_length="10.0" material="polyamid">
+					<normal_direction x="0" y="0" z="-10"/>
+					<tangential_direction x="0" y="10" z="0"/>
+				</clip>
+				<loc> 1645.83 821.145 616.585 </loc>
+				<appdata>
+				</appdata>
+			</connection_0d>
+		</connection_list>
+	</connection_group>
+</xmcf>

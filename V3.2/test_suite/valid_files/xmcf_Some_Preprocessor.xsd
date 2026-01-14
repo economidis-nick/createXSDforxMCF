@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" 
+	xmlns="http://www.some-preprocessor.com/xMCF" 
+	targetNamespace="http://www.some-preprocessor.com/xMCF" 
+	elementFormDefault="qualified" 
+	attributeFormDefault="unqualified" 
+	vc:minVersion="1.1">
+	
+	<xs:element name="SOME_PREPROCESSOR">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="connector_id" type="xs:int" minOccurs="0" maxOccurs="1"/>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+	
+</xs:schema>

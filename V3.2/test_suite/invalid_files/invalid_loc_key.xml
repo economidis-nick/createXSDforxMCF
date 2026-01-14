@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_1_1.xsd">
+  <version>3.1.0</version>
+  <date>2019-02-24</date>
+  <connection_group id="1">
+    <connected_to>
+      <part index="1" pid="1"/>
+      <part index="2" pid="2"/>
+    </connected_to>
+
+    <connection_list>
+      <connection_1d>
+        <loc_list>
+          <loc v="0">284 7.71793 47.796</loc>
+          <loc v="1">284 19.2821 31.204</loc>
+	  <loc v="1">284 29.2821 21.204</loc> <!-- same v -->
+        </loc_list>
+        <adhesive_line width="1"/>
+      </connection_1d>
+    </connection_list>
+
+  </connection_group>
+</xmcf>
