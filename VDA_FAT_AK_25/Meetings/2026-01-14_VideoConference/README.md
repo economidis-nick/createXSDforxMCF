@@ -25,5 +25,5 @@ For Agenda & Minutes, see attached PDF file:
 ## Other Files 
 
 File [chapter_9_5_7_exampleA__patched_for_xMCF3.2.xml](./chapter_9_5_7_exampleA__patched_for_xMCF3.2.xml) 
-contains the example provided by comment 
-[xy]().
+contains the example provided by comment of
+[2026-10-14 09:17+0100](https://github.com/economidis-nick/createXSDforxMCF/issues/105#issuecomment-3748355548).
