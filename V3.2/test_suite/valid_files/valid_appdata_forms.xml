@@ -1,9 +1,9 @@
 <xmcf 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xsi:noNamespaceSchemaLocation="xmcf_3_1_1.xsd">
+	xsi:noNamespaceSchemaLocation="xmcf_3_2.xsd">
 
 	<date> 2019-03-09 </date>
-	<version> 3.1.0 </version>
+	<version> 3.2 </version>
 
 	<connection_group id="1">
 		<connected_to/>
