@@ -73,6 +73,10 @@ the original specification document and pdf
 * the accompanying examples for the updated document
 * a `test_suite` used for test-driven development of the schema
 
+#### `V3.2/` contains:
+* the working drafts for the next release, &chi;MCF3.2.  
+  For details, see content of milestone [Release V3.2](https://github.com/economidis-nick/createXSDforxMCF/milestone/4).
+
 #### `ISO PAS 8329/` contains:
 * the source for the officially published ISO standard, 
   which is &chi;MCF3.1.1, with some occasional minor bug fixes.
