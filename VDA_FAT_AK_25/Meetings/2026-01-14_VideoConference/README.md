@@ -24,6 +24,10 @@ For Agenda & Minutes, see attached PDF file:
 
 ## Other Files 
 
+File [xmcf_3_2_GHi.xsd](./xmcf_3_2_GHi.xsd) 
+contains the example XML schema provided by comment of
+[2026-10-13 13:54+0100](https://github.com/economidis-nick/createXSDforxMCF/issues/105#issuecomment-3744198077).
+
 File [chapter_9_5_7_exampleA__patched_for_xMCF3.2.xml](./chapter_9_5_7_exampleA__patched_for_xMCF3.2.xml) 
-contains the example provided by comment of
+contains the example XML file provided by comment of
 [2026-10-14 09:17+0100](https://github.com/economidis-nick/createXSDforxMCF/issues/105#issuecomment-3748355548).
