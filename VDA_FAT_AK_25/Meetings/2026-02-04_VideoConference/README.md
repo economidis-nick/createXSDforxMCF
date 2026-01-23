@@ -1,8 +1,4 @@
-# Joint VDA FAT AK 25 / ISO/PAS 8329 &chi;MCF working group meeting  2026-02-18 15:00&ndash;16:00&nbsp;CET online
-
-__Attention__: Quite likely, this meeting collides with the meeting of 
-ISO TC 184 / SC 4 / PPC (Policy and Planning Committee). 
-We are looking forward to hear from its results, though.
+# Joint VDA FAT AK 25 / ISO/PAS 8329 &chi;MCF working group meeting  2026-02-04 15:00&ndash;16:00&nbsp;CET online
 
 ## Draft Agenda 
 
@@ -22,5 +18,5 @@ Join the meeting via this link!</a>
 ## Agenda & Minutes
 
 For Agenda & Minutes, see attached PDF file: 
-[20260218_VDA_FAT_AK_25_xMCF_Working_Group.pdf](./20260218_VDA_FAT_AK_25_xMCF_Working_Group.pdf).
+[20260204_VDA_FAT_AK_25_xMCF_Working_Group.pdf](./20260204_VDA_FAT_AK_25_xMCF_Working_Group.pdf).
 -->
