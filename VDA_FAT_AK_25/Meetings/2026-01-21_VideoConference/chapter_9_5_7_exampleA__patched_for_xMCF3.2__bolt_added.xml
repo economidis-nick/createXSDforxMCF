@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
 <xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_2.xsd">
-	<date> 2026-01-14 </date>
+	<date> 2026-01-25 </date>
 	<version> 3.2 CF </version>
 	<units length="mm" angle="rad" mass="kg" force="N" time="s"/>
 
-	<internal_catalog>
+	<connection_templates>
 			<connection_0d label="screw_catalog_item_4711">
 				<threaded_connection length="50." diameter="10" 
 					head_diameter="16.0" head_height="5" sink_size="4" thread_length="35" 
@@ -27,7 +27,7 @@
 
 <!-- Add examples for spot_welds and gumdrops! -->
 
-	</internal_catalog>
+	</connection_templates>
 
 	<connection_group id="1">
 		<connected_to>
@@ -39,14 +39,14 @@
 		<connection_list>
 			<connection_0d label="SCREW_100532">
 			    <!-- Screw exactly as defined in internal catalog: -->
-				<threaded_connection internal_catalog_item="screw_catalog_item_4711">
+				<threaded_connection template="screw_catalog_item_4711">
 					<normal_direction x="2.9" y="0.1" z="0.0" /> 
 				</threaded_connection>
 				<loc> 1500.3809 838.75885 730.6529 </loc>
 			</connection_0d>
 			<connection_0d label="SCREW_100533">
 			    <!-- Screw exactly as defined in internal catalog, but with smaller torque: -->
-				<threaded_connection internal_catalog_item="screw_catalog_item_4711" torque="70" >
+				<threaded_connection template="screw_catalog_item_4711" torque="70" >
 					<normal_direction x="3.0" y="0.0" z="0.0" /> 
 				</threaded_connection>
 				<loc> 1540.3809 838.75885 730.6529 </loc>
@@ -63,7 +63,7 @@
 		<connection_list>
 			<connection_0d label="SCREW_101537">
 			    <!-- Screw exactly as defined in internal catalog, but with larger washer: -->
-				<threaded_connection internal_catalog_item="screw_catalog_item_4711">
+				<threaded_connection template="screw_catalog_item_4711">
 					<normal_direction x="3.1" y="-0.1" z="0.0" /> 
 					<washer outer_diameter="30"/>
 				</threaded_connection>
@@ -72,7 +72,7 @@
 
 			<connection_0d label="BOLT_100732">
     			<!-- Bolt exactly as defined in internal catalog, but with less torque, larger washer & nut: -->
-    			<threaded_connection internal_catalog_item="bolt_catalog_item_4712" torque="70">
+    			<threaded_connection template="bolt_catalog_item_4712" torque="70">
         			<normal_direction x="3.1" y="-0.1" z="0.0"/> 
         			<washer outer_diameter="30"/> 
         			<bolt> 
