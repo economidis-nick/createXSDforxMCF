@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_2.xsd">
+	<date> 2026-01-25 </date>
+	<version> 3.2 CF </version>
+	<units length="mm" angle="rad" mass="kg" force="N" time="s"/>
+
+	<connection_templates>
+
+			<connection_0d label="GumDrop template">
+				<!-- Assumed Unit system with mass attribute with value="kg" -->
+				<gumdrop diameter="5.0" mass="0.0033" material="CAD_Material" />
+			</connection_0d>
+	
+	</connection_templates>
+
+	<connection_group id="1">
+		<connected_to>
+			<part index="5" label="PART_5000300"/>
+			<part index="6" label="PART_5000800"/>
+		</connected_to>
+		<connection_list>
+		
+			<connection_0d label="DROP 2123921">
+				<!-- Assumed Unit system with mass attribute with value="kg" -->
+				<gumdrop diameter="5.0" mass="0.0033" material="CAD_Material" />
+				<loc> 1645.83 821.145 616.585 </loc>
+			</connection_0d>
+		
+		    <!-- Gum drop exactly as defined in connection_templates: -->
+			<connection_0d label="DROP 2123921a" template="GumDrop template">
+				<gumdrop/>
+				<loc> 1665.83 821.145 616.585 </loc>
+			</connection_0d>
+		
+		    <!-- Gum drop exactly as defined in connection_templates, but with larger mass: -->
+			<connection_0d label="DROP 2123921b" template="GumDrop template">
+				<gumdrop mass="0.0038"/>
+				<loc> 1685.83 821.145 616.585 </loc>
+			</connection_0d>
+			
+		</connection_list>
+	</connection_group>
+</xmcf>
