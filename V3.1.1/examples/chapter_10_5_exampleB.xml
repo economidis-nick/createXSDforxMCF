@@ -15,7 +15,7 @@
 		<connection_list>
 			<connection_1d label="DROP_LINE_11000">
 				<sequence_connection_0d spacing="30.0" margin="1.0" priority="spacing">
-					<gumdrop diameter="4.0" mass="10." material="CAD_Material"/>
+					<gumdrop diameter="4.0" mass="0.0032" material="CAD_Material"/>
 				</sequence_connection_0d>
 				<loc_list>
 					<loc v="1"> 2169.300  -489.495  1773.936 </loc>
