@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_2.xsd">
+	<date> 2026-01-25 </date>
+	<version> 3.2 CF </version>
+	<units length="mm" angle="rad" mass="kg" force="N" time="s"/>
+
+	<connection_templates>
+	
+			<connection_0d label="Spotweld template">   <!-- There must not be an attribute "ident", here! -->
+				<spotweld diameter="5.0"/>
+			</connection_0d>
+
+	</connection_templates>
+
+	<connection_group id="1">
+		<connected_to>
+			<part index="17" pid="1001"/>
+			<part index="72" pid="2001"/>
+		</connected_to>
+		<connection_list>
+		    <!-- Spotweld exactly as defined in connection_templates: -->
+			<connection_0d label="SPOT_3490" ident="3490" template="Spotweld template">
+				<spotweld/>
+				<loc> 1645.83 821.145 616.585 </loc>
+			</connection_0d>
+		</connection_list>
+	</connection_group>
+</xmcf>
