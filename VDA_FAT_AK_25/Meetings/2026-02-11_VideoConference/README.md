@@ -5,7 +5,7 @@
 
 - Welcome
 - Work in progress
-- Focus on the formulation of the new chapters of the standard
+- Focus on detailing the XML elements
 - &hellip;
 
 Feedback and suggestions for changes to this draft agenda are very welcome!
