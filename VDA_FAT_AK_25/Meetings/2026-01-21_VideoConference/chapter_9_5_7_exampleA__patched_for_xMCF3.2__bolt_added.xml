@@ -6,7 +6,7 @@
 
 	<connection_templates>
 	
-			<connection_0d label="screw_catalog_item_4711">
+			<connection_0d label="screw_template_4711">
 				<threaded_connection length="50." diameter="10" 
 					head_diameter="16.0" head_height="5" sink_size="4" thread_length="35" 
 					torque="80" angle="30" pretension="1200" part_code="M10x50 12.9" >
@@ -15,7 +15,7 @@
 				</threaded_connection>
 			</connection_0d>
 
-			<connection_0d label="bolt_catalog_item_4712"> 
+			<connection_0d label="bolt_template_4712"> 
     			<threaded_connection length="50" diameter="10" head_diameter="16" head_height="5" thread_length="35" 
                                      torque="80" angle="30" pretension="1200" part_code="M10x50 12.9"> 
 					<normal_direction x="0" y="0" z="-10"/> 
@@ -38,7 +38,7 @@
 		<connection_list>
 		
 		    <!-- Screw exactly as defined in connection_templates: -->
-			<connection_0d label="SCREW_100532" template="screw_catalog_item_4711">
+			<connection_0d label="SCREW_100532" template="screw_template_4711">
 				<threaded_connection>
 					<normal_direction x="2.9" y="0.1" z="0.0" /> 
 				</threaded_connection>
@@ -46,7 +46,7 @@
 			</connection_0d>
 			
 		    <!-- Screw exactly as defined in connection_templates, but with smaller torque: -->
-			<connection_0d label="SCREW_100533" template="screw_catalog_item_4711">
+			<connection_0d label="SCREW_100533" template="screw_template_4711">
 				<threaded_connection torque="70" >
 					<normal_direction x="3.0" y="0.0" z="0.0" /> 
 				</threaded_connection>
@@ -64,7 +64,7 @@
 		<connection_list>
 
 		    <!-- Screw exactly as defined in connection_templates, but with larger washer: -->
-			<connection_0d label="SCREW_101537" template="screw_catalog_item_4711">
+			<connection_0d label="SCREW_101537" template="screw_template_4711">
 				<threaded_connection>
 					<normal_direction x="3.1" y="-0.1" z="0.0" /> 
 					<washer outer_diameter="30"/>
@@ -73,7 +73,7 @@
 			</connection_0d>
 
    			<!-- Bolt exactly as defined in connection_templates, but with less torque, larger washer & nut: -->
-			<connection_0d label="BOLT_100732" template="bolt_catalog_item_4712">
+			<connection_0d label="BOLT_100732" template="bolt_template_4712">
     			<threaded_connection torque="70">
         			<normal_direction x="3.1" y="-0.1" z="0.0"/> 
         			<washer outer_diameter="30"/> 
