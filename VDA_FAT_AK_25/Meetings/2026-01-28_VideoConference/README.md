@@ -18,7 +18,7 @@ For Agenda & Minutes, see attached PDF file:
 ## Other Files 
 
 - File [../2026-01-21_VideoConference/chapter_9_5_7_exampleA__patched_for_xMCF3.2__bolt_added.xml](../2026-01-21_VideoConference/chapter_9_5_7_exampleA__patched_for_xMCF3.2__bolt_added.xml)  
-contains the `<screw/>`- &amp; `<bolt/>`--example XML file discussed last time, which was improved afterwards.
+contains the `<screw/>`- &amp; `<bolt/>`-example XML file discussed last time, which was improved afterwards.
 - File [chapter_10_5_exampleB__with_templates.xml](./chapter_10_5_exampleB__with_templates.xml)  
 contains the `<sequence_connection_0d/>`-example XML file
 - File [chapter_8_2_2_example__with_templates.xml](./chapter_8_2_2_example__with_templates.xml)  
