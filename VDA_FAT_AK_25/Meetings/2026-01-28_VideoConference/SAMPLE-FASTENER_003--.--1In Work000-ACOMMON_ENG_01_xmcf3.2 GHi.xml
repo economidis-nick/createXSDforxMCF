@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- bearbeitet mit XMLSpy v2025 (x64) (https://www.altova.com) von Deutsche Telekom IT GmbH (Deutsche Telekom IT GmbH) -->
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///C:/Users/A288350/OneDrive%20-%20Deutsche%20Telekom%20AG/Migration%20VDI/Eigene%20Dateien/step/AP242/PDMIF/Koordination/Fasteners/xMCF/xmcf_3_2_GHi.xsd">
+	<version>3.1.1</version>
+	<units length="mm" angle="deg" mass="kg" force="N" time="s" torque="Nm" angular_speed="Hz"/>
+	<date>2023-11-13</date>
+	<connection_templates>
+		<connection_0d label="rivet template #123">
+			<!-- here 'ident' and <loc> (all mandatory attributes/elements except 'label') have to be optional? -->
+			<custom_attributes_list>
+				<custom_attributes owner="Dassault Aviation">
+					<string key="Package_Number">000-A</string>
+					<string key="Shank_Material">NICKEL-COPPER ALLOY</string>
+					<string key="Long_Edge_Distance">example???</string>
+					<string key="Short_Edge_Distance">example???</string>
+				</custom_attributes>
+			</custom_attributes_list>
+			<rivet hardness="1.234" head_type="PROTRUDING" shaft_diameter="2.4" strength_property_class="example???" part_code="Fix0ED946D25A4FCA6D">
+				<normal_direction x="-0.9999999999999968" y="-7.044976121747038E-8" z="3.924432515917374E-8"/>
+				<!-- if the direction is different: remove it from the template and add the <rivet> element in each connection_0d that uses this template => then all other mandatory attributes/elements of the rivet shall be optional, and defined either within the template or within the usage of the template -->
+			</rivet>
+			<appdata>
+				<ANSA/>
+			</appdata>
+		</connection_0d>
+					<connection_0d label="threaded connection #234">
+				<custom_attributes_list>
+					<custom_attributes owner="Dassault Aviation">
+						<string key="Assembly_Type">TIGHT</string>
+						<string key="Locking">UNSPEC</string>
+						<string key="Package_Number">000-A</string>
+						<string key="Threaded_Length">SHORT THREAD</string>
+						<string key="Shank_Material">ALLOY STEEL</string>
+						<string key="Head_Type">HEXAGONAL</string>
+						<string key="Tightening_Torque">ST30908</string>
+						<string key="Metal_Bonding">No</string>
+						<string key="Long_Edge_Distance">example???</string>
+						<string key="Short_Edge_Distance">example???</string>
+					</custom_attributes>
+				</custom_attributes_list>
+				<threaded_connection diameter="4" part_code="38145BE040004M"/>
+				<appdata>
+					<ANSA/>
+				</appdata>
+			</connection_0d>
+	</connection_templates>
+	<connection_group id="1">
+		<connected_to>
+			<part index="1" label="PART004" instance="PART004/PART099/SAMPLE-FASTENER_003"/>
+			<part index="2" label="PART002" instance="PART002.001/PART099/SAMPLE-FASTENER_003"/>
+		</connected_to>
+		<connection_list>
+			<connection_0d ident="100020" label="Fix0ED946D25A4FCA6D.1664997/PART099/SAMPLE-FASTENER_003" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -1205.7 234.251</loc>
+			</connection_0d>
+			<connection_0d ident="100021" label="Fix0ED946D25A4FCA6D.1664998/PART099/SAMPLE-FASTENER_003" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -1164.5 218.266</loc>
+			</connection_0d>
+		</connection_list>
+	</connection_group>
+	<connection_group id="2">
+		<connected_to>
+			<part index="1" label="PART005" instance="PART005.001/PART099/SAMPLE-FASTENER_003"/>
+			<part index="2" label="PART002" instance="PART002.001/PART099/SAMPLE-FASTENER_003"/>
+		</connected_to>
+		<connection_list>
+			<connection_0d ident="100019" label="Fix0ED946D25A4FCA6D.1665407/PART099" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -1113.54 203.194</loc>
+			</connection_0d>
+			<connection_0d ident="100018" label="Fix0ED946D25A4FCA6D.1665408/PART099" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -1101.12 203.109</loc>
+			</connection_0d>
+			<connection_0d ident="100017" label="Fix0ED946D25A4FCA6D.1665409/PART099" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -1088.69 203.024</loc>
+			</connection_0d>
+			<connection_0d ident="100016" label="Fix0ED946D25A4FCA6D.1665410/PART099" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -1076.26 202.939</loc>
+			</connection_0d>
+			<connection_0d ident="100015" label="Fix0ED946D25A4FCA6D.1665411/PART099" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -1063.83 202.854</loc>
+			</connection_0d>
+			<connection_0d ident="100014" label="Fix0ED946D25A4FCA6D.1665412/PART099" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -1051.4 202.769</loc>
+			</connection_0d>
+			<connection_0d ident="100013" label="Fix0ED946D25A4FCA6D.1665413/PART099" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -1038.97 202.684</loc>
+			</connection_0d>
+			<connection_0d ident="100012" label="Fix0ED946D25A4FCA6D.1665414/PART099" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -1026.54 202.599</loc>
+			</connection_0d>
+			<connection_0d ident="100011" label="Fix0ED946D25A4FCA6D.1665415/PART099" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -1014.11 202.514</loc>
+			</connection_0d>
+			<connection_0d ident="100010" label="Fix0ED946D25A4FCA6D.1665416/PART099" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -1001.68 202.429</loc>
+			</connection_0d>
+			<connection_0d ident="100009" label="Fix0ED946D25A4FCA6D.1665417/PART099" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -989.256 202.344</loc>
+			</connection_0d>
+			<connection_0d ident="100008" label="Fix0ED946D25A4FCA6D.1665418/PART099" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -976.827 202.259</loc>
+			</connection_0d>
+			<connection_0d ident="100007" label="Fix0ED946D25A4FCA6D.1665419/PART099" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -964.398 202.174</loc>
+			</connection_0d>
+			<connection_0d ident="100006" label="Fix0ED946D25A4FCA6D.1665420/PART099" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -951.969 202.089</loc>
+			</connection_0d>
+			<connection_0d ident="100005" label="Fix0ED946D25A4FCA6D.1665421/PART099" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -939.54 202.004</loc>
+			</connection_0d>
+			<connection_0d ident="100004" label="Fix0ED946D25A4FCA6D.1665422/PART099" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -927.112 201.919</loc>
+			</connection_0d>
+			<connection_0d ident="100003" label="Fix0ED946D25A4FCA6D.1665423/PART099" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -914.683 201.834</loc>
+			</connection_0d>
+			<connection_0d ident="100002" label="Fix0ED946D25A4FCA6D.1665424/PART099" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -902.254 201.749</loc>
+			</connection_0d>
+			<connection_0d ident="100001" label="Fix0ED946D25A4FCA6D.1665425/PART099" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -889.825 201.664</loc>
+			</connection_0d>
+			<connection_0d ident="100000" label="Fix0ED946D25A4FCA6D.1665426/PART099" template="rivet template #123">
+				<stacking>
+					<level order="1" part_index="2"/>
+					<level order="2" part_index="1"/>
+				</stacking>
+				<loc>3114.05 -877.396 201.579</loc>
+			</connection_0d>
+		</connection_list>
+	</connection_group>
+	<connection_group id="3">
+		<connected_to>
+			<part index="1" label="PART006" instance="PART006.001/SAMPLE-FASTENER_003"/>
+			<part index="2" label="PART003" instance="PART003.001/SAMPLE-FASTENER_003"/>
+			<part index="3" label="PART005" instance="PART005.001/SAMPLE-FASTENER_003"/>
+		</connected_to>
+		<connection_list>
+			<connection_0d ident="100022" label="Fix0ED8261B55697CB4.1664999/SAMPLE-FASTENER_003">
+				<custom_attributes_list>
+					<custom_attributes owner="Dassault Aviation">
+						<string key="Assembly_Type">TIGHT</string>
+						<string key="Locking">UNSPEC</string>
+						<string key="Package_Number">000-A</string>
+						<string key="Threaded_Length">SHORT THREAD</string>
+						<string key="Shank_Material">ALLOY STEEL</string>
+						<string key="Head_Type">HEXAGONAL</string>
+						<string key="Tightening_Torque">ST30908</string>
+						<string key="Metal_Bonding">No</string>
+						<string key="Long_Edge_Distance">example???</string>
+						<string key="Short_Edge_Distance">example???</string>
+					</custom_attributes>
+				</custom_attributes_list>
+				<stacking>
+					<level order="1" part_index="1"/>
+					<level order="2" part_index="2"/>
+					<level order="3" part_index="3"/>
+				</stacking>
+				<loc>2925.76 -847.172 217.851</loc>
+				<threaded_connection diameter="4" strength_property_class="example???" part_code="38145BE040004M">
+					<normal_direction x="-1.1572536032903856E-11" y="2.587355617112651E-12" z="-1"/>
+					<bolt>
+						<nut part_code="39584-040"/>
+					</bolt>
+				</threaded_connection>
+				<appdata>
+					<ANSA/>
+				</appdata>
+			</connection_0d>
+		</connection_list>
+	</connection_group>
+	<connection_group id="4">
+		<connected_to>
+			<part index="1" label="PART006" instance="PART006.001/SAMPLE-FASTENER_003"/>
+			<part index="2" label="PART003" instance="PART003.001/SAMPLE-FASTENER_003"/>
+		</connected_to>
+		<connection_list>
+			<connection_0d ident="100023" label="Fix0ED80A47F7A55C08.1665000/SAMPLE-FASTENER_003" template="threaded connection #234">
+				<stacking>
+					<level order="1" part_index="1"/>
+					<level order="2" part_index="2"/>
+				</stacking>
+				<loc>3105.48 -850.429 217.051</loc>
+				<threaded_connection> <!-- here I reused the threaded_connection attributes from the template "threaded connection #234" and define the normal_direction, bolt and washer -->
+					<normal_direction x="-1.1572536032903856E-11" y="2.587355617112651E-12" z="-1"/>
+					<bolt>
+						<nut part_code="39584-040"/>
+					</bolt>
+					<washer part_code="23112DG040A"/>
+				</threaded_connection>
+			</connection_0d>
+		</connection_list>
+	</connection_group>
+</xmcf>
