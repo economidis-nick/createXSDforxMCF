@@ -7,6 +7,7 @@ We are looking forward to hear from its results, though.
 ## Draft Agenda 
 
 - Welcome
+- Introduction to Schematron verification by AFNeT Services
 - Work in progress
 - &hellip;
 
