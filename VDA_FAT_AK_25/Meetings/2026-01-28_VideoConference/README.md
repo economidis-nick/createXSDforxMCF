@@ -27,6 +27,8 @@ contains the `<spotweld/>`-example XML file
 contains the `<rivet/>`-example XML file
 - File [chapter_9_6_example__with_templates.xml](./chapter_9_6_example__with_templates.xml)  
 contains the `<gumdrop/>`-example XML file
+- File [SAMPLE-FASTENER_003--.--1In Work000-ACOMMON_ENG_01_xmcf3.2 GHi.xml](./SAMPLE-FASTENER_003--.--1In Work000-ACOMMON_ENG_01_xmcf3.2 GHi.xml)  
+contains the example XML file provided by @ghirel/PDM-IF.
 
 
 
