@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_2.xsd">
+	<date> 2026-02-08 </date>
+	<version> 3.2 CF </version>
+	<units length="mm" angle="rad" mass="kg" force="N" time="s"/>
+
+	<connection_templates>
+	
+			<connection_0d label="screw_template_4711">
+				<threaded_connection length="50." diameter="10" 
+					head_diameter="16.0" head_height="5" sink_size="4" thread_length="35" 
+					torque="80" angle="30" pretension="1200" part_code="M10x50 12.9" >
+					<screw /> <!-- Screw may come without any attributes --> 
+					<washer outer_diameter="20"/>
+				</threaded_connection>
+			</connection_0d>
+
+			<connection_0d label="bolt_template_4712"> 
+    			<threaded_connection length="50" diameter="10" head_diameter="16" head_height="5" thread_length="35" 
+                                     torque="80" angle="30" pretension="1200" part_code="M10x50 12.9"> 
+					<normal_direction x="0" y="0" z="-10"/> 
+					<washer outer_diameter="20" inner_diameter="10.3" thickness="1.5" attached="true"/> 
+					<bolt> 
+						<nut diameter="16." height="5" static_friction="0.8" clipped_to="4"/>
+					</bolt> 
+     			</threaded_connection> 
+			</connection_0d>
+
+
+			<!-- The new parameter "template_label" is allowed for a template, only. -->
+			<washer template_label="template for a loose washer" 
+				outer_diameter="20" inner_diameter="10.3" thickness="1.5" 
+				strength_property_class="12.9" part_code="M10x20x1.5 12.9"
+				attached="false" static_friction="0.8" kinetic_friction="0.6" />
+				<!-- Washer next to nut with its friction to last part -->
+				
+			<!-- The new parameter "template_label" is allowed for a template, only. -->
+			<nut template_label="template for a nut with an attached washer" 
+				diameter="16." height="5" static_friction="0.8" kinetic_friction="0.6" strength_property_class="12.9" part_code="M10x5 nut 12.9">
+				<!-- Attributes "torque" and "angle" must not appear in a template! -->
+				<!-- Attributes "clipped_to" or "fixed_to" must not appear in a template, since they each contain a flange partner index! -->
+				<!-- The washer of this nut is attached to it in such a way that it can rotate. 
+				     Therefore, the nut's friction against the washer is meaningful. -->
+
+				<!-- If the washer is part of or firmly attached to the nut, it cannot have a part code! -->
+				<washer outer_diameter="25" thickness="1.5" strength_property_class="12.9" 
+					attached="true" static_friction="0.7" kinetic_friction="0.5"/>
+				<!-- The friction of the washer describes the contact to the connected part. -->
+				<!-- This washer could reference a template, itself. -->
+			</nut>
+			
+			<!-- The next bolt template references washer and nut templates, itself: -->
+			<connection_0d label="bolt_template_4733"> 
+    			<threaded_connection length="50" diameter="10" head_diameter="16" head_height="5" thread_length="35" 
+                                     part_code="M10x50 12.9"> 
+					<!-- Attributes "torque", "angle" and "pretension" must not appear in a template! -->
+					<normal_direction x="0" y="0.8" z="-1.2"/> 
+					<washer template="template for a loose washer"/>  <!-- The washer next to the bolt's head. -->
+					<bolt> 
+						<nut template="template for a nut with an attached washer"/> <!-- This nut has a washer attached. -->
+					</bolt> 
+     			</threaded_connection> 
+			</connection_0d>
+
+
+	</connection_templates>
+
+	<connection_group id="1">
+		<connected_to>
+			<part index="1" label="PART_7000400"/>
+			<part index="2" label="PART_7100100"/>
+			<part index="5" label="PART_5000300"/>
+			<part index="6" label="PART_5000800"/>
+		</connected_to>
+		<connection_list>
+		
+		    <!-- Screw exactly as defined in connection_templates: -->
+			<connection_0d label="SCREW_100532" template="screw_template_4711">
+				<threaded_connection>
+					<normal_direction x="2.9" y="0.1" z="0.0" /> 
+				</threaded_connection>
+				<loc> 1500.3809 838.75885 730.6529 </loc>
+			</connection_0d>
+			
+		    <!-- Screw exactly as defined in connection_templates, but with smaller torque: -->
+			<connection_0d label="SCREW_100533" template="screw_template_4711">
+				<threaded_connection torque="70" >
+					<normal_direction x="3.0" y="0.0" z="0.0" /> 
+				</threaded_connection>
+				<loc> 1540.3809 838.75885 730.6529 </loc>
+			</connection_0d>
+		</connection_list>
+	</connection_group>
+	<connection_group id="101">
+		<connected_to>
+			<part index="1" label="PART_8000400"/>
+			<part index="2" label="PART_8100100"/>
+			<part index="5" label="PART_6000300"/>
+			<part index="6" label="PART_6000800"/>
+		</connected_to>
+		<connection_list>
+
+		    <!-- Screw exactly as defined in connection_templates, but with larger washer: -->
+			<connection_0d label="SCREW_101537" template="screw_template_4711">
+				<threaded_connection>
+					<normal_direction x="3.1" y="-0.1" z="0.0" /> 
+					<washer outer_diameter="30"/>
+				</threaded_connection>
+				<loc> 1580.3809 838.75885 730.6529 </loc>
+			</connection_0d>
+
+   			<!-- Bolt exactly as defined in connection_templates, but with less torque, larger washer & nut: -->
+			<connection_0d label="BOLT_100732" template="bolt_template_4712">
+    			<threaded_connection torque="70">
+        			<normal_direction x="3.1" y="-0.1" z="0.0"/> 
+        			<washer outer_diameter="30"/> 
+        			<bolt> 
+            			<nut height="8"/>
+        			</bolt> 
+    			</threaded_connection>
+			</connection_0d>
+
+		</connection_list>
+	</connection_group>
+</xmcf>
