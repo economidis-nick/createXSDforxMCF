@@ -21,7 +21,7 @@
 					<normal_direction x="0" y="0" z="-10"/> 
 					<washer outer_diameter="20" inner_diameter="10.3" thickness="1.5" attached="true"/> 
 					<bolt> 
-						<nut diameter="16." height="5" static_friction="0.8" clipped_to="4"/>
+						<nut diameter="16." height="5" />
 					</bolt> 
      			</threaded_connection> 
 			</connection_0d>
