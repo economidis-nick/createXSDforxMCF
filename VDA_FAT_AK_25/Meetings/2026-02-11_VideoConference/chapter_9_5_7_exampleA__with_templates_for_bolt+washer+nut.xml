@@ -7,21 +7,27 @@
 	<connection_templates>
 	
 			<connection_0d label="screw_template_4711">
-				<threaded_connection length="50." diameter="10" 
-					head_diameter="16.0" head_height="5" sink_size="4" thread_length="35" 
-					torque="80" angle="30" pretension="1200" part_code="M10x50 12.9" >
+				<threaded_connection part_code="M10x50 12.9" length="50." diameter="10" 
+					head_diameter="16.0" head_height="5" sink_size="4" thread_length="35" >
+					<!-- Attributes "torque", "angle" and "pretension" must not appear in a template! -->
 					<screw /> <!-- Screw may come without any attributes --> 
 					<washer outer_diameter="20"/>
 				</threaded_connection>
 			</connection_0d>
 
 			<connection_0d label="bolt_template_4712"> 
-    			<threaded_connection length="50" diameter="10" head_diameter="16" head_height="5" thread_length="35" 
-                                     torque="80" angle="30" pretension="1200" part_code="M10x50 12.9"> 
+    			<threaded_connection part_code="M10x50 12.9" length="50" diameter="10" 
+					head_diameter="16.0" head_height="5" sink_size="4" thread_length="35" >
+					<!-- Attributes "torque", "angle" and "pretension" must not appear in a template! -->
 					<normal_direction x="0" y="0" z="-10"/> 
 					<washer outer_diameter="20" inner_diameter="10.3" thickness="1.5" attached="true"/> 
+					<!-- Washer attached to the screw head -->
 					<bolt> 
 						<nut diameter="16." height="5" />
+						<!-- Friction attributes must not appear in a template, 
+							 unless it is against an attached washer -->
+						<!-- Attributes "clipped_to" or "fixed_to" must not appear in a template, 
+							 since they each contain a flange partner index! -->
 					</bolt> 
      			</threaded_connection> 
 			</connection_0d>
@@ -30,17 +36,19 @@
 			<!-- The new parameter "template_label" is allowed for a template, only. -->
 			<washer template_label="template for a loose washer" 
 				outer_diameter="20" inner_diameter="10.3" thickness="1.5" 
-				strength_property_class="12.9" part_code="M10x20x1.5 12.9"
-				attached="false" static_friction="0.8" kinetic_friction="0.6" />
-				<!-- Washer next to nut with its friction to last part -->
+				strength_property_class="12.9" part_code="M10x20x1.5 12.9" />
+				<!-- Washer next to nut would have friction to last part, which is unknown. Thus, not allowed. -->
+				<!-- A washer can be attached to a screw head or a nut. 
+				     But here as a template without context, one can't know. Thus, "attached" is not allowed. -->
 				
 			<!-- The new parameter "template_label" is allowed for a template, only. -->
 			<nut template_label="template for a nut with an attached washer" 
-				diameter="16." height="5" static_friction="0.8" kinetic_friction="0.6" strength_property_class="12.9" part_code="M10x5 nut 12.9">
+				diameter="16." height="5" strength_property_class="12.9" part_code="M10x5 nut 12.9"
+				static_friction="0.8" kinetic_friction="0.6" >
 				<!-- Attributes "torque" and "angle" must not appear in a template! -->
 				<!-- Attributes "clipped_to" or "fixed_to" must not appear in a template, since they each contain a flange partner index! -->
 				<!-- The washer of this nut is attached to it in such a way that it can rotate. 
-				     Therefore, the nut's friction against the washer is meaningful. -->
+				     Therefore, the nut's friction against the washer is meaningful and allowed. -->
 
 				<!-- If the washer is part of or firmly attached to the nut, it cannot have a part code! -->
 				<washer outer_diameter="25" thickness="1.5" strength_property_class="12.9" 
@@ -57,7 +65,7 @@
 					<normal_direction x="0" y="0.8" z="-1.2"/> 
 					<washer template="template for a loose washer"/>  <!-- The washer next to the bolt's head. -->
 					<bolt> 
-						<nut template="template for a nut with an attached washer"/> <!-- This nut has a washer attached. -->
+						<nut template="template for a nut with an attached washer"/><!-- Nut has a washer attached.-->
 					</bolt> 
      			</threaded_connection> 
 			</connection_0d>
