@@ -23,12 +23,13 @@ see content of milestone [Release V3.2](https://github.com/economidis-nick/creat
   </tr>
   <tr>
     <td align="center" bgcolor="yellow">
-	  The next meetings of the VDA FAT AK 25 &chi;MCF / ISO/PAS 8329 working group 
-	  are scheduled for <br/> <br/>
-	  <strong>Wed., January&nbsp;21,&nbsp;2026 15:00&ndash;16:30 CET</strong> (technical focus group) <br/>
+	  The next meeting(s) of the VDA FAT AK 25 &chi;MCF / ISO/PAS 8329 working group 
+	  is/are scheduled for <br/> <br/>
+	  <strong>Wed., Feb.&nbsp;18,&nbsp;2026 15:00&ndash;16:30 CET</strong> (technical focus group) <br/><!--
 	  and <br/>
-	  <strong>Wed., January&nbsp;28,&nbsp;2026 15:00&ndash;16:00 CET</strong> (full group) <br/>
+	  <strong>Wed., January&nbsp;28,&nbsp;2026 15:00&ndash;16:00 CET</strong> (full group) <br/>-->
 	  via Microsoft Teams&trade;. <br/>
+	  <em>Special guest today: AFNeT Services, providing an introduction to Schematron verification for XML files</em><br/>
 	  <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OGM2M2NiNGUtMmYyYi00NTAxLWJlOWUtNGJiYzhmZWJmMTRj%40thread.v2/0?context=%7b%22Tid%22%3a%22cd62a082-2dff-4531-9639-704a86053b5c%22%2c%22Oid%22%3a%22d63d16ce-f5c2-43f0-86fc-79cd9c3b38d7%22%7d">
 	  <b>Join the meeting via this link!</b></a>
 	</td>
@@ -36,9 +37,9 @@ see content of milestone [Release V3.2](https://github.com/economidis-nick/creat
   <tr>
     <td align="center" bgcolor="yellow">
 	  Find more details  
-	  <a href="https://github.com/economidis-nick/createXSDforxMCF/blob/master/VDA_FAT_AK_25/Meetings/2026-01-21_VideoConference/README.md"><b>here</b></a>
+	  <a href="https://github.com/economidis-nick/createXSDforxMCF/blob/master/VDA_FAT_AK_25/Meetings/2026-02-18_VideoConference/README.md"><b>here</b></a><!--
 	  and
-	  <a href="https://github.com/economidis-nick/createXSDforxMCF/blob/master/VDA_FAT_AK_25/Meetings/2026-01-28_VideoConference/README.md"><b>here</b></a>.
+	  <a href="https://github.com/economidis-nick/createXSDforxMCF/blob/master/VDA_FAT_AK_25/Meetings/2026-01-28_VideoConference/README.md"><b>here</b></a>-->.
 	</td>
   </tr>
   <!--
@@ -55,8 +56,8 @@ see content of milestone [Release V3.2](https://github.com/economidis-nick/creat
 
 <hr/>
 
-The most recent meeting of the VDA FAT AK 25 &chi;MCF / ISO/PAS 8329 working group took place online, January&nbsp;14,&nbsp;2026.  
-Minutes are stored in directory [2026-01-14_VideoConference](./VDA_FAT_AK_25/Meetings/2026-01-14_VideoConference).  
+The most recent meeting of the VDA FAT AK 25 &chi;MCF / ISO/PAS 8329 working group took place online, Feb&nbsp;11,&nbsp;2026.  
+Minutes are stored in directory [2026-02-11_VideoConference](./VDA_FAT_AK_25/Meetings/2026-02-11_VideoConference).  
 
 <hr/>
 
