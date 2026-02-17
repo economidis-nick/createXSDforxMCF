@@ -2,16 +2,17 @@
 # &mdash; technically oriented focus group on issues [#105](https://github.com/economidis-nick/createXSDforxMCF/issues/105) / [#61](https://github.com/economidis-nick/createXSDforxMCF/issues/61) for detailing XML elements &mdash;
 
 __Attention__: Quite likely, this meeting collides with the meeting of 
-ISO TC 184 / SC 4 / PPC (Policy and Planning Committee). 
+ISO TC 184 / SC 4 / PPC (Policy and Planning Committee).  
 We are looking forward to hear from its results, though.
 
 ## Draft Agenda 
 
 - Welcome
-- Timeline for next release
-- Introduction to Schematron verification by AFNeT Services
-- Work in progress
-- Focus on detailing the XML elements
+- Timeline for next release &mdash; A _summer_ release is becoming increasingly _unlikely_.
+- Introduction to Schematron XML verification by AFNeT Services
+- Results of today’s PPC (if possible) 
+- Study on bolt templates by BETA CAE 
+- Focus on detailing the XML elements, based at issue [#105](https://github.com/economidis-nick/createXSDforxMCF/issues/105).
 - Steps we should take next 
 
 - &hellip;
