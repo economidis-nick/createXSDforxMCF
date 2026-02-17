@@ -31,3 +31,17 @@ Join the meeting via this link!</a>
 For Agenda & Minutes, see attached PDF file: 
 [20260218_VDA_FAT_AK_25_xMCF_Working_Group.pdf](./20260218_VDA_FAT_AK_25_xMCF_Working_Group.pdf).
 -->
+
+
+<hr/>
+
+
+## Proposed dates for the next meetings:
+
+| day \& time             | group                                     | objective                            |
+|-------------------------|-------------------------------------------|--------------------------------------|
+| 2026-02-25, 15:00 CET   | focus group on the issues mentioned above | agree on XML format suggestions      |
+| 2026-03-11, 15:00 CET   | full group                                | agree on XML format suggestions      |  
+| 2026-03-25, 15:00 CET   | focus group on the issues mentioned above | agree on DOC suggestions \& examples |
+| 2026-04-01, 15:00 CEST  | full group                                | agree on DOC suggestions \& examples | 
+
