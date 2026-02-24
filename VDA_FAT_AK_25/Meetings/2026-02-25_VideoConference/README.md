@@ -9,6 +9,7 @@
 - Results of last week’s PPC (if any) 
 - How can we leverage the "[power of Schematron](../2026-02-18_VideoConference/Schematron_introduction_for_Team_xMCF.pdf)" for (which of) our purposes?  
   What priority would we assign to setting up this means of verification?
+- Stephan's [comment to issue #105](https://github.com/economidis-nick/createXSDforxMCF/issues/105#issuecomment-3920571508)
 - Focus on detailing the XML elements
 - Steps we should take next 
 - &hellip;
