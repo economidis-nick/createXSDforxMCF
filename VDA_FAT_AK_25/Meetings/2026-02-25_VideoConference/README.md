@@ -5,7 +5,6 @@
 
 - Welcome
 - Timeline for next release
-- Work in progress
 - Results of last week’s PPC (if any) 
 - How can we leverage the "[power of Schematron](../2026-02-18_VideoConference/Schematron_introduction_for_Team_xMCF.pdf)" for (which of) our purposes?  
   What priority would we assign to setting up this means of verification?
