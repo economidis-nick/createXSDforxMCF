@@ -14,7 +14,7 @@ we have built a [test suite](./V3.1.1/test_suite).
 
 With version **&chi;MCF 3.1.1**, we achieved ISO standardization in Aug. 2024, see [ISO/PAS 8329](https://www.iso.org/standard/83119.html).
 
-With version **&chi;MCF 3.2**, we currently work on _catalogs_ and more minor features, 
+With version **&chi;MCF 3.2**, we currently work on _catalogs_ aka. _templates_ and more minor features, 
 see content of milestone [Release V3.2](https://github.com/economidis-nick/createXSDforxMCF/milestone/4).
 
  <table border="1">
@@ -25,7 +25,7 @@ see content of milestone [Release V3.2](https://github.com/economidis-nick/creat
     <td align="center" bgcolor="yellow">
 	  The next meeting(s) of the VDA FAT AK 25 &chi;MCF / ISO/PAS 8329 working group 
 	  is/are scheduled for <br/> <br/>
-	  <strong>Wed., Feb.&nbsp;18,&nbsp;2026 15:00&ndash;16:30 CET</strong> (technical focus group) <br/><!--
+	  <strong>Wed., Mar.&nbsp;11,&nbsp;2026 15:00&ndash;16:00 CET</strong> <!--(technical focus group)--> (full group) <br/><!--
 	  and <br/>
 	  <strong>Wed., January&nbsp;28,&nbsp;2026 15:00&ndash;16:00 CET</strong> (full group) <br/>-->
 	  via Microsoft Teams&trade;. <br/>
@@ -37,7 +37,7 @@ see content of milestone [Release V3.2](https://github.com/economidis-nick/creat
   <tr>
     <td align="center" bgcolor="yellow">
 	  Find more details  
-	  <a href="https://github.com/economidis-nick/createXSDforxMCF/blob/master/VDA_FAT_AK_25/Meetings/2026-02-18_VideoConference/README.md"><b>here</b></a><!--
+	  <a href="https://github.com/economidis-nick/createXSDforxMCF/blob/master/VDA_FAT_AK_25/Meetings/2026-03-11_VideoConference/README.md"><b>here</b></a><!--
 	  and
 	  <a href="https://github.com/economidis-nick/createXSDforxMCF/blob/master/VDA_FAT_AK_25/Meetings/2026-01-28_VideoConference/README.md"><b>here</b></a>-->.
 	</td>
@@ -56,8 +56,8 @@ see content of milestone [Release V3.2](https://github.com/economidis-nick/creat
 
 <hr/>
 
-The most recent meeting of the VDA FAT AK 25 &chi;MCF / ISO/PAS 8329 working group took place online, Feb&nbsp;11,&nbsp;2026.  
-Minutes are stored in directory [2026-02-11_VideoConference](./VDA_FAT_AK_25/Meetings/2026-02-11_VideoConference).  
+The most recent meeting of the VDA FAT AK 25 &chi;MCF / ISO/PAS 8329 working group took place online, Feb&nbsp;25,&nbsp;2026.  
+Minutes are stored in directory [2026-02-25_VideoConference](./VDA_FAT_AK_25/Meetings/2026-02-25_VideoConference).  
 
 <hr/>
 
