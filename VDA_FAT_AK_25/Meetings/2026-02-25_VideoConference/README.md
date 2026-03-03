@@ -11,22 +11,12 @@
 - Stephan's [comment to issue #105](https://github.com/economidis-nick/createXSDforxMCF/issues/105#issuecomment-3920571508)
 - Focus on detailing the XML elements
 - Steps we should take next 
-- &hellip;
 
-Feedback and suggestions for changes to this draft agenda are very welcome!
 
-Therefore, it is advisable to check back here before the meeting and, 
-if necessary, also view the file history.
-
-<a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OGM2M2NiNGUtMmYyYi00NTAxLWJlOWUtNGJiYzhmZWJmMTRj%40thread.v2/0?context=%7b%22Tid%22%3a%22cd62a082-2dff-4531-9639-704a86053b5c%22%2c%22Oid%22%3a%22d63d16ce-f5c2-43f0-86fc-79cd9c3b38d7%22%7d">
-Join the meeting via this link!</a>
-
-<!--
 ## Agenda & Minutes
 
 For Agenda & Minutes, see attached PDF file: 
 [20260225_VDA_FAT_AK_25_xMCF_Working_Group.pdf](./20260225_VDA_FAT_AK_25_xMCF_Working_Group.pdf).
--->
 
 
 
