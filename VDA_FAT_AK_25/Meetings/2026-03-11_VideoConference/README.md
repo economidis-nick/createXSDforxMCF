@@ -1,14 +1,16 @@
 # Joint VDA FAT AK 25 / ISO/PAS 8329 &chi;MCF working group meeting  2026-03-11 15:00&ndash;16:00&nbsp;CET online
+# &mdash; technically oriented focus group on issues [#105](https://github.com/economidis-nick/createXSDforxMCF/issues/105) / [#61](https://github.com/economidis-nick/createXSDforxMCF/issues/61) for detailing XML elements &mdash;
 
 
 ## Draft Agenda 
 
-- Welcome
-- Timeline for next release
-- Work in progress
-- Focus on detailing the XML elements
+- Welcome & Flying over today's topics 
+- Timeline for next release 
+- Results of last PPC (if any)
+- Short recap on [Schematron](https://github.com/economidis-nick/createXSDforxMCF/blob/master/VDA_FAT_AK_25/Meetings/2026-02-18_VideoConference/Schematron_introduction_for_Team_xMCF.pdf) and its priority 
+- How do we design templates in the XSD file?  —  [Nick’s reply](https://github.com/economidis-nick/createXSDforxMCF/issues/105#issuecomment-3961460418) to [Stephan’s comment to issue #105](https://github.com/economidis-nick/createXSDforxMCF/issues/105#issuecomment-3920571508) 
+- Focus on detailing the XML elements, based at issue [#105](https://github.com/economidis-nick/createXSDforxMCF/issues/105) 
 - Steps we should take next 
-- &hellip;
 
 Feedback and suggestions for changes to this draft agenda are very welcome!
 
