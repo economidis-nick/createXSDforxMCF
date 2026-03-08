@@ -25,11 +25,11 @@ see content of milestone [Release V3.2](https://github.com/economidis-nick/creat
     <td align="center" bgcolor="yellow">
 	  The next meeting(s) of the VDA FAT AK 25 &chi;MCF / ISO/PAS 8329 working group 
 	  is/are scheduled for <br/> <br/>
-	  <strong>Wed., Mar.&nbsp;11,&nbsp;2026 15:00&ndash;16:00 CET</strong> <!--(technical focus group)--> (full group) <br/><!--
+	  <strong>Wed., Mar.&nbsp;11,&nbsp;2026 15:00&ndash;16:00 CET</strong> (technical focus group) <!--(full group)--> <br/><!--
 	  and <br/>
 	  <strong>Wed., January&nbsp;28,&nbsp;2026 15:00&ndash;16:00 CET</strong> (full group) <br/>-->
 	  via Microsoft Teams&trade;. <br/>
-	  <em>Special guest today: AFNeT Services, providing an introduction to Schematron verification for XML files</em><br/>
+	  <!-- <em>Special guest today: AFNeT Services, providing an introduction to Schematron verification for XML files</em><br/> -->
 	  <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OGM2M2NiNGUtMmYyYi00NTAxLWJlOWUtNGJiYzhmZWJmMTRj%40thread.v2/0?context=%7b%22Tid%22%3a%22cd62a082-2dff-4531-9639-704a86053b5c%22%2c%22Oid%22%3a%22d63d16ce-f5c2-43f0-86fc-79cd9c3b38d7%22%7d">
 	  <b>Join the meeting via this link!</b></a>
 	</td>
