@@ -3,10 +3,11 @@
 
 ## Draft Agenda 
 
-- Welcome
+- Welcome \& Flying over today's topics
 - Timeline for next release
+- Results of last PPC (if any)
 - Work in progress
-- Focus on DOC suggestions \& examples
+- Focus on XML suggestions \& examples
 - Steps we should take next 
 - &hellip;
 
@@ -34,5 +35,8 @@ For Agenda & Minutes, see attached PDF file:
 
 | day \& time             | group                                     | objective                            |
 |-------------------------|-------------------------------------------|--------------------------------------|
-| 2026-04-01, 15:00 CEST  | full group                                | agree on DOC suggestions \& examples | 
+| 2026-04-01, 15:00 CEST  | full group                                | agree on XML / DOC suggestions \& examples | 
+| 2026-04-08, 15:00 CEST  | t.b.d.                                    | t.b.d.                               | 
+| 2026-04-15, 15:00 CEST  | t.b.d.                                    | t.b.d.                               | 
+| 2026-04-22, 15:00 CEST  | t.b.d.                                    | t.b.d.                               | 
 
