@@ -6,10 +6,10 @@
 - Welcome \& Flying over today's topics
 - Timeline for next release
 - Results of last PPC (if any)
-- Work in progress
+- [Schematron](../2026-02-18_VideoConference/Schematron_introduction_for_Team_xMCF.pdf)
+- How do we design templates in the XSD file?  —  Nick and Stephan’s [discussion at issue #105](https://github.com/economidis-nick/createXSDforxMCF/issues/105#issuecomment-4107106740) 
 - Focus on XML suggestions \& examples
 - Steps we should take next 
-- &hellip;
 
 Feedback and suggestions for changes to this draft agenda are very welcome!
 
