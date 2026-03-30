@@ -25,7 +25,7 @@ For Agenda & Minutes, see attached PDF file:
 
 | day \& time             | group                                     | objective                            |
 |-------------------------|-------------------------------------------|--------------------------------------|
-| 2026-04-01, 15:00 CEST  | full group                                | agree on XML / DOC suggestions \& examples | 
+| 2026-04-01, 15:00 CEST  | focus group on the issues mentioned above | agree on XML suggestions \& examples | 
 | 2026-04-08, 15:00 CEST  | t.b.d.                                    | t.b.d.                               | 
 | 2026-04-15, 15:00 CEST  | t.b.d.                                    | t.b.d.                               | 
 | 2026-04-22, 15:00 CEST  | t.b.d.                                    | t.b.d.                               | 
