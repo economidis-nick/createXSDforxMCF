@@ -1,14 +1,14 @@
 # Joint VDA FAT AK 25 / ISO/PAS 8329 &chi;MCF working group meeting  2026-04-01 15:00&ndash;16:00&nbsp;CEST online
-
+# &mdash; technically oriented focus group on issues [#105](https://github.com/economidis-nick/createXSDforxMCF/issues/105) / [#61](https://github.com/economidis-nick/createXSDforxMCF/issues/61) for detailing XML elements &mdash;
 
 ## Draft Agenda 
 
 - Welcome \& Flying over today's topics
 - Timeline for next release
 - Work in progress
-- Focus on XML / DOC suggestions \& examples
+- How do we design templates in the XSD file?  —  Nick and Stephan’s [discussion at issue #105](https://github.com/economidis-nick/createXSDforxMCF/issues/105#issuecomment-4149643044) 
+- Focus on XML suggestions \& examples
 - Steps we should take next 
-- &hellip;
 
 Feedback and suggestions for changes to this draft agenda are very welcome!
 
@@ -46,7 +46,7 @@ For Agenda & Minutes, see attached PDF file:
 
 | day \& time             | group                                     | objective                            |
 |-------------------------|-------------------------------------------|--------------------------------------|
-| 2026-04-08, 15:00 CEST  | t.b.d.                                    | t.b.d.                               | 
+| 2026-04-08, 15:00 CEST  | focus group on the issues mentioned above | agree on XML suggestions \& examples | 
 | 2026-04-15, 15:00 CEST  | t.b.d.                                    | t.b.d.                               | 
 | 2026-04-22, 15:00 CEST  | t.b.d.                                    | t.b.d.                               | 
 
