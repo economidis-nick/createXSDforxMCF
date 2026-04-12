@@ -1,12 +1,11 @@
-## How to use it:
+## What to download to use Schematron:
 
 * Download Saxon-HE (free, Java-based).
 * Download the ISO Schematron XSLT skeleton files from github (Schematron/stf):
-
-** `iso_dsdl_include.xsl`
-** `iso_abstract_expand.xsl`
-** `iso_svrl_for_xslt2.xsl`
-** `iso_schematron_skeleton_for_saxon.xsl`
+  - `iso_dsdl_include.xsl`
+  - `iso_abstract_expand.xsl`
+  - `iso_svrl_for_xslt2.xsl`
+  - `iso_schematron_skeleton_for_saxon.xsl`
 
 
 ## How to run Schematron
