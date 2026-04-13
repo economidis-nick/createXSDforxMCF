@@ -36,11 +36,6 @@
         <loc> 10.0 20.0 30.0 </loc>
       </connection_0d>
       
-      <connection_0d template_label="gdr_tmpl_0">  <!-- template is a gumdrop -->
-        <loc> 10.0 20.0 30.0 </loc>
-        <spotweld/>	<!--THIS SHOULD FAIL : template is a gumdrop! -->
-      </connection_0d>
-      
       <connection_0d template_label="gdr_tmpl_1">
         <loc> 10.0 20.0 30.0 </loc>
         <gumdrop/>    <!-- gumdrop inherits diameter="3.0" from template -->
