@@ -29,10 +29,20 @@ java -jar SaxonHE12-9J\saxon-he-12.9.jar -s:valid_files\gumdrop_template.xml -xs
 
 ## How to validate using Schematron (short version)
 
-I've added all of the above under a simple bash script, `generate_validator.sh`:
+I've added the generation of validator.xsl from schematron under a simple bash script, `generate_validator.sh`:
 ~~~~
 Usages: 
 ./generate_validator.sh  -i ../xmcf_3_2.sch  -x SaxonHE12-9J/saxon-he-12.9.jar  -o validator.xsl
 ./generate_validator.sh  -i ../xmcf_3_2.sch  -x SaxonHE12-9J/saxon-he-12.9.jar
-./generate_validator.sh  -i ../xmcf_3_2.sch
+~~~~
+
+Again, to test `gumdrop_template.xml` with the above `validator.xsl` schematron:
+
+~~~~
+java -jar SaxonHE12-9J\saxon-he-12.9.jar -s:valid_files\gumdrop_template.xml -xsl:validator.xsl -o:report.xml
+~~~~
+
+To view the assertion texts contained in the `report.xml`, you can simply do it with this:
+~~~~
+java -cp SaxonHE12-9J\saxon-he-12.9.jar    net.sf.saxon.Query 		-s:report.xml      -qs:"//*:text/string()" 
 ~~~~
