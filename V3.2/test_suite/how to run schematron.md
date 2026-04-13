@@ -8,14 +8,31 @@
   - `iso_schematron_skeleton_for_saxon.xsl`
 
 
-## How to run Schematron
+## How to validate using Schematron (long version)
 
-This is an example on how to test `gumdrop_template.xml` with `xmcf_3_2.sch` schematron:
+Before validation, schematron file needs to be converted to a suitable validator.xsl.
 
 ~~~~
 java -jar SaxonHE12-9J\saxon-he-12.9.jar -s:xmcf_3_2.sch -xsl:iso_dsdl_include.xsl -o:step1.xsl
 java -jar SaxonHE12-9J\saxon-he-12.9.jar -s:step1.xsl -xsl:iso_abstract_expand.xsl -o:step2.xsl
 java -jar SaxonHE12-9J\saxon-he-12.9.jar -s:step2.xsl -xsl:iso_svrl_for_xslt2.xsl -o:validator.xsl
+~~~~
 
+Then this `validator.xsl` can be used to validate the `.xml`. 
+
+Here is an example on how to test `gumdrop_template.xml` with the above `validator.xsl` schematron:
+
+~~~~
 java -jar SaxonHE12-9J\saxon-he-12.9.jar -s:valid_files\gumdrop_template.xml -xsl:validator.xsl -o:report.xml
+~~~~
+
+
+## How to validate using Schematron (short version)
+
+I've added all of the above under a simple bash script, `generate_validator.sh`:
+~~~~
+Usages: 
+./generate_validator.sh  -i ../xmcf_3_2.sch  -x SaxonHE12-9J/saxon-he-12.9.jar  -o validator.xsl
+./generate_validator.sh  -i ../xmcf_3_2.sch  -x SaxonHE12-9J/saxon-he-12.9.jar
+./generate_validator.sh  -i ../xmcf_3_2.sch
 ~~~~
