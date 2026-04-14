@@ -1,11 +1,4 @@
-# ~~Joint VDA FAT AK 25 / ISO/PAS 8329 &chi;MCF working group meeting  2026-04-08 15:00&ndash;16:00&nbsp;CEST online~~
-
-<hr/>
-
-# CANCELED
-
-<hr/>
-
+# Joint VDA FAT AK 25 / ISO/PAS 8329 &chi;MCF working group meeting  2026-04-22 15:00&ndash;16:00&nbsp;CEST online
 
 
 ## Draft Agenda 
@@ -29,11 +22,11 @@ Join the meeting via this link!</a>
 ## Agenda & Minutes
 
 For Agenda & Minutes, see attached PDF file: 
-[20260408_VDA_FAT_AK_25_xMCF_Working_Group.pdf](./20260408_VDA_FAT_AK_25_xMCF_Working_Group.pdf).
+[20260422_VDA_FAT_AK_25_xMCF_Working_Group.pdf](./20260422_VDA_FAT_AK_25_xMCF_Working_Group.pdf).
 -->
 
 
-<!-- -->
+<!-- 
 
 <hr/>
 
@@ -45,5 +38,5 @@ For Agenda & Minutes, see attached PDF file:
 | 2026-04-15, 15:00 CEST  | t.b.d.                                    | t.b.d.                               | 
 | 2026-04-22, 15:00 CEST  | t.b.d.                                    | t.b.d.                               | 
 
-<!-- -->
+-->
 
