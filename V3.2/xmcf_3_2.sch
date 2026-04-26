@@ -7,7 +7,7 @@
 
 		  <!-- single point of truth -->
 		  <sch:let name="connectionKinds"
-				   value="('spotweld', 'gumdrop', 'rivet')"/>
+				   value="('spotweld', 'gumdrop', 'rivet', 'threaded_connection')"/>
 
 		  <sch:rule context="xmcf/connection_group/connection_list/connection_0d[@template_label]">
 		  
