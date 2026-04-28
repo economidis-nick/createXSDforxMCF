@@ -7,7 +7,7 @@
 - Timeline for next release
 - How do we design templates in the XSD file?  
   And how do we verify χMCF 3.2 files via Schematron?  
-  — See [discussion at issue #105](https://github.com/economidis-nick/createXSDforxMCF/issues/105#issuecomment-4165014943). 
+  — See [discussion at issue #105](https://github.com/economidis-nick/createXSDforxMCF/issues/105#event-24419831115). 
 - Analysis: Which element attributes should (not) be available for the templates? 
 - Focus on detailing the XML elements, based at issue [#105](https://github.com/economidis-nick/createXSDforxMCF/issues/105):  
   Which sub-elements are allowed in a template?
