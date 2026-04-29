@@ -11,6 +11,7 @@
 - Focus on XML suggestions \& examples
 - Steps we should take next 
 
+
 ## Agenda & Minutes
 
 For Agenda & Minutes, see attached PDF file: 
@@ -18,15 +19,4 @@ For Agenda & Minutes, see attached PDF file:
 
 
 
-<hr/>
-
-
-## Proposed dates for the next meetings:
-
-| day \& time             | group                                     | objective                            |
-|-------------------------|-------------------------------------------|--------------------------------------|
-| 2026-04-01, 15:00 CEST  | focus group on the issues mentioned above | agree on XML suggestions \& examples | 
-| 2026-04-08, 15:00 CEST  | t.b.d.                                    | t.b.d.                               | 
-| 2026-04-15, 15:00 CEST  | t.b.d.                                    | t.b.d.                               | 
-| 2026-04-22, 15:00 CEST  | t.b.d.                                    | t.b.d.                               | 
 
