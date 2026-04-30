@@ -22,6 +22,13 @@ For Agenda & Minutes, see attached PDF file:
 
 <hr/>
 
+## Please pay special attention to:
+- File [Attributes_invalid_for_templates.pdf](./Attributes_invalid_for_templates.pdf), 
+  which addresses agenda item "Analysis: Which element attributes should (not) be available for the templates?".
+
+
+<hr/>
+
 ## Proposed dates for the next meetings:
 
 | day \& time             | group                                     | objective                            |
