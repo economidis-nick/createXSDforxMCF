@@ -24,6 +24,7 @@ In order to get more details regarding the error of a file under test, use the `
     $ java -jar xmcf3Validator.jar  -v  -s ../xmcf_3_2.xsd  test_file.xml
 
 To test that all files pass the schematron tests:
+
     $ ./test_that_all_valid_files_pass.sh
     $ ./test_all_invalid_files_fail.sh -i validator.xsl -d invalid_files/schematron/ -v
 
