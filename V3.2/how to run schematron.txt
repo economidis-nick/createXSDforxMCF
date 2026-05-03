@@ -1,5 +1,0 @@
-java -jar saxon-he.jar -s:xmcf_3_2.sch -xsl:iso_dsdl_include.xsl -o:step1.xsl
-java -jar saxon-he.jar -s:step1.xsl -xsl:iso_abstract_expand.xsl -o:step2.xsl
-java -jar saxon-he.jar -s:step2.xsl -xsl:iso_svrl_for_xslt2.xsl -o:validator.xsl
-
-java -jar saxon-he.jar -s:test_suite\valid_files\gumdrop_template.xml -xsl:validator.xsl -o:report.xml

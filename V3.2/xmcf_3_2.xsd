@@ -48,6 +48,41 @@
 			<xs:field xpath="@template_label"/>
 		</xs:keyref>
 
+		<xs:key name="tc_label_key">
+			<xs:selector xpath="connection_templates/threaded_connection"/>
+			<xs:field xpath="@label"/>
+		</xs:key>
+		<xs:keyref name="tc_template_label_ref" refer="tc_label_key">
+			<xs:selector xpath="connection_group/connection_list/connection_0d/threaded_connection"/>
+			<xs:field xpath="@template_label"/>
+		</xs:keyref>
+
+		<xs:key name="washer_label_key">
+			<xs:selector xpath="connection_templates/washer"/>
+			<xs:field xpath="@label"/>
+		</xs:key>
+		<xs:keyref name="washer_template_label_ref" refer="washer_label_key">
+			<xs:selector xpath="connection_group/connection_list/connection_0d/threaded_connection/washer | connection_group/connection_list/connection_0d/threaded_connection/bolt/nut/washer"/>
+			<xs:field xpath="@template_label"/>
+		</xs:keyref>
+
+		<xs:key name="nut_label_key">
+			<xs:selector xpath="connection_templates/nut"/>
+			<xs:field xpath="@label"/>
+		</xs:key>
+		<xs:keyref name="nut_template_label_ref" refer="nut_label_key">
+			<xs:selector xpath="connection_group/connection_list/connection_0d/threaded_connection/bolt/nut"/>
+			<xs:field xpath="@template_label"/>
+		</xs:keyref>
+
+		<xs:key name="rivet_label_key">
+			<xs:selector xpath="connection_templates/rivet"/>
+			<xs:field xpath="@label"/>
+		</xs:key>
+		<xs:keyref name="rivet_template_label_ref" refer="rivet_label_key">
+			<xs:selector xpath="connection_group/connection_list/connection_0d/rivet"/>
+			<xs:field xpath="@template_label"/>
+		</xs:keyref>
 
 	</xs:element>
 	<xs:element name="units">
@@ -364,14 +399,105 @@
 		</xs:all>
 		<xs:attribute name="label" type="xs:string"/>
 	</xs:complexType>
-	
+
+	<xs:complexType name="threaded_connection_in_template">
+		<xs:all>
+			<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="tangential_direction" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="threaded_connection_type" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="washer" minOccurs="0" maxOccurs="1"/>
+		</xs:all>
+		<xs:attribute name="label" type="xs:string"/>
+		<xs:attribute name="diameter" type="floatZeroPositive"/>
+		<xs:attribute name="length" type="floatPositive"/>
+		<xs:attribute name="thread_length" type="floatPositive"/>
+		<xs:attribute name="head_diameter" type="floatPositive"/>
+		<xs:attribute name="head_height" type="floatZeroPositive"/>
+		<xs:attribute name="head_type" type="xs:string"/>
+		<xs:attribute name="sink_size" type="floatZeroPositive"/>
+		<xs:attribute name="pitch" type="floatPositive"/>
+		<xs:attribute name="lead" type="floatPositive"/>
+		<xs:attribute name="torque" type="floatPositive"/>
+		<xs:attribute name="angle" type="floatPositive"/>
+		<xs:attribute name="pretension" type="floatPositive"/>
+		<xs:attribute name="static_friction" type="floatPositive"/>
+		<xs:attribute name="kinetic_friction" type="floatPositive"/>
+		<xs:attribute name="thread_static_friction" type="floatPositive"/>
+		<xs:attribute name="thread_kinetic_friction" type="floatPositive"/>
+		<xs:attribute name="strength_property_class" type="xs:string"/>
+		<xs:attribute name="part_code" type="xs:string"/>
+		<xs:assert test="if (@length lt @thread_length) then false() else true()" xerces:message="it must hold that length >= thread_length"/>
+	</xs:complexType>
+
+	<xs:complexType name="washer_in_template">
+		<xs:attribute name="label" type="xs:string"/>
+		<xs:attribute name="outer_diameter" type="floatPositive" use="required"/>
+		<xs:attribute name="inner_diameter" type="floatPositive"/>
+		<xs:attribute name="thickness" type="floatPositive"/>
+		<xs:attribute name="attached" type="xs:boolean" default="false"/>
+		<xs:attribute name="static_friction" type="floatPositive"/>
+		<xs:attribute name="kinetic_friction" type="floatPositive"/>
+		<xs:attribute name="strength_property_class" type="xs:string"/>
+		<xs:attribute name="part_code" type="xs:string"/>
+		<xs:assert test="if (@attached = true() and exists(@part_code)) then false() else true()" xerces:message="threaded_connection/washer: NO part code, if attached"/>
+	</xs:complexType>
+
+	<xs:complexType name="nut_in_template">
+		<xs:all>
+			<xs:element ref="washer" minOccurs="0" maxOccurs="1"/>
+		</xs:all>
+		<xs:attribute name="label" type="xs:string"/>
+		<xs:attribute name="diameter" type="floatPositive"/>
+		<xs:attribute name="height" type="floatPositive"/>
+		<xs:attribute name="torque" type="floatPositive"/>
+		<xs:attribute name="angle" type="floatPositive"/>
+		<xs:attribute name="static_friction" type="floatPositive"/>
+		<xs:attribute name="kinetic_friction" type="floatPositive"/>
+		<xs:attribute name="clipped_to" type="partIndex"/>
+		<xs:attribute name="fixed_to" type="partIndex"/>
+		<xs:attribute name="strength_property_class" type="xs:string"/>
+		<xs:attribute name="part_code" type="xs:string"/>
+		<xs:assert test="not (exists(@fixed_to) and exists(@clipped_to))" xerces:message="nut template: fixed_to prohibits clipped_to and vice versa"/>
+	</xs:complexType>
+
+	<xs:complexType name="rivet_in_template">
+		<xs:all>
+			<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="tangential_direction" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="rivet_type" minOccurs="0" maxOccurs="1"/>
+		</xs:all>
+		<xs:attribute name="label" type="xs:string"/>
+		<xs:attribute name="hardness" type="floatPositive"/>
+		<xs:attribute name="shaft_diameter" type="floatPositive"/>
+		<xs:attribute name="length" type="floatPositive"/>
+		<xs:attribute name="head_diameter" type="floatPositive"/>
+		<xs:attribute name="head_height" type="floatZeroPositive"/>
+		<xs:attribute name="head_type" type="xs:string"/>
+		<xs:attribute name="sink_size" type="floatZeroPositive"/>
+		<xs:attribute name="strength_property_class" type="xs:string"/>
+		<xs:attribute name="part_code" type="xs:string"/>
+		<xs:assert test="
+			if (exists(@head_height) and exists(@sink_size))
+			then (sum(@head_height + @sink_size) gt 0)
+			else true()" xerces:message="rivet template: it must hold that (head_height + sink_size) > 0"/>
+		<xs:assert test="
+			if (exists(@head_height) and not(exists(@sink_size)))
+			then (@head_height gt 0)
+			else true()" xerces:message="rivet template: it must hold that (head_height + sink_size) > 0"/>
+		<xs:assert test="
+			if (not(exists(@head_height)) and exists(@sink_size))
+			then (@sink_size gt 0)
+			else true()" xerces:message="rivet template: it must hold that (head_height + sink_size) > 0"/>
+	</xs:complexType>
+
 	<xs:element name="connection_templates">
 		<xs:complexType>
 			<xs:choice minOccurs="1" maxOccurs="unbounded">
 				<xs:element name="connection_0d" type="connection_0d_in_template"/>
-				<xs:element ref="threaded_connection"/>
-				<xs:element ref="nut"/>
-				<xs:element ref="washer"/>
+				<xs:element name="threaded_connection" type="threaded_connection_in_template"/>
+				<xs:element name="nut" type="nut_in_template"/>
+				<xs:element name="washer" type="washer_in_template"/>
+				<xs:element name="rivet" type="rivet_in_template"/>
 			</xs:choice>
 		</xs:complexType>
 	</xs:element>
@@ -458,6 +584,7 @@
 				<xs:element ref="tangential_direction" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="rivet_type" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
+			<xs:attribute name="template_label" type="xs:string"/>
 			<xs:attribute name="hardness" type="floatPositive"/>
 			<xs:attribute name="shaft_diameter" type="floatPositive"/>
 			<xs:attribute name="length" type="floatPositive"/>
@@ -552,6 +679,7 @@
 				<xs:element ref="threaded_connection_type" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="washer" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
+			<xs:attribute name="template_label" type="xs:string"/>
 			<xs:attribute name="diameter" type="floatZeroPositive"/>
 			<xs:attribute name="length" type="floatPositive"/>
 			<xs:attribute name="thread_length" type="floatPositive"/>
@@ -576,7 +704,7 @@
 	<xs:element name="threaded_connection_type" abstract="true"/>
 	<xs:element name="washer">
 		<xs:complexType>
-			<xs:attribute name="outer_diameter" type="floatPositive" use="required"/>
+			<xs:attribute name="outer_diameter" type="floatPositive"/>
 			<xs:attribute name="inner_diameter" type="floatPositive"/>
 			<xs:attribute name="thickness" type="floatPositive"/>
 			<xs:attribute name="attached" type="xs:boolean" default="false"/>
@@ -584,6 +712,7 @@
 			<xs:attribute name="kinetic_friction" type="floatPositive"/>
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
+			<xs:attribute name="template_label" type="xs:string"/>
 			<xs:assert test="if (@attached = true() and exists(@part_code)) then false() else true()" xerces:message="threaded_connection/washer: NO part code, if attached"/>
 		</xs:complexType>
 	</xs:element>
@@ -602,6 +731,7 @@
 			<xs:attribute name="fixed_to" type="partIndex"/>
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
+			<xs:attribute name="template_label" type="xs:string"/>
 			<xs:assert test="not (exists(@fixed_to) and exists(@clipped_to))" xerces:message="bolt/nut: nut fixed_to prohibits nut clipped_to and vice versa"/>
 		</xs:complexType>
 	</xs:element>

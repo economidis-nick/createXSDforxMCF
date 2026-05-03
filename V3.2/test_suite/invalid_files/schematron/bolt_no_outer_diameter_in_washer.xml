@@ -15,7 +15,7 @@
 					<normal_direction x="0" y="0" z="-1"/>
 					<bolt>
 						<nut diameter="16">
-							<washer attached="false"/>
+							<washer attached="false"/> <!-- THIS SHOULD FAIL: no outer_diameter -->
 						</nut>
 					</bolt>
 					<washer attached="false"/>
