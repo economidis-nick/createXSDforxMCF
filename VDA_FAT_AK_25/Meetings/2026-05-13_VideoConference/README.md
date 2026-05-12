@@ -5,8 +5,14 @@
 
 - Welcome \& Flying over today's topics
 - Timeline for next release
-- Work in progress
-- Focus on XML / DOC suggestions, XSD- / Schematron-definition \& examples
+- Analysis: Which element attributes should (not) be available for the templates?  
+  See SH’s contribution of 2026-04-30, file “[Attributes_invalid_for_templates.pdf](../2026-04-29_VideoConference/Attributes_invalid_for_templates.pdf)”. 
+- How to verify χMCF 3.2 files via Schematron?  
+  See NE’s contributions of 2026-05-03:
+  - [split the gumdtop_template.xml into 2 files](https://github.com/economidis-nick/createXSDforxMCF/commit/87cd5c5312b785158a8d8bcca7c6852603605a32)
+  - [schematron checks against &lt;threaded_connection/&gt;](https://github.com/economidis-nick/createXSDforxMCF/commit/92342b1a3a85e9c9ac74ef2882d9c69dfd8495e2)
+  - [templates for rivet & bolt are introduced](https://github.com/economidis-nick/createXSDforxMCF/commit/126a57c9f76b3666a3ca231ead5efd59ae0aea8e)  
+  - [Update README.md](https://github.com/economidis-nick/createXSDforxMCF/commit/706b0de3af6ec4201179995ddfddb2b28eb9e452)
 - Steps we should take next 
 
 Feedback and suggestions for changes to this draft agenda are very welcome!
