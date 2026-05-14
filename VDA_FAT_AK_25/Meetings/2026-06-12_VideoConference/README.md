@@ -1,5 +1,5 @@
-# Joint VDA FAT AK 25 / ISO/PAS 8329 &chi;MCF working group meeting  2026-05-20 15:00&ndash;16:00&nbsp;CEST online
-# &mdash; technically oriented focus group on issue [#106](https://github.com/economidis-nick/createXSDforxMCF/issues/106) for discussing \& understanding the requirements &mdash;
+# Joint VDA FAT AK 25 / ISO/PAS 8329 &chi;MCF working group meeting  2026-06-12 16:00&ndash;16:00&nbsp;CEST online
+# &mdash; technically oriented focus group on issues [#105](https://github.com/economidis-nick/createXSDforxMCF/issues/105) / [#61](https://github.com/economidis-nick/createXSDforxMCF/issues/61) for detailing XML elements &mdash; 
 
 ## Draft Agenda 
 
@@ -21,11 +21,11 @@ Join the meeting via this link!</a>
 ## Agenda & Minutes
 
 For Agenda & Minutes, see attached PDF file: 
-[20260520_VDA_FAT_AK_25_xMCF_Working_Group.pdf](./20260520_VDA_FAT_AK_25_xMCF_Working_Group.pdf).
+[20260601_VDA_FAT_AK_25_xMCF_Working_Group.pdf](./20260601_VDA_FAT_AK_25_xMCF_Working_Group.pdf).
 -->
 
 
-<!-- -->
+<!-- 
 
 <hr/>
 
@@ -34,8 +34,7 @@ For Agenda & Minutes, see attached PDF file:
 
 | day \& time             | group                                     | objective                            |
 |-------------------------|-------------------------------------------|--------------------------------------|
-| 2026-06-01, 16:00 CEST  | focus group on the issues #105 \& #61     | agree on XML suggestions \& examples | 
-| 2026-06-12, 16:00 CEST  | focus group on the issues #105 \& #61     | agree on XML suggestions \& examples | 
+| 2026-05-??, 15:00 CEST  | t.b.d.                                    | t.b.d.                               | 
 
-<!-- -->
+-->
 
