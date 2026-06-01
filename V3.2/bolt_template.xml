@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_2.xsd">
+  <version> 3.2 </version>
+  <date> 2026-06-01 </date>
+  <units length="mm" angle="deg" mass="kg" force="N" time="s" torque="Nm"/>
+
+
+	<connection_templates>
+
+        <washer label="M6" outer_diameter="12" inner_diameter="7" thickness="2" strength_property_class="8.8"/>
+
+
+        <nut label="M6" diameter="6" height="6" strength_property_class="8.8"/>
+        
+		<nut label="FLANGED M6" diameter="6" height="6" strength_property_class="8.8">
+			<washer outer_diameter="12" thickness="2" attached="true"/>
+		</nut>
+		
+
+        <threaded_connection label="M6x30" diameter="6" length="30" thread_length="20">
+          <bolt/>
+        </threaded_connection>
+
+        <threaded_connection label="FLANGED M6x30" diameter="6" length="30" thread_length="20">
+          <washer outer_diameter="12" attached="true" static_friction="0.8"/>
+          <bolt/>
+        </threaded_connection>
+
+        <threaded_connection label="SCREW M6x30" diameter="6" length="30" thread_length="20">
+          <screw/>
+        </threaded_connection>
+
+        <threaded_connection label="FDS M6x30" diameter="5" length="20">
+          <screw>
+			<flow_drilled pre_machined_hole_diameter="3" pilot_hole_diameter="4"/>
+          </screw>
+        </threaded_connection>
+
+	</connection_templates>
+
+  <connection_group id="1">
+  
+    <connected_to>
+      <part index="1" pid="1"/>
+      <part index="2" pid="2"/>
+    </connected_to>	
+
+    <connection_list>
+	
+      <connection_0d>
+        <loc>12.1 37.1 0.8</loc>
+        <threaded_connection template_label="M6x30">
+          <normal_direction x="0" y="0" z="-1"/>
+          <bolt>
+            <nut template_label="M6"/>
+          </bolt>
+        </threaded_connection>
+      </connection_0d>
+    
+      <connection_0d>
+        <loc>22.1 27.1 20.8</loc>
+        <threaded_connection template_label="FLANGED M6x30" length="25">  <!-- sawn shorter -->
+          <normal_direction x="0" y="0" z="-1"/>
+          <tangential_direction x="1" y="0" z="0"/>
+          <bolt>
+            <nut template_label="FLANGED M6"/>
+          </bolt>
+        </threaded_connection>
+      </connection_0d>
+    
+	<connection_0d>
+        <loc>32.1 37.1 30.8</loc>
+        <threaded_connection template_label="SCREW M6x30" thread_static_friction="0.8">
+          <normal_direction x="0" y="0" z="-1"/>
+          <washer template_label="M6" static_friction="0.8"/>
+        </threaded_connection>
+      </connection_0d>	  
+
+    </connection_list>
+  </connection_group>
+</xmcf>

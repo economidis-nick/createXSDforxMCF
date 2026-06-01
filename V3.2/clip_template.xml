@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_2.xsd">
+	<version> 3.2 </version>
+	<date>2026-06-01</date>
+	
+	<connection_templates>
+	
+		<clip label="T1"
+			clip_type="STRAP 5-45X8X.9-4.1 PNL"
+			attachment_type="push into round hole" 
+			hole_diameter="8.0" hole_length="12.0" 
+			pin_diameter="10.0" pin_length="10.0" 
+			material="polyamid"/>
+
+		<clip label="T2"
+			clip_type="STRAP 5-45X8X.9-4.1 PNL"
+			attachment_type="push into round hole" 
+			hole_diameter="8.0" hole_length="12.0" 
+			pin_diameter="15.0" pin_length="15.0" 
+			material="polyamid"/>
+
+	</connection_templates>
+	
+	
+	<connection_group id="1">
+		<connected_to>
+			<part index="1" pid="1"/>
+			<part index="2" pid="2"/>
+		</connected_to>
+		<connection_list>
+
+			<connection_0d>
+				<loc>30 0 0</loc>
+				<clip template_label="T1"/>
+			</connection_0d>
+
+
+			<connection_0d>
+				<loc>60 0 0</loc>
+				<clip template_label="T1" 
+					clipped_to="2">
+					<normal_direction x="0" y="0" z="-1"/>
+					<tangential_direction x="0" y="1" z="0"/>
+				</clip>
+			</connection_0d>
+
+			<connection_0d label="CLIP_1001">
+				<loc> 70 0 0 </loc>
+				<clip template_label="T2" 
+					clipped_to="1" 
+					attachment_type="push into square hole">
+					<normal_direction x="0" y="0" z="-1"/>
+					<tangential_direction x="0" y="1" z="0"/>
+				</clip>
+			</connection_0d>
+
+		</connection_list>
+	</connection_group>
+</xmcf>

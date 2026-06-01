@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_2.xsd">
+  <version> 3.2 </version>
+  <date> 2026-05-03 </date>
+
+  <connection_templates>
+
+    <rivet label="RIVET_BLIND_TEMPL"
+           shaft_diameter="5.0"
+           length="12.0"
+           head_diameter="10.0"
+           head_height="2.5">
+      <blind min_grip="2.0" max_grip="4.0" clearance="0.5" material="Aluminium"/>
+    </rivet>
+
+    <rivet label="RIVET_SPR_TEMPL"
+           shaft_diameter="5.3"
+           length="5.0"
+           head_diameter="8.0">
+      <self_piercing head_label="H1" shaft_label="S1" die_label="D1"/>
+    </rivet>
+
+    <rivet label="RIVET_CRS_TEMPL"
+           shaft_diameter="5.3"
+           length="5.0"
+           head_diameter="8.0">
+      <clinch_rivet_stud/>   <!-- not allowed to set press_in_force in template -->
+    </rivet>
+
+    <rivet label="RIVET_SWOP_TEMPL"
+           shaft_diameter="5.3"
+           length="5.0"
+           head_diameter="8.0">
+      <swop spotweld_diameter="4" spotweld_technology="laser"/>
+    </rivet>
+
+
+    <rivet label="RIVET_MINIMAL_TEMPL"/>
+
+  </connection_templates>
+
+  <connection_group id="1">
+    <connected_to>
+      <part index="1" pid="1"/>
+      <part index="2" pid="2"/>
+    </connected_to>
+    <connection_list>
+
+      <!-- rivet uses template as-is: all dimensions come from RIVET_BLIND_TEMPL -->
+      <connection_0d>
+        <loc> 10.0 20.0 30.0 </loc>
+        <rivet template_label="RIVET_BLIND_TEMPL"/>
+      </connection_0d>
+
+      <!-- rivet overrides head_diameter from the template -->
+      <connection_0d>
+        <loc> 40.0 20.0 30.0 </loc>
+        <rivet template_label="RIVET_BLIND_TEMPL" head_diameter="12.0"/>
+      </connection_0d>
+
+      <!-- self-piercing rivet from template -->
+      <connection_0d>
+        <loc> 70.0 20.0 30.0 </loc>
+        <rivet template_label="RIVET_SPR_TEMPL"/>
+      </connection_0d>
+
+      <!-- clinch rivet stud from template -->
+      <connection_0d>
+        <loc> 70.0 20.0 30.0 </loc>
+        <rivet template_label="RIVET_CRS_TEMPL">
+			<clinch_rivet_stud press_in_force="5"/>  <!-- press_in_force could not be set in template -->
+		</rivet>
+      </connection_0d>
+
+      <!-- self-piercing rivet from template with normal_direction -->
+      <connection_0d>
+        <loc> 70.0 20.0 30.0 </loc>
+        <rivet template_label="RIVET_SPR_TEMPL">
+          <normal_direction x="0" y="0" z="-1"/>
+		</rivet>
+      </connection_0d>
+
+      <!-- rivet without template -->
+      <connection_0d>
+        <loc> 100.0 20.0 30.0 </loc>
+        <rivet shaft_diameter="4.0" length="10.0" head_diameter="7.0">
+          <normal_direction x="0" y="0" z="-1"/>
+          <blind min_grip="1.5" max_grip="3.5"/>
+        </rivet>
+      </connection_0d>
+
+    </connection_list>
+  </connection_group>
+</xmcf>

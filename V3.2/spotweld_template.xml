@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_2.xsd">
+  <version> 3.2 </version>
+  <date> 2026-06-01 </date>
+
+	<connection_templates>
+		<spotweld label="spw_tmpl_0"/>  <!-- a useless template really -->
+
+		<spotweld label="spw_tmpl_1" diameter="3.0"/>
+
+		<spotweld label="spw_tmpl_2" diameter="5" technology="resistance"/>
+		
+	</connection_templates>
+
+  <connection_group id="1">
+    <connected_to>
+      <part index="1" pid="1"/>
+      <part index="2" pid="2"/>
+    </connected_to>
+    <connection_list>
+
+      <connection_0d>  
+        <loc> 10.0 20.0 30.0 </loc>
+        <spotweld template_label="spw_tmpl_0"/>    <!-- spotweld no special values from from template -->
+      </connection_0d>
+      
+      <connection_0d>
+        <loc> 10.0 20.0 30.0 </loc>
+        <spotweld template_label="spw_tmpl_1"/>    <!-- spotweld inherits diameter="3.0" from template -->
+      </connection_0d>
+      
+      <connection_0d>
+        <loc>120.1 37.1 0.8</loc>
+        <spotweld template_label="spw_tmpl_1" diameter="2"/>     <!-- spotweld inherits diameter="3.0" from template but is overridden by "2" -->
+      </connection_0d>
+      
+      <connection_0d>     <!-- spotweld directions from template -->
+        <loc>12.1058 37.1065 0.881963</loc>
+        <spotweld template_label="spw_tmpl_2" diameter="5" technology="laser"/>
+      </connection_0d>
+      	  
+      <connection_0d>
+        <loc>12.1058 37.1065 0.881963</loc>
+		<spotweld template_label="spw_tmpl_2" diameter="5">
+			<normal_direction x="0" y="0" z="3" />
+			<tangential_direction x="3" y="0" z="0" />
+		</spotweld>
+      </connection_0d>	  
+    </connection_list>
+  </connection_group>
+</xmcf>

@@ -39,7 +39,8 @@
 			<xs:field xpath="@ident"/>
 		</xs:unique>
 
-		<xs:key name="template_label_key">
+<!--
+ 		<xs:key name="template_label_key">
 			<xs:selector xpath="connection_templates/connection_0d"/>
 			<xs:field xpath="@label"/>
 		</xs:key>
@@ -47,7 +48,7 @@
 			<xs:selector xpath="connection_group/connection_list/connection_0d"/>
 			<xs:field xpath="@template_label"/>
 		</xs:keyref>
-
+ -->
 		<xs:key name="tc_label_key">
 			<xs:selector xpath="connection_templates/threaded_connection"/>
 			<xs:field xpath="@label"/>
@@ -81,6 +82,78 @@
 		</xs:key>
 		<xs:keyref name="rivet_template_label_ref" refer="rivet_label_key">
 			<xs:selector xpath="connection_group/connection_list/connection_0d/rivet"/>
+			<xs:field xpath="@template_label"/>
+		</xs:keyref>
+
+		<xs:key name="robscan_label_key">
+			<xs:selector xpath="connection_templates/robscan"/>
+			<xs:field xpath="@label"/>
+		</xs:key>
+		<xs:keyref name="robscan_template_label_ref" refer="robscan_label_key">
+			<xs:selector xpath="connection_group/connection_list/connection_0d/robscan"/>
+			<xs:field xpath="@template_label"/>
+		</xs:keyref>
+
+		<xs:key name="spotweld_label_key">
+			<xs:selector xpath="connection_templates/spotweld"/>
+			<xs:field xpath="@label"/>
+		</xs:key>
+		<xs:keyref name="spotweld_template_label_ref" refer="spotweld_label_key">
+			<xs:selector xpath="connection_group/connection_list/connection_0d/spotweld"/>
+			<xs:field xpath="@template_label"/>
+		</xs:keyref>
+
+		<xs:key name="gumdrop_label_key">
+			<xs:selector xpath="connection_templates/gumdrop"/>
+			<xs:field xpath="@label"/>
+		</xs:key>
+		<xs:keyref name="gumdrop_template_label_ref" refer="gumdrop_label_key">
+			<xs:selector xpath="connection_group/connection_list/connection_0d/gumdrop"/>
+			<xs:field xpath="@template_label"/>
+		</xs:keyref>
+
+		<xs:key name="clinch_label_key">
+			<xs:selector xpath="connection_templates/clinch"/>
+			<xs:field xpath="@label"/>
+		</xs:key>
+		<xs:keyref name="clinch_template_label_ref" refer="clinch_label_key">
+			<xs:selector xpath="connection_group/connection_list/connection_0d/clinch"/>
+			<xs:field xpath="@template_label"/>
+		</xs:keyref>
+
+		<xs:key name="heat_stake_label_key">
+			<xs:selector xpath="connection_templates/heat_stake"/>
+			<xs:field xpath="@label"/>
+		</xs:key>
+		<xs:keyref name="heat_stake_template_label_ref" refer="heat_stake_label_key">
+			<xs:selector xpath="connection_group/connection_list/connection_0d/heat_stake"/>
+			<xs:field xpath="@template_label"/>
+		</xs:keyref>
+
+		<xs:key name="clip_label_key">
+			<xs:selector xpath="connection_templates/clip"/>
+			<xs:field xpath="@label"/>
+		</xs:key>
+		<xs:keyref name="clip_template_label_ref" refer="clip_label_key">
+			<xs:selector xpath="connection_group/connection_list/connection_0d/clip"/>
+			<xs:field xpath="@template_label"/>
+		</xs:keyref>
+
+		<xs:key name="nail_label_key">
+			<xs:selector xpath="connection_templates/nail"/>
+			<xs:field xpath="@label"/>
+		</xs:key>
+		<xs:keyref name="nail_template_label_ref" refer="nail_label_key">
+			<xs:selector xpath="connection_group/connection_list/connection_0d/nail"/>
+			<xs:field xpath="@template_label"/>
+		</xs:keyref>
+
+		<xs:key name="rotation_joint_label_key">
+			<xs:selector xpath="connection_templates/rotation_joint"/>
+			<xs:field xpath="@label"/>
+		</xs:key>
+		<xs:keyref name="rotation_joint_template_label_ref" refer="rotation_joint_label_key">
+			<xs:selector xpath="connection_group/connection_list/connection_0d/rotation_joint"/>
 			<xs:field xpath="@template_label"/>
 		</xs:keyref>
 
@@ -392,22 +465,52 @@
 	</xs:element>
 
 
-	<xs:complexType name = "connection_0d_in_template">
+<!-- 	<xs:complexType name = "connection_0d_in_template">
 		<xs:all>
 			<xs:element name="appdata" type="appdata_type" minOccurs="0" maxOccurs="1"/>
 			<xs:element ref="connection_0d_type" minOccurs="1" maxOccurs="1"/>
 		</xs:all>
 		<xs:attribute name="label" type="xs:string"/>
 	</xs:complexType>
+ -->
+	<xs:complexType name="gumdrop_in_template">
+		<xs:attribute name="label" type="nonEmptyString"/>
+
+		<xs:attribute name="diameter" type="floatZeroPositive"/>
+		<xs:attribute name="mass" type="floatZeroPositive"/>
+		<xs:attribute name="material" type="xs:string"/>
+	</xs:complexType>
+
+	<xs:complexType name="spotweld_in_template">
+		<xs:attribute name="label" type="nonEmptyString"/>
+		
+		<xs:attribute name="diameter" type="floatPositive"/>
+		<xs:attribute name="technology" type="spotweldTechnology"/>
+	</xs:complexType>
+
+	<xs:complexType name="robscan_in_template">
+		<xs:attribute name="label" type="nonEmptyString"/>
+		
+		<xs:attribute name="pattern" type="nonEmptyString"/>
+		<xs:attribute name="gap" type="floatZeroPositive"/>
+		<xs:attribute name="width" type="floatPositive"/>
+		<xs:attribute name="pattern_width" type="floatPositive"/>
+		<xs:attribute name="pattern_length" type="floatPositive"/>
+		<xs:attribute name="filler_material" type="xs:string"/>
+	</xs:complexType>
 
 	<xs:complexType name="threaded_connection_in_template">
 		<xs:all>
-			<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="tangential_direction" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="threaded_connection_type" minOccurs="0" maxOccurs="1"/>
+			<!-- This is actually a 'choice' of these elements - but xs:all syntax doesn't allow it, so I used an assertion to do it -->
+			<!-- start of 'choice' -->
+				<xs:element name="bolt"    type="bolt_in_template"  minOccurs="0"/>
+				<xs:element name="screw"   type="screw_in_template" minOccurs="0"/>
+			<!-- end of 'choice' -->
+
 			<xs:element ref="washer" minOccurs="0" maxOccurs="1"/>
 		</xs:all>
-		<xs:attribute name="label" type="xs:string"/>
+
+		<xs:attribute name="label" type="nonEmptyString"/>
 		<xs:attribute name="diameter" type="floatZeroPositive"/>
 		<xs:attribute name="length" type="floatPositive"/>
 		<xs:attribute name="thread_length" type="floatPositive"/>
@@ -417,56 +520,140 @@
 		<xs:attribute name="sink_size" type="floatZeroPositive"/>
 		<xs:attribute name="pitch" type="floatPositive"/>
 		<xs:attribute name="lead" type="floatPositive"/>
-		<xs:attribute name="torque" type="floatPositive"/>
-		<xs:attribute name="angle" type="floatPositive"/>
-		<xs:attribute name="pretension" type="floatPositive"/>
-		<xs:attribute name="static_friction" type="floatPositive"/>
-		<xs:attribute name="kinetic_friction" type="floatPositive"/>
-		<xs:attribute name="thread_static_friction" type="floatPositive"/>
-		<xs:attribute name="thread_kinetic_friction" type="floatPositive"/>
 		<xs:attribute name="strength_property_class" type="xs:string"/>
 		<xs:attribute name="part_code" type="xs:string"/>
 		<xs:assert test="if (@length lt @thread_length) then false() else true()" xerces:message="it must hold that length >= thread_length"/>
+
+		<xs:assert test="count(bolt|screw) eq 1"
+		           xerces:message="connection_templates/threaded_connection: fastener type must be provided"/>
+		
+
 	</xs:complexType>
 
+
+		<xs:complexType name="bolt_in_template">
+			<xs:all>
+				<xs:element ref="nut" minOccurs="0" maxOccurs="1"/>
+			</xs:all>
+			<!-- <xs:attribute name="clipped_to" type="partIndex"/> -->
+			<!-- <xs:attribute name="fixed_to" type="partIndex"/> -->
+			<!-- <xs:assert test="not (exists(@fixed_to) and exists(@clipped_to))" xerces:message="bolt fixed_to prohibits bolt clipped_to and vice versa"/> -->
+			<!-- <xs:assert test="not ((exists(nut/@fixed_to) or exists(nut/@clipped_to)) and (exists(@fixed_to) or exists(@clipped_to)))" xerces:message="nut clipped_to or fixed_to prohibits bolt clipped_to or fixed_to and vice versa"/> -->
+		</xs:complexType>
+
+
+		<xs:complexType name="screw_in_template">
+
+			<!-- if, in the future, xs:all is needed to wrap this xs:choice, use the technique in threaded_connection_in_template to replace the xs:choice -->
+			<xs:choice minOccurs="0" maxOccurs="1">
+				<xs:element name="flow_drilled"      type="flow_drilled_in_template"/>
+			</xs:choice>
+
+			<!-- <xs:attribute name="base" type="partIndex"/> -->
+		</xs:complexType>
+
+
+		<xs:complexType name="flow_drilled_in_template">
+			<xs:attribute name="pre_machined_hole_diameter" type="floatZeroPositive"/>
+			<!-- <xs:attribute name="pre_machined_hole_index" type="partIndex"/> -->
+			<xs:attribute name="pilot_hole_diameter" type="floatZeroPositive"/>
+		</xs:complexType>
+
+
+
 	<xs:complexType name="washer_in_template">
-		<xs:attribute name="label" type="xs:string"/>
+		<xs:attribute name="label" type="nonEmptyString"/>
+		
 		<xs:attribute name="outer_diameter" type="floatPositive" use="required"/>
 		<xs:attribute name="inner_diameter" type="floatPositive"/>
 		<xs:attribute name="thickness" type="floatPositive"/>
 		<xs:attribute name="attached" type="xs:boolean" default="false"/>
-		<xs:attribute name="static_friction" type="floatPositive"/>
-		<xs:attribute name="kinetic_friction" type="floatPositive"/>
 		<xs:attribute name="strength_property_class" type="xs:string"/>
 		<xs:attribute name="part_code" type="xs:string"/>
-		<xs:assert test="if (@attached = true() and exists(@part_code)) then false() else true()" xerces:message="threaded_connection/washer: NO part code, if attached"/>
+		<xs:assert test="if (@attached = true() and exists(@part_code)) then false() else true()" 
+		           xerces:message="threaded_connection/washer: NO part code, if attached"/>
 	</xs:complexType>
 
 	<xs:complexType name="nut_in_template">
 		<xs:all>
 			<xs:element ref="washer" minOccurs="0" maxOccurs="1"/>
 		</xs:all>
-		<xs:attribute name="label" type="xs:string"/>
+		<xs:attribute name="label" type="nonEmptyString"/>
 		<xs:attribute name="diameter" type="floatPositive"/>
 		<xs:attribute name="height" type="floatPositive"/>
-		<xs:attribute name="torque" type="floatPositive"/>
-		<xs:attribute name="angle" type="floatPositive"/>
-		<xs:attribute name="static_friction" type="floatPositive"/>
-		<xs:attribute name="kinetic_friction" type="floatPositive"/>
-		<xs:attribute name="clipped_to" type="partIndex"/>
-		<xs:attribute name="fixed_to" type="partIndex"/>
+		<!-- <xs:attribute name="clipped_to" type="partIndex"/> -->
+		<!-- <xs:attribute name="fixed_to" type="partIndex"/> -->
 		<xs:attribute name="strength_property_class" type="xs:string"/>
 		<xs:attribute name="part_code" type="xs:string"/>
-		<xs:assert test="not (exists(@fixed_to) and exists(@clipped_to))" xerces:message="nut template: fixed_to prohibits clipped_to and vice versa"/>
+		<!-- <xs:assert test="not (exists(@fixed_to) and exists(@clipped_to))" xerces:message="nut template: fixed_to prohibits clipped_to and vice versa"/> -->
 	</xs:complexType>
 
+
+
+		<xs:complexType name="blind_rivet_type_in_template">
+			<xs:attribute name="min_grip" type="floatPositive"/>
+			<xs:attribute name="max_grip" type="floatPositive"/>
+			<xs:attribute name="clearance" type="floatPositive"/>
+			<xs:attribute name="material" type="xs:string"/>
+			<xs:assert test="if (exists(@max_grip) and exists(@min_grip)) then (@max_grip ge @min_grip) else true()" xerces:message="rivet/blind: rule is max grip >= min_grip"/>
+		</xs:complexType>
+
+
+		<xs:complexType name="self_piercing_rivet_type_in_template">
+			<xs:attribute name="head_label" type="xs:string"/>
+			<xs:attribute name="shaft_label" type="xs:string"/>
+			<xs:attribute name="die_label" type="xs:string"/>
+			<xs:attribute name="die_diameter" type="floatPositive"/>
+			<xs:attribute name="die_depth" type="floatPositive"/>
+			<xs:attribute name="hardness" type="floatPositive"/>
+		</xs:complexType>
+
+
+		<xs:complexType name="solid_rivet_type_in_template">
+			<xs:attribute name="min_grip" type="floatPositive"/>
+			<xs:attribute name="max_grip" type="floatPositive"/>
+			<xs:attribute name="hole_diameter" type="floatPositive"/>
+			<xs:attribute name="hole_depth" type="floatPositive"/>
+			<xs:attribute name="shoulder_diameter" type="floatPositive"/>
+			<xs:attribute name="shoulder_length" type="floatPositive"/>
+			<xs:attribute name="tennon_diameter" type="floatPositive"/>
+			<xs:attribute name="tennon_length" type="floatPositive"/>
+			<xs:assert test="if (exists(@max_grip) and exists(@min_grip)) then (@max_grip ge @min_grip) else true()" xerces:message="rivet/solid: rule is max grip >= min_grip"/>
+			<!--The following are Recommendations:
+				"1. hole_diameter is defined with hole_depth and vice versa"
+				"2. tennon_diameter exist only if shoulder_diameter is defined and vice versa"
+				Therefore they were commented out
+			-->
+			<!--<xs:assert test="if( ( exists(@hole_diameter) and exists(@hole_depth) ) or ( not(exists(@hole_diameter)) and not(exists(@hole_depth)) ) ) then true() else false()"/>-->
+			<!--<xs:assert test="if( ( exists(@tennon_diameter) and exists(@shoulder_diameter) ) or ( not(exists(@tennon_diameter)) and not(exists(@shoulder_diameter)) ) ) then true() else false()"/>-->
+		</xs:complexType>
+
+
+		<xs:complexType name="swop_rivet_type_in_template">
+			<xs:attribute name="insert_shape" type="xs:string"/>
+			<xs:attribute name="insert_height" type="floatPositive"/>
+			<xs:attribute name="spotweld_diameter" type="floatPositive"/>
+			<xs:attribute name="spotweld_technology" type="spotweldTechnology"/>
+		</xs:complexType>
+
+	
+		<xs:complexType name="clinch_rivet_stud_rivet_type_in_template">
+				<!-- <xs:attribute name="press_in_force" type="floatPositive"/> -->
+		</xs:complexType>
+
+
+
 	<xs:complexType name="rivet_in_template">
-		<xs:all>
-			<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="tangential_direction" minOccurs="0" maxOccurs="1"/>
-			<xs:element ref="rivet_type" minOccurs="0" maxOccurs="1"/>
-		</xs:all>
-		<xs:attribute name="label" type="xs:string"/>
+		<!-- if, in the future, xs:all is needed to wrap this xs:choice, use the technique in threaded_connection_in_template to replace the xs:choice -->
+		<xs:choice minOccurs="0" maxOccurs="1">
+			<xs:element name="blind"              type="blind_rivet_type_in_template"/>
+			<xs:element name="self_piercing"      type="self_piercing_rivet_type_in_template"/>
+			<xs:element name="solid"              type="solid_rivet_type_in_template"/>
+			<xs:element name="swop"               type="swop_rivet_type_in_template"/>
+			<xs:element name="clinch_rivet_stud"  type="clinch_rivet_stud_rivet_type_in_template"/>
+		</xs:choice>
+
+		<xs:attribute name="label" type="nonEmptyString"/>
 		<xs:attribute name="hardness" type="floatPositive"/>
 		<xs:attribute name="shaft_diameter" type="floatPositive"/>
 		<xs:attribute name="length" type="floatPositive"/>
@@ -490,14 +677,124 @@
 			else true()" xerces:message="rivet template: it must hold that (head_height + sink_size) > 0"/>
 	</xs:complexType>
 
+
+		<xs:complexType name="clinch_in_template">
+			<xs:attribute name="label" type="nonEmptyString"/>
+
+			<xs:attribute name="clinch_type" type="xs:string"/>
+			<xs:attribute name="strength_class" type="xs:string"/>
+			<xs:attribute name="shear_strength" type="floatPositive"/>
+			<xs:attribute name="peel_strength" type="floatPositive"/>
+			<xs:attribute name="button_diameter" type="floatPositive"/>
+			<xs:attribute name="die_type">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="round"/>
+						<xs:enumeration value="rectangular"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+
+		<xs:complexType name="heat_stake_in_template">
+			<xs:attribute name="label" type="nonEmptyString"/>
+
+			<xs:attribute name="heat_stake_type" type="xs:string"/>
+			<xs:attribute name="strength" type="floatPositive"/>
+			<xs:attribute name="diameter" type="floatPositive"/>
+			<xs:attribute name="head_diameter" type="floatPositive"/>
+			<xs:attribute name="head_height" type="floatZeroPositive"/>
+			<xs:attribute name="void_diameter" type="floatZeroPositive"/>
+			<xs:attribute name="hole_diameter" type="floatPositive"/>
+			<xs:assert test="if (exists(@diameter) and exists(@hole_diameter)) 
+				then (@diameter lt @hole_diameter)
+				else true()" xerces:message="heat_stake: it must hold that hole_diameter > diameter"/>
+			<xs:assert test="if (exists(@void_diameter) and exists(@diameter))
+				then (@void_diameter lt @diameter)
+				else true()" xerces:message="heat_stake: it must hold that diameter > void_diameter"/>
+			<xs:assert test="if (exists(@hole_diameter) and exists(@head_diameter))
+				then (@hole_diameter lt @head_diameter)
+				else true()" xerces:message="heat_stake: it must hold that head_diameter > hole_diameter"/>
+			<xs:assert test="if (exists(@diameter) and exists(@head_diameter))
+				then (@diameter lt @head_diameter)
+				else true()" xerces:message="heat_stake: it must hold that head_diameter > diameter"/>
+		</xs:complexType>
+
+
+		<xs:complexType name="clip_in_template">
+			<xs:attribute name="label" type="nonEmptyString"/>
+
+			<xs:attribute name="clip_type" type="xs:string"/>
+			<xs:attribute name="attachment_type" type="xs:string"/>
+			<xs:attribute name="hole_diameter" type="floatZeroPositive"/>
+			<xs:attribute name="hole_length" type="floatZeroPositive"/>
+			<xs:attribute name="pin_diameter" type="floatZeroPositive"/>
+			<xs:attribute name="pin_width" type="floatZeroPositive"/>
+			<xs:attribute name="pin_length" type="floatZeroPositive"/>
+			<xs:attribute name="strap_length" type="floatZeroPositive"/>
+			<!-- <xs:attribute name="clipped_to" type="partIndex"/> -->
+			<xs:attribute name="material" type="xs:string"/>
+			<xs:attribute name="part_code" type="xs:string"/>
+			<xs:assert test="if (@hole_length gt 0 and @hole_diameter = 0) then false() else true()" xerces:message="hole_length > 0 implies hole_diameter > 0"/>
+			<xs:assert test="if (@pin_width gt 0 and @pin_diameter = 0) then false() else true()" xerces:message="pin_width > 0 implies pin_diameter > 0"/>
+		</xs:complexType>
+
+
+		<xs:complexType name="nail_in_template">
+			<xs:attribute name="label" type="nonEmptyString"/>
+
+			<xs:attribute name="nail_type" type="xs:string"/>
+			<xs:attribute name="shaft_diameter" type="floatPositive"/>
+			<xs:attribute name="length" type="floatPositive"/>
+			<xs:attribute name="cylinder_length" type="floatPositive"/>
+			<xs:attribute name="head_diameter" type="floatPositive"/>
+			<xs:attribute name="head_height" type="floatPositive"/>
+			<xs:attribute name="shear_strength" type="floatPositive"/>
+			<xs:attribute name="peel_strength" type="floatPositive"/>
+			<xs:attribute name="material" type="xs:string"/>
+			<xs:attribute name="part_code" type="xs:string"/>
+		</xs:complexType>
+
+
+		<xs:complexType name="rotation_joint_in_template">
+			<!-- if, in the future, xs:all is needed to wrap this xs:choice, use the technique in threaded_connection_in_template to replace the xs:choice -->
+			<xs:choice minOccurs="1" maxOccurs="1">  <!-- in the template, we NEED to know its type -->
+				<xs:element name="rotav"   type="rotav_in_template"/>
+			</xs:choice>
+
+			<xs:attribute name="label" type="nonEmptyString"/>
+			<xs:attribute name="diameter" type="floatPositive"/>
+		</xs:complexType>
+
+
+		<xs:complexType name="rotav_in_template">
+			<!-- <xs:attribute name="rotational_speed" type="floatPositive"/> -->
+			<!-- <xs:attribute name="compression_force" type="floatPositive"/> -->
+			<xs:attribute name="hardness" type="floatPositive"/>
+		</xs:complexType>
+
+
+
+
+
+
+
 	<xs:element name="connection_templates">
 		<xs:complexType>
 			<xs:choice minOccurs="1" maxOccurs="unbounded">
-				<xs:element name="connection_0d" type="connection_0d_in_template"/>
+				<!-- <xs:element name="connection_0d" type="connection_0d_in_template"/> -->
 				<xs:element name="threaded_connection" type="threaded_connection_in_template"/>
 				<xs:element name="nut" type="nut_in_template"/>
 				<xs:element name="washer" type="washer_in_template"/>
 				<xs:element name="rivet" type="rivet_in_template"/>
+				<xs:element name="gumdrop" type="gumdrop_in_template"/>
+				<xs:element name="spotweld" type="spotweld_in_template"/>
+				<xs:element name="robscan" type="robscan_in_template"/>
+				<xs:element name="clinch" type="clinch_in_template"/>
+				<xs:element name="heat_stake" type="heat_stake_in_template"/>
+				<xs:element name="clip" type="clip_in_template"/>
+				<xs:element name="nail" type="nail_in_template"/>
+				<xs:element name="rotation_joint" type="rotation_joint_in_template"/>
 			</xs:choice>
 		</xs:complexType>
 	</xs:element>
@@ -521,7 +818,6 @@
 				<!--"Note: exactly one of the type elements must exist in <connection_od>. There is no default type"-->
 			</xs:all>
 			<xs:attribute name="label" type="xs:string"/>
-			<xs:attribute name="template_label" type="xs:string"/>
 			<xs:attribute name="ident" type="connection_identifier"/>
 			<xs:attribute name="quality_control" type="xs:string"/>
 		</xs:complexType>
@@ -547,17 +843,9 @@
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="tangential_direction" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
+			<xs:attribute name="template_label" type="nonEmptyString"/>
 			<xs:attribute name="diameter" type="floatPositive"/>
-			<xs:attribute name="technology">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="resistance"/>
-						<xs:enumeration value="laser"/>
-						<xs:enumeration value="projection"/>
-						<xs:enumeration value="friction"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:attribute>
+			<xs:attribute name="technology" type="spotweldTechnology"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="robscan" substitutionGroup="connection_0d_type">
@@ -566,6 +854,7 @@
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="tangential_direction" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
+			<xs:attribute name="template_label" type="nonEmptyString"/>
 			<xs:attribute name="base" type="partIndex"/>
 			<xs:attribute name="pattern" type="nonEmptyString"/>
 			<xs:attribute name="gap" type="floatZeroPositive"/>
@@ -582,9 +871,9 @@
 			<xs:all>
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="tangential_direction" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="rivet_type" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="rivet_type" minOccurs="0" maxOccurs="1"/>  <!-- rivet type may not be specified at all -->
 			</xs:all>
-			<xs:attribute name="template_label" type="xs:string"/>
+			<xs:attribute name="template_label" type="nonEmptyString"/>
 			<xs:attribute name="hardness" type="floatPositive"/>
 			<xs:attribute name="shaft_diameter" type="floatPositive"/>
 			<xs:attribute name="length" type="floatPositive"/>
@@ -654,16 +943,7 @@
 			<xs:attribute name="insert_shape" type="xs:string"/>
 			<xs:attribute name="insert_height" type="floatPositive"/>
 			<xs:attribute name="spotweld_diameter" type="floatPositive"/>
-			<xs:attribute name="spotweld_technology">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:enumeration value="resistance"/>
-						<xs:enumeration value="laser"/>
-						<xs:enumeration value="projection"/>
-						<xs:enumeration value="friction"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:attribute>
+			<xs:attribute name="spotweld_technology" type="spotweldTechnology"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="clinch_rivet_stud" substitutionGroup="rivet_type">
@@ -671,15 +951,16 @@
 			<xs:attribute name="press_in_force" type="floatPositive"/>
 		</xs:complexType>
 	</xs:element>
+
 	<xs:element name="threaded_connection" substitutionGroup="connection_0d_type">
 		<xs:complexType>
 			<xs:all>
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="tangential_direction" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="threaded_connection_type" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="threaded_connection_type" minOccurs="0" maxOccurs="1"/>  <!-- type must be stated in either threaded_connection or its template -->
 				<xs:element ref="washer" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
-			<xs:attribute name="template_label" type="xs:string"/>
+			<xs:attribute name="template_label" type="nonEmptyString"/>
 			<xs:attribute name="diameter" type="floatZeroPositive"/>
 			<xs:attribute name="length" type="floatPositive"/>
 			<xs:attribute name="thread_length" type="floatPositive"/>
@@ -712,7 +993,7 @@
 			<xs:attribute name="kinetic_friction" type="floatPositive"/>
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
-			<xs:attribute name="template_label" type="xs:string"/>
+			<xs:attribute name="template_label" type="nonEmptyString"/>
 			<xs:assert test="if (@attached = true() and exists(@part_code)) then false() else true()" xerces:message="threaded_connection/washer: NO part code, if attached"/>
 		</xs:complexType>
 	</xs:element>
@@ -731,7 +1012,7 @@
 			<xs:attribute name="fixed_to" type="partIndex"/>
 			<xs:attribute name="strength_property_class" type="xs:string"/>
 			<xs:attribute name="part_code" type="xs:string"/>
-			<xs:attribute name="template_label" type="xs:string"/>
+			<xs:attribute name="template_label" type="nonEmptyString"/>
 			<xs:assert test="not (exists(@fixed_to) and exists(@clipped_to))" xerces:message="bolt/nut: nut fixed_to prohibits nut clipped_to and vice versa"/>
 		</xs:complexType>
 	</xs:element>
@@ -767,6 +1048,7 @@
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="tangential_direction" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
+			<xs:attribute name="template_label" type="nonEmptyString"/>
 			<xs:attribute name="diameter" type="floatZeroPositive"/>
 			<xs:attribute name="mass" type="floatZeroPositive"/>
 			<xs:attribute name="material" type="xs:string"/>
@@ -778,6 +1060,7 @@
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="tangential_direction" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
+			<xs:attribute name="template_label" type="nonEmptyString"/>
 			<xs:attribute name="clinch_type" type="xs:string"/>
 			<xs:attribute name="strength_class" type="xs:string"/>
 			<xs:attribute name="shear_strength" type="floatPositive"/>
@@ -799,6 +1082,7 @@
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="tangential_direction" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
+			<xs:attribute name="template_label" type="nonEmptyString"/>
 			<xs:attribute name="heat_stake_type" type="xs:string"/>
 			<xs:attribute name="strength" type="floatPositive"/>
 			<xs:attribute name="diameter" type="floatPositive"/>
@@ -826,6 +1110,7 @@
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="tangential_direction" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
+			<xs:attribute name="template_label" type="nonEmptyString"/>
 			<xs:attribute name="clip_type" type="xs:string"/>
 			<xs:attribute name="attachment_type" type="xs:string"/>
 			<xs:attribute name="hole_diameter" type="floatZeroPositive"/>
@@ -847,6 +1132,7 @@
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
 				<xs:element ref="tangential_direction" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
+			<xs:attribute name="template_label" type="nonEmptyString"/>
 			<xs:attribute name="nail_type" type="xs:string"/>
 			<xs:attribute name="shaft_diameter" type="floatPositive"/>
 			<xs:attribute name="length" type="floatPositive"/>
@@ -863,8 +1149,9 @@
 		<xs:complexType>
 			<xs:all>
 				<xs:element ref="normal_direction" minOccurs="0" maxOccurs="1"/>
-				<xs:element ref="rotation_joint_type" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="rotation_joint_type" minOccurs="0" maxOccurs="1"/>  <!-- schematron must make sure that rotation_joint_type must be resolved -->
 			</xs:all>
+			<xs:attribute name="template_label" type="nonEmptyString"/>
 			<xs:attribute name="diameter" type="floatPositive"/>
 		</xs:complexType>
 	</xs:element>
@@ -1491,6 +1778,15 @@
 			<xs:minLength value="1"/>
 		</xs:restriction>
 	</xs:simpleType>
+	<xs:simpleType name="spotweldTechnology">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="resistance"/>
+			<xs:enumeration value="laser"/>
+			<xs:enumeration value="projection"/>
+			<xs:enumeration value="friction"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	
 	<xs:element name="custom_attributes_list">
 		<xs:complexType>
 			<xs:sequence>
