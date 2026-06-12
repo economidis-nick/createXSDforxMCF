@@ -21,14 +21,3 @@
 For Agenda & Minutes, see attached PDF file: 
 [20260513_VDA_FAT_AK_25_xMCF_Working_Group.pdf](./20260513_VDA_FAT_AK_25_xMCF_Working_Group.pdf).
 
-
-
-<hr/>
-
-## Proposed dates for the next meetings:
-
-| day \& time             | group                                     | objective                            |
-|-------------------------|-------------------------------------------|--------------------------------------|
-| 2026-05-20, 15:00 CEST  | t.b.d.                                    | t.b.d.                               | 
-
-
