@@ -20,6 +20,21 @@
       <self_piercing head_label="H1" shaft_label="S1" die_label="D1"/>
     </rivet>
 
+    <rivet label="RIVET_CRS_TEMPL"
+           shaft_diameter="5.3"
+           length="5.0"
+           head_diameter="8.0">
+      <clinch_rivet_stud/>   <!-- not allowed to set press_in_force in template -->
+    </rivet>
+
+    <rivet label="RIVET_SWOP_TEMPL"
+           shaft_diameter="5.3"
+           length="5.0"
+           head_diameter="8.0">
+      <swop spotweld_diameter="4" spotweld_technology="laser"/>
+    </rivet>
+
+
     <rivet label="RIVET_MINIMAL_TEMPL"/>
 
   </connection_templates>
@@ -47,6 +62,22 @@
       <connection_0d>
         <loc> 70.0 20.0 30.0 </loc>
         <rivet template_label="RIVET_SPR_TEMPL"/>
+      </connection_0d>
+
+      <!-- clinch rivet stud from template -->
+      <connection_0d>
+        <loc> 70.0 20.0 30.0 </loc>
+        <rivet template_label="RIVET_CRS_TEMPL">
+			<clinch_rivet_stud press_in_force="5"/>  <!-- press_in_force could not be set in template -->
+		</rivet>
+      </connection_0d>
+
+      <!-- self-piercing rivet from template with normal_direction -->
+      <connection_0d>
+        <loc> 70.0 20.0 30.0 </loc>
+        <rivet template_label="RIVET_SPR_TEMPL">
+          <normal_direction x="0" y="0" z="-1"/>
+		</rivet>
       </connection_0d>
 
       <!-- rivet without template -->

@@ -1,28 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmcf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xmcf_3_2.xsd">
   <version> 3.2 </version>
-  <date> 2021-07-13 </date>
+  <date> 2026-04-13 </date>
 
 	<connection_templates>
-		<connection_0d label="gdr_tmpl_0">
-			<gumdrop/>
-		</connection_0d>
+		<gumdrop label="gdr_tmpl_0"/>  <!-- a useless template really -->
 
-		<connection_0d label="gdr_tmpl_1">
-			<gumdrop diameter="3.0"/>
-		</connection_0d>
+		<gumdrop label="gdr_tmpl_1" diameter="3.0"/>
 
-		<connection_0d label="gdr_tmpl_2">
-			<gumdrop diameter="5" mass="0.0033" material="CAD_Material"/>
-		</connection_0d>
+		<gumdrop label="gdr_tmpl_2" diameter="5" mass="0.0033" material="CAD_Material"/>
 		
-		<connection_0d label="gdr_tmpl_3">
-			<gumdrop>
-				<normal_direction x="0" y="0" z="3" />
-				<tangential_direction x="3" y="0" z="0" />
-			</gumdrop>
-		</connection_0d>
-
 	</connection_templates>
 
   <connection_group id="1">
@@ -32,28 +19,29 @@
     </connected_to>
     <connection_list>
 
-      <connection_0d template_label="gdr_tmpl_0">  <!-- template is a gumdrop - don't need to mention it -->
+      <connection_0d>  
         <loc> 10.0 20.0 30.0 </loc>
+        <gumdrop template_label="gdr_tmpl_0"/>    <!-- gumdrop no special values from from template -->
       </connection_0d>
       
-      <connection_0d template_label="gdr_tmpl_1">
+      <connection_0d>
         <loc> 10.0 20.0 30.0 </loc>
-        <gumdrop/>    <!-- gumdrop inherits diameter="3.0" from template -->
+        <gumdrop template_label="gdr_tmpl_1"/>    <!-- gumdrop inherits diameter="3.0" from template -->
       </connection_0d>
       
-      <connection_0d template_label="gdr_tmpl_1">
+      <connection_0d>
         <loc>120.1 37.1 0.8</loc>
-        <gumdrop diameter="0" mass="0"/>     <!-- gumdrop inherits diameter="3.0" from template but is overridden by "0" & mass -->
+        <gumdrop template_label="gdr_tmpl_1" diameter="0" mass="0"/>     <!-- gumdrop inherits diameter="3.0" from template but is overridden by "0" & mass -->
       </connection_0d>
       
-      <connection_0d template_label="gdr_tmpl_3">     <!-- gumdrop directions from template -->
+      <connection_0d>     <!-- gumdrop directions from template -->
         <loc>12.1058 37.1065 0.881963</loc>
-        <gumdrop diameter="5" mass="0.0033" material="CAD_Material"/>
+        <gumdrop template_label="gdr_tmpl_2" diameter="5" mass="0.0033" material="CAD_Material"/>
       </connection_0d>
       	  
       <connection_0d>
         <loc>12.1058 37.1065 0.881963</loc>
-		<gumdrop diameter="5" mass="0.0033">
+		<gumdrop template_label="gdr_tmpl_2" diameter="5" mass="0.0033">
 			<normal_direction x="0" y="0" z="3" />
 			<tangential_direction x="3" y="0" z="0" />
 		</gumdrop>
