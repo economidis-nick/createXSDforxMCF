@@ -37,7 +37,7 @@ see content of milestone [Release V3.2](https://github.com/economidis-nick/creat
   <tr>
     <td align="center" bgcolor="yellow">
 	  Find more details  
-	  <a href="https://github.com/economidis-nick/createXSDforxMCF/blob/master/VDA_FAT_AK_25/Meetings/2026-07-28_VideoConference/README.md"><b>here</b></a><!--
+	  <a href="https://github.com/economidis-nick/createXSDforxMCF/blob/master/VDA_FAT_AK_25/Meetings/2026-09-02_VideoConference/README.md"><b>here</b></a><!--
 	  and
 	  <a href="https://github.com/economidis-nick/createXSDforxMCF/blob/master/VDA_FAT_AK_25/Meetings/2026-05-20_VideoConference/README.md"><b>here</b></a>-->.
 	</td>
