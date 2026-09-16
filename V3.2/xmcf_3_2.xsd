@@ -275,6 +275,7 @@
 				<xs:element name="appdata" type="appdata_type" minOccurs="0" maxOccurs="1"/>
 			</xs:all>
 			<xs:attribute name="id" type="xs:int" use="required"/>
+			<xs:attribute name="label" type="nonEmptyString"/>
 			<xs:assert test="every $s in (
 						connection_list/connection_0d/stacking | 
 						connection_list/connection_1d/stacking | 
