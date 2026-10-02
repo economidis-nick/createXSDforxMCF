@@ -6,7 +6,6 @@
 - Welcome \& Flying over today's topics
 - Timeline for next release
 - Work in progress — focus on issues [#95](https://github.com/economidis-nick/createXSDforxMCF/issues/95) / [#94](https://github.com/economidis-nick/createXSDforxMCF/issues/94) / [#106](https://github.com/economidis-nick/createXSDforxMCF/issues/106) / [#105](https://github.com/economidis-nick/createXSDforxMCF/issues/105) / [#61](https://github.com/economidis-nick/createXSDforxMCF/issues/61)
-
 - Focus on XML / DOC suggestions, XSD- / Schematron-definition \& examples
 - Steps we should take next 
 
@@ -26,7 +25,7 @@ For minutes, see attached PDF file:
 -->
 
 
-<!--
+
 
 <hr/>
 
@@ -34,6 +33,6 @@ For minutes, see attached PDF file:
 
 | day \& time                  | group                                     | objective                            |
 |------------------------------|-------------------------------------------|--------------------------------------|
-| Wed. 2026-10-dd, 15:00 CEST  | focus group on the issues #105 \& #61     | agree on XML suggestions \& examples / draft Word file changes |
+| Wed. 2026-11-04, 15:00 CET   | focus group on the issues #105 \& #61     | agree on XML suggestions \& examples / draft Word file changes |
+| Wed. 2026-11-11, 15:00 CET   | focus group on the issues #105 \& #61     | agree on XML suggestions \& examples / draft Word file changes |
 
--->
