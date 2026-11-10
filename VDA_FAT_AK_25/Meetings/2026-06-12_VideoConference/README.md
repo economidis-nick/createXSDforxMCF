@@ -10,9 +10,9 @@
 - Steps we should take next 
 
 
-## Agenda & Minutes
+## Minutes
 
-For Agenda & Minutes, see attached PDF file: 
+For minutes, see attached PDF file: 
 [20260612_VDA_FAT_AK_25_xMCF_Working_Group.pdf](./20260612_VDA_FAT_AK_25_xMCF_Working_Group.pdf).
 
 

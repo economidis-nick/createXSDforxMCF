@@ -9,13 +9,6 @@
 - Focus on XML / DOC suggestions, XSD- / Schematron-definition \& examples
 - Steps we should take next 
 
-Feedback and suggestions for changes to this draft agenda are very welcome!
-
-Therefore, it is advisable to check back here before the meeting and, 
-if necessary, also view the file history.
-
-<a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OGM2M2NiNGUtMmYyYi00NTAxLWJlOWUtNGJiYzhmZWJmMTRj%40thread.v2/0?context=%7b%22Tid%22%3a%22cd62a082-2dff-4531-9639-704a86053b5c%22%2c%22Oid%22%3a%22d63d16ce-f5c2-43f0-86fc-79cd9c3b38d7%22%7d">
-Join the meeting via this link!</a>
 
 <!--
 ## Minutes
@@ -34,4 +27,8 @@ For minutes, see attached PDF file:
 | day \& time                  | group                                     | objective                            |
 |------------------------------|-------------------------------------------|--------------------------------------|
 | Wed. 2026-11-11, 15:00 CET   | focus group on the issues #105 \& #61     | agree on XML suggestions \& examples / draft Word file changes |
+| Wed. 2026-11-18, 15:00 CET   | focus group on the issues #105 \& #61     | agree on XML suggestions \& examples / draft Word file changes |
+| Wed. 2026-12-02, 15:00 CET   | focus group on the issues #105 \& #61     |                                      |
+| Wed. 2026-12-16, 15:00 CET   | focus group on the issues #105 \& #61     |                                      |
+| Wed. 2027-01-13, 15:00 CET   | focus group on the issues #105 \& #61     |                                      |
 
