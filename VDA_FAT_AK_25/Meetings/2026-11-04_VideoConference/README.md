@@ -13,13 +13,10 @@
 - Next meetings 
 
 
-<!--
 ## Minutes
 
 For minutes, see attached PDF file: 
 [20261104_VDA_FAT_AK_25_xMCF_Working_Group.pdf](./20261104_VDA_FAT_AK_25_xMCF_Working_Group.pdf).
--->
-
 
 
 
