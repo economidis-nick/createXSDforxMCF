@@ -21,18 +21,20 @@ Join the meeting via this link!</a>
 ## Minutes
 
 For minutes, see attached PDF file: 
-[20261104_VDA_FAT_AK_25_xMCF_Working_Group.pdf](./20261104_VDA_FAT_AK_25_xMCF_Working_Group.pdf).
+[20261111_VDA_FAT_AK_25_xMCF_Working_Group.pdf](./20261111_VDA_FAT_AK_25_xMCF_Working_Group.pdf).
 -->
 
 
 
-<!--
+
 <hr/>
 
 ## Proposed dates for the next meetings:
 
 | day \& time                  | group                                     | objective                            |
 |------------------------------|-------------------------------------------|--------------------------------------|
-| Wed. 2026-11-11, 15:00 CET   | focus group on the issues #105 \& #61     | agree on XML suggestions \& examples / draft Word file changes |
+| Wed. 2026-11-18, 15:00 CET   | focus group on the issues #105 \& #61     | agree on XML suggestions \& examples / draft Word file changes |
+| Wed. 2026-12-02, 15:00 CET   | focus group on the issues #105 \& #61     |                                      |
+| Wed. 2026-12-16, 15:00 CET   | focus group on the issues #105 \& #61     |                                      |
+| Wed. 2027-01-13, 15:00 CET   | focus group on the issues #105 \& #61     |                                      |
 
--->
