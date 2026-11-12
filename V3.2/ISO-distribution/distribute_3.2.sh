@@ -1,6 +1,7 @@
 #!/bin/bash
 # This script generates a ZIP archive with all documents relevant for ISO submission.
-# @DrCaFr, 2023-02-21
+# @DrCaFr, 2023-02-21 - created
+# @DrCaFr, 2026-11-11 - adapted to xMCF 3.2.
 
 # Let Interfield Separator (IFS) be "new line".
 IFS='
@@ -20,6 +21,7 @@ pdf_version="${base_name}.pdf"
 
 electr_inserts="\
 ../xmcf_3_2.xsd
+../xmcf_3_2.sch
 ../../V3.2/examples"
 electr_inserts_dir="${base_name}_electronic-inserts"
 electr_inserts_zip="${electr_inserts_dir}.zip"

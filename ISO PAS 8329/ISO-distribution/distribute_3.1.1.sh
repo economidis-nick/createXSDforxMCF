@@ -1,7 +1,6 @@
 #!/bin/bash
 # This script generates a ZIP archive with all documents relevant for ISO submission.
-# @DrCaFr, 2023-02-21 - created
-# @DrCaFr, 2026-11-11 - adapted to xMCF 3.2.
+# @DrCaFr, 2023-02-21
 
 # Let Interfield Separator (IFS) be "new line".
 IFS='
@@ -18,17 +17,16 @@ word_version="${base_name}.docx"
 pdf_version="${base_name}.pdf"
 
 electr_inserts="\
-../xmcf_3_2.xsd
-../xmcf_3_2.sch
-../../V3.2/examples"
+../xmcf_3_1_1.xsd
+../../V3.1.1/examples"
 electr_inserts_dir="${base_name}_electronic-inserts"
 electr_inserts_zip="${electr_inserts_dir}.zip"
 figures="\
 ../${base_name}_Figures-master.pptx
-../../V3.2/resources/Seam_weld_types_and_attributes_as_embedded_Excel-table.docx
-../../V3.2/resources/xMCF-AP242-federative_use.svg
-../../V3.2/resources/Seamweld_Images/*.svg
-../../V3.2/resources/Seamweld_Images/8329_ed1fig49.xlsx"
+../../V3.1.1/resources/Seam_weld_types_and_attributes_as_embedded_Excel-table.docx
+../../V3.1.1/resources/xMCF-AP242-federative_use.svg
+../../V3.1.1/resources/Seamweld_Images/*.svg
+../../V3.1.1/resources/Seamweld_Images/8329_ed1fig49.xlsx"
 figures_dir="${base_name}_Figures"
 figures_zip="${figures_dir}.zip"
 complete="$word_version
