@@ -10,14 +10,16 @@
 ## Minutes
 
 For minutes, see attached PDF file: 
-[20261104_VDA_FAT_AK_25_xMCF_Working_Group.pdf](./20261104_VDA_FAT_AK_25_xMCF_Working_Group.pdf).
+[20261118_VDA_FAT_AK_25_xMCF_Working_Group.pdf](./20261118_VDA_FAT_AK_25_xMCF_Working_Group.pdf).
 
 File 
 [ISO_PAS_8329__xMCF_3.2__as_of_2026-11-18.docx](./ISO_PAS_8329__xMCF_3.2__as_of_2026-11-18.docx) 
 is the recent version of the draft &chi;MCF 3.2 standard. 
 It is based on the version 
 [ISO_PAS_8329__xMCF_3.2.docx](https://github.com/economidis-nick/createXSDforxMCF/blob/44e910592e781c611b14b9fcd8c70c2d85bd04b1/V3.2/ISO_PAS_8329__xMCF_3.2.docx)
-of commit 44e910592e781c611b14b9fcd8c70c2d85bd04b1, but with changes from issue #117 confirmed.
+of commit [44e9105](https://github.com/economidis-nick/createXSDforxMCF/commit/44e910592e781c611b14b9fcd8c70c2d85bd04b1), 
+but with changes from issue [#113](https://github.com/economidis-nick/createXSDforxMCF/issues/113) confirmed.
+(See commit [b74b934](https://github.com/economidis-nick/createXSDforxMCF/commit/b74b934446fc0908fbbf3f2dbf087ab50f88dffb).)
 
 
 
