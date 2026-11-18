@@ -19,10 +19,8 @@ Join the meeting via this link!</a>
 
 ## Minutes
 
-<!--
 For minutes, see attached PDF file: 
 [20261111_VDA_FAT_AK_25_xMCF_Working_Group.pdf](./20261111_VDA_FAT_AK_25_xMCF_Working_Group.pdf).
--->
 
 File 
 [ISO_PAS_8329__vs__ISO_PAS_8329__xMCF_3.2__as_of_2026-11-12.docx](./ISO_PAS_8329__vs__ISO_PAS_8329__xMCF_3.2__as_of_2026-11-12.docx)
