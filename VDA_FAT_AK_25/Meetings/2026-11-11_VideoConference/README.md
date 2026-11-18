@@ -17,13 +17,19 @@ if necessary, also view the file history.
 <a href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_OGM2M2NiNGUtMmYyYi00NTAxLWJlOWUtNGJiYzhmZWJmMTRj%40thread.v2/0?context=%7b%22Tid%22%3a%22cd62a082-2dff-4531-9639-704a86053b5c%22%2c%22Oid%22%3a%22d63d16ce-f5c2-43f0-86fc-79cd9c3b38d7%22%7d">
 Join the meeting via this link!</a>
 
-<!--
 ## Minutes
 
+<!--
 For minutes, see attached PDF file: 
 [20261111_VDA_FAT_AK_25_xMCF_Working_Group.pdf](./20261111_VDA_FAT_AK_25_xMCF_Working_Group.pdf).
 -->
 
+File 
+[ISO_PAS_8329__vs__ISO_PAS_8329__xMCF_3.2__as_of_2026-11-12.docx](./ISO_PAS_8329__vs__ISO_PAS_8329__xMCF_3.2__as_of_2026-11-12.docx)
+is a _diff_ between the published standard 
+[ISO_PAS_8329.docx](https://github.com/economidis-nick/createXSDforxMCF/blob/8493b654a5b6dd4dd9896da8f0b4b55152fb410a/ISO%20PAS%208329/ISO_PAS_8329.docx)
+and the changes @StephanHaasECS suggested today in 
+[ISO_PAS_8329__xMCF_3.2.docx](https://github.com/economidis-nick/createXSDforxMCF/blob/44e910592e781c611b14b9fcd8c70c2d85bd04b1/V3.2/ISO_PAS_8329__xMCF_3.2.docx).
 
 
 
